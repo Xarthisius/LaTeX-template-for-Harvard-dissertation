@@ -11,7 +11,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{harvard-thesis}[2012/04/05 v0.4 Harvard University Thesis Class]
-\LoadClass[12pt, oneside, letterpaper]{book}
+\LoadClass[12pt, oneside, a4paper]{book}
 
 
 % Required packages
@@ -42,8 +42,8 @@
 \setcounter{tocdepth}{1}
 \renewcommand{\cftchapfont}{\normalsize \scshape}
 
-\renewcommand\bibname{References}
-\renewcommand\listfigurename{Listing of figures}
+\renewcommand\bibname{Literatura}
+\renewcommand\listfigurename{Spis rysunków}
 \raggedright
 
 \RequirePackage{pdfsync} %do pdf synchronization [andy]
@@ -65,7 +65,7 @@
 \nobibliography*
 
 \RequirePackage{lettrine} % big letter at start of chapter
-\RequirePackage[width=5in, letterpaper]{geometry}
+\RequirePackage[a4paper]{geometry}
 
 \RequirePackage{fancyhdr}
 \pagestyle{plain} % options: empty , plain , fancy
