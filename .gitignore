@@ -12,3 +12,4 @@ thesis.pdfsync
 *.log
 *.fdb_latexmk
 *.bbl
+fontconfig/
