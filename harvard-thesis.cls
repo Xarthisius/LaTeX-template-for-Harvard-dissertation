@@ -387,3 +387,8 @@
 \newcommand\Capricornus{\astro{\char20}}%
 \newcommand\Aquarius{\astro{\char21}}%
 \newcommand\Pisces{\astro{\char22}}%
+\newcommand\mref[1]{(\ref{#1})}%
+\DeclareMathAlphabet\EuRoman{U}{eur}{m}{n}
+\SetMathAlphabet\EuRoman{bold}{U}{eur}{b}{n}
+\newcommand{\eurom}{\EuRoman}
+\newcommand{\yt}{{\texttt{yt}}}
