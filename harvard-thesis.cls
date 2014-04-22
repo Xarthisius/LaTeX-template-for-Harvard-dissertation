@@ -44,7 +44,7 @@
 
 \renewcommand\bibname{Literatura}
 \renewcommand\listfigurename{Spis rysunków}
-\raggedright
+%\raggedright
 
 \RequirePackage{pdfsync} %do pdf synchronization [andy]
 
