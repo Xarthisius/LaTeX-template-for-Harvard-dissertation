@@ -135,14 +135,16 @@ od centralnego obiektu w dysku, która prowadziła by do naturalnej sedymentacji
 pyłu w płaszczyźnie dysku i wzbudzenia się niestabilności
 Kelvina-Helmholtza~\cite{JHK06}.
 
-We shall simulate disc starting from the relatively large radius (2~AU).  We
-assume, following~\cite{CD93} that transition to Stokes regime occurs for
-particle radius $a = 9/4\lambda_g$ where  $\lambda_g = 4.2\times 10^4\textrm{
-cm} (10^{-14}\textrm{ g cm}^{-3}/\rho_g) \approx (R/1 \textrm{AU})^{2.75}$~cm is
-the mean free path of the gas molecules~\citep{W77,BT09},  and $R$ is the radial
-distance to the disc centre.  Under these assumptions the Epstein's regime
-applies in the dominating part our domain, even for the largest simulated grain
-sizes.  Therefore, to compute the friction time, we use the Epstein's law
+W ramach pracy skupiono się na dyskach rozciągających się relatywnie dużych
+promienii tj. 2~AU. Zakładając, za pracą~\cite{CD93}, że przejście do
+reżimu Stokesa zachodzi dla ziaren pyłu o promieniu większym niż
+$a = 9/4\lambda_g$ gdzie $\lambda_g = 4.2\times 10^4\textrm{
+cm} (10^{-14}\textrm{ g cm}^{-3}/\rho_g) \approx (R/1 \textrm{AU})^{2.75}$~cm 
+jest średnią drogą swobodną molekuł gazu~\citep{W77,BT09}, zaś $R$ jest
+odległością radialną od centrum dysku. Przy tych założeniach, reżim Epstein ma
+zastosowanie dla dominującej części domeny obliczeniowej nawet dla największych
+symulowanych przez nas ziaren pyłu. Skala czasowa tarcia przyjmuję zatem
+następującą postać:
 %
 \begin{equation}
    \tau_f = \frac{\rho_\bullet a} 
@@ -150,13 +152,12 @@ sizes.  Therefore, to compute the friction time, we use the Epstein's law
    \label{eq:tauf} 
 \end{equation}
 %
-where $c_s$ is the gas sound speed, and $\rho_\bullet = 1.6\textrm{ g cm}^{-3}$
-is the density of the solid material.
-While the term $|\mathbf{u}-\mathbf{w}|^2$ does not play any significant
-role during the evolution of SI, i.e. its value never exceeds 1 per cent of
-$c_s^2$ we have decided not to neglect it in our simulations for the
-completeness sake.
-
+gdzie $c_s$ jest prędkością dźwięku w gazie, zaś $\rho_\bullet = 1.6\textrm{ g cm}^{-3}$
+jest gęstością materiału z którego zbudowany jest pył. Po mimo faktu, że wyraz
+$|\mathbf{u}-\mathbf{w}|^2$ nie odgrywa znaczącej roli podczas ewolucji
+niestabilności strumieniowej, t.j. jego wartość nie przekracza nigdy 1 procenta
+prędkości dźwięku, postanowiliśmy go nie zaniedbywać ze względu na
+kompletność {\bf blah}
 %
 \begin{figure*}
    \centering
@@ -166,16 +167,16 @@ completeness sake.
       \includegraphics[width=0.49\linewidth]{figures/fig1c} &
       \includegraphics[width=0.49\linewidth]{figures/fig1d}
    \end{tabular}
-   \caption{Dust density snapshots for runs with $50$~cm grain sizes at $100$,
-   $200$, $450$ and $700$~yr for upper left, upper right, bottom left and bottom
-   right panel respectively. Each of the panels is divided into three subpanels
-   for initial $\epsilon = 0.2, 1, 2.0$ on upper (BAh), middle (BB) and lower
-   (BC) subpanel respectively. Animation of the run BBh can be found 
-   \href{http://youtu.be/EfQU8ixHFbU}{here}.}
+   \caption{Migawki gęstości pyłu dla symulacji z $50$~cm ziarnami pyłu
+      dla czasu $100$, $200$, $450$ oraz $700$~lat odpowiednio dla lewego
+      górnego, prawego górnego, dolnego lewego i dolnego prawego panelu.
+      Każdy z paneli jest podzielony na trzy części różniące się początkowym 
+      $\epsilon = 0.2, 1, 2.0$ odpowiednio dla górnego (BAh), środkowego (BB) i
+      dolnego (BC) podpanelu.}
    \label{fig1}
 \end{figure*}
 %
-\section{Linear stability analysis}
+\section{Liniowa analiza stabilności}
 \label{sec:lsa}
 %
 One of the aims of this paper is to validate numerical results related to the
