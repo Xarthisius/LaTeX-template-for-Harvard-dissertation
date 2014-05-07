@@ -44,34 +44,35 @@ ten proces~\citep{L10}.
 
 {\bf więcej o niestabilnościach powodujących turbulencje}
 
-\par 
-\par However, a significant flaw behind presented reasoning is a complete
-negligence of disc's global turbulence, which in turn is the only mechanism that
-would allow to explain observed accretion rates assuming $\alpha$-disc
-model~\citep{SS73}. Even though, the most plausible mechanism responsible for
-such turbulence, i.e. magnetorotational instability~\citep{BH98}, allows for
-formation of local, low-level of turbulence areas due to insufficient ionization
-of gas, there are still other instabilities that stir the fluids~\citep{LP10}.
+\par Zdecydowaną wadę powyższej hipotezy jest całkowite zaniedbanie globalnej
+turbulencji występującej w dyskach okołogwiazdowych, będącej jedynym
+mechanizmem zdolnym do wyjaśnienia obserwowanych temp akrecji materii na
+formujące się gwiazdy w ramach tzw. teorii $\alpha$-dysków~\citep{SS73}.
+Obecnie za dominujący proces odpowiedzialny za turbulencję uważa się niestabilność
+magnetorotacyjna~\citep{BH98}. Dopuszcza ona obecność w dysku obszarów pozbawionych
+turbulencji np. w miejscach o niewystarczającym stopniu jonizacji gazu, jednakże
+istnieje szereg innych zjawisk które mieszają płyn~\citep{LP10}.  {\bf Tu by się
+pewnie przydało opisać}
 
-\par Despite of this unfavorable circumstances there is a process that commences
-to dominate dust evolution when ratio of concentration of dust particles to gas
-density approaches unity. This mechanism was first presented by~\cite{YG05}
-(hereafter YG05) and named the {\it streaming instability}. It appears that
-combination of dust trapping in gas pressure maxima and mutual interaction
-leading to dust dragging the gas, therefore enhancing the maxima even further,
-results in significant dust pile-up~\citep{J11}. Even without the presence of
-self-gravity, dust concentration may be risen up to the three orders of
-magnitude~\citep{JY07} (hereafter JY07) which could possibly lead to
-gravitationally bound objects~\citep{J07}. Recent numerical studies of
-streaming instability concentrate on various physical aspects that may influence
-its evolution, that includes: the influence of wide range of dust
-species~\citep{BS10a}, effects of global pressure gradients~\citep{BS10b},
-stratification of discs~\citep{T12}. However, all known to authors works limit
-themselves to local disc approximation. 
+\par Pomimo tych niesprzyjających warunków istnieje proces który dominuje
+ewolucję pyłu w momencie w którym stosunek koncetracji ziaren pyłu do gęstości
+gazu zbliża się do jedności. Tym mechanizmem jest {\it niestabilność
+strumieniowa} po raz pierwszy przedstawiona w pracy~\cite{YG05}. Okazuje się, że
+połączenie komulowanie się pyłu w lokalnych maksimach w rozkładzie ciśnienia
+gazu i wzjamne oddziaływanie pomiędzy tymi dwoma składnikami dysku, prowadzi do
+znacznego wzrostu koncentracji ziaren pyłu~\citep{J11}. Nawet zaniedbując efekt
+samograwitacji w trakcie ewolucji niestabilności strumieniowej lokalna gęstość
+pyłu może zwiększyć się tysiąckrotnie~\cite{JY07}, co może prowadzić do
+wytworzenia się grawitacyjnie związanych obiektów~\cite{J07}. Ostatnie badania
+niestabilności strumieniowej skupiały się na różnych aspektach fizycznych które
+mają wpływ na jej rozwój t.j.: uwzględnienie szerokiego spektrum rozmiaru
+cząstek pyłu~\cite{BS10a}, wpływ globalnego gradientu ciśnienia w dysku
+okołogwiazdowym~\cite{BS10b}, stratyfikacja dysku~\cite{T12}. Niemniej jednak
+wszystkie publikacje naukowe były ograniczone do lokalnego przybliżenia dysku.
 
-The main goal of this paper is to investigate the streaming instability in a
-more realistic circumstances of radially extended discs. The essential points of
-interest are:
+Głównym celem pracy jest zbadanie niestabilności strumieniowej w bardziej
+realistycznym przyblizeniu radialnie rozciągłego dysku.
+
 %(1) resolution studies of the streaming instability in the 2D
 %shearing sheet aproximation to see at what resolution the currently used
 %numerical algorithms of fluid simulations are capable of reproducing the growth
@@ -95,10 +96,10 @@ our experiments and give short outlook of the future work.
 
 \section{Basic assumptions and equations}
 \label{sec:eqs}
-
-We investigate global dynamics of two interacting fluids -- gas and dust -- in
-the protoplanetary disc. We assume that neutral gas obeys the isothermal
-equation of state, whereas dust is treated as a pressureless fluid.
+Globalna dynamika dysku okołogwiazdowego opisujemy poprzez dwa, wzajemnie ze
+sobą oddziałujące płyny: neutralny gaz podlegający izotermicznemu równaniu
+stanu oraz pył jako bezciśnieniowy płyn. Równania hydrodynamiki przyjmują dla
+takiego modelu następującą postać:
 
 % CONSERVATIVE FORM
 \begin{align}
@@ -124,14 +125,15 @@ equation of state, whereas dust is treated as a pressureless fluid.
 % -\nabla\Phi - \frac{1}{\tau_f}(\mathbf{w}-\mathbf{u}),\label{eq4}
 %\end{align}
 
-\noindent where $\rho_g$, $\rho_d$ are densities of gas and dust respectively,
-$\mathbf{u}$, $\mathbf{w}$ corresponding velocities, $P$ gas pressure, $\tau_f$
-is a friction time and $\Phi$ is gravitational potential. Our aim is to isolate
-the streaming instability from the other possible processes acting in a radially
-extended protoplanetary discs. In order to obtain a clear diagnostics of the
-excited instability we neglect the vertical component of gravity arising from the
-point mass source in the center of the reference frame, which would lead to dust
-sedimentation and eventually to the onset of KHI~\citep{JHK06}.
+\noindent gdzie $\rho_g$, $\rho_d$ to odpowiednio gęstości gazu i pyłu,
+$\mathbf{u}$, $\mathbf{w}$ ich prędkości, $P$ to ciśnienie gazu, $\tau_f$ jest
+skalą czasową tarcia~\footnote{ang. friction time}, a $\Phi$ to potencjał
+grawitacyjny. Naszym celem jest wyizolowanie niestabilności strumieniowej z
+pośród szeregu innych procesów, które mogą zachodzić w powyższym modelu. Z tego
+względu zaniedbujemy pionową składową przyspieszenia grawitacyjnego pochodzącą
+od centralnego obiektu w dysku, która prowadziła by do naturalnej sedymentacji
+pyłu w płaszczyźnie dysku i wzbudzenia się niestabilności
+Kelvina-Helmholtza~\cite{JHK06}.
 
 We shall simulate disc starting from the relatively large radius (2~AU).  We
 assume, following~\cite{CD93} that transition to Stokes regime occurs for
