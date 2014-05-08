@@ -39,7 +39,7 @@
 
 \RequirePackage{url}
 \RequirePackage[titles]{tocloft}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \renewcommand{\cftchapfont}{\normalsize \scshape}
 
 \renewcommand\bibname{Literatura}
