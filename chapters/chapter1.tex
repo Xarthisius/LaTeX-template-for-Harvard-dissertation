@@ -236,7 +236,7 @@ założymy, że dysk:
 
 Łącząc powyższe założenia otrzymujemy rozkład gęstości gazu
 
-\begin{equation}
+\begin{equation} \label{eq:zeq}
    \rho_g(z) = \frac{\Sigma_G}{H\sqrt{2\pi}} \exp \left[
    \frac{1}{2}\left(\frac{z}{H}\right)^2 \right],
 \end{equation}
@@ -349,6 +349,13 @@ turbulencję. Proces ten określany jest mianem niestabilności magnetorotacyjne
 (MRI). Co więcej, zarówno symulacje lokalne~\cite{Davis_Stone_Pessah_2010} jak
 i globalne~\cite{Flock} szacują współczynnik $\alpha$ wynikający z turbulencji
 wzbudzonej przez MRI na $\alpha\sim 10^{-2}$.
+\par Należy zauważyć, że niestabilność magnetorotacyjna wymaga choć szczątkowego
+zjonizowania gazu. Jeżeli założymy że źródłem jonizacji jest wysoko energetyczne
+promieniowanie pochodzące od gwiazdy macierzystej i weźmiemy pod uwagę strukturę
+pionową dysku~\mref{eq:zeq}, to dojdziemy do wniosku iż od pewnej wysokości
+$H_i$ dysku gaz znajdujący się poniżej $(H < H_i)$ jest efektywnie osłaniany
+przez warstwy gazu o $H > H_i$. Obszar $H < H_i$ jest zatem \emph{martwą strefą}
+w której turbulencja wzbudzana przez MRI nie występuje.
 
 \begin{figure}
    \includegraphics[width=0.9\textwidth]{figures/chap1_sed.png}
@@ -364,10 +371,35 @@ wzbudzonej przez MRI na $\alpha\sim 10^{-2}$.
 \end{figure}
 
 \subsection{Niestabilność grawitacyjna}
+Dla odpowiednio masywnych i zimnych dysków protoplanetarnych, samograwitacja
+materii jest w stanie przeważyc nad stabilizującymi efektami ciśnienia gazu oraz
+rotacji i spowodować kolaps, a następnie fragmentację dysku. Podatność układu na
+niestabilność grawitacyjną przyjęło się określać poprzez parametr Toomre'a $Q$
+wyrażony poprzez
+\begin{equation}
+   Q = \frac{c_s\Omega}{\pi G \Sigma} \sim 10^2 
+   \left(\frac{T}{100\K}\right)^{0.5}
+   \left(\frac{\Sigma}{10^3\g\cm^{-3}}\right)^{-1}
+   \left(\frac{R}{1\AU}\right)^{-1.5}.
+\end{equation}
+Jeżeli $Q\lesssim1$ dysk może się rozpaść na szereg grawitacyjnie związanych
+obłoków, które okrążając gwiazdę macierzystę będą akreaować coraz więcej
+materii. Każdy z tych obłoków może na skutek dalszej kontrakcji przekształcić
+się planety, w szczególności w gazowe olbrzymy takie jak Jowisz czy
+Saturn~\cite{Boss2000}. Mechanizm ten jest alternatywnym do akrecji na jądra,
+procesem prowadzącym do uformowania się planet. Jednakże dla typowych wartości
+$T$ i $\Sigma_g$ parametr $Q\gg 1$ dla wewnętrznych obszarów dysku. Zewnętrze
+obszary powinny być bardziej podatne na niestabilność grawitacyjną, choć dalej
+wymagają efektywnych procesów chłodzenia w dysku. 
+
 \subsection{Oddziaływanie pomiędzy gazem, a pyłem}
+
 \subsection{Radialny dryf pyłu}
+
 \subsection{Sedymentacja i pułapkowanie pyłu (KHI)}
+
 \subsection{Koagulacja i wzrost rozmiarów}
+
 
 W fazie T Tauri następuje koagulacja ziaren pyłu. Z perspektywy obserwatorów
 jest ona równoważna usuwaniu drobnego pyłu z dysku a, co za tym idzie, spadkowi
