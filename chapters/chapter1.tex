@@ -392,16 +392,70 @@ procesem prowadzącym do uformowania się planet. Jednakże dla typowych wartoś
 $T$ i $\Sigma_g$ parametr $Q\gg 1$ dla wewnętrznych obszarów dysku. Zewnętrze
 obszary powinny być bardziej podatne na niestabilność grawitacyjną, choć dalej
 wymagają efektywnych procesów chłodzenia w dysku. 
+{\bf opisać mechanizm we włóknach jeżeli to potrzebne}
 
 \subsection{Oddziaływanie pomiędzy gazem, a pyłem}
+Oddziaływanie pomiędzy pyłem a gazem odbywa się poprzez tarcie aerodymiczne.
+Charaterystyczną skalę czasową tego procesu można wyrazić jako
+
+\begin{equation}
+   \tau_f = \frac{mv_\textrm{pg}}{F_\textrm{D}},
+\end{equation}
+
+gdzie $m$ i $v_{\textrm{pg}}\equiv|\mathbf{u} - \mathbf{v}|$ to odpowiednio masa
+i prędkość cząstek pyłu względem gazu, zaś $F_\textrm{D}$ to siła tarcia.
+$\tau_f$ można interpretować jako czas potrzebny do wytracenia pędu cząstki pyłu
+i zrównania jej prędkości z gazem. Siła $F_\textrm{D}$ jest definiowana w różny
+sposób w zależności od rozmiaru ziaren pyłu. Dla cząstek pyłu o promieniu $a < 9
+\lambda / 4$ siła tarcia wyraża się prawem Epsteina 
+\begin{equation}
+   F_\textrm{D} = \frac{4}{3}\pi a^2 \rho_\bullet \rho_G c_s v_\textrm{pg}, 
+\end{equation}
+gdzie $\rho_\bullet = 1.6\g\cm^{-3}$ jest gęstością materiału z którego
+zbudowany jest pył. Dla ziaren pyłu porównywalnych z drogą swobodną molekuł
+gazu siła tarcia wyraża się poprzez prawo Stokesa i jest zależna od liczby
+Reynoldsa, co znacznie komplikuje jej postać. W ramach pracy skupiono się na
+obszarach dysków rozciągających się relatywnie dużych promienii tj. $>2\AU$.
+Biorąc pod uwagę, iż średnią drogę swobodną możemy wyrazić przez $\lambda_g =
+4.2\times 10^4\textrm{ cm} (10^{-14}\textrm{ g cm}^{-3}/\rho_g) \approx (R/1
+\textrm{AU})^{2.75}\cm$~\citep{W77,BT09}, gdzie$R$ jest odległością radialną od
+centrum dysku, reżim Epstein ma zastosowanie dla dominującej części domeny
+obliczeniowej nawet dla największych symulowanych przez nas ziaren pyłu. Skala
+czasowa tarcia przyjmuję zatem następującą postać:
+%
+\begin{equation} 
+   \tau_f = \frac{\rho_\bullet a} {\rho_g \sqrt{c_s^2 +
+      |\mathbf{u} - \mathbf{w}|^2 }} \label{eq:tauf} 
+\end{equation}
+%
+Źródłem różnicy względnej prędkości pomiędzy pyłem a gazem może być wiele
+procesów, przede wszystkim turbulencja obecna w gazie, ale także radialny dryf
+pyłu o którym będzie mowa w dalszej części tego rozdziału, oraz ruchy
+brownowskie. Te ostatnie bardzo silnie zależą od rozmiaru cząstek, tj.
+makroskopowe cząstki pyłu praktycznie nie odczuwają ich wpływu, nie są zaś
+zależne od gęstości gazu. Ruch brownowskie są nie zwykle istotne dla rozpoczęcia
+procesów koagulacji pyłu w początkowej fazie formacji
+protoplanet~\citep{DD2005}, jako że wzbudzają dość znaczne prędkości względne
+dla najmniejszych ziaren pyłu, które są najsilniej związane z gazem. Turbulencja
+i radialny dryf natomiast tym silniej pływają na dynamikę, im większa jest
+gęstość gazu. Ich rola jest większa dla cząstek o rozmiarach pośrednich, które
+zaczynają odsprzęgać się od dynamiki gazu.
 
 \subsection{Radialny dryf pyłu}
 
 \subsection{Sedymentacja i pułapkowanie pyłu (KHI)}
+\par Jednym z możliwych scenariuszy formowania się planet jest szybki wzrost
+gęstości pyłu na skutek sedymentacji ziaren, którą wymusza pionowa składowa
+grawitacji pochodzącej od gwiazdy macierzystej. Po przekroczeniu wartości
+krytycznej gęsta warstwa pyłu rozpada się pod własnym ciężarem~\citep{GW73}.
+Należy jednak mieć na uwadzę, że sam proces sedymentacji może prowadzić do
+wzbudzenia się niestabilności Kelvina-Helmholza~\cite{JHK06}, a to przeciwdziała
+tworzeniu się cienkiej i ciężkiej warstwy pyłu w płaszczyźnie dysku. Ostatnie
+badania pokazują że odpowiednio masywne i metaliczne dyski są nie wrażliwe na
+ten proces~\citep{L10}.
+
 
 \subsection{Koagulacja i wzrost rozmiarów}
-
-
 W fazie T Tauri następuje koagulacja ziaren pyłu. Z perspektywy obserwatorów
 jest ona równoważna usuwaniu drobnego pyłu z dysku a, co za tym idzie, spadkowi
 nadwyżki promieniowania w zakresie podczerwonym. Dzięki pracom obserwacyjnym
@@ -431,14 +485,27 @@ procesu formowania się planet.
 Aby planety mogły powstać, metrowa bariera wzrostu musi być pokonana w
 stosunkowo krótkiej skali czasowej. Nie jest jasne, czy zwykłe mechanizmy
 sklejania są wystarczające aby otrzymać cząstki o rozmiarach rzędu kilometrów,
-dla których dopiero zaczynają odgrywać rolę oddziaływania grawitacyjne. Istnieje
-alternatywna teoria, w której metrowa bariera wzrostu jest pokonywana dzięki
-wystąpieniu w pyle niestabilności grawitacyjnej. Niestabilność ta wymaga jednak
-wysokich koncentracji cząstek o stosunkowo niskich prędkościach względnych.
-Możliwość występowania niestabilności grawitacyjnej w pyłowej składowej dysków
-protoplanetarnych jest wciąż przedmiotem naukowej dyskusji \cite{gi1,gi2}.
+dla których dopiero zaczynają odgrywać rolę oddziaływania grawitacyjne.
 }
+
 \subsection{Niestabilność strumieniowa}
+
+\par Pomimo tych niesprzyjających warunków istnieje proces który dominuje
+ewolucję pyłu w momencie w którym stosunek koncetracji ziaren pyłu do gęstości
+gazu zbliża się do jedności. Tym mechanizmem jest {\it niestabilność
+strumieniowa} po raz pierwszy przedstawiona w pracy~\cite{YG05}. Okazuje się, że
+połączenie komulowanie się pyłu w lokalnych maksimach w rozkładzie ciśnienia
+gazu i wzjamne oddziaływanie pomiędzy tymi dwoma składnikami dysku, prowadzi do
+znacznego wzrostu koncentracji ziaren pyłu~\citep{J11}. Nawet zaniedbując efekt
+samograwitacji w trakcie ewolucji niestabilności strumieniowej lokalna gęstość
+pyłu może zwiększyć się tysiąckrotnie~\cite{JY07}, co może prowadzić do
+wytworzenia się grawitacyjnie związanych obiektów~\cite{J07}. Ostatnie badania
+niestabilności strumieniowej skupiały się na różnych aspektach fizycznych które
+mają wpływ na jej rozwój t.j.: uwzględnienie szerokiego spektrum rozmiaru
+cząstek pyłu~\cite{BS10a}, wpływ globalnego gradientu ciśnienia w dysku
+okołogwiazdowym~\cite{BS10b}, stratyfikacja dysku~\cite{T12}. Niemniej jednak
+wszystkie publikacje naukowe były ograniczone do lokalnego przybliżenia dysku.
+
 \section{Cel pracy}
 Głównym celem pracy jest zbadanie niestabilności strumieniowej w bardziej
 realistycznym przyblizeniu radialnie rozciągłego dysku.
@@ -470,16 +537,6 @@ $1\textrm{ cm}$ do $1\textrm{ m}$ zawierają się w przedziale $1\div10\textrm{ 
 s}^{-1}$, co sprawia że najbardziej prawdopodobnym rezultatem zderzenia jest
 fragmentacja bądź odbicie~\citep{Z10}.
 
-\par Jednym z możliwych scenariuszy formowania się planet jest szybki wzrost
-gęstości pyłu na skutek sedymentacji ziaren, którą wymusza pionowa składowa
-grawitacji pochodzącej od gwiazdy macierzystej. Po przekroczeniu wartości
-krytycznej gęsta warstwa pyłu rozpada się pod własnym ciężarem~\citep{GW73}.
-Należy jednak mieć na uwadzę, że sam proces sedymentacji może prowadzić do
-wzbudzenia się niestabilności Kelvina-Helmholza~\cite{JHK06}, a to przeciwdziała
-tworzeniu się cienkiej i ciężkiej warstwy pyłu w płaszczyźnie dysku. Ostatnie
-badania pokazują że odpowiednio masywne i metaliczne dyski są nie wrażliwe na
-ten proces~\citep{L10}.
-
 {\bf więcej o niestabilnościach powodujących turbulencje}
 
 \par Zdecydowaną wadę powyższej hipotezy jest całkowite zaniedbanie globalnej
@@ -492,21 +549,6 @@ turbulencji np. w miejscach o niewystarczającym stopniu jonizacji gazu, jednak�
 istnieje szereg innych zjawisk które mieszają płyn~\citep{LP10}.  {\bf Tu by się
 pewnie przydało opisać}
 
-\par Pomimo tych niesprzyjających warunków istnieje proces który dominuje
-ewolucję pyłu w momencie w którym stosunek koncetracji ziaren pyłu do gęstości
-gazu zbliża się do jedności. Tym mechanizmem jest {\it niestabilność
-strumieniowa} po raz pierwszy przedstawiona w pracy~\cite{YG05}. Okazuje się, że
-połączenie komulowanie się pyłu w lokalnych maksimach w rozkładzie ciśnienia
-gazu i wzjamne oddziaływanie pomiędzy tymi dwoma składnikami dysku, prowadzi do
-znacznego wzrostu koncentracji ziaren pyłu~\citep{J11}. Nawet zaniedbując efekt
-samograwitacji w trakcie ewolucji niestabilności strumieniowej lokalna gęstość
-pyłu może zwiększyć się tysiąckrotnie~\cite{JY07}, co może prowadzić do
-wytworzenia się grawitacyjnie związanych obiektów~\cite{J07}. Ostatnie badania
-niestabilności strumieniowej skupiały się na różnych aspektach fizycznych które
-mają wpływ na jej rozwój t.j.: uwzględnienie szerokiego spektrum rozmiaru
-cząstek pyłu~\cite{BS10a}, wpływ globalnego gradientu ciśnienia w dysku
-okołogwiazdowym~\cite{BS10b}, stratyfikacja dysku~\cite{T12}. Niemniej jednak
-wszystkie publikacje naukowe były ograniczone do lokalnego przybliżenia dysku.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
