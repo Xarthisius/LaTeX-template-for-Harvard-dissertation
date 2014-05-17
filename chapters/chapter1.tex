@@ -4,13 +4,14 @@
 \end{savequote}
 
 \chapter{Wprowadzenie}
-Teoretyczne rozważania dotyczące pochodzenia planet mają długą historię
-sięgającą przynajmniej XVIII wieku, kiedy to Immanuel Kant wysunął \dq{}Hipotezę
-mgławicową\dq{}. Już wtedy unikalność Układu Słonecznego stanowiła przedmiot
-debaty. Dopiero na początku XX wieku pogląd, iż układy planetarne są czymś
-powszechnym we Wszechświecie, został zaakceptowany przez środowisko naukowe, a w
-roku 1992 została odkryta pierwsza, pozasłoneczna planeta orbitująca pulsar PSR
-1257+12 b~\cite{1992Natur.355..145W}.
+\newthought{Skąd wzięły się planety?} Pytanie które nurtuję ludzkość od
+zamierzchłych czasów. Konkretne rozważania teoretyczne dotyczące pochodzenia
+planet mają długą historię sięgającą przynajmniej XVIII wieku, kiedy to Immanuel
+Kant wysunął \dq{}Hipotezę mgławicową\dq{}. Już wtedy unikalność Układu
+Słonecznego stanowiła przedmiot debaty. Dopiero na początku XX wieku pogląd, iż
+układy planetarne są czymś powszechnym we Wszechświecie, został zaakceptowany
+przez środowisko naukowe, a w roku 1992 została odkryta pierwsza, pozasłoneczna
+planeta orbitująca pulsar PSR 1257+12 b~\cite{1992Natur.355..145W}.
 
 W połowie XVIII wieku, filozof francuski Immanuel Kant zasugerował, iż rozmyte
 o\-biek\-ty obserwowane przez niego przez teleskop mogą być wyspowymi
@@ -181,7 +182,7 @@ koagulacji.
    są w stanie wiązać grawitacyjnie gaz na swoich powierzchniach. Globalne
    oddziaływanie dysk $\iff$ planety staje się istotne i może prowadzić z jednej
    strony do migracji planet, a z drugiej strony do otworzenia się przerw w
-   dysku.
+   dysku~\citep{KKI06}.
 \item[iv) długoskalowa ewolucja dynamiczna:]
    Faza zdominowana tylko i wyłącznie przez wzajemne oddziaływanie grawitacyjne
    pomiędzy utworzonymi planetami, a także z gwiazdą macierzystą. Układ
@@ -496,79 +497,79 @@ rozmiarach $0.1 \div 10\m$ jest niezmiernie krótki, to nie jesteśmy w stanie
 wskazać żadnego mechanizmu powodującego dalszy wzrost rozmiarów pyłu. Problem
 ten nosi nazwę \emph{metrowej bariery wzrostu} i jest najważniejszą
 niewyjaśnioną kwestię obecnego paradygmatu formacji planet.
+\par W ogólności dryf radialny przemieszcza pył w kierunku maksimum ciśnienia w
+gazie. Dla modelu spokojnego dysku jest to tożsame z centrum grawitacji. Należy
+jednak pamiętać, że turbulentny ośrodek możę wytwarzać lokalne, przejściowe
+maksima w ciśnieniu gazu, dla których gradient będzie dużo większy niż gradient
+globalny. Z tego względu obszary o podwyższonym ciśnieniu będą działać jako
+swoiste pułapki na pył, przejściowo zwiększając jego gęstość. 
+Cuzzi, Hogan \& Shariff~\citep{CHS08} postulują, iż przejściowe zagęszczenia
+pyłu na skutek ruchów turbulentnych są wyzwalaczem dla dalszych procesów
+formowania się planetezymali.
+\begin{figure}
+   \centering
+   \includegraphics[width=0.49\textwidth]{figures/chap1_gasdisk.png}
+   \includegraphics[width=0.49\textwidth]{figures/chap1_dustdisk.png}
+   \caption{Symulacja dwuskładnikowego, izotermicznego dysku protoplanetarnego,
+      lewy panel przedstawia rozkład ciśnienia gazu, prawy zaś rozkład gęstości
+      gazu.  Wyraźnie widać jak pył jest pułapkowany w lokalnych maksimach
+      ciśnienia. Obrazek pochodzi z pracy~\cite{RLP2006}}
+   \label{fig:chap1_drift}
+\end{figure}
 
-\subsection{Sedymentacja i pułapkowanie pyłu (KHI)}
-\par Jednym z możliwych scenariuszy formowania się planet jest szybki wzrost
-gęstości pyłu na skutek sedymentacji ziaren, którą wymusza pionowa składowa
-grawitacji pochodzącej od gwiazdy macierzystej. Po przekroczeniu wartości
-krytycznej gęsta warstwa pyłu rozpada się pod własnym ciężarem~\citep{GW73}.
-Należy jednak mieć na uwadzę, że sam proces sedymentacji może prowadzić do
-wzbudzenia się niestabilności Kelvina-Helmholza~\cite{JHK06}, a to przeciwdziała
-tworzeniu się cienkiej i ciężkiej warstwy pyłu w płaszczyźnie dysku. Ostatnie
-badania pokazują że odpowiednio masywne i metaliczne dyski są nie wrażliwe na
-ten proces~\citep{L10}.
-
-Drugim mechanizmem powodującym turbulencję gazu jest niestabilność Kelvina-
-Helmholtza wzbudzana na skutek sedymentacji pyłu (Johansen et al. 2006).
-Niestabilność KH zachodzi w przypadku przepływów ścinanych pojedynczego płynu,
-bądź na styku dwóch płynów poruszających się z różnymi prędkościami prowadząć do
-wzmocnienia drobnoskalowych zaburzenia i wzbudzenia turbulencji. W dyskach
-okołogwiazdowych osiadanie pyłu prowadzi do zwiększenia stosunku pyłu do gazu w
-płaszczyźnie dysku. Pył porusza się na wybranej orbicie z prędkością
-keplerowską, natomiast gaz pod wpływem radialnego gradientu ciśnienia z
-prędkością podkeplerowską. Duża koncentracja pyłu w płaszczyźnie powoduje, że
-gaz jest „pchany” przez pył i zaczyna poruszać się szybciej niż warstwy gazu
-leżące poniżej i powyżej płaszczyzny rotacji dysku. Prowadzi to do pionowego
-gradientu prędkości azymutalnej gazu, co stanowi konfigurację niestabilną ze
-względu na niestabilność KH. Podobnie jak w przypadku niestabilności
+\subsection{Sedymentacja i niestabilność Kelvina-Helmholtza (KHI)}
+W dotychczasowych rozważaniach pomineliśmy wpływ pionowej składowej siły
+grawitacji pochodzącej od gwiazdy macierzystej na dynamikę ziaren pyłu. O ile
+gaz zostaje ściśnięty przez grawitację do momentu osiągnięcia równowagi z
+gradientem ciśnienia~\mref{eq:zeq}, o tyle opadaniu pyłu nieprzeciwdziała żaden
+proces fizyczny~\footnote{na chwilę pomińmy fakt, że gaz jest ośrodkiem
+turbulentnym i przez wzajemne sprzężenie wpływa na dynamikę pyłu}. Sedymentacja
+mogłaby zatem prowadzić do wytworzenia się cienkiej i bardzo gęstej wartstwy
+pyłu, która po przekroczeniu wartości krytycznej rozpadłaby się pod własnym
+ciężarem~\citep{GW73}. Zauważmy jednak, że
+osiadanie pyłu prowadzi do stopniowego zwiększenia stosunku pyłu do gazu w
+płaszczyźnie dysku. Ponadto jak już było wspomniane pył porusza się na wybranej
+orbicie z prędkością keplerowską, natomiast gaz pod wpływem radialnego gradientu
+ciśnienia z prędkością podkeplerowską. Duża koncentracja pyłu w płaszczyźnie
+powoduje, że gaz jest efektywniej ,,pchany'' przez pył i zaczyna poruszać się
+szybciej niż warstwy gazu leżące poniżej i powyżej płaszczyzny rotacji dysku.
+Prowadzi to do pionowego gradientu prędkości azymutalnej gazu, co stanowi
+konfigurację niestabilną ze względu na niestabilność Kelvina-Helmholtza i
+prowadzi do wzbudzenia się turbulencji w gazie. Na skutek wzjemnego sprzężenia
+turbulencja propaguję się na składnik pyłowy i hamuje sedymentację~\cite{JHK06}.
+Ostatnie badania pokazują że tylko odpowiednio masywne i metaliczne dyski są nie
+wrażliwe na ten proces~\citep{L10}. Podobnie jak w przypadku niestabilności
 magnetorotacyjnej turbulentne ruchy gazu skutkują analogicznymi ruchami pyłu,
 jednakże i w tym wypadku ustala się pewien stan równowagi między sedymentacją
-pyłu, a turbulencją.
-W wyniku jednej, bądź obu, z powyższych niestabilności w dysku formuje się
-warstwa pyłu o skończonej grubości. Dysk ten jest jednak zbyt rzadki, aby
-wzbudziła się w nim niestabilność grawitacyjna. Jednakże uważne potraktowanie
-oddziaływań między pyłem, a gazem w dyskach protoplaneternanych doprowadziło do
-odkrycia tzw. niestabilności strumieniowej (Youdin \& Goodman, 2005), będącej
-analogiem znanej z fizyki plazmy niestabilności strumieniowej dla dwóch,
-różnoimiennych elektrycznie płynów. 
+pyłu, a turbulencją. 
 
 \subsection{Niestabilność strumieniowa}
-
+Działania niestabilności dla gazu w dysku protoplanetarnym może sformować
+się warstwa pyłu o skończonej grubości, dużo mniejszej niż grubość dysku
+gazowego. Pył ten jest jednak zbyt rzadki, aby wzbudziła się w nim
+niestabilność grawitacyjna.
 \par Pomimo tych niesprzyjających warunków istnieje proces który dominuje
 ewolucję pyłu w momencie w którym stosunek koncetracji ziaren pyłu do gęstości
 gazu zbliża się do jedności. Tym mechanizmem jest {\it niestabilność
-strumieniowa} po raz pierwszy przedstawiona w pracy~\cite{YG05}. Okazuje się, że
-połączenie komulowanie się pyłu w lokalnych maksimach w rozkładzie ciśnienia
-gazu i wzjamne oddziaływanie pomiędzy tymi dwoma składnikami dysku, prowadzi do
-znacznego wzrostu koncentracji ziaren pyłu~\citep{J11}. Nawet zaniedbując efekt
-samograwitacji w trakcie ewolucji niestabilności strumieniowej lokalna gęstość
-pyłu może zwiększyć się tysiąckrotnie~\cite{JY07}, co może prowadzić do
-wytworzenia się grawitacyjnie związanych obiektów~\cite{J07}. Ostatnie badania
-niestabilności strumieniowej skupiały się na różnych aspektach fizycznych które
-mają wpływ na jej rozwój t.j.: uwzględnienie szerokiego spektrum rozmiaru
-cząstek pyłu~\cite{BS10a}, wpływ globalnego gradientu ciśnienia w dysku
-okołogwiazdowym~\cite{BS10b}, stratyfikacja dysku~\cite{T12}. Niemniej jednak
-wszystkie publikacje naukowe były ograniczone do lokalnego przybliżenia dysku.
-
-Dopiero niedawne prace~\cite{youdin-johansen-07,johansen-youdin-07} ujawniły
-nową możliwość
-rozwiązania problemu bariery metrowej dzięki odkryciu nowego rodzaju
-niestabilności działającej w środowisku gazowo-pyłowym dysków
-protoplanetarnych. Dzięki sprzężeniu poprzez siłę oporu aerodynamicznego,
-ośrodek złożony z gazu i pyłu, dwóch składników rotujących z różnymi
-prędkościami azymutalnymi, jest  podatny na tzw. {\em niestabilność
-strumieniową}, znaną również pod potoczną nazwą {\em traffic jam
-instability}. Jak pokazują wspomniane prace, niestabilność ta może
-prowadzić do lokalnego wzrostu stosunku pyłu do gazu o czynnik $10\div100$.
-Tak duży (niegrawitacyjny) wzrost gęstości pyłu może spowodować, że
-obłoki pyłu stają się grawitacyjnie niestabilne i uformują planety.
-Dotychczasowe badania niestabilności strumieniowej (Youdin \&
-Johansen~\cite*{youdin-johansen-07} oraz Johansen \&
-Youdin~\cite*{johansen-youdin-07}) były przeprowadzone w przybliżeniu lokalnym,
-z pomocą magnetohydrodynamicznych symulacji numerycznych w tzw. domenie
-ścinanej (ang. {\em shearing box}),   przy użyciu dość prostych modeli,
-zaniedbujących np. pionową stratyfikację ośrodka gazowo-pyłowego.
-
+strumieniowa} po raz pierwszy przedstawiona w pracy~\cite{YG05}.  Wraz ze
+wzrostem gęstości pyłu spowodowanego jego dryfem w kierunku najbliższego
+maksimum ciśnienia gazu, wzrasta wypadkowa siła z jaką pył oddziaływuje na gaz.
+Prowadzi to zwiększenia prędkości gazu i wzrostu ciśnienia na skutek zagarniania
+obszarów gazów poruszających się wolniej. Zwiększa to maksimum ciśnienia w gazie
+i przyspiesza dryft pyłu z otacząjacyh go obszarów. Normalnie gradient ciśnienia
+skierowany na zewnątrz gęstniejącego obszaru powodowałby jego szybkie rozmycie,
+ale w wypadku rotującego dysku połączenie ciągłego dryfu pyłu i siły Coriolisa
+prowadzi do wytworzenia się równowagi geostroficznej~\cite{jaquet}. Nasycenie
+gęstości pyłu następuje w momencie gdy masa porcji pyłu jest w stanie wyrwać się
+z lokalnego maksimum gazu.  Nawet zaniedbując efekt samograwitacji w trakcie
+ewolucji niestabilności strumieniowej lokalna gęstość pyłu może zwiększyć się
+tysiąckrotnie~\cite{JY07}, co może prowadzić do wytworzenia się grawitacyjnie
+związanych obiektów~\cite{J07}. Ostatnie badania niestabilności strumieniowej
+skupiały się na różnych aspektach fizycznych które mają wpływ na jej rozwój
+t.j.: uwzględnienie szerokiego spektrum rozmiaru cząstek pyłu~\cite{BS10a},
+wpływ globalnego gradientu ciśnienia w dysku okołogwiazdowym~\cite{BS10b},
+stratyfikacja dysku~\cite{T12}. Niemniej jednak wszystkie publikacje naukowe
+były ograniczone do lokalnego przybliżenia dysku.
 
 \section{Cel pracy}
 Głównym celem pracy jest zbadanie niestabilności strumieniowej w bardziej
@@ -582,41 +583,6 @@ patrz (Hanasz, et al. 2009b) lub w przybliżeniu punktów materialnych. Obecnie 
 literaturze naukowej dominuje druga  metoda, ważne jest więc sprawdzenie
 jakościowych i ilościowych różnic obu podejść w globalnych symulacjach
 niestabilności strumieniowej. 
-
-\newthought{Skąd wzięły się planety?} Pytanie które nurtuję ludzkość od
-zamierzchłych czasów 
-
-\section{Luźne myśli}
-
-Formowanie się planet jest złożonym procesem, który wymaga wzrostu rozmiaru
-mikrometrowych ziaren pyłu o wiele rzędów wielkości. Pomimo tego, że najmniejsze
-drobiny pyłu są silnie sprzężone z gazem, mogą one dryfować zarówno w kierunku
-radialnym jak oraz wertykalnym i podlegać wzajemnym zderzeniom. 
-Z drugiej strony, ciała o rozmiarach
-setek czy tysięcy metrów są na tyle duże, iż opór aerodynamiczny stawiany na nie
-przez gaz jest całkowicie zaniedbywalne, zaś dominująca dynamicznie siłą są
-wzajemne oddziaływania grawitacyjne~\citep{KKI06}.
-
-\par Nierozwiązaną dotąd zagadką współczesnej astrofizyki jest pośredni etap
-wzrostu centymetrowych ziaren pyłu do kilometrowych głazów stanowiących budulec
-planet. Istnieje szereg procesów, które przeciwdziałają możliwemu wzrostowi
-rozmiaru ziaren pyłu lub nakładają silne więzy czasowe na formację systemów
-planetarnych. Najsilniejszym ograniczeniem jest szybki radialny dryf dla ziaren
-pyłu luźno związanych z gazem, tj. takich dla których charakterystyczna skala
-czasowa dla tarcia aerodynamicznego jest porównywalna z ich okresem
-orbitalnym~\citep{W77}.
-
-{\bf więcej o niestabilnościach powodujących turbulencje}
-
-\par Zdecydowaną wadę powyższej hipotezy jest całkowite zaniedbanie globalnej
-turbulencji występującej w dyskach okołogwiazdowych, będącej jedynym
-mechanizmem zdolnym do wyjaśnienia obserwowanych temp akrecji materii na
-formujące się gwiazdy w ramach tzw. teorii $\alpha$-dysków~\citep{SS73}.
-Obecnie za dominujący proces odpowiedzialny za turbulencję uważa się niestabilność
-magnetorotacyjna~\citep{BH98}. Dopuszcza ona obecność w dysku obszarów pozbawionych
-turbulencji np. w miejscach o niewystarczającym stopniu jonizacji gazu, jednakże
-istnieje szereg innych zjawisk które mieszają płyn~\citep{LP10}.  {\bf Tu by się
-pewnie przydało opisać}
 
 
 
