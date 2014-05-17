@@ -442,6 +442,60 @@ gęstość gazu. Ich rola jest większa dla cząstek o rozmiarach pośrednich, k
 zaczynają odsprzęgać się od dynamiki gazu.
 
 \subsection{Radialny dryf pyłu}
+Pył w dysku protoplanetarnym można traktować jako bezciśnieniowy płyn. Ten
+prosty fakt niesie za sobą ogromne konsekwencje. Jako że rozkład materii w dysku
+jest malejącą funkcją promienia, to dla izotermicznego gazu gradient ciśnienia
+jest ujemny dla całej rozciągłości dysku. W rezultacie gaz w jest efektywnie
+ekranowany od siły grawitacyjnej. Z równowagi sił wynika
+\begin{equation}
+   R\Omega_g^2 = \partial_R P / \rho_G + R\Omega_K^2,
+\end{equation}
+że prędkość orbitalna dla gazu jest nieznacznie mniejsza niż prędkość
+keplerowska. Niedobór prędkości rotacji gazu względem przyjęło określać się jako
+$\eta v_\textrm{K}$, gdzie $\eta$ to bezwymiarowy parametr~\cite{Nakagawa86}
+wyrażony jako
+\begin{equation}
+   \label{eq:eta}
+   \eta = \frac{\partial_R P}{2\rho_\textrm{G} R \Omega^2} = \frac{1}{2}
+   \frac{c_s^2}{v_\textrm{K}^2} \partial_{\ln r} \ln \rho_{\textrm{G}} \approx
+   \frac{c_s^2}{v_\textrm{K}^2}
+\end{equation}
+Dla typowych wartość parametrów, na promieniu $1\AU$, przy $v_\textrm{K}\approx
+30\km\s^{-1}$ i $\eta \approx 10^{-3}$ różnica w prędkości orbitalnej między
+gazem a pyłem wynosi $\Delta v \approx 33\m\s^{-1}$.
+W rezultacie cząstki pyłu odczuwają permanentny ,,wiatr w oczy'' i na skutek
+tarcia trąca swój moment pędu. Efektywność tego procesu silnie zależy od
+rozmiaru ziaren pyłu. Dla drobnych cząstek, silnie związanych z gazem, efekt ten
+jest zaniedbywalny. Podobnie dla dużych i masywnych obiektów ze względu na ich
+bezwładność. Najsilniejsza utrata momentu pędu następuje dla ziaren pyłu
+spełniających relację $\Omega \tau_f \sim 1$, co odpowiada cząstkom pyłu
+o rozmiarach $1\m @ 1\AU$ badź $10\cm$ w zewnętrznych obszarach dysku.
+
+\begin{figure}
+   \includegraphics[width=0.9\textwidth]{figures/chap1_drift.png}
+   \caption{Schematyczny rysunek zależności pomiędzy rozmiarem ziaren pyłu, a
+   maksymalną prędkością radialnego dryfu. Obrazek pochodzi z
+   pracy~\cite{weidenschilling-77}}
+   \label{fig:chap1_drift}
+\end{figure}
+
+Ziarna te są w stanie osiągać prędkości radialne rzędu
+$10^2\div10^3\cm\s^{-1}$~\cite{weidenschilling-77}, co przekłada się na utratę
+tych cząstek w skali czasowej rzędu setek lat!  Kolejną konsekwencją zależności
+radialnego dryfu od rozmiaru cząstek jest zróżnicowanie ich prędkości wzgledem
+siebie. Cząstki pyłu sklejają się dzięki oddziaływaniom międzycząsteczkowym,
+które są szczególnie wydajne w przypadku małych cząstek i dużego ich
+zagęszczenia. Wraz ze wzrostem cząstek proces zlepiania zachodzi coraz wolniej.
+Koagulacja faworyzuje małe cząstki, które mają większy stosunek powierzchni do
+masy. Przy odpowiednio niskiej prędkości względnej kolizje prowadzą do tworzenia
+coraz to większych aglomeratów cząstek~\citep{BW08}, ale dla dużych róznic w
+prędkościach najbardziej prawdopodobnym rezultatem zderzenia jest
+fragmentacja bądź odbicie~\citep{Z10}. 
+\par Nie dość, że czas dla którego możemy oczekiwać dynamicznej ewolucji pyłu o
+rozmiarach $0.1 \div 10\m$ jest niezmiernie krótki, to nie jesteśmy w stanie
+wskazać żadnego mechanizmu powodującego dalszy wzrost rozmiarów pyłu. Problem
+ten nosi nazwę \emph{metrowej bariery wzrostu} i jest najważniejszą
+niewyjaśnioną kwestię obecnego paradygmatu formacji planet.
 
 \subsection{Sedymentacja i pułapkowanie pyłu (KHI)}
 \par Jednym z możliwych scenariuszy formowania się planet jest szybki wzrost
@@ -454,39 +508,29 @@ tworzeniu się cienkiej i ciężkiej warstwy pyłu w płaszczyźnie dysku. Ostat
 badania pokazują że odpowiednio masywne i metaliczne dyski są nie wrażliwe na
 ten proces~\citep{L10}.
 
-
-\subsection{Koagulacja i wzrost rozmiarów}
-W fazie T Tauri następuje koagulacja ziaren pyłu. Z perspektywy obserwatorów
-jest ona równoważna usuwaniu drobnego pyłu z dysku a, co za tym idzie, spadkowi
-nadwyżki promieniowania w zakresie podczerwonym. Dzięki pracom obserwacyjnym
-wiemy, że zanik tej nadwyżki dla długości fal charakterystycznych dla
-wewnętrznych obszarów dysków (wyższa temperatura) zajmuje ok. $10^6$ lat
-\cite{hillenbrand}, natomiast zanik chłodnej składowej pyłowej następuje w
-skalach czasowych ok. $2$ rzędy wielkości większych \cite{carpenter}.
-
-
-%\section{Metrowa bariera wzrostu}
-{\it
-Cząstki pyłu sklejają się dzięki oddziaływaniom międzycząsteczkowym, które są
-szczególnie wydajne w przypadku małych cząstek i dużego ich zagęszczenia. Takie
-warunki występują w dysku protoplanetarnym. Wraz ze wzrostem cząstek proces
-zlepiania zachodzi coraz wolniej. Koagulacja faworyzuje małe cząstki, które mają
-większy stosunek powierzchni do masy. Prędkości względne cząstek w ogólności
-rosną, gdy cząstki osiągną masę pozwalającą na odsprzęgnięcie się od gazu, co
-również utrudnia dalszy wzrost. Nawet bez silnych ruchów turbulentnych gazu, w
-odległości $1$ j.a. od gwiazdy metrowe cząstki osiągają prędkości względne rzędu
-$10$ m/s. Zderzenia przy tak wysokich prędkościach względnych prowadzą do
-fragmentacji cząstek. Zjawisko to jest w literaturze nazywane metrową barierą
-wzrostu (ang. {\it meter-size barrier}) \cite{ormel}. Co więcej, oddziaływanie
-cząstek z gazem powoduje utratę momentu pędu i szybki dryf radialny cząstek w
-kierunku gwiazdy. Stanowi to~kolejne ograniczenie czasowe ($\sim 10^2$ lat) dla
-procesu formowania się planet.
-
-Aby planety mogły powstać, metrowa bariera wzrostu musi być pokonana w
-stosunkowo krótkiej skali czasowej. Nie jest jasne, czy zwykłe mechanizmy
-sklejania są wystarczające aby otrzymać cząstki o rozmiarach rzędu kilometrów,
-dla których dopiero zaczynają odgrywać rolę oddziaływania grawitacyjne.
-}
+Drugim mechanizmem powodującym turbulencję gazu jest niestabilność Kelvina-
+Helmholtza wzbudzana na skutek sedymentacji pyłu (Johansen et al. 2006).
+Niestabilność KH zachodzi w przypadku przepływów ścinanych pojedynczego płynu,
+bądź na styku dwóch płynów poruszających się z różnymi prędkościami prowadząć do
+wzmocnienia drobnoskalowych zaburzenia i wzbudzenia turbulencji. W dyskach
+okołogwiazdowych osiadanie pyłu prowadzi do zwiększenia stosunku pyłu do gazu w
+płaszczyźnie dysku. Pył porusza się na wybranej orbicie z prędkością
+keplerowską, natomiast gaz pod wpływem radialnego gradientu ciśnienia z
+prędkością podkeplerowską. Duża koncentracja pyłu w płaszczyźnie powoduje, że
+gaz jest „pchany” przez pył i zaczyna poruszać się szybciej niż warstwy gazu
+leżące poniżej i powyżej płaszczyzny rotacji dysku. Prowadzi to do pionowego
+gradientu prędkości azymutalnej gazu, co stanowi konfigurację niestabilną ze
+względu na niestabilność KH. Podobnie jak w przypadku niestabilności
+magnetorotacyjnej turbulentne ruchy gazu skutkują analogicznymi ruchami pyłu,
+jednakże i w tym wypadku ustala się pewien stan równowagi między sedymentacją
+pyłu, a turbulencją.
+W wyniku jednej, bądź obu, z powyższych niestabilności w dysku formuje się
+warstwa pyłu o skończonej grubości. Dysk ten jest jednak zbyt rzadki, aby
+wzbudziła się w nim niestabilność grawitacyjna. Jednakże uważne potraktowanie
+oddziaływań między pyłem, a gazem w dyskach protoplaneternanych doprowadziło do
+odkrycia tzw. niestabilności strumieniowej (Youdin \& Goodman, 2005), będącej
+analogiem znanej z fizyki plazmy niestabilności strumieniowej dla dwóch,
+różnoimiennych elektrycznie płynów. 
 
 \subsection{Niestabilność strumieniowa}
 
@@ -506,9 +550,38 @@ cząstek pyłu~\cite{BS10a}, wpływ globalnego gradientu ciśnienia w dysku
 okołogwiazdowym~\cite{BS10b}, stratyfikacja dysku~\cite{T12}. Niemniej jednak
 wszystkie publikacje naukowe były ograniczone do lokalnego przybliżenia dysku.
 
+Dopiero niedawne prace~\cite{youdin-johansen-07,johansen-youdin-07} ujawniły
+nową możliwość
+rozwiązania problemu bariery metrowej dzięki odkryciu nowego rodzaju
+niestabilności działającej w środowisku gazowo-pyłowym dysków
+protoplanetarnych. Dzięki sprzężeniu poprzez siłę oporu aerodynamicznego,
+ośrodek złożony z gazu i pyłu, dwóch składników rotujących z różnymi
+prędkościami azymutalnymi, jest  podatny na tzw. {\em niestabilność
+strumieniową}, znaną również pod potoczną nazwą {\em traffic jam
+instability}. Jak pokazują wspomniane prace, niestabilność ta może
+prowadzić do lokalnego wzrostu stosunku pyłu do gazu o czynnik $10\div100$.
+Tak duży (niegrawitacyjny) wzrost gęstości pyłu może spowodować, że
+obłoki pyłu stają się grawitacyjnie niestabilne i uformują planety.
+Dotychczasowe badania niestabilności strumieniowej (Youdin \&
+Johansen~\cite*{youdin-johansen-07} oraz Johansen \&
+Youdin~\cite*{johansen-youdin-07}) były przeprowadzone w przybliżeniu lokalnym,
+z pomocą magnetohydrodynamicznych symulacji numerycznych w tzw. domenie
+ścinanej (ang. {\em shearing box}),   przy użyciu dość prostych modeli,
+zaniedbujących np. pionową stratyfikację ośrodka gazowo-pyłowego.
+
+
 \section{Cel pracy}
 Głównym celem pracy jest zbadanie niestabilności strumieniowej w bardziej
 realistycznym przyblizeniu radialnie rozciągłego dysku.
+
+Celem badań jest oszacowanie i opis wpływu niestabilności strumieniowej na
+proces generowania lokalnego wzrostu stosunku gęstości pyłu do gazu w globalnym
+dysku pyłowo-gazowym. Pył jako ważny składnik dysku okołogwiazdowego można
+opisywać w przybliżeniu płynowym (funkcja już zaimplementowana w kodzie PIERNIK
+patrz (Hanasz, et al. 2009b) lub w przybliżeniu punktów materialnych. Obecnie w
+literaturze naukowej dominuje druga  metoda, ważne jest więc sprawdzenie
+jakościowych i ilościowych różnic obu podejść w globalnych symulacjach
+niestabilności strumieniowej. 
 
 \newthought{Skąd wzięły się planety?} Pytanie które nurtuję ludzkość od
 zamierzchłych czasów 
@@ -518,9 +591,8 @@ zamierzchłych czasów
 Formowanie się planet jest złożonym procesem, który wymaga wzrostu rozmiaru
 mikrometrowych ziaren pyłu o wiele rzędów wielkości. Pomimo tego, że najmniejsze
 drobiny pyłu są silnie sprzężone z gazem, mogą one dryfować zarówno w kierunku
-radialnym jak oraz wertykalnym i podlegać wzajemnym zderzeniom. Przy odpowiednio
-niskiej prędkości względnej, taka kolizja może prowadzić do tworzenia coraz to
-większych aglomeratów cząstek~\citep{BW08}. Z drugiej strony, ciała o rozmiarach
+radialnym jak oraz wertykalnym i podlegać wzajemnym zderzeniom. 
+Z drugiej strony, ciała o rozmiarach
 setek czy tysięcy metrów są na tyle duże, iż opór aerodynamiczny stawiany na nie
 przez gaz jest całkowicie zaniedbywalne, zaś dominująca dynamicznie siłą są
 wzajemne oddziaływania grawitacyjne~\citep{KKI06}.
@@ -532,10 +604,7 @@ rozmiaru ziaren pyłu lub nakładają silne więzy czasowe na formację systemó
 planetarnych. Najsilniejszym ograniczeniem jest szybki radialny dryf dla ziaren
 pyłu luźno związanych z gazem, tj. takich dla których charakterystyczna skala
 czasowa dla tarcia aerodynamicznego jest porównywalna z ich okresem
-orbitalnym~\citep{W77}. Ponadto typowe prędkości drobiny pyłu o rozmiarach od
-$1\textrm{ cm}$ do $1\textrm{ m}$ zawierają się w przedziale $1\div10\textrm{ m
-s}^{-1}$, co sprawia że najbardziej prawdopodobnym rezultatem zderzenia jest
-fragmentacja bądź odbicie~\citep{Z10}.
+orbitalnym~\citep{W77}.
 
 {\bf więcej o niestabilnościach powodujących turbulencje}
 
