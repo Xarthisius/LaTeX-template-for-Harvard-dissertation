@@ -7,17 +7,59 @@ strike with force.
 \chapter{Eksperyment numeryczny}
 \newthought{Lorem ipsum dolor sit amet}, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci
 \section{Metodyka}
-We conduct numerical simulations with the aid of a parallel MHD code PIERNIK
-using the cylindrical coordinate system. 
-Following \cite{M07} and \cite{SO10} we use ''angular momentum-conserving form''
-of the $\phi$-momentum equation, which with respect to Cartesian geometry
-introduces only one additional source term to equations~\mref{eq3} - \mref{eq4}:
-$\left((\rho_g u_\phi + P) / R\right)\mathbf{\hat{R}}$ and $(\rho_d w_\phi / R)
-\mathbf{\hat{R}}$ respectively.
+W ramach poniższej pracy doktorskiej przeprowadzono szereg eksperymentów
+numerycznych przy użyciu autorskiego kodu siatkowego PIERNIK, który opiera się
+na:
+\begin{itemize}
+   \item zachowaczym schemacie numerycznym Relaxing TVD~\cite{jin-xin-95} w
+      połączeniu z dzielonym, kierunkowym całkowaniem przestrzennym i czasowym
+      przy użyciu algorytmu Runge-Kutta drugiego
+      rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P}.
+   \item implementacji wielopłynowości, tj. możliwości symulowania wielofazowego
+      ośrodka np. płynu neutralnego i płynu bezciśnieniowego (pył) z
+      uwzględnieniem oddziaływań międzypłynowych~\cite{piernik1,piernik2}
+   \item solwerze multigridowym pozwalającym efektywnie rozwiązywać paraboliczne
+      i eliptyczne równania rożniczkowe, a w szczególności równanie Poissona
+      opisujące samograwitację pyłu
+   \item solwerze multipolowym pozwalającym na szybkie określenie warunków
+      brzegowych dla potencjału grawitacyjnego.
+   \item implementacji cylindrycznego układu współrzędnych w postaci
+      zachowującej moment pędu~\cite{M07,SO10}.
+   \item implementacji algorytmu szybkiego transportu
+      eulerowskiego~\footnote{ang. \emph{Fast Advection in Rotating Gaseous Objects --
+      FARGO}}~\citep{fargo} w ujęciu wielopłynowym.
+
+\end{itemize}
+Ponadto PIERNIK korzysta z algorytmu typu \emph{Constraint Transport}
+zapewniającego bezźródłowość ewolucji pola magnetycznego, a także możliwość
+wykonywania symulacji przy użyciu siatek adaptywnych~\footnote{ang.
+\emph{Adaptive Mesh Refinement -- AMR}}.
+\par Obliczenia opisywane w tej pracy zostały przeprowadzone z
+wykorzystaniem:
+
+\begin{itemize}
+   \item infrastruktury PL-Grid, w szczególności klastrów
+      komputerowych Galera+ (TASK), Hydra (ICM), Zeus (ACK CYFRONET), Inula
+      (PCSS) w ramach grantu \emph{plggpiernik},
+   \item klastrów PRACE, w szczególności klastów komputerowych
+      Cartesius (SurfSara), Fionn (ICHEC) w ramach grantu \emph{PIERNIK-SI} w
+      projekcie DECI-11
+\end{itemize}
+Sumaryczne zużycie wyniosło kilka milionów CPUh.
+
+
+%We conduct numerical simulations with the aid of a
+%parallel MHD code PIERNIK using the cylindrical coordinate system. 
+%Following
+%\cite{M07} and \cite{SO10} we use ''angular momentum-conserving form'' of the
+%$\phi$-momentum equation, which with respect to Cartesian geometry introduces
+%only one additional source term to equations~\mref{eq3} - \mref{eq4}:
+%$\left((\rho_g u_\phi + P) / R\right)\mathbf{\hat{R}}$ and $(\rho_d w_\phi / R)
+%\mathbf{\hat{R}}$ respectively.
 
 
 \subsection{Podstawowe równania}
-Globalna dynamika dysku okołogwiazdowego opisujemy poprzez dwa, wzajemnie ze
+Globalna dynamika dysku okołogwiazdowego można opisać poprzez dwa, wzajemnie ze
 sobą oddziałujące płyny: neutralny gaz podlegający izotermicznemu równaniu
 stanu oraz pył jako bezciśnieniowy płyn. Równania hydrodynamiki przyjmują dla
 takiego modelu następującą postać:
@@ -48,37 +90,24 @@ takiego modelu następującą postać:
 
 \noindent gdzie $\rho_g$, $\rho_d$ to odpowiednio gęstości gazu i pyłu,
 $\mathbf{u}$, $\mathbf{w}$ ich prędkości, $P$ to ciśnienie gazu, $\tau_f$ jest
-skalą czasową tarcia~\footnote{ang. friction time}, a $\Phi$ to potencjał
-grawitacyjny. Naszym celem jest wyizolowanie niestabilności strumieniowej z
-pośród szeregu innych procesów, które mogą zachodzić w powyższym modelu. Z tego
-względu zaniedbujemy pionową składową przyspieszenia grawitacyjnego pochodzącą
-od centralnego obiektu w dysku, która prowadziła by do naturalnej sedymentacji
-pyłu w płaszczyźnie dysku i wzbudzenia się niestabilności
+skalą czasową tarcia~\footnote{ang. friction time}~\mref{eq:tauf}, a $\Phi$ to
+potencjał grawitacyjny. Celem pracy jest wyizolowanie niestabilności
+strumieniowej z pośród szeregu innych procesów, które mogą zachodzić w powyższym
+modelu. Z tego względu zaniedbano pionową składową przyspieszenia grawitacyjnego
+pochodzącą od centralnego obiektu w dysku, która prowadziła by do naturalnej
+sedymentacji pyłu w płaszczyźnie dysku i wzbudzenia się niestabilności
 Kelvina-Helmholtza~\cite{JHK06}.
 
-W ramach pracy skupiono się na dyskach rozciągających się relatywnie dużych
-promienii tj. 2~AU. Zakładając, za pracą~\cite{CD93}, że przejście do
-reżimu Stokesa zachodzi dla ziaren pyłu o promieniu większym niż
-$a = 9/4\lambda_g$ gdzie $\lambda_g = 4.2\times 10^4\textrm{
-cm} (10^{-14}\textrm{ g cm}^{-3}/\rho_g) \approx (R/1 \textrm{AU})^{2.75}$~cm 
-jest średnią drogą swobodną molekuł gazu~\citep{W77,BT09}, zaś $R$ jest
-odległością radialną od centrum dysku. Przy tych założeniach, reżim Epstein ma
-zastosowanie dla dominującej części domeny obliczeniowej nawet dla największych
-symulowanych przez nas ziaren pyłu. Skala czasowa tarcia przyjmuję zatem
-następującą postać:
-%
-\begin{equation}
-   \tau_f = \frac{\rho_\bullet a} 
-      {\rho_g \sqrt{c_s^2 + |\mathbf{u} - \mathbf{w}|^2 }}
-   \label{eq:tauf} 
-\end{equation}
-%
-gdzie $c_s$ jest prędkością dźwięku w gazie, zaś $\rho_\bullet = 1.6\textrm{ g cm}^{-3}$
-jest gęstością materiału z którego zbudowany jest pył. Po mimo faktu, że wyraz
-$|\mathbf{u}-\mathbf{w}|^2$ nie odgrywa znaczącej roli podczas ewolucji
-niestabilności strumieniowej, t.j. jego wartość nie przekracza nigdy 1 procenta
-prędkości dźwięku, postanowiliśmy go nie zaniedbywać ze względu na
-kompletność {\bf blah}
+%W ramach pracy skupiono się na dyskach rozciągających się relatywnie dużych
+%promienii tj. 2~AU. Zakładając, za pracą~\cite{CD93}, że przejście do
+%reżimu Stokesa zachodzi dla ziaren pyłu o promieniu większym niż
+%$a = 9/4\lambda_g$ gdzie $\lambda_g = 4.2\times 10^4\textrm{
+%cm} (10^{-14}\textrm{ g cm}^{-3}/\rho_g) \approx (R/1 \textrm{AU})^{2.75}$~cm 
+%jest średnią drogą swobodną molekuł gazu~\citep{W77,BT09}, zaś $R$ jest
+%odległością radialną od centrum dysku. Przy tych założeniach, reżim Epstein ma
+%%zastosowanie dla dominującej części domeny obliczeniowej nawet dla największych
+%symulowanych przez nas ziaren pyłu. Skala czasowa tarcia przyjmuję zatem
+%następującą postać:
 %
 \begin{figure*}
    \centering
@@ -97,171 +126,82 @@ kompletność {\bf blah}
    \label{fig1}
 \end{figure*}
 %
-\subsection{Liniowa analiza stabilności}
-\label{sec:lsa}
-Jednym z celów naukowych poniższej pracy jest walidacja wyników eksperymentu
-numerycznego poprzez porównanie z tempem wzrostu najsilniejszych modów
-otrzymanych z liniowej analizy stabilności. W tym rozdziale przedstawiono
-poszczególne kroki liniowej analizy stabilności dla niestabilności strumieniowej
-w oparciu o pracę~\citep{YG05}.
-
-Analiza stabilności opiera się na trzech elementach:
-\begin{enumerate}
-   \item znalezieniu stanu równowagi dla zadanego układu równań,
-   \item zaburzeniu układu znaną funkcją o małej amplitudzie 
-   \item wyprowadzeniu modów własnych oraz ich tempa wzrostu.
-\end{enumerate}
-Niestety dla układu równań hydrodynamiki dwóch sprzężonych płynów w rozciągłym
-dysku keplerowskim nie istnieje warunek równowagowy. Spowodowane jest to
-migracja pyłu na centrum grawitacji na skutek utraty momemtu pędu przez tarcie
-aerodynamiczne. Naturalną konsekwencją migracji są znaczne zmiany w radialnym
-profilu rozkładu gęstości pyłu. Należy jednak zauważyć, że charakterystyczna
-skala czasowa migracji jest rzędu setek bądź wiecej lat, przy założeniu iż mamy
-do czynienia z aglomeratami pyłu o rozmiarach metrowych. Z tego względu możemy
-założyć że zmiany w profilu gęstości są procesem powolnym w stosunku do typowego
-tempa wzrostu niestabilności strumieniowej, co zostanie wykazane w dalszej
-części wywodu.
-
-Kolejną przeszkodą jest sama rozciągłość symulowanego dysku okołogwiazdowego,
-która implikuje zmienność potencjalnego stanu równowagowego wraz z promieniem
-dysku. W tym wypadku powinno przeprowadzić się globalną analizę stabilności po
-przez rozwiązanie dwupunktowego problem brzegowego (np.~\cite{PHM04, KH06}),
-jednakże takie podejście jest dużo bardziej skomplikowane. Przedstawianą tu
-lokalną analizę należy zatem traktować jako pierwsze przybliżenie pełnej analizy
-stabilności niestabiności strumieniowej. Niestabilne mody uzyskane w ramach
-liniowej analizy posłużą nam jako punkt odniesienia dla modów uzyskiwanych w
-globalnym eksperymencie numerycznym.
-
-Najbardziej wygodnym układem do lokalnego opisu niestabilności strumieniowej
-jest tzw. kostka ścinana~\footnote{ang. shearing box}~\citep{HGB95}, czyli
-kartezjański układ współrzędnych, którego początek współporusza się z płynem na
-wybranej orbicie $R_0$ z częstością keplerowską $\Omega_0 \equiv
-\Omega\left(R_0\right)$. Zwyczajowo przyjmuje się, że oś $x$ jest skierowana
-radialnie na zewnątrz, oś $y$ jest w kierunku azymutalnym, zaś $z$ jest osią
-wertykalną. Zgodnie z pracą~\cite*{YJ07} układ równań ciągłości oraz ruchu dla
-obu składników można wyrazić poprzez:
-%
-\begin{align}
-\partial_t \rho_g &+ \mathbf{u}\cdot\nabla\rho_g - \frac{3}{2}\Omega x\partial_y\rho_g 
- = -\rho_g\nabla\cdot\mathbf{u},\label{eqc1}\\
-\partial_t \rho_d &+ \mathbf{w}\cdot\nabla\rho_d - \frac{3}{2}\Omega x\partial_y\rho_d 
- = -\rho_d\nabla\cdot\mathbf{w},\label{eqc2}\\
-\partial_t \mathbf{u} &+ \left(\mathbf{u}\cdot\nabla\right)\mathbf{u} 
- - \frac{3}{2}\Omega x\partial_y\mathbf{u} 
- = 2\Omega u_y \hat{\mathbf{x}} -\frac{1}{2}\Omega u_x \hat{\mathbf{y}} \notag\\
- &- \frac{\epsilon}{\tau_f}(\mathbf{u}-\mathbf{w}) -c_s^2\nabla\ln\rho_g 
- +2\eta\Omega^2 R \hat{\mathbf{x}},\label{eqm1}\\
-\partial_t \mathbf{w} &+ \left(\mathbf{w}\cdot\nabla\right)\mathbf{w} 
- - \frac{3}{2}\Omega x\partial_y\mathbf{w}
- = 2\Omega w_y \hat{\mathbf{x}} -\frac{1}{2}\Omega w_x \hat{\mathbf{y}} \notag\\
- &- \frac{1}{\tau_f}(\mathbf{w}-\mathbf{u}), \label{eqm2}
-\end{align}
-%
-gdzie wyrazy takie jak $(3/2)\Omega x$ po lewej stronie równań, pojawiają się na
-skutek relatywizacji wszytkich predkości względem liniowego, ścinanego przepływu
-$\mathbf{v}_0 = -(3/2)\Omega x \hat{\mathbf{y}}$ w rotującym układzie
-współrzędnych. Warto nadmienić, że wyraz $-(1/2)\Omega \{u,w\}_x
-\hat{\mathbf{y}}$ po prawej stronie równań ruchu \mref{eqm1}-\mref{eqm2} jest
-sumą dwóch składników: $(-2\Omega \{u,w\}_x + (3/2)\Omega \{u,w\}_x)
-\hat{\mathbf{y}}$ z których pierwszy jest składową siły Coriolisa, a drugi
-wynika z odjęcia wspomnianego wcześniej przepływu średniego. Główną różnicą
-pomiędzy równaniami \mref{eqm1} oraz \mref{eqm2} jest brak wyrazu ciśnieniowego
-dla składnika pyłowego. Jak zauważyli YG05, można w spójny sposób uwzględnić
-globalny, radialny gradient ciśnienia gazu ograniczając się do liniowego wyrazu,
-który jest zparametryzowany tzw. bezwymiarową miarą rotacji podkeplerowskiej:
-
-\begin{equation}
-\eta \equiv - \frac{\partial_R P}{2\rho_g\Omega^2 R} \sim \frac{c_s^2}{v_K^2}.
-\end{equation}
-
-Układ równań \mref{eqc1}-\mref{eqm2} posiada znane rozwiązanie równowagowe~\citep{N86}
-
-\begin{align}
-\bar{\mathbf{w}} &= \left[ 
- -2\tau_s\xi, \frac{\tau_s^2\xi - 1}{1+\epsilon},
- 0
-\right]\eta v_K, \label{eq:w0}\\
-\bar{\mathbf{u}} &= \left[ 
- 2\epsilon\tau_s\xi, -\frac{1 + \epsilon\tau_s^2\xi}{1+\epsilon},
- 0
-\right]\eta v_K, \label{eq:u0}
-\end{align}
-%
-gdzie $\tau_s = \Omega \tau_f$ to dimensionless stopping time i 
-$\xi = ((1+\epsilon)^2 + \tau_s^2)^{-1}$. 
-Linearyzacja równań \mref{eqc1}-\mref{eqm2}, polega na rozbiciu zmiennych na
-część stałą oraz zaburzenie $\mathbf{q} = \bar{\mathbf{q}} + \mathbf{q}^\prime$,
-gdzie $\mathbf{q}=[\rho_d, w_x, w_y, w_z, \rho_g, u_x, u_y, u_z]$. Zakładamy
-równocześnie, że zaburzenie jest osiowosymetryczne (niezależne od współrzędnej $y$)
-i przyjmuje postać fali płaskiej:
-
-\begin{equation}
-   \label{eq:planar}
-   \mathbf{q}^\prime(x,z,t) = \tilde{\mathbf{q}}
- \exp\left[i(k_x x + k_z z -\omega t)\right]
-\end{equation}
-
-Po podstawieniu liniowego zaburzenia układ równań przyjmuje następującą postać
-
-\begin{align}
--i(\omega- k_x\bar{w}_x)\tilde{\rho}_d &= 
- - i \bar{\rho}_d(k_x\tilde{w}_x + k_z\tilde{w}_z), \label{lin1}\\
--i(\omega- k_x\bar{u}_x)\tilde{\rho}_g &= 
- - i \bar{\rho}_g(k_x\tilde{u}_x + k_z\tilde{u}_z), \label{lin2}\\
--i(\omega- k_x\bar{u}_x)\tilde{\mathbf{u}} &= 
- 2\Omega \tilde{u}_y\hat{\mathbf{x}} - \frac{1}{2}\Omega \tilde{u}_x
- \hat{\mathbf{y}}
- -\frac{\epsilon}{\tau_f}(\tilde{\mathbf{u}} - \tilde{\mathbf{w}}) \notag\\
-  -\frac{\tilde{\rho}_d}{\bar{\rho}_g\tau_f}
-  (\bar{\mathbf{u}} &- \bar{\mathbf{w}})
-  - \frac{c_s^2}{\bar{\rho}_g}ik_x\tilde{\rho}_g\hat{\mathbf{x}} -
-  - \frac{c_s^2}{\bar{\rho}_g}ik_z\tilde{\rho}_g\hat{\mathbf{z}}, \label{lin3}\\
--i(\omega- k_x\bar{w}_x)\tilde{\mathbf{w}} &= 
- 2\Omega \tilde{w}_y\hat{\mathbf{x}} - \frac{1}{2}\Omega \tilde{w}_x
- \hat{\mathbf{y}} 
- - \frac{1}{\tau_f} (\tilde{\mathbf{w}} - \tilde{\mathbf{u}}), \label{lin4}
-\end{align}
-%
-gdzie $\epsilon = \bar{\rho}_d/\bar{\rho}_g$. Układ równań
-\mref{lin1}-\mref{lin4} można zapisać jako
-
-\begin{equation}
- \eurom{A}(k_x,k_z,\omega)\tilde{\mathbf{q}} = 0
- \label{eq:linset}
-\end{equation}
-%
-Nietrywialne rozwiązania układu linoweg \mref{eq:linset} istnieją wtedy i tylko
-wtedy gdy równanie dyspersyjne 
-\begin{equation}
- \det|\eurom{A}(k_x,k_z,\omega)|=0.
- \label{eq:disprel}
-\end{equation}
-%
-Dla zadanych wartości $(k_x, k_x)$ relację \mref{eq:disprel} można rozwiąć ze
-względu na $\omega$ i dzięki temu otrzymać związki pomiędzy amplitudami
-składowych wektora $\tilde{\mathbf{q}}$.
-We solve the dispersion relation \mref{eq:disprel} for given values of
-$(k_x,k_z)$, with respect to the complex frequency $\omega$, using the
-Tempo wzrostu niestabilności definiujemy jako urojoną część zespolonej
-częstotliwości $s=\Im(\omega)$.
-%
-\begin{figure*}
-   \centering
-   \begin{tabular}{@{}cc@{}}
-      \includegraphics[width=0.49\linewidth]{figures/fig2a} &
-      \includegraphics[width=0.49\linewidth]{figures/fig2b} \\
-      \includegraphics[width=0.49\linewidth]{figures/fig2c} &
-      \includegraphics[width=0.49\linewidth]{figures/fig2d}
-   \end{tabular}
-   \caption{Migawki gęstości pyłu dla symulacji z $10$~cm ziarnami pyłu
-      dla czasu $100$, $200$, $800$ oraz $1200$~lat odpowiednio dla lewego
-      górnego, prawego górnego, dolnego lewego i dolnego prawego panelu.
-      Każdy z paneli jest podzielony na trzy części różniące się początkowym 
-      $\epsilon = 0.2, 1, 2.0$ odpowiednio dla górnego (AA), środkowego (AB) i
-      dolnego (AC) podpanelu.}
-   \label{fig2}
-\end{figure*}
 \subsection{FARGO}
+Ze względu na obecność rotacji, dyski keplerowskie stanowią mało wdzięczny
+obiekt badań numerycznych, szczególnie w wypadku kiedy charakterystyczne
+prędkości płynu osiągane w interesujących procesach są drobnym ułamkiem
+prędkości rotacji. Zgodnie z warunkiem Couranta-Friedrichsa-Lewy'ego, stabilność
+schematu numerycznego jest zapewniona wtedy i tylko wtedy, kiedy w jednym kroku
+całkowania numerycznego sygnał nie propaguję się dalej niż o jedną komórkę
+obliczeniową. W związku z tym, że zarówno prędkość rotacji dysku keplerowskiego
+jak i azymutalny rozmiar komórki na siatce cylindrycznej jest malejącą funkcją
+promienia, to najsilniesze ograniczenie na rozmiar kroku czasowego wprowadza
+dynamika gazu na najkrótszej symulowanej orbicie. Jedną z technik pozwalających
+uniknąć powyższych więzów jest algorytm FARGO~\citep{Masset00}. Oryginalnie
+został on zaprojektowany dla dwuwymiarowych dysków, lecz został rozszerzony
+przez innych autorów~\cite{fargo2} do przypadków trójwymiarowych. Poniższa praca
+rozwija go w kontekście wielu płynów.
+
+\par FARGO opiera się na kierunkowym podziale części adwekcyjnej równań
+hydrodynamiki. W kierunku radialnym i wertykalnym stosuje się klasyczny solwer
+(w przypadku PIERNIKa RTVD), natomiast w kierunku azymutalnym rozbija się
+adwekcję na trzy etapy:
+\begin{enumerate}
+   \item obliczenie średniej prędkości kątowej $\bar{\omega}_i$ dla każdego
+      płynu i każdego promienia o indeksie $i$
+      \begin{equation}
+         \bar{\omega}_i = \frac{1}{N_\varphi~N_z} ~ \sum_{j,k} \omega_{i,j,k},
+      \end{equation}
+      gdzie $N_\varphi,\,N_z$ to odpowiednio liczba komórek w kierunku
+      azymutalnym i wertykalnym.
+
+   \item  obliczenie całkowitej liczby komórek dla przesunięcia w kierunku
+      azymutalnym
+      \begin{equation}
+         n_i = {\tt Nint} \left( \bar{\omega}_i \Delta t/\Delta \varphi \right),
+      \end{equation}
+      gdzie {\tt Nint} oznacza funkcję określającą \emph{najbliższą liczbę
+      całkowitą}. Co można wyrazić jako ,,prędkość przesunięcia''
+      \begin{equation}
+         \omega_i^{\rm SH} = n_i \frac{\Delta \varphi}{\Delta t}.
+      \end{equation}
+   \item obliczenie stałej wartości prędkości ,,rezydualnej'' dla każdego
+      promienia
+      \begin{equation}
+         \omega_i^{\rm cr}= \bar{\omega}_i - \omega_i^{\rm SH}
+      \end{equation}
+   \item obliczenie właściwej prędkości ,,rezydualnej'' dla każdej komórki
+      \begin{equation}
+         \omega_{i,j,k}^{\rm res} = \omega_{i,j,k} - \bar{\omega}_i
+      \end{equation}
+\end{enumerate}
+
+Powyższe cząstkowe prędkości kątowe sumują się do wyjściowej prędkości dla
+poszczególnych komórek
+
+\begin{equation}
+   \omega_{i,j,k} = \omega_{i,j,k}^{\rm res} + \omega_i^{\rm cr} + \omega_i^{\rm SH}.  
+\end{equation}
+
+Adwekcja jest następnie wykonywana w trzech krokach, odpowiednio dla każdej
+prędkości kątowej $\omega_i^{\rm SH}, \omega_i^{\rm cr}, \omega_{i,j,k}^{\rm
+res}$: ostatnie dwie prędkości przyużyciu oryginalnego algorytmu numerycznego
+(RTVD), zaś $\omega_i^{\rm SH}$ poprzez zwykłe przesunięcie wartości płynowych o
+całkowitą liczbę komórek. Korzystąc z faktu, że $\omega_i^{\rm SH} \gg
+\max\left(\omega_i^{\rm cr}, \omega_{i,j,k}^{\rm res}\right)$, a tylko prędkości
+po prawej stronie nierówności mają wpływ na warunek CFL, w znaczący sposób
+zwiększamy krok czasowy. Co prawda, aby zachować stabilność algorytmu należy
+zapewnić że przesunięcie w kierunku azymutalnym nie odseparuje dwóch sąsiędnich
+(w kierunku radialnym i wertykalnym) komórek, co przekłada się na warunek
+
+\begin{equation}\label{eq:tshear}
+   \Delta t_{\rm shear} = 0.5 ~ \min_{i,j,k} \left( \frac{\Delta\varphi}
+   {|\omega_{i,j,k} - \omega_{i-1,j,k}|} \right)
+\end{equation}
+
+Niemniej jednak pomimo ograniczenia~\mref{eq:tshear}, dla typowych eksperymentów
+numerycznych przeprowadzonych w tej pracy zastosowanie FARGO pozwolilo uzyskać
+od 10 do 100 krotnego wydłużenia kroku czasowego.
 
 \subsection{Schemat implicit dla oddziaływania}
 Both components i.e. gas and dust are treated as fluids~\citep{piernik2} which
@@ -388,5 +328,8 @@ e.g. collisional agglomeration.
    run, span of the computational domain in AU (r,z) and azimuthal angle, grid
    resolution, particle diameter in cm, solids-to-gas ratio, and total run time
    in units of years.} 
-\label{tab1} 
+\label{tab1}
 \end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: tw=80 ts=3: 
