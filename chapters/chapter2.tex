@@ -113,22 +113,6 @@ $1/\tau_f(\mathbf{w}-\mathbf{u})$ odpowiednio dla równań \mref{eq3} i \mref{eq
 %symulowanych przez nas ziaren pyłu. Skala czasowa tarcia przyjmuję zatem
 %następującą postać:
 %
-\begin{figure*}
-   \centering
-   \begin{tabular}{@{}cc@{}}
-      \includegraphics[width=0.49\linewidth]{figures/fig1a} & 
-      \includegraphics[width=0.49\linewidth]{figures/fig1b} \\
-      \includegraphics[width=0.49\linewidth]{figures/fig1c} &
-      \includegraphics[width=0.49\linewidth]{figures/fig1d}
-   \end{tabular}
-   \caption{Migawki gęstości pyłu dla symulacji z $50$~cm ziarnami pyłu
-      dla czasu $100$, $200$, $450$ oraz $700$~lat odpowiednio dla lewego
-      górnego, prawego górnego, dolnego lewego i dolnego prawego panelu.
-      Każdy z paneli jest podzielony na trzy części różniące się początkowym 
-      $\epsilon = 0.2, 1, 2.0$ odpowiednio dla górnego (BAh), środkowego (BB) i
-      dolnego (BC) podpanelu.}
-   \label{fig1}
-\end{figure*}
 %
 \subsection{FARGO}
 Ze względu na obecność rotacji, dyski keplerowskie stanowią mało wdzięczny
@@ -229,80 +213,77 @@ zaniedbano pionową składową przyspieszenia grawitacyjnego pochodzącą od
 centralnego obiektu w dysku, która prowadziła by do naturalnej sedymentacji pyłu
 w płaszczyźnie dysku i wzbudzenia się niestabilności
 Kelvina-Helmholtza~\cite{JHK06}
-\begin{equation}
+\begin{equation}\label{eq:phiext}
    \Phi_{\textrm{ext}} = -\frac{GM}{R} \mathbf{e}_R.
 \end{equation}
 
-We incorporate selfgravity of interstellar gas and gravitational potential is
-obtained by solving the Poisson equation inside the computational
-domain with an iterative, multi-grid solver
-\citep{doi:10.1137/S1064827598346235} combined with a multipole solver
-\citep{1977JCoPh..25...71J} to properly treat the gravitational
-potential at 'isolated' boundaries.
-
+\par Potencjał $\Phi_{\textrm{self}}$ jest określony przez równanie Poissona
+\begin{equation}\label{eq:poisson}
+   \nabla^2 \Phi_{\textrm{self}} = 4\pi G \rho.
+\end{equation}
+Do rozwiązania równania \mref{eq:poisson} został użyty iteracyjny, solwer
+multigridowy~\citep{doi:10.1137/S1064827598346235} połączony z solwerem
+multipolowym~\citep{1977JCoPh..25...71J} w celu odpowiedniego obliczenia
+potencjału na nieperiodycznych brzegach domeny obliczeniowej. Oba algorytmy
+zostały zaimplementowane w PIERNIKu przez dra Artura Gawryszczaka (CAMK W-wa).
 
 \section{Warunki początkowe}
-During period of initial $10$~yrs of the simulation) before we ''turn on'' the
-aerodynamic drag force and seed dust velocities with low--amplitude random
-noise. The feedback of the linear drag force scales with the density ratio of
-dust to gas $\epsilon\equiv \rho_d/\rho_g$.
-The initial density profile for gas roughly follows prescription of Minimal Mass
-Solar Nebula~\citep{H81}
-\begin{equation}
+Domena obliczeniowa we wszystkich eksperymentach rozciąga się pomiędzy $2\AU$, a
+$7\AU$ w kierunku radialnym i ma $0.375\AU$ wysokości. W przypadkach
+trójwymiarowych rozciągłość w kącie azymutalnym wynosi $\pi / 6$.
+Zarówno w kierunku $z$ jak i $\phi$ zastosowano periodyczne warunki brzegowe,
+zaś w kierunku radialnym użyto warunków odbiciowych, aby zapobiec ucieczce masy
+z domeny obliczeniowej.
+
+\par Początkowy rozkład gęstości materii w dysku określony jest poprzez formułę
+wynikająca z przepisu Minimalnej Masy Mgławicy Słonecznej~\footnote{ang.
+\emph{Minimal Mass Solar Nebula}}~\cite{H81}
+\begin{equation}\label{eq:mmsn}
    \Sigma(R) = 1700 \left(\frac{R}{1\textrm{ AU}}\right)^{-3/2} 
    \textrm{ g cm}^{-2}.
 \end{equation}
-We assume isothermal equation of state and a constant temperature $T_0 = 170$~K
-across the whole disc. 
-We assume gravitational field from a point mass $M=1\,\textrm{M}_\odot$, and
-neglect the vertical component of gravitational acceleration towards the central
-mass, implying no vertical stratification of the disc. Yet, we refer to the
-vertical scaleheight $H$ to estimate  volume density of gas at given radius,
-relying on the hydrostatic equilibrium density distribution in the presence of
-the vertical gravity of a point mass
+W przeciwieństwie do MMSN dla której profil temperatury jest wykładniczą funkcją
+promienia, zakładamy że izotermiczny gaz posiada stałą temperaturę $T_0 = 170\K$
+w całej objętości. Przyjmujemy iż zewnętrzny potencjal~\mref{eq:phiext} jest
+określony przez masę punktową $M=1\,\textrm{M}_\odot$
+Po mimo zaniedbywania pionowej składowej grawitacji, określamy charakterystyczną
+pionową skalę wysokości $H$, aby oszacować gęstość przestrzenna na wybranym
+promieniu, wykorzystując~\mref{eq:mmsn}, tak jakby gaz znajdował się w pionowej
+równowadze hydrostatycznej
 %
-\begin{equation}
+\begin{equation}\label{eq:rhoR}
    \rho(R,z) =  \rho(R,0) \exp\left(-\frac{z^2}{2H(R)^2}\right),
 \end{equation}
-where $\rho(R,0)$ is gas density at the disc midplane and $H^2 = 2 c_s^2 R^3/
+gdzie $\rho(R,0)$ jest gęstością gazu w płaszczyźnie dysku, a $H^2 = 2 c_s^2 R^3/
 GM$.
 %
-The surface gas density is given by
-\begin{equation}
+Z definicji gęstości powierzchniowej
+\begin{equation} \label{eq:sigmaR}
    \Sigma(R) = \int_{-\infty}^\infty \rho(R,z) dz,
 \end{equation}
 %
-The corresponding value of midplane gas density is
+Łącząc równanie~\mref{eq:sigmaR} oraz~\mref{eq:rhoR} otrzymujemy zależność
 \begin{equation}
    \label{eq:rho}
     \rho(R,0) = \frac{\Sigma(R) }{\int_{-\infty}^\infty
    \exp\left(-\frac{z^2}{2H(R)^2}\right) dz}.
 \end{equation}
-For the chosen disc temperature $T_0$ the integral on the right hand side of
-\mref{eq:rho} varies from $0.4$~AU to $2.0$~AU over the range of radii $R\in
-[2,6]$~AU. 
-We assume for simplicity its value equal to $1$~AU. 
-
-We assume the vertical extent of the computational domain $L_z = 0.3$~AU, and
-impose periodic boundary conditions at upper and lower $z$-boundaries. The
-initial condition relies on a radial force balance for the gas and dust
-components independently. The gas component remains in a hydrostatic equilibrium
-resulting from the radial balance of gravity, centrifugal and pressure forces,
-while the pressure gradient term is absent in the equation of motion for the
-dust component.  Reflecting boundary conditions are set on the inner and outer
-boundaries of the computational grid to prevent mass escape from the
-computational domain. 
-
-\par To minimise unphysical wave reflections, we implement wave killing zones
-close to the inner and outer radial boundaries. The inner wave killing zones
-cover 0.5 AU near the inner and outer edges of the computational domain. In
-these zones, we add an additional damping term, in the evolution equations of
-each fluid variable
-
+Dla wybranej temperatury $T_0$ dysku, całka w mianowniku po prawej stronie
+równanie~\mref{eq:rho} przyjmuje wartości z przedziału $[0.4,2]\AU$ dla $R \in
+[2,7]\AU$. Dla ułatwienia obliczeń przyjmujemy, że wartość tej całki wynosi $1\AU$.
+Warunek początkowy opiera się o radialną równowagę sił obliczoną niezależnie dla
+składnika gazowego i pyłowego. Gaz utrzymywany jest w równowadze hydrostatycznej
+pomiędzy grawitacją, siła odśrodkową i gradientem ciśnienia, pył natomiast
+porusza się z prędkością keplerowską tak, aby równoważyć radialną skłądową
+grawitacji.
+\par Aby zminimalizować niefizyczne odbicia fal od radialnych brzegów domeny,
+wprowadzono obszary tłumiące na wewnętrznych i zewnętrznych obszarach dysku o
+szerokości $\sim0.5\AU$. W obszarach tych wszyskie wielkości płynowe są
+poddawane ewolucji z dodatkowym wyrazem tłumiącym
 \begin{equation}
-  \frac{\textrm{d}X}{\textrm{d}t} = - \frac{X-X_0}{T_d}f(R),
+  \frac{\textrm{d}X}{\textrm{d}t} = - \frac{X-X_0}{T_d}f(R).
 \end{equation}
-together with
+Ze względów stabilności numerycznej funkcja $f(R)$ ma skomplikowany przebieg
 \begin{equation}
    \begin{split} 
       f(R) &= 1 - \tanh\left(\left(R - R_\textrm{in} + 1
@@ -310,55 +291,53 @@ together with
       R_\textrm{out} + 1\right)^{f_\textrm{out}}\right), 0\right\}, 
    \end{split}
 \end{equation}
-where $X_0$ is the initial value of $X$ and $T_d$ is the damping timescale. We
-chose $T_d$ of the order of orbital period.  The exponents
-$f_\textrm{in}=f_\textrm{out}=10$ control the width of the transition layer
-between the unmodified to the damped zones. Within the damped zones, the effects
-of undesired wave reflection are essentially minimised.
+gdzie $X_0$ jest początkową wartością $X$, a $T_d$ jest skalą czasową tłumienia,
+rzędu okresu orbitalnego na najniższej orbicie.
+Wykładniki $f_\textrm{in}=f_\textrm{out}\equiv10$ określają szerokość przedziału
+przejściowego pomiędzy obszarem ewoluującym bez tłumienia, a obszarem tłumionym
+i zostały dobrane tak, aby tłumienie nie wpływało w znaczącym stopniu na
+stabilność całego układu.
 %
-\subsection{Simulation parameters}
+\subsection{Parametry symulacji}
 %
-We have performed a parameter sweep for the ratio of dust to gas density
-$\epsilon$ and the size of particles $a$, at two different resolutions of the
-computational grid in 2D, and additionally we have realized one of the models in
-3D. Our choice of these parameters follows closely that of JY07, to enable
-detailed comparison of the results.
-
-The full list of simulations together with their main parameters is presented in
-Table~\ref{tab1}. In all simulations the domain has height of $0.293$~AU,
-for 2D it covers radii from 2 to 7~AU, whereas BB3D extends from 2 to 12~AU and
-spans $\varphi\in[0, \pi/6]$.  Following JY07 we vary $\epsilon$ from 0.2 to
-2.0~in order to exhibit morphologically different outcomes of nonlinear phase of
-streaming instability.  We choose particle radii to be grater than $10$~cm and
-less than $50$~cm so that (1) particles fall into Epstein regime in all
-simulations, (2) their size could be plausibly explained by the growth processes
-e.g. collisional agglomeration.
+W ramach pracy doktorskiej przeprowadzono szereg symulacji 2D modyfikując
+początkowy $\epsilon$ oraz promień cząstek $a$, w celu weryfikacji użytych metod
+i wskazania optymalnych parametrów dla pełnych symulacji trójwymiarowych. Aby
+móc porównać wyniki z pracą innych autorów~\citep{JY07} parametr $\epsilon$
+wybrano z przedziału $[0.2, 2.0]$. Taki dobór parametru $\epsilon$ pozwala także
+wzbudzić morfologicznie różne manifestacje niestabilności strumieniowej, które
+zostaną opisane w dalszej części pracy. Promień cząstek pyłu został dobrany,
+poza zgodnością z JY07, tak aby ziarna pyłu były opisywane poprzez siłę tarcia
+Epsteina i były na tyle małe żeby ich rozmiar można było wyjaśnić poprzez
+zderzeniowy wzrost opisany w rozdziale 1. Pełne zestawienie użytych parameterów
+zostało przedstawione w tabeli~\ref{tab1}.
 
 \begin{table}
    \centering
    \begin{tabular}{cccccc}
       \hline
-      Run & $N_r \times N_\varphi \times N_z$ &
+      Nazwa & $N_r \times N_\varphi \times N_z$ &
       $a$~[cm] & $\epsilon$ & $T_\textrm{end}$~[yr] \\
       \hline
-      BB3D &  $5120  \times 128 \times 150$  & 50  & 1.0 & 500  \\
-      AA   &  $5120  \times 1   \times 300$  & 10  & 0.2 & 3000 \\
-      AB   &  $5120  \times 1   \times 300$  & 10  & 1.0 & 3000 \\
-      AC   &  $5120  \times 1   \times 300$  & 10  & 2.0 & 3000 \\
-      BA   &  $5120  \times 1   \times 300$  & 50  & 0.2 & 3000 \\
-      BB   &  $5120  \times 1   \times 300$  & 50  & 1.0 & 3000 \\
-      BC   &  $5120  \times 1   \times 300$  & 50  & 2.0 & 3000 \\
-      AAh  &  $10240 \times 1   \times 600$  & 10  & 0.2 & 1700 \\
-      AAu  &  $20480 \times 1   \times 1200$ & 10  & 0.2 & 1800 \\
-      ABh  &  $10240 \times 1   \times 600$  & 10  & 1.0 & 1400 \\
-      BAh  &  $10240 \times 1   \times 600$  & 50  & 0.2 & 1730 \\
-      BBh  &  $10240 \times 1   \times 600$  & 50  & 1.0 & 3000 \\
+      BD3d  &  $2560  \times 512 \times 192$  & 50  & 3.0 & 400  \\
+      BD3dS &  $2560  \times 512 \times 192$  & 50  & 3.0 & 400  \\
+      AA    &  $5120  \times 1   \times 300$  & 10  & 0.2 & 3000 \\
+      AB    &  $5120  \times 1   \times 300$  & 10  & 1.0 & 3000 \\
+      AC    &  $5120  \times 1   \times 300$  & 10  & 2.0 & 3000 \\
+      BA    &  $5120  \times 1   \times 300$  & 50  & 0.2 & 3000 \\
+      BB    &  $5120  \times 1   \times 300$  & 50  & 1.0 & 3000 \\
+      BC    &  $5120  \times 1   \times 300$  & 50  & 2.0 & 3000 \\
+      AAh   &  $10240 \times 1   \times 600$  & 10  & 0.2 & 1700 \\
+      AAu   &  $20480 \times 1   \times 1200$ & 10  & 0.2 & 1800 \\
+      ABh   &  $10240 \times 1   \times 600$  & 10  & 1.0 & 1400 \\
+      BAh   &  $10240 \times 1   \times 600$  & 50  & 0.2 & 1730 \\
+      BBh   &  $10240 \times 1   \times 600$  & 50  & 1.0 & 3000 \\
       \hline
    \end{tabular}
-\caption{Simulation parameters. Columns give, from left to right, name of the
-   run, span of the computational domain in AU (r,z) and azimuthal angle, grid
-   resolution, particle diameter in cm, solids-to-gas ratio, and total run time
-   in units of years.} 
+\caption{Parametry użyte w symulacjach. Kolumny opisują w kolejności: oznaczenie
+   kodowe symulacji, ilość komórek obliczeniowych w kierunkach $r$, $\varphi$ i
+   $z$, promień cząstek, początkowy stosunek gęstości pyłu do gęstości gazu,
+całkowity czas trwania symulacji w latach.}
 \label{tab1}
 \end{table}
 
