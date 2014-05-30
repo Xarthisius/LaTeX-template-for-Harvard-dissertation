@@ -163,6 +163,14 @@ podrozdziale~\ref{simulation_analysis}.
 %with reference to similar case shown by JY07.
 
 \section{Symulacje dwuwymiarowe}
+Poniżej przedstawiono opis wyników uzyskanych dla symulacji w przypadku
+dwuwymiarowym. Ich celem, w połączeniu z liniową analizą stabilności, była
+weryfikacja zaimplementowanych metod oraz poprawności przyjętego modelu. Każdy z
+przedstawionych wyników można porównać do analogicznych eksperymentów
+numerycznych z pracy JY05~\cite{JY05}. Pomimo istotnych różnic w użytych
+metodach (JY stosowali kod wysokiego rzędu -- PENCIL, a także traktowali pył
+jako cząstki materialne, a nie płyn), wyniki we wszytkich przypadkach wykazują
+zgodność ilościową i jakościową.
 
 \subsection{Luźno związane ,,kamienie''}% ($a=50\,\textrm{cm}$, $\tau_s\approx
 %1.2$)\label{marg_boulders}}
@@ -193,7 +201,7 @@ do znacznego wzrostu lokalnej gęstości pyłu i uformowania się
 charakterystycznych, wydłużonych diagonalnie włókien. Po osiągnięciu nasycenia i
 przejścia do nieliniowej ewolucji, włókna, na skutek dużej prędkości w kierunku
 wertykalnym ulegają fragmentacji i wzajemnie się przenikają. Jednakże pył dalej
-poruszą się po charaterystycznych "v"--kształtnych trajektoriach, które
+poruszą się po charaterystycznych ,,v''--kształtnych trajektoriach, które
 wytworzyły się podczas liniowej fazy ewolucji. Migawki z czasowej ewolucji
 gęstości pyłu zostały przedstawione na obrazku~\ref{fig1}. Wyraźny jest wpływ
 początkowego stosunku gęstości pyłu do gęstości gazu $\epsilon$ na morfologię
@@ -205,7 +213,7 @@ rozciągnięte w kierunku \emph{z}. We wszystkich wypadkach niestabilność
 strumieniowa prowadzi do lokalnego wzrostu gęstości o prawie 2 rzędy wielkości.
 Ze względu na swoją gęstość
 
-\section{Tightly Coupled Boulders}
+\subsection{Mocno sprzężony ,,żwir''}
 %($a=10\,\textrm{cm}$, $\tau_s\approx 0.24$)
 %\label{tight_boulders}}
 \begin{figure*}
@@ -222,6 +230,26 @@ Ze względu na swoją gęstość
       dolnego (AC) podpanelu.}
    \label{fig2}
 \end{figure*}
+Czasowy przebieg symulacji dla silnie sprzężonego pyłu (AA - AC) został
+przedstawiony na Rysynku~\ref{fig2}. Ewolucja pyłu dla przypadku $\epsilon =
+2.0$ i $10\cm$ ziaren pyłu (AC) nie odbiega znacząco od ewolucji analogicznego
+przypadku dla $50\cm$ ziaren pyłu. Liniowa faza niestabilności podczas której
+pył zostaje zagęszczony dla najbardziej niestabilnych modów, prowadzi do
+wytworzenia się struktur wydłużonych w kierunku wertykalnym. Ze względu na
+mniejsze tempo migracji dla sprzężonych cząstek pyłu, zagęszczenia są pochylone
+w kierunku radialnym tylko w niewielkim stopniu. Maksymalna gęstość pyłu nie
+przekracza dwudziestokrotności wartości początkowej.
+\par Przypadek $\epsilon = 0.2$ charakteryzuje się niskim tempem wzrostu. W
+początkowej liniowej fazie wzrost lokalnej gęstości pyły prowadzi do uformowania
+się charakterystycznej diagonalnej siatki zagęszczeń. Lokalne maksima gęstości
+sięgają nawet stukrotnej wielokrotności stanu początkowego. Jednakże, przejscie
+do fazy nieliniowej prowadzi do gwałtownego rozmycia skupisk pyłu i osiągnięcia
+quasi-stacjonarnego stanu, w którym zagęszczenia podlegają silnej turbulencji,
+zaś ich maksymalna amplituda nie przekracza jednego rzędu wielkości względem
+stanu początkowego (por. Rysunek~\ref{fig4}).
+
+\par Najciekawszym przypadkiem, zasadniczo odbiegającym od pozostałych, jest
+symulacja AB 
 
 Since the fluid approach, contrary to the particle description, is much less
 susceptible to effects of Poisson noise we were able to follow linear phase for
@@ -239,29 +267,29 @@ of the peak densities of dust component over one order of magnitude, which is in
 close agreement with results of JY07 (see Fig.~8 in their work).
 
 \begin{figure} 
+\centering
 \includegraphics[width=0.98\linewidth]{figures/fig3}
-\caption{Dust density snapshot for run ABh showing two "zoom-in" regions where
-cavities emerge from overdensities created during linear phase of evolution
-(left panel) and region totally overwhelmed by bursting void bubbles and vivid
-dust turbulence (right panel). Animation of the run ABh can be found 
-\href{http://youtu.be/NoA5-TiQabQ}{here}.}
+\caption{Migawki gęstości gazu dla symulacji ABh pokazujące dwa ,,zbliżenia''
+   obszarów gdzie: występuje pseudo-kawitacja wynikająca z lokalnych zagęszczen
+   wytworzonych w liniowej fazie wzrostu (lewy panel) oraz region całkowicie
+   opanowany przez wybuchające bąble pustki i silną turbulencję pyłu (prawy
+   panel). Animacja przedstawiająca ewolucję symulacji ABh jest dostępna pod
+   adresem \href{http://youtu.be/NoA5-TiQabQ}{http://youtu.be/NoA5-TiQabQ}.}
 \label{fig3}
 \end{figure}
 
-\par In the dust dominated case (AC) our results closely follow those of JY07 up
-to the point of saturation, where we achieve highly turbulent flow (lower
-subpanel of upper right panel of Fig.~\ref{fig2}) and about 20 fold growth
-in dust density. However, we note that secular evolution of the physical system
-leads to formation of elongated dust overdensities and further growth up to 2
-orders of magnitude as seen in runs with other parameters (see lower subpanel of
-bottom right panel of Fig.~\ref{fig2}).
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/growthAB}
+   \caption{Analityczne tempo wzrostu niestabilności strumieniowej jako funkcja
+      stosunku gęstości pyłu do gęstości gazu. Pozostałe parametry niezbędne do
+      rozwiązania równania~\mref{eq:disprel} zostały wzięte obszaru znajdującego
+      się na lewym panelu Rysunku~\ref{fig2}. Przełamanie przebiegu funkcji dla
+      $\epsilon\sim 1$ jest bezpośrednim powodem ,,kawitacji'' obserwowanej w
+      symulacji AB}
+   \label{fig2b}
+\end{figure}
 
-\par In the gas dominated case (AA) we observe initial overdensity growth over
-two orders of magnitude in a characteristic grid-like pattern.  However, at time
-1200, 440, 325 for runs AA, AAh, AAu respectively, in the course of nonlinear
-evolution the dense dust filaments are abruptly smoothed out resulting in
-oscillatory motion of mild overdensities that are only one order of magnitude
-denser than initial dust distribution (see Fig.~\ref{fig4})
 
 \begin{figure}
    \includegraphics[width=0.98\linewidth]{figures/fig4}
@@ -277,44 +305,6 @@ denser than initial dust distribution (see Fig.~\ref{fig4})
    \label{fig4}
 \end{figure}
 %
-\section{3D run}
-The course of the evolution of our single 3D (BB3D) closely follows the
-corresponding 2D run BB (compare Fig.~\ref{fig5} and Fig.~\ref{fig1}). During
-the linear phase of growth elongated clumps or rather sheets of dense dust are
-formed, as the deviation from axis axisymmetry is almost negligible.
-%
-\begin{figure}
-   \includegraphics[width=0.98\linewidth]{figures/fig5}
-   \caption{Snapshot of dust density distribution from run BB3D taken at
-   $t=500$~yr. Upper panel shows a slice through the disc midplane, whereas lower
-   panel is a part of slice perpendicular to disc plane zoom out to the region
-   that corresponds to physical span of 2D simulations.}
-   \label{fig5}
-\end{figure}
-In order to estimate whether we should expect effects of self-gravity  in the
-nonlinear evolution of streaming instability, we have used \yt{}~\citep{yt} clump
-finding facility to identify all the largest disconnected contour spanning for
-minimum value of 50 computational cells in BB3D run. Then we calculated their
-total mass and velocity dispersion $\sigma$ to obtain Jeans' radius:
-%
-\begin{equation}
-   R_J = 2 GM / \sigma^2.
-\end{equation}
-Subsequently we compared the average size of each individual clump $L =
-\sqrt{\sum_{i\in{\{x,y,z\}}} \max (L_i^2)}$ and found that $L < R_J$ for every
-identified overdense clump, indicating that the clumps fulfill the gravitational
-binding condition (see Fig.~\ref{fig6}). This indicates that in certain
-situations, i.e. for dust dominated runs of the semi-global disc configuration,
-streaming instability acting in a selfgravitating medium can lead to planetesimals
-formation~\citep{J07}.
-
-\begin{figure} 
-  \includegraphics[width=0.98\linewidth]{figures/fig6}
-  \caption{
-     Small patch showing projection of dust density along azimuthal axis from
-     run BB3D with annotated contours of gravitationally bound clumps.}
-  \label{fig6} 
-\end{figure}
 
 \subsection{Comparison to the Results of Linear Stability Analysis}
 In order to analyse the growth of streaming instability we extract small square
@@ -485,4 +475,42 @@ the size of the smallest computational cell.
    \label{fig10} 
 \end{figure}
 
+\section{3D run}
+The course of the evolution of our single 3D (BB3D) closely follows the
+corresponding 2D run BB (compare Fig.~\ref{fig5} and Fig.~\ref{fig1}). During
+the linear phase of growth elongated clumps or rather sheets of dense dust are
+formed, as the deviation from axis axisymmetry is almost negligible.
+%
+\begin{figure}
+   \includegraphics[width=0.98\linewidth]{figures/fig5}
+   \caption{Snapshot of dust density distribution from run BB3D taken at
+   $t=500$~yr. Upper panel shows a slice through the disc midplane, whereas lower
+   panel is a part of slice perpendicular to disc plane zoom out to the region
+   that corresponds to physical span of 2D simulations.}
+   \label{fig5}
+\end{figure}
+In order to estimate whether we should expect effects of self-gravity  in the
+nonlinear evolution of streaming instability, we have used \yt{}~\citep{yt} clump
+finding facility to identify all the largest disconnected contour spanning for
+minimum value of 50 computational cells in BB3D run. Then we calculated their
+total mass and velocity dispersion $\sigma$ to obtain Jeans' radius:
+%
+\begin{equation}
+   R_J = 2 GM / \sigma^2.
+\end{equation}
+Subsequently we compared the average size of each individual clump $L =
+\sqrt{\sum_{i\in{\{x,y,z\}}} \max (L_i^2)}$ and found that $L < R_J$ for every
+identified overdense clump, indicating that the clumps fulfill the gravitational
+binding condition (see Fig.~\ref{fig6}). This indicates that in certain
+situations, i.e. for dust dominated runs of the semi-global disc configuration,
+streaming instability acting in a selfgravitating medium can lead to planetesimals
+formation~\citep{J07}.
+
+\begin{figure} 
+  \includegraphics[width=0.98\linewidth]{figures/fig6}
+  \caption{
+     Small patch showing projection of dust density along azimuthal axis from
+     run BB3D with annotated contours of gravitationally bound clumps.}
+  \label{fig6} 
+\end{figure}
 % vim: tw=80 ts=3: 
