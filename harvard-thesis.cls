@@ -120,14 +120,14 @@
 	\thispagestyle{empty}
 	\vspace*{\fill} \vspace{150pt} \begin{center}
 	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
-	a dissertation presented \\ by\\
-	\theauthor\\ to\\ The \@department\\
+	rozprawa doktorska \\
+	\theauthor\\ przedłożona\\ Radzie \@department\\
 	\vspace{12pt}
 	in partial fulfillment of the requirements\\
 	for the degree of\\ \@degree\\
 	in the subject of\\ \@field\\
 	\vspace{12pt}
-	\@university\\ \@universitycity, \@universitystate\\
+	\@university\\ \@universitycity \@universitystate\\
 	\@degreemonth\ \@degreeyear
 	\end{center} \vspace*{\fill}
 }
