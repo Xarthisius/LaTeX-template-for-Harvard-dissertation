@@ -152,20 +152,6 @@ składowych wektora $\tilde{\mathbf{q}}$.
 Tempo wzrostu niestabilności definiujemy jako urojoną część zespolonej
 częstotliwości $s=\Im(\omega)$.
 %
-\begin{figure*}
-   \centering
-   \includegraphics[width=0.99\linewidth]{figures/fig2a}
-   \includegraphics[width=0.99\linewidth]{figures/fig2b}
-   \includegraphics[width=0.99\linewidth]{figures/fig2c}
-   \includegraphics[width=0.99\linewidth]{figures/fig2d}
-   \caption{Migawki gęstości pyłu dla symulacji z $10$~cm ziarnami pyłu
-      dla czasu $100$, $200$, $800$ oraz $1200$~lat odpowiednio dla lewego
-      górnego, prawego górnego, dolnego lewego i dolnego prawego panelu.
-      Każdy z paneli jest podzielony na trzy części różniące się początkowym 
-      $\epsilon = 0.2, 1, 2.0$ odpowiednio dla górnego (AA), środkowego (AB) i
-      dolnego (AC) podpanelu.}
-   \label{fig2}
-\end{figure*}
 
 Początkowe stadia ewolucji niestabilności strumieniowej są podobne dla
 wszystkich wartości parametrów $\epsilon$ i $a$ t.j. dominują mody liniowe.
@@ -179,6 +165,7 @@ podrozdziale~\ref{simulation_analysis}.
 \section{Symulacje dwuwymiarowe}
 
 \subsection{Luźno związane ,,kamienie''}% ($a=50\,\textrm{cm}$, $\tau_s\approx
+%1.2$)\label{marg_boulders}}
 
 \begin{figure*}
    \centering
@@ -194,27 +181,47 @@ podrozdziale~\ref{simulation_analysis}.
       dolnego (BC) podpanelu.}
    \label{fig1}
 \end{figure*}
-%1.2$)\label{marg_boulders}}
 %
-As noted by JY07, streaming instability is the most prominent for $\tau_s = 1$
-and exhibits fast linear growth and heavy dust clumping.  Figure~\ref{fig1}
-shows temporal evolution of streaming instability for different initial dust to
-gas ratios $\epsilon$. In all cases (BA, BB, BC) elongated clumps are formed.
-When the saturated state is reached, due to the high vertical speed of dust
-overdensities, the filaments undergo occasional fragmentation and collisions
-with each other, though still following "v"-shaped trajectories that emerged
-during linear phase. The most prominent differences between BA, BB and BC are:
-(1) the characteristic length of local clumps is decreasing with the increase of
-initial $\epsilon$ and (2) their tendency to lean in radial direction: in BB
-structures are almost purely diagonal, whereas in BA and BC are much more
-elongated in the vertical direction.
-Similarly to JY07, in all cases (BA, BB, BC) the density peaks of the dust
-component in the non-linear regime settle at levels about 2 order of magnitude
-higher than initial density.
+
+Niestabilność strumieniowa wzbudza się najbardziej spektakularnie dla cząstek
+pyłu o $\tau_s \sim 1$, kiedy sprzężenie z gazem nie jest już tak silne. Przy
+wybranych parametrach symulacji opisanych w rozdziale~\ref{ch2:simpar},
+bezwymiarowy parameter ,,stopping time'' jest bliski jedności dla cząstek pyłu o
+rozmiarach $50\cm$ (BA, BB, BC). Początkowa liniowa faza ewolucji jest
+zdominowana przez wzrost gęstości dla najbardziej niestabilnych modów i prowadzi
+do znacznego wzrostu lokalnej gęstości pyłu i uformowania się
+charakterystycznych, wydłużonych diagonalnie włókien. Po osiągnięciu nasycenia i
+przejścia do nieliniowej ewolucji, włókna, na skutek dużej prędkości w kierunku
+wertykalnym ulegają fragmentacji i wzajemnie się przenikają. Jednakże pył dalej
+poruszą się po charaterystycznych "v"--kształtnych trajektoriach, które
+wytworzyły się podczas liniowej fazy ewolucji. Migawki z czasowej ewolucji
+gęstości pyłu zostały przedstawione na obrazku~\ref{fig1}. Wyraźny jest wpływ
+początkowego stosunku gęstości pyłu do gęstości gazu $\epsilon$ na morfologię
+formujących się obłoków: zarówno ich typowy rozmiar, jak i kąt nachylenia
+względem płaszczyzny dysku. Dla $\epsilon = 1$ pył poruszą się i formuje
+struktury nachylone pod kątem $45^o$, dla pozostałych przypadków $\epsilon=0.2,
+2.0$ kąt nachylenia jest dużo większy, przez co formujące się struktury są
+rozciągnięte w kierunku \emph{z}. We wszystkich wypadkach niestabilność
+strumieniowa prowadzi do lokalnego wzrostu gęstości o prawie 2 rzędy wielkości.
+Ze względu na swoją gęstość
 
 \section{Tightly Coupled Boulders}
 %($a=10\,\textrm{cm}$, $\tau_s\approx 0.24$)
 %\label{tight_boulders}}
+\begin{figure*}
+   \centering
+   \includegraphics[width=0.99\linewidth]{figures/fig2a}
+   \includegraphics[width=0.99\linewidth]{figures/fig2b}
+   \includegraphics[width=0.99\linewidth]{figures/fig2c}
+   \includegraphics[width=0.99\linewidth]{figures/fig2d}
+   \caption{Migawki gęstości pyłu dla symulacji z $10$~cm ziarnami pyłu
+      dla czasu $100$, $200$, $800$ oraz $1200$~lat odpowiednio dla lewego
+      górnego, prawego górnego, dolnego lewego i dolnego prawego panelu.
+      Każdy z paneli jest podzielony na trzy części różniące się początkowym 
+      $\epsilon = 0.2, 1, 2.0$ odpowiednio dla górnego (AA), środkowego (AB) i
+      dolnego (AC) podpanelu.}
+   \label{fig2}
+\end{figure*}
 
 Since the fluid approach, contrary to the particle description, is much less
 susceptible to effects of Poisson noise we were able to follow linear phase for
