@@ -22,10 +22,10 @@ Analiza stabilności opiera się na trzech elementach:
 \end{enumerate}
 Niestety dla układu równań hydrodynamiki dwóch sprzężonych płynów w rozciągłym
 dysku keplerowskim nie istnieje warunek równowagowy. Spowodowane jest to
-migracja pyłu na centrum grawitacji na skutek utraty momemtu pędu przez tarcie
+migracja pyłu na centrum grawitacji na skutek utraty momentu pędu przez tarcie
 aerodynamiczne. Naturalną konsekwencją migracji są znaczne zmiany w radialnym
 profilu rozkładu gęstości pyłu. Należy jednak zauważyć, że charakterystyczna
-skala czasowa migracji jest rzędu setek bądź wiecej lat, przy założeniu iż mamy
+skala czasowa migracji jest rzędu setek bądź więcej lat, przy założeniu iż mamy
 do czynienia z aglomeratami pyłu o rozmiarach metrowych. Z tego względu możemy
 założyć że zmiany w profilu gęstości są procesem powolnym w stosunku do typowego
 tempa wzrostu niestabilności strumieniowej, co zostanie wykazane w dalszej
@@ -37,7 +37,7 @@ dysku. W tym wypadku powinno przeprowadzić się globalną analizę stabilności
 przez rozwiązanie dwupunktowego problem brzegowego (np.~\cite{PHM04, KH06}),
 jednakże takie podejście jest dużo bardziej skomplikowane. Przedstawianą tu
 lokalną analizę należy zatem traktować jako pierwsze przybliżenie pełnej analizy
-stabilności niestabiności strumieniowej. Niestabilne mody uzyskane w ramach
+stabilności niestabilności strumieniowej. Niestabilne mody uzyskane w ramach
 liniowej analizy posłużą nam jako punkt odniesienia dla modów uzyskiwanych w
 globalnym eksperymencie numerycznym.
 
@@ -67,7 +67,7 @@ obu składników można wyrazić poprzez:
 \end{align}
 %
 gdzie wyrazy takie jak $(3/2)\Omega x$ po lewej stronie równań, pojawiają się na
-skutek relatywizacji wszytkich predkości względem liniowego, ścinanego przepływu
+skutek relatywizacji wszystkich prędkości względem liniowego, ścinanego przepływu
 $\mathbf{v}_0 = -(3/2)\Omega x \hat{\mathbf{y}}$ w rotującym układzie
 współrzędnych. Warto nadmienić, że wyraz $-(1/2)\Omega \{u,w\}_x
 \hat{\mathbf{y}}$ po prawej stronie równań ruchu \mref{eqm1}-\mref{eqm2} jest
@@ -77,7 +77,7 @@ wynika z odjęcia wspomnianego wcześniej przepływu średniego. Główną róż
 pomiędzy równaniami \mref{eqm1} oraz \mref{eqm2} jest brak wyrazu ciśnieniowego
 dla składnika pyłowego. Jak zauważyli YG05, można w spójny sposób uwzględnić
 globalny, radialny gradient ciśnienia gazu ograniczając się do liniowego wyrazu,
-który jest zparametryzowany tzw. bezwymiarową miarą rotacji podkeplerowskiej:
+który jest sparametryzowany tzw. bezwymiarową miarą rotacji podkeplerowskiej:
 
 \begin{equation}
 \eta \equiv - \frac{\partial_R P}{2\rho_g\Omega^2 R} \sim \frac{c_s^2}{v_K^2}.
@@ -101,7 +101,7 @@ $\xi = ((1+\epsilon)^2 + \tau_s^2)^{-1}$.
 Linearyzacja równań \mref{eqc1}-\mref{eqm2}, polega na rozbiciu zmiennych na
 część stałą oraz zaburzenie $\mathbf{q} = \bar{\mathbf{q}} + \mathbf{q}^\prime$,
 gdzie $\mathbf{q}=[\rho_d, w_x, w_y, w_z, \rho_g, u_x, u_y, u_z]$. Zakładamy
-równocześnie, że zaburzenie jest osiowosymetryczne (niezależne od współrzędnej $y$)
+równocześnie, że zaburzenie jest osiowo symetryczne (niezależne od współrzędnej $y$)
 i przyjmuje postać fali płaskiej:
 
 \begin{equation}
@@ -139,14 +139,14 @@ gdzie $\epsilon = \bar{\rho}_d/\bar{\rho}_g$. Układ równań
  \label{eq:linset}
 \end{equation}
 %
-Nietrywialne rozwiązania układu linoweg \mref{eq:linset} istnieją wtedy i tylko
+Nietrywialne rozwiązania układu liniowego \mref{eq:linset} istnieją wtedy i tylko
 wtedy gdy równanie dyspersyjne 
 \begin{equation}
  \det|\eurom{A}(k_x,k_z,\omega)|=0.
  \label{eq:disprel}
 \end{equation}
 %
-Dla zadanych wartości $(k_x, k_x)$ relację \mref{eq:disprel} można rozwiąć ze
+Dla zadanych wartości $(k_x, k_x)$ relację \mref{eq:disprel} można rozwiązać ze
 względu na $\omega$ i dzięki temu otrzymać związki pomiędzy amplitudami
 składowych wektora $\tilde{\mathbf{q}}$.
 Tempo wzrostu niestabilności definiujemy jako urojoną część zespolonej
@@ -169,7 +169,7 @@ weryfikacja zaimplementowanych metod oraz poprawności przyjętego modelu. Każd
 przedstawionych wyników można porównać do analogicznych eksperymentów
 numerycznych z pracy JY05~\cite{JY05}. Pomimo istotnych różnic w użytych
 metodach (JY stosowali kod wysokiego rzędu -- PENCIL, a także traktowali pył
-jako cząstki materialne, a nie płyn), wyniki we wszytkich przypadkach wykazują
+jako cząstki materialne, a nie płyn), wyniki we wszystkich przypadkach wykazują
 zgodność ilościową i jakościową.
 
 \subsection{Luźno związane ,,kamienie''}% ($a=50\,\textrm{cm}$, $\tau_s\approx
@@ -194,14 +194,14 @@ zgodność ilościową i jakościową.
 Niestabilność strumieniowa wzbudza się najbardziej spektakularnie dla cząstek
 pyłu o $\tau_s \sim 1$, kiedy sprzężenie z gazem nie jest już tak silne. Przy
 wybranych parametrach symulacji opisanych w rozdziale~\ref{ch2:simpar},
-bezwymiarowy parameter ,,stopping time'' jest bliski jedności dla cząstek pyłu o
+bezwymiarowy parametr ,,stopping time'' jest bliski jedności dla cząstek pyłu o
 rozmiarach $50\cm$ (BA, BB, BC). Początkowa liniowa faza ewolucji jest
 zdominowana przez wzrost gęstości dla najbardziej niestabilnych modów i prowadzi
 do znacznego wzrostu lokalnej gęstości pyłu i uformowania się
 charakterystycznych, wydłużonych diagonalnie włókien. Po osiągnięciu nasycenia i
 przejścia do nieliniowej ewolucji, włókna, na skutek dużej prędkości w kierunku
 wertykalnym ulegają fragmentacji i wzajemnie się przenikają. Jednakże pył dalej
-poruszą się po charaterystycznych ,,v''--kształtnych trajektoriach, które
+poruszą się po charakterystycznych ,,v''--kształtnych trajektoriach, które
 wytworzyły się podczas liniowej fazy ewolucji. Migawki z czasowej ewolucji
 gęstości pyłu zostały przedstawione na obrazku~\ref{fig1}. Wyraźny jest wpływ
 początkowego stosunku gęstości pyłu do gęstości gazu $\epsilon$ na morfologię
@@ -231,7 +231,7 @@ Ze względu na swoją gęstość
    \label{fig2}
 \end{figure*}
 Czasowy przebieg symulacji dla silnie sprzężonego pyłu (AA - AC) został
-przedstawiony na Rysynku~\ref{fig2}. Ewolucja pyłu dla przypadku $\epsilon =
+przedstawiony na Rysunku~\ref{fig2}. Ewolucja pyłu dla przypadku $\epsilon =
 2.0$ i $10\cm$ ziaren pyłu (AC) nie odbiega znacząco od ewolucji analogicznego
 przypadku dla $50\cm$ ziaren pyłu. Liniowa faza niestabilności podczas której
 pył zostaje zagęszczony dla najbardziej niestabilnych modów, prowadzi do
@@ -242,7 +242,7 @@ przekracza dwudziestokrotności wartości początkowej.
 \par Przypadek $\epsilon = 0.2$ charakteryzuje się niskim tempem wzrostu. W
 początkowej liniowej fazie wzrost lokalnej gęstości pyły prowadzi do uformowania
 się charakterystycznej diagonalnej siatki zagęszczeń. Lokalne maksima gęstości
-sięgają nawet stukrotnej wielokrotności stanu początkowego. Jednakże, przejscie
+sięgają nawet stukrotnej wielokrotności stanu początkowego. Jednakże, przejście
 do fazy nieliniowej prowadzi do gwałtownego rozmycia skupisk pyłu i osiągnięcia
 quasi-stacjonarnego stanu, w którym zagęszczenia podlegają silnej turbulencji,
 zaś ich maksymalna amplituda nie przekracza jednego rzędu wielkości względem
@@ -250,10 +250,10 @@ stanu początkowego (por. Rysunek~\ref{fig4}).
 
 \par Najciekawszym przypadkiem, zasadniczo odbiegającym od pozostałych, jest
 symulacja AB ($\epsilon=1.0,\, a=10\cm$). Początkowo ewolucja przebiega w
-identyczny sposób jak dla pozostalych warunków, tzn. pojawia się regularny wzór
+identyczny sposób jak dla pozostałych warunków, tzn. pojawia się regularny wzór
 w gęstości pyłu odpowiadający najbardziej niestabilnym długościom fal. Jednakże 
 po $800\yr$ w symulacji AB (mniej więcej dwa razy szybciej w symulacji ABh)
-pojawiąją się gwałtownie rozszerzające się bąble wypełnione nie wielką ilością
+pojawiają się gwałtownie rozszerzające się bąble wypełnione nie wielką ilością
 pyłu, które silnie koncentrują pył na swoich brzegach (por. Rysunek~\ref{fig3}). 
 Znacząco wzrasta prędkość z którą porusza się pył, po okresie kilkuset lat
 silnie turbulentne ruchy propagują się na całą domenę obliczeniową. Ta
@@ -263,10 +263,10 @@ Dla ustalonych parametrów fizycznych AB tempo wzrostu niestabilności $s$ wypad
 punkcie przegięcia funkcji $s(\epsilon)$. Nawet drobna lokalna odchyłka od
 początkowego stanu, przy rozpiętości $s$ o rząd wielkości na bardzo krótkim
 przedziale $\epsilon$ w znaczny sposób wpływa na ewolucję pyłu. Jest to
-bezpośrenim powodem obserwowanego zjawiska, które YJ określili mianem
+bezpośrednim powodem obserwowanego zjawiska, które YJ określili mianem
 ,,kawitacji''~\footnote{jako analog gwałtownego pojawiania się bardzo rzadkich
    bąbli pyło do nagłego przejścia z fazy ciekłej do gazowej}.
-Turbulencja w pyle prowadzi do wytworzenia się lokalnych zagęszczęn sięgających
+Turbulencja w pyle prowadzi do wytworzenia się lokalnych zagęszczeń sięgających
 rząd wielkości ponad stan początkowy. Jest to zgodne z wynikami przedstawionymi
 przez JY07 (patrz Rysunek.~8 w Ich pracy).
 
@@ -274,7 +274,7 @@ przez JY07 (patrz Rysunek.~8 w Ich pracy).
 \centering
 \includegraphics[width=0.98\linewidth]{figures/fig3}
 \caption{Migawki gęstości gazu dla symulacji ABh pokazujące dwa ,,zbliżenia''
-   obszarów gdzie: występuje pseudo-kawitacja wynikająca z lokalnych zagęszczen
+   obszarów gdzie: występuje pseudo-kawitacja wynikająca z lokalnych zagęszczeń
    wytworzonych w liniowej fazie wzrostu (lewy panel) oraz region całkowicie
    opanowany przez wybuchające bąble pustki i silną turbulencję pyłu (prawy
    panel). Animacja przedstawiająca ewolucję symulacji ABh jest dostępna pod
@@ -300,7 +300,7 @@ przez JY07 (patrz Rysunek.~8 w Ich pracy).
    \caption{
       Maksymalne stosunek gęstości pyłu do gęstości gazu dla trzech symulacji z
       identycznymi, fizycznymi warunkami początkowymi, lecz różną
-      rozdzielczością. Ewolucja niestabilności strumieniowej przebiaga według
+      rozdzielczością. Ewolucja niestabilności strumieniowej przebiega według
       scenariusza: (1) szybki wzrost podczas liniowej fazy ewolucji, który
       zwiększa lokalnie $\epsilon$ o ponad dwa rzędy wielkości, (2) po
       osiągnięciu krytycznego $\epsilon\approx 10$, zagęszczenia pyłu zostają
@@ -319,13 +319,13 @@ przez JY07 (patrz Rysunek.~8 w Ich pracy).
 Aby móc porównać obserwowane tempa wzrostu niestabilności strumieniowej z
 analizą przedstawioną w rozdziale~\ref{sec:lsa} z domeny obliczeniowej
 wyodrębniono małe, kwadratowe ,,łatki'' na wybranych orbitach. Rozmiar wybranych
-obszarów $(0.15^2\AU)$ pozwala traktować je w ramach lokalnego przyliżenia
+obszarów $(0.15^2\AU)$ pozwala traktować je w ramach lokalnego przybliżenia
 kostki ścinanej, a także umożliwia wyrażenie stałych parametrów występujących w
 równaniach \mref{lin1}--\mref{lin4}) poprzez wartości średnie w łatce.
-Można zatem przyjąc, że $\bar{\rho}_g = \left<\rho_g\right>$, $\bar{\rho}_d =
+Można zatem przyjąć, że $\bar{\rho}_g = \left<\rho_g\right>$, $\bar{\rho}_d =
 \left<\rho_d\right>$ to średnie przestrzenne odpowiednio gęstości gazu i
 gęstości pyłu, oraz że ich średni wzajemny stosunek to $\bar{\epsilon} =
-\left<\rho_d / \rho_g\right>$. Jako śrędnią częstość kątowa $\bar{\Omega}$
+\left<\rho_d / \rho_g\right>$. Jako Średnią częstość kątowa $\bar{\Omega}$
 przyjęto częstość kątową środka łatki. Bezwymiarowa miara podkeplerowskiej
 rotacji jest obliczona zgodnie ze wzorem (patrz YG05 rów.~(16) albo JY07
 rów.~(1))
@@ -353,7 +353,7 @@ $\left<\mathbf{u}\right>, \left<\mathbf{w}\right>$ zamiast obliczania ich przy
 pomocy równań~\mref{eq:w0}-\mref{eq:u0}. Nie jest to duże odstępstwo od
 równowagowych warunków, jako ze różnice względem analitycznych wartości nie
 przekraczają $10\%$.
-\par Aby okresłić liniowe tempo wzrostu dla wzbudzanych modów niestabilności
+\par Aby określić liniowe tempo wzrostu dla wzbudzanych modów niestabilności
 rozkład gęstości i prędkości poszczególnych płynów został przekształcony przy
 pomocy transformaty Fouriera, tak aby uzyskać informację o amplitudach. Analiza
 przebiegu czasowego zmienności amplitud dla poszczególnych częstości pozwala
@@ -369,7 +369,7 @@ wyizolować najbardziej niestabilne mody układy. Ten etap analizy dla jednej z
      reprezentuje amplitudę dla wybranej pary liczb falowych $k_x, k_z$.
      $\Delta T = T_e - T_s$ to odcinek czasu dla którego do modów jest
      dopasowywane równanie~\mref{eq:fit}. $T_{\textrm{ref}}$ to punkt
-     odniesienia dla ktorego identyfikowane są dominujące mody na podstawie
+     odniesienia dla którego identyfikowane są dominujące mody na podstawie
      wartości maksymalnej amplitud. Gruba, czarna linia pokazuje uśredniony
      przebieg zmienności dla modów, których amplituda dla $t = T_{\textrm{ref}}$
      jest większa niż $10^{-4}$.} 
@@ -393,7 +393,7 @@ najszybciej są określane poprzez znalezienie modów o najwyższej amplitudzie 
 wybranym momencie czasu $T_{\textrm{ref}} \lesssim T_e$, tuż przed ich
 saturacją. Po określeniu ich tempa wzrostu $s(k_x, k_z)$ jest ono porównywane z
 tempem wzrostu $s_0(k_x, k_z)$ wynikającym bezpośrednio z liniowej analizy dla
-śrenich wielkości płynowych w łatce.
+średnich wielkości płynowych w łatce.
 
 \par Rysunek~\ref{fig8} pokazuje czasową ewolucję amplitud zaburzenia gęstości
 pyłu dla 3 najszybciej rosnących modów, wraz z dopasowaną funkcją~\mref{eq:fit}
@@ -430,19 +430,19 @@ jest zaznaczane przy użyciu punktów. Procedura jest powtarzana dla symulacji o
 tych samych parametrach początkowych, ale różnych rozdzielczościach.
 Powyższy schemat działania pozwala potwierdzić, że liczby falowe dominujących modów
 wzbudzanych w eksperymencie numerycznym, układają wzdłuż wspomnianego wcześniej
-grzebietu. Jedynym czynnikiem ograniczającym jest dostępna rozdzielczość domeny
+grzbietu. Jedynym czynnikiem ograniczającym jest dostępna rozdzielczość domeny
 obliczeniowej. Dla serii symulacji BB3d, BB, BB3d efektywna rozdzielczość siatki
 wyniosła odpowiednio $150^2, 300^2, 600^2$ komórek obliczeniowych. Dominujące
 mody symulacji o najniższej rozdzielczości grupują się poniżej konturu
 ''$(-1.0)$'', zaś dla najwyższej praktycznie wszystkie mają tempo wzrostu
 powyżej $10^{-1}$. Podobne zachowanie jest widoczne dla pozostałych symulacji
-dla których przerowadzono testy zbieżności, tj. AB, ABh (prawy panel na
+dla których przeprowadzono testy zbieżności, tj. AB, ABh (prawy panel na
 rysunku~\ref{fig9}). Powodem obecności wyraźnego obcięcia dla krótki długości
-fali w przeprowadzonych symulacjach jest wenętrzna, numeryczna dyfuzyjność metody
+fali w przeprowadzonych symulacjach jest wewnętrzną, numeryczna dyfuzyjność metody
 RTVD użytej w PIERNIKu. Z przeprowadzonych analiz wynika, że używane algorytmy
-numeryczne potrzebują przynajmniej 32 komórek obliczeniowych na dlugość fali
+numeryczne potrzebują przynajmniej 32 komórek obliczeniowych na długość fali
 niestabilnego modu, aby poprawnie oddać jego tempo wzrostu. Należy przy tym
-zauważyć, że mody opisywane przez mniejszą ilość komórek nadalaj pozostają
+zauważyć, że mody opisywane przez mniejszą ilość komórek nadal pozostają
 niestabilne, aczkolwiek mogą wykazywać mniejsze tempo wzrostu niż to wynikające
 z liniowej analizy stabilności.
 
@@ -460,21 +460,21 @@ z liniowej analizy stabilności.
 \end{figure*}
  
 % \subsection{Convergence}
-We varied the resolution of our simulations to check how our numerical scheme
-affects the obtained solutions. As the streaming instability in general
-"prefers" shorter wavelengths for the optimal growth, increasing resolution
-always leads to more, smaller overdensities emerging during the course of
-evolution (see Fig.~\ref{fig10}). However we note that our results
-follow the fastest growing, linear modes (see Fig.~\ref{fig9}) and
-that most phenomena described in previous sections i.e. cavitation (see
-Fig.~\ref{fig3}) or sudden growth dumping of the tightly coupled
-boulders in the gas dominated regime (see Fig.~\ref{fig4}) are independent of
-the size of the smallest computational cell.
+\par Przeprowadzenie identycznych eksperymentów numerycznych, tylko przy zmianie
+rozdzielczości siatki, pozwoliło na zweryfikowanie poprawności otrzymanych
+rezultatów. Jako że niestabilność strumieniowa w ogólności ,,preferuje'' krótsze
+długości fali, zwiększenia rozdzielczości zawsze prowadzi do wytworzenia coraz
+to mniejszych liniowo zagęszczeń w krótszym czasie~(por. Rysunek~\ref{fig10}).
+Jednakże przeprowadzone symulacje odtwarzają w dobrym stopniu przewidywania
+liniowej analizy stabilności, a także są w stanie oddać wszystkie efekty
+jakościowe, np. ,,kawitację'' (por. Rysunek~\ref{fig3}) czy gwałtowne rozmycie
+niestabilności w przypadku $\epsilon=0.2$ i $a=10\cm$, bez względu na rozmiar
+najmniejszej komórki obliczeniowej.
 
 \begin{figure}
    \includegraphics[width=0.98\linewidth]{figures/fig10}
    \caption{Migawki gęstości pyły dla $t = 160\yr$ dla łatek pochodzących z
-      oribt $R=3.5$ i $4.5\AU$ wyodrębnione z symulacji o tych samych warunkach
+      orbit $R=3.5$ i $4.5\AU$ wyodrębnione z symulacji o tych samych warunkach
       początkowych lecz różnej rozdzielczości siatki obliczeniowej. Górny panel
       symulacja BB, zaś dolny symulacja BBh. Ze względu na właściwości
       niestabilności numerycznej, wyższa rozdzielczość promuje krótsze długości
@@ -483,7 +483,8 @@ the size of the smallest computational cell.
    \label{fig10} 
 \end{figure}
 
-\section{3D run}
+\section{Symulacje trójwymiarowe}
+
 The course of the evolution of our single 3D (BB3D) closely follows the
 corresponding 2D run BB (compare Fig.~\ref{fig5} and Fig.~\ref{fig1}). During
 the linear phase of growth elongated clumps or rather sheets of dense dust are
@@ -515,7 +516,15 @@ streaming instability acting in a selfgravitating medium can lead to planetesima
 formation~\citep{J07}.
 
 \begin{figure} 
-  \includegraphics[width=0.98\linewidth]{figures/fig6}
+  \centering
+  \includegraphics[width=0.4\linewidth]{figures/hist2d_nosg_01.png}
+  \includegraphics[width=0.4\linewidth]{figures/hist2d_sg_01.png} \\
+  \includegraphics[width=0.4\linewidth]{figures/hist2d_nosg_02.png}
+  \includegraphics[width=0.4\linewidth]{figures/hist2d_sg_02.png} \\
+  \includegraphics[width=0.4\linewidth]{figures/hist2d_nosg_03.png}
+  \includegraphics[width=0.4\linewidth]{figures/hist2d_sg_03.png} \\
+  \includegraphics[width=0.4\linewidth]{figures/hist2d_nosg_04.png}
+  \includegraphics[width=0.4\linewidth]{figures/hist2d_sg_04.png} 
   \caption{
      Small patch showing projection of dust density along azimuthal axis from
      run BB3D with annotated contours of gravitationally bound clumps.}
