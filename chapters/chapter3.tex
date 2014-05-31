@@ -297,36 +297,40 @@ przez JY07 (patrz Rysunek.~8 w Ich pracy).
 
 \begin{figure}
    \includegraphics[width=0.98\linewidth]{figures/fig4}
-   \caption{Maximum ratio of dust to gas density for three runs with the same
-      initial conditions, but different resolution. Streaming instability
-      follows regular pattern of evolution: (1) fast linear growth that locally
-      increases $\epsilon$ over 2 orders of magnitude (2) after reaching certain
-      level of $\epsilon \approx 10$, overdensities are abruptly smoothed out
-      (3) instability reaches out saturated, non-linear phase where large,
-      smooth clumps of dust are only 10 times denser than initial condition.
-      Varying resolution only influences the availability of shorter and faster
-      growing modes, i.e. shortens phase (1).  }
+   \caption{
+      Maksymalne stosunek gęstości pyłu do gęstości gazu dla trzech symulacji z
+      identycznymi, fizycznymi warunkami początkowymi, lecz różną
+      rozdzielczością. Ewolucja niestabilności strumieniowej przebiaga według
+      scenariusza: (1) szybki wzrost podczas liniowej fazy ewolucji, który
+      zwiększa lokalnie $\epsilon$ o ponad dwa rzędy wielkości, (2) po
+      osiągnięciu krytycznego $\epsilon\approx 10$, zagęszczenia pyłu zostają
+      gwałtownie rozmyte, (3) niestabilność osiąga wysycenie, nieliniowa
+      ewolucja sprowadza się do oscylacji gęstości pyłu w postaci dużych,
+      rozmytych obszarów o maksymalnej gęstości nieprzekraczającej
+      dziesięciokrotności wartości początkowej. Zmiana rozdzielczości nie ma
+      wpływu na powyższy scenariusz, jedynie wprowadza krótsze i szybciej
+   rosnące długości fal skracając etap (1).}
+
    \label{fig4}
 \end{figure}
 %
 
-\subsection{Comparison to the Results of Linear Stability Analysis}
-In order to analyse the growth of streaming instability we extract small square
-patches from various locations across the computational domain. The patches have
-sizes of $0.15^2$~AU$^2$, thus are small enough so that mean values of physical
-quantities do not vary significantly across them. In the case of 3D run the
-patches are chosen on the {\it r-z} plane at $\varphi = \varphi_\textrm{max} /
-2$. 
-
-We note that in the place of the fixed parameters  describing the unperturbed
-equilibrium  in \mref{lin1}--\mref{lin2}, we use patch-averaged values of
-corresponding dependent variables in equations \mref{eqc1}--\mref{eqm2}. 
-We calculate the spatially averaged densities of gas and dust component
-$\bar{\rho}_g = \left<\rho_g\right>$, $\bar{\rho}_d = \left<\rho_d\right>$ and
-their mutual ratio $\bar{\epsilon} = \left<\rho_d / \rho_g\right>$ . Mean
-angular velocity $\bar{\Omega}$ is taken for the center of the patch.
-Dimensionless measure of sub-Keplerian gas rotation is calculated by means of
-the formula~(see YG05 eq.~(16) or JY07 eq.~(1))
+\subsection{Porównanie wyników z liniową analizą stabilności}
+Aby móc porównać obserwowane tempa wzrostu niestabilności strumieniowej z
+analizą przedstawioną w rozdziale~\ref{sec:lsa} z domeny obliczeniowej
+wyodrębniono małe, kwadratowe ,,łatki'' na wybranych orbitach. Rozmiar wybranych
+obszarów $(0.15^2\AU)$ pozwala traktować je w ramach lokalnego przyliżenia
+kostki ścinanej, a także umożliwia wyrażenie stałych parametrów występujących w
+równaniach \mref{lin1}--\mref{lin4}) poprzez wartości średnie w łatce.
+Można zatem przyjąc, że $\bar{\rho}_g = \left<\rho_g\right>$, $\bar{\rho}_d =
+\left<\rho_d\right>$ to średnie przestrzenne odpowiednio gęstości gazu i
+gęstości pyłu, oraz że ich średni wzajemny stosunek to $\bar{\epsilon} =
+\left<\rho_d / \rho_g\right>$. Jako śrędnią częstość kątowa $\bar{\Omega}$
+przyjęto częstość kątową środka łatki. Bezwymiarowa miara podkeplerowskiej
+rotacji jest obliczona zgodnie ze wzorem (patrz YG05 rów.~(16) albo JY07
+rów.~(1))
+%In the case of 3D run the patches are chosen on the {\it r-z} plane at $\varphi
+%= \varphi_\textrm{max} / 2$. 
 %
 \begin{equation}
    \bar{\eta} = -\frac{c_s^2\left<\partial_R \left<\rho_g\right>_z\right>_R}
@@ -334,124 +338,124 @@ the formula~(see YG05 eq.~(16) or JY07 eq.~(1))
    \label{eq:eta}
 \end{equation}
 %
-In formula \mref{eq:eta} we average gas density in the vertical direction, then
-we calculate the mean radial derivative of $\left<\partial_R \rho_g\right>$. 
-The expression for mean stopping time is derived from \mref{eq:tauf}
+W równaniu~\mref{eq:eta} średnia z gęstości gazu jest liczona najpierw w
+kierunku wertykalnym, a następnie jest obliczana średnia z radialnej pochodnej 
+$\left<\partial_R \rho_g\right>$. Wyrażenie na średni ,,stopping time'' zostało
+wyprowadzone z równania~\mref{eq:tauf}
 \begin{equation}
    \bar{\tau}_f = \rho_\bullet a / \left(\bar{\rho}_g \sqrt{c_s^2 +
    \left<\left|\mathbf{u} - \mathbf{v}\right|^2\right>} \right).
 \end{equation}
 %
-For the sake of consistency gas and dust velocities $\bar{\mathbf{u}},
-\bar{\mathbf{w}}$ are also approximated by their mean values
-$\left<\mathbf{u}\right>, \left<\mathbf{w}\right>$ instead of calculating them
-with the aid of \mref{eq:w0}-\mref{eq:u0}. However, we note that the mean values
-that are naturally achieved during the simulation,  do not diverge from the
-equilibrium solution by more than $10\%$. 
-
-To determine linear growth rates of the excited instability modes we calculate
-Fourier transforms of density and velocity distributions of the dust component.
-We analyse subsequently time variation of amplitudes of individual modes.
-Intermediate results are shown in Fig.~\ref{fig7}. 
+Dla spójności średnie prędkości gazu i pyłu $\bar{\mathbf{u}},
+\bar{\mathbf{w}}$ również są brane jako średnie wartości
+$\left<\mathbf{u}\right>, \left<\mathbf{w}\right>$ zamiast obliczania ich przy
+pomocy równań~\mref{eq:w0}-\mref{eq:u0}. Nie jest to duże odstępstwo od
+równowagowych warunków, jako ze różnice względem analitycznych wartości nie
+przekraczają $10\%$.
+\par Aby okresłić liniowe tempo wzrostu dla wzbudzanych modów niestabilności
+rozkład gęstości i prędkości poszczególnych płynów został przekształcony przy
+pomocy transformaty Fouriera, tak aby uzyskać informację o amplitudach. Analiza
+przebiegu czasowego zmienności amplitud dla poszczególnych częstości pozwala
+wyizolować najbardziej niestabilne mody układy. Ten etap analizy dla jednej z
+łatek został przedstawiony na Rysunku~\ref{fig7}.
 
 \begin{figure}
   \includegraphics[width=0.98\linewidth]{figures/fig7}
 
-  \caption{Temporal evolution of dust density perturbation amplitude in the
-     Fourier space in the patch located at $[2.85,3.15]\times[-0.15,0.15]$~AU
-     from simulation BB.  Each line represents amplitude for a given pair of
-     $k_x, k_z$.  $\Delta T = T_e - T_s$ is time range when modes are fitted
-     with \mref{eq:fit}.  $T_{\textrm{ref}}$ is a reference point in time used
-     to identify most dominant modes using criterion of maximum amplitude value.
-     Thick line is an average of amplitudes that are grater than $10^{-4}$ at
-     reference time $t = T_{\textrm{ref}}$
-   } 
+  \caption{Czasowa ewolucja amplitud zaburzenia gęstości pyłu w przestrzeni
+     fourierowskiej dla łatki z symulacji BB obejmującej obszar 
+     $[2.85,3.15]\times[-0.15,0.15]~\AU^2$. Każda cienka, szara linia
+     reprezentuje amplitudę dla wybranej pary liczb falowych $k_x, k_z$.
+     $\Delta T = T_e - T_s$ to odcinek czasu dla którego do modów jest
+     dopasowywane równanie~\mref{eq:fit}. $T_{\textrm{ref}}$ to punkt
+     odniesienia dla ktorego identyfikowane są dominujące mody na podstawie
+     wartości maksymalnej amplitud. Gruba, czarna linia pokazuje uśredniony
+     przebieg zmienności dla modów, których amplituda dla $t = T_{\textrm{ref}}$
+     jest większa niż $10^{-4}$.} 
    \label{fig7} 
 \end{figure}
 
-We identify time $T_s$ at which the dominating modes emerge from fluctuations
-and start their linear growth phase. Similarly, we identify the end of the
-linear growth phase $T_e$ when modes have grown by few orders of magnitude, and
-start to saturate their growth. We fit exponential function:
+Dla każdego z badanych obszarów określono czas $T_s$ dla którego nie które mody
+zaczynają wyłaniać się z szumu i rozpoczynają fazę liniowego wzrostu. Na
+podobnej zasadzie wyznaczono czas $T_e$, dla którego następuje wysycenie
+wzrostu. Następnie do wszystkich modów na przedziale $\Delta T = T_e - T_s$
+zostaje dopasowana funkcja
 %
 \begin{equation}
-   f(t) = A\exp\left(-s t\right)
+   f(t) = A\exp\left(-s t\right).
    \label{eq:fit}
 \end{equation}
 %
- to the measured density amplitudes in the  period $\Delta T = T_e - T_s$.
+Powyższa procedura pozawala na określenie tempa wzrostu w funkcji liczb falowych
+$s(k_x, k_z)$ dla wszystkich modów podczas ich liniowego wzrostu. Mody rosnące
+najszybciej są określane poprzez znalezienie modów o najwyższej amplitudzie w
+wybranym momencie czasu $T_{\textrm{ref}} \lesssim T_e$, tuż przed ich
+saturacją. Po określeniu ich tempa wzrostu $s(k_x, k_z)$ jest ono porównywane z
+tempem wzrostu $s_0(k_x, k_z)$ wynikającym bezpośrednio z liniowej analizy dla
+śrenich wielkości płynowych w łatce.
 
-That procedure allows us to determine the growth rate $s(k_x, k_z)$ of each
-individual unstable mode, during the linear phase of the instability growth in
-the numerical experiments.  We identify the most rapidly growing modes by
-selecting those with the greatest amplitude at fixed point at the reference time
-$T_{\textrm{ref}}$ before the saturation. We compare the growth rates $s(k_x,
-k_z)$ obtained for each mode  with the solution $s_0(k_x, k_z)$ resulting from
-the linear analysis for the local mean flow parameters. 
-
-In Fig.~\ref{fig8} we show temporal evolution of dust density perturbation
-amplitudes for three dominating instability modes in three experiments BB3d, BB
-and BBh, together with lines fitted to the phase of linear growth and  lines
-representing growth of the amplitudes predicted by the linear analysis of the
-streaming instability.  In the mid resolution run BB the growth rates  are
-$10\div30\%$ smaller than those predicted by linear analysis, what indicates
-that still higher resolution is required to resolve these modes. In the high
-resolution run BBh the results of the numerical experiment tend to converge the
-results of linear stability analysis.  The final saturation amplitudes seem to
-be slightly smaller in high resolution runs. One should note, however, that we
-have chosen the modes of the highest growth rate for each run, which are not the
-same modes in terms of wavenumbers. 
+\par Rysunek~\ref{fig8} pokazuje czasową ewolucję amplitud zaburzenia gęstości
+pyłu dla 3 najszybciej rosnących modów, wraz z dopasowaną funkcją~\mref{eq:fit}
+i tempem wzrostu wynikającym z liniowej analizy dla symulacji BB3d, BB oraz BBh.
+Wyraźnie widoczny jest wpływ rozdzielczości na numeryczne tempo wzrostu, a także
+zbieżność wyników eksperymentu numerycznego z przewidywaniami teoretycznymi. W
+najniższej rozdzielczości tempo wzrostu jest $10\div30\%$ mniejsze niż tempo
+analityczne. Ostateczny poziom saturacji dla poszczególnych symulacji znajduje
+się na różnym poziomie, ale należy zwrócić uwagę na fakt, że zmiana
+rozdzielczości dostarcza coraz to krótszych fal, które mogą rosnąć szybciej i
+zmieniać obraz całkowity niestabilności strumieniowej.
  
 \begin{figure} 
    \includegraphics[width=0.98\linewidth]{figures/fig8}
-   \caption{Temporal evolution of the amplitudes of the dominating instability
-      modes, measured in the dust density (gray line) together with the lines
-      resulting from the linear analysis of the streaming instability (dashed
-      line) and lines of fits of eq.~\mref{eq:fit} to the measured amplitudes
-      (black lines).
-      The linear solution of eq.~\mref{eq:linset} is found for the mean
-      parameters of the rectangular patch at $R=3$~AU for the simulations: BB3d
-      (upper panel), BB (middle panel) and BBh (lower panel). 
+   \caption{Czasowa ewolucja amplitud dominujących modów niestabilności
+      strumieniowej mierzona dla zaburzenia gęstości (szara linia) wraz z
+      dopasowaniem~\mref{eq:fit} (czarna linia) i przewidywanym tempem wzrostu
+      wynikającym z liniowej analizy stabilności (linia przerywana).
+      Rozwiązanie równania~\mref{eq:linset} jest określone na podstawie
+      parametrów średnich kwadratowej łatki ulokowanej na $R=3\AU$ dla symulacji
+      BB3d (górny panel), BB (środkowy panel) and BBh (dolny panel). 
    }
    \label{fig8}
 \end{figure}
 
-\par To extend our analysis we show in Fig.~\ref{fig9} a contour plot
-(following YG05 and YJ07) of the growth rate  $s(k_x, k_z)$, resulting from
-solutions of the dispersion relation \mref{eq:disprel}.  The shape of
-isocontours indicates that the most unstable modes of the streaming instability,
-predicted by linear analysis, form a ridge extending towards  large values of
-$k_x$ and $k_z$.  The plots are constructed for the same set of the physical
-parameters and the mean state parameters derived for  the domain patches at $T=T
-_{\textrm{ref}}$.  We then place  $(k_x, k_z)$ of 9 dominating modes extracted
-at $T = T_{\textrm{ref}}$  for simulations performed at different resolutions.
-
-Our procedure allows us to confirm that  wavenumbers  of the modes, emerging in
-presented numerical models, align with the  ridge of linear solutions at the
-growth rate map.  It is apparent that dominating modes  are limited by available
-numerical resolution. At lower numerical resolutions (run BB3d)  the dominant
-modes locate below the contour labeled as ''$-1.000$''. At the mid resolution of
-run BB some of the modes locate above the contour ''$-1.000$'', and at the high
-resolution most of the modes locate above this contour. Similar tendency can be
-observed for the pair of runs AB and ABh.  We anticipate that the reason for the
-absence of the very short wavenumber modes is the numerical diffusivity of the
-presently  used Relaxing TVD algorithm. Our estimations show that  our code
-requires at least 32 computational cells per wavelength of the unstable mode, to
-accurately represent the linear growth rate, which is much more than is required
-by higher-order schemes~\cite{YJ07, BT09}.
-
+\par Aby rozszerzyć wzmocnić wnioski wypływające z porównania z liniową analizą
+na Rysunku~\ref{fig9} przedstawiono wykres konturowy tempa wzrostu wynikający z
+rozwiązania równania~\mref{eq:disprel} w zależności od liczby falowej. Wyraźnie
+widać na nim, że najszybciej rosnące mody niestabilności strumieniowej układają
+się w charakterystyczny grzbiet w kierunku rosnących $k_x$ i $k_z$. Wykres
+tworzony jest dla stanu średniego w łatce dla czasu $T_{\textrm{ref}}$.
+Następnie 9 dominujących modów wybranych wedle kryterium opisywanego wcześniej
+jest zaznaczane przy użyciu punktów. Procedura jest powtarzana dla symulacji o
+tych samych parametrach początkowych, ale różnych rozdzielczościach.
+Powyższy schemat działania pozwala potwierdzić, że liczby falowe dominujących modów
+wzbudzanych w eksperymencie numerycznym, układają wzdłuż wspomnianego wcześniej
+grzebietu. Jedynym czynnikiem ograniczającym jest dostępna rozdzielczość domeny
+obliczeniowej. Dla serii symulacji BB3d, BB, BB3d efektywna rozdzielczość siatki
+wyniosła odpowiednio $150^2, 300^2, 600^2$ komórek obliczeniowych. Dominujące
+mody symulacji o najniższej rozdzielczości grupują się poniżej konturu
+''$(-1.0)$'', zaś dla najwyższej praktycznie wszystkie mają tempo wzrostu
+powyżej $10^{-1}$. Podobne zachowanie jest widoczne dla pozostałych symulacji
+dla których przerowadzono testy zbieżności, tj. AB, ABh (prawy panel na
+rysunku~\ref{fig9}). Powodem obecności wyraźnego obcięcia dla krótki długości
+fali w przeprowadzonych symulacjach jest wenętrzna, numeryczna dyfuzyjność metody
+RTVD użytej w PIERNIKu. Z przeprowadzonych analiz wynika, że używane algorytmy
+numeryczne potrzebują przynajmniej 32 komórek obliczeniowych na dlugość fali
+niestabilnego modu, aby poprawnie oddać jego tempo wzrostu. Należy przy tym
+zauważyć, że mody opisywane przez mniejszą ilość komórek nadalaj pozostają
+niestabilne, aczkolwiek mogą wykazywać mniejsze tempo wzrostu niż to wynikające
+z liniowej analizy stabilności.
 
 \begin{figure*}
   \includegraphics[width=0.48\linewidth]{figures/fig9a}
   \includegraphics[width=0.48\linewidth]{figures/fig9b}
-  \caption{
-     The nine of the fastest growing modes characterized by wavenumbers
-     $(k_x, k_z)$ extracted  from different simulations sharing the
-     same initial conditions (left panel: BB, BBh, BB3d, right panel: AB, ABh)
-     but different resolutions. Contours of growth rates $\log_{10}( s(k_x,
-     k_z))$  represent solutions of \mref{eq:disprel} for the mean state
-     parameters derived for  the domain patches at $T = T_{\textrm{ref}}$
-  (for comparison see Fig.~2 of YG05)}
+  \caption{Dziewięć najszybciej rosnących modów o liczbach falowych $(k_x, k_z)$
+     wyodrębnionych z symulacji o tych samych fizycznych warunkach początkowych,
+     lecz różnej rozdzielczości siatki obliczeniowej. (lewy panel: BB3d, BB,
+     BBh, prawy: AB, ABh). Kontury wyznaczają tempo wzrostu $\log_{10}( s_0(k_x,
+  k_z))$ wynikające z rozwiązania równania~ \mref{eq:disprel} dla średniego
+  stanu wybranych łatek w momencie czasu  $T = T_{\textrm{ref}}$ (dla porównania
+  por. Rysunek.~2 z pracy~\cite{YG05})}
    \label{fig9}
 \end{figure*}
  
@@ -469,13 +473,13 @@ the size of the smallest computational cell.
 
 \begin{figure}
    \includegraphics[width=0.98\linewidth]{figures/fig10}
-   \caption{Dust density snapshots at $t = 160$~yr in two small rectangular
-      patches for the two identical simulations parameters (upper: BB, lower:
-      BBh) showing how the resolution affects simulation results at the linear
-      and saturation phase of the instability. It is apparent that shorter
-      wavelength modes dominate at the higher resolution, and that dust
-      condensation structures are sharper.
-   } 
+   \caption{Migawki gęstości pyły dla $t = 160\yr$ dla łatek pochodzących z
+      oribt $R=3.5$ i $4.5\AU$ wyodrębnione z symulacji o tych samych warunkach
+      początkowych lecz różnej rozdzielczości siatki obliczeniowej. Górny panel
+      symulacja BB, zaś dolny symulacja BBh. Ze względu na właściwości
+      niestabilności numerycznej, wyższa rozdzielczość promuje krótsze długości
+      fali, aczkolwiek ostateczny rezultat w nieliniowej fazie ewolucji jest
+      jakościowo identyczny.} 
    \label{fig10} 
 \end{figure}
 
