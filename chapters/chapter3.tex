@@ -491,13 +491,27 @@ the linear phase of growth elongated clumps or rather sheets of dense dust are
 formed, as the deviation from axis axisymmetry is almost negligible.
 %
 \begin{figure}
-   \includegraphics[width=0.98\linewidth]{figures/fig5}
-   \caption{Snapshot of dust density distribution from run BB3D taken at
-   $t=500$~yr. Upper panel shows a slice through the disc midplane, whereas lower
-   panel is a part of slice perpendicular to disc plane zoom out to the region
-   that corresponds to physical span of 2D simulations.}
+   \centering
+   \includegraphics[width=0.44\linewidth]{figures/slice_sg_01}
+   \includegraphics[width=0.44\linewidth]{figures/slice_sg_02} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_sg_03}
+   \includegraphics[width=0.44\linewidth]{figures/slice_sg_04} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_sg_05}
+   \caption{selfgravity}
    \label{fig5}
 \end{figure}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_01}
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_02} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_03}
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_04} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_05}
+   \caption{no selfgravity}
+   \label{fig6}
+\end{figure}
+
 In order to estimate whether we should expect effects of self-gravity  in the
 nonlinear evolution of streaming instability, we have used \yt{}~\citep{yt} clump
 finding facility to identify all the largest disconnected contour spanning for
@@ -525,9 +539,8 @@ formation~\citep{J07}.
   \includegraphics[width=0.4\linewidth]{figures/hist2d_sg_03.png} \\
   \includegraphics[width=0.4\linewidth]{figures/hist2d_nosg_04.png}
   \includegraphics[width=0.4\linewidth]{figures/hist2d_sg_04.png} 
-  \caption{
-     Small patch showing projection of dust density along azimuthal axis from
-     run BB3D with annotated contours of gravitationally bound clumps.}
+  \caption{Histogramy masy pyłu w funkcji promienia i gęstości pyłu, lewa
+  kolumna bez samograwitacji, prawa kolumna z samograwitacja}
   \label{fig6} 
 \end{figure}
 % vim: tw=80 ts=3: 
