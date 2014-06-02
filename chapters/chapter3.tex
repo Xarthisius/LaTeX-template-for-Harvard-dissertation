@@ -6,7 +6,7 @@
 
 \chapter{Wyniki}
 
-\subsection{Liniowa analiza stabilności}
+\section{Liniowa analiza stabilności}
 \label{sec:lsa}
 Jednym z celów naukowych poniższej pracy jest walidacja wyników eksperymentu
 numerycznego poprzez porównanie z tempem wzrostu najsilniejszych modów
@@ -315,7 +315,7 @@ przez JY07 (patrz Rysunek.~8 w Ich pracy).
 \end{figure}
 %
 
-\subsection{Porównanie wyników z liniową analizą stabilności}
+\section{Porównanie wyników z liniową analizą stabilności}
 Aby móc porównać obserwowane tempa wzrostu niestabilności strumieniowej z
 analizą przedstawioną w rozdziale~\ref{sec:lsa} z domeny obliczeniowej
 wyodrębniono małe, kwadratowe ,,łatki'' na wybranych orbitach. Rozmiar wybranych
@@ -592,6 +592,7 @@ związane obiekty. Dla każdego zidentyfikowanego obiektu -- ,,clumpu'', można
 określić relację pomiędzy jego energią kinetyczną, a studnią potencjału w której
 się znajduje. Kryterium związania można wyrazić przez
 \begin{equation}
+   \label{eq:bcrit}
    E_{\textrm{kin}} \equiv \sum\limits_{i=1}^N \frac{m_i\tilde{\mathbf{v}}_i^2}{2} 
    < \sum\limits_{i=1}^N m_i\tilde{\Phi}_i \equiv E_{\textrm{pot}},
 \end{equation}
@@ -617,15 +618,32 @@ modelem
    \tilde{\mathbf{v}}_i = \mathbf{v}_i - \frac{\sum m_i \mathbf{v}_i}{\sum m_i}
    + \alpha c_s^2,
 \end{equation}
-gdzie wartość $\alpha$ ustalono na $0.05$.
+gdzie wartość $\alpha$ ustalono na $0.05$. Zastosowanie
+kryterium~\mref{eq:bcrit} dla każdego zidentyfikowanego obiektu, pozwolilo na
+oszacowanie że ok. $19\%$ masy pyłu po czasie $T = 250\yr$ skupiła się w formie
+grawitacyjnie związanych obłoków. Szczegółowy histogram mas wszystkich
+zidentyfikowanych obiektów został przedstawiony na Rysunku~\ref{fig:masshist}.
+\begin{figure}
+   \centering
+   \includegraphics[width=0.49\linewidth]{figures/masshist.png}
+   \includegraphics[width=0.49\linewidth]{figures/energie.png}
+   \caption{(Lewy panel) Histogram przedstawiający rozkład masy w topologicznie powiązanych
+   obiektach istnięjących w domenie obliczeniowej dla symulacji BB3dS dla czasu
+   $T=250\yr$. Kolorem niebieskiem zaznaczono clumpy związane grawitacyjnie, zaś
+   kolorem czerwonym wszystkie obiekty.
+   (Prawy panel) Przekrój azymutalny przez domenę obliczeniową dla $R=3.84\AU$
+   i $z=0.01\AU$ dla czasu $T=250\yr$ pokazujący energię potencjalną (zgodnie z
+   definicją w równaniu~\mref{eq:bcrit}) oraz sumę energii potencjalnej i energii
+   kinetycznej dla danego clumpu.}
+   \label{fig:masshist}
+\end{figure}
 %
 \begin{figure}
-  \centering
-  \includegraphics[width=0.95\linewidth]{figures/proj1.png}\\
-  \includegraphics[width=0.95\linewidth]{figures/proj2.png}\\
-  \includegraphics[width=0.95\linewidth]{figures/proj3.png}
-  \caption{Gęstość kolumnowa pyłu w symulacji BB3dS dla czasu $T=150, 200,
-  250\yr$}
-  \label{fig:projs} 
+   \centering
+   \includegraphics[width=0.95\linewidth]{figures/proj1.png}\\
+   \includegraphics[width=0.95\linewidth]{figures/proj2.png}\\
+   \includegraphics[width=0.95\linewidth]{figures/proj3.png} \caption{Gęstość
+      kolumnowa pyłu w symulacji BB3dS dla czasu $T=150, 200, 250\yr$}
+   \label{fig:projs}
 \end{figure}
 % vim: tw=80 ts=3: 
