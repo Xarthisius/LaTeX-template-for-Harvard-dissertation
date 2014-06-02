@@ -328,9 +328,9 @@ gęstości pyłu, oraz że ich średni wzajemny stosunek to $\bar{\epsilon} =
 \left<\rho_d / \rho_g\right>$. Jako Średnią częstość kątowa $\bar{\Omega}$
 przyjęto częstość kątową środka łatki. Bezwymiarowa miara podkeplerowskiej
 rotacji jest obliczona zgodnie ze wzorem (patrz YG05 rów.~(16) albo JY07
-rów.~(1))
-%In the case of 3D run the patches are chosen on the {\it r-z} plane at $\varphi
-%= \varphi_\textrm{max} / 2$. 
+rów.~(1)).  Wypadku trójwymiarowych symulacji, które dokładnie zostaną opisane
+w kolejnych częsciach tego rozdziału, ,,łatka'' została wybrana w
+płaszczyźnie {\it r-z} dla $\varphi = \varphi_\textrm{max} / 2$.
 %
 \begin{equation}
    \bar{\eta} = -\frac{c_s^2\left<\partial_R \left<\rho_g\right>_z\right>_R}
@@ -484,11 +484,66 @@ najmniejszej komórki obliczeniowej.
 \end{figure}
 
 \section{Symulacje trójwymiarowe}
+W ramach poniższej pracy przeprowadzono 2 rodzaje symulacji pełnego,
+trójwymiarowego modelu dysku: z uwzględniem efektów samograwitacji płynów
+(BD3dS) oraz bez jej udziału (BB3d, BD3d). Symulacja BB3d została przeprowadzana
+w celu ścisłego porównania wyników z analogicznymi symulacjami dwuwymiarowymi.
+Podobnie jak w przypadku zredukowanym, ewolucja niestabilności strumieniowej
+przebiega głównie w płaszczyźnie \textit{r-z}. Początkowo w gęstości pyłu
+wyłania się przedstawiony już wcześniej ukośny wzór, będący wynikiem działania
+najbardziej niestabilnych modów. Wydłużone zagęszczenia pyłu formują warstwy
+rozciągające się na cały dysk w kierunku azymutalnym. Odstępstwa od osiowej
+symetrii są zauważalne, lecz praktycznie zaniedbywalne w jakościowym opisie
+niestabilności (por. Rysunek~\ref{fig:slicenosg}. Podobnie jak w analogicznych
+symulacjach 2D, saturacja niestabilności następuje po lokalnym wzroście gęstości
+pyłu o $1\div1.5$ rzędu wielkości.
+\par Obraz niestabilności strumieniowej diametralnie się zmienia po
+uwzględnieniu samograwitacji pyłu. Początkowo ewolucja przebiega wzdłuż tego
+samego scenariusza, dominujące mody niestabilności strumieniowej formują
+charakterystyczny wzór--kratkę (Rysunek.~\ref{slicesg}). Tempo tworzenia się
+zagęszczeń w tej fazie $(50 - 100\yr)$ jest tylko nieznacznie większe niż w
+przypadku symulacji pozbawionej samograwitacji. Pierwsza zauważlną różnicą jest
+przekroczenie przez pył gęstości na której wcześniej niestabilność strumieniowa
+się wysycała (por. środkowy panel na Rysunku~\ref{fig:hists}). Jest to prostą
+konsekwencją faktu, że każde formujące się zageszczenie jest dodatkowo
+wspomagane działającą do wewnątrz siłą samograwitacyjną. Po $150\yr$ dysk pyłowy
+staje się dużo bardziej pofragmentowany w kierunku azymutalnym. Odstępstwo od
+osiowiej symetrii jest wyraźnie zauważalne. Warstwy gęstego pyłu na skutek
+wzajemnego oddziaływania grawitacyjnego (jak i własnego ciężaru) zaczynają się
+deformować coraz silniej zmieniając swoją strukturę w kierunku azymutalnym. W
+ciągu kolejnych $50\yr$ samograwitacja ,,ściska'' praktycznie cały pył do jednej
+płaskiej warstwy w płaszczyźnie $R - \varphi$ w formie długich pofalowanych
+włókien (Rysunek~\ref{projs}). W toku dalszej ewolucji włókna fragmentują na
+mniejsze związane grawitacyjnie obiekty -- planetezymale, które podlegają
+dalszym oddziaływaniom dynamicznym. 
+\par Wpływ samograwitacji na ewolucję układu dobrze obrazuje zestawienie
+histogramów masy pyłu w funkcji promienia orbitalnego i gęstości pyłu
+(Rysunek~\ref{fig:hists}). Dla symulacji BD3d, po mimo osiąganięcia przez nią
+lokalnie zagęszczeń o $1\div1.5$ rzędów większych niż początkowy rozkład,
+większość masy pyłu jest równomiernie rozłożona pomiędzy gęstościami $10^{-11}
+\div 5\cdot10^{-10}\g\cm^{-3}$. W połaczeniu obrazem wyłaniającym się z cięć
+przez domenę obliczeniową, sugeruje to krótki czas życia zagęszczeń i
+nieustający przepływ masy pomiędzy obszarami o niskiej i wysokiej gęstości.
+Natomiast w symulacji BD3dS rozkład masy jest zgoła inny. Po osiągnieciu
+granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna ,,uciekać'' w
+kierunku maksymalnej gęstości. Wytwarza się rozkład potęgowy opadający w
+kierunku rzadszych obszarów,  z wyraźnym gwałtownym obcięciem na wartości
+granicznej gęstości $\sim10^{-8}\g\cm^{-3}$.
 
-The course of the evolution of our single 3D (BB3D) closely follows the
-corresponding 2D run BB (compare Fig.~\ref{fig5} and Fig.~\ref{fig1}). During
-the linear phase of growth elongated clumps or rather sheets of dense dust are
-formed, as the deviation from axis axisymmetry is almost negligible.
+%
+\begin{figure}
+   \centering
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_01}
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_02} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_03}
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_04} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_05}
+   \caption{
+      Migawki z symulacji BD3d obrazujące gęstość pyłu w cięciach w
+      płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
+   domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 400$}
+   \label{fig:slicenosg}
+\end{figure}
 %
 \begin{figure}
    \centering
@@ -497,37 +552,12 @@ formed, as the deviation from axis axisymmetry is almost negligible.
    \includegraphics[width=0.44\linewidth]{figures/slice_sg_03}
    \includegraphics[width=0.44\linewidth]{figures/slice_sg_04} \\
    \includegraphics[width=0.44\linewidth]{figures/slice_sg_05}
-   \caption{selfgravity}
-   \label{fig5}
+   \caption{
+      Migawki z symulacji BD3dS obrazujące gęstość pyłu w cięciach w
+      płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
+   domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 250$}
+   \label{fig:slicesg}
 \end{figure}
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_01}
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_02} \\
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_03}
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_04} \\
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_05}
-   \caption{no selfgravity}
-   \label{fig6}
-\end{figure}
-
-In order to estimate whether we should expect effects of self-gravity  in the
-nonlinear evolution of streaming instability, we have used \yt{}~\citep{yt} clump
-finding facility to identify all the largest disconnected contour spanning for
-minimum value of 50 computational cells in BB3D run. Then we calculated their
-total mass and velocity dispersion $\sigma$ to obtain Jeans' radius:
-%
-\begin{equation}
-   R_J = 2 GM / \sigma^2.
-\end{equation}
-Subsequently we compared the average size of each individual clump $L =
-\sqrt{\sum_{i\in{\{x,y,z\}}} \max (L_i^2)}$ and found that $L < R_J$ for every
-identified overdense clump, indicating that the clumps fulfill the gravitational
-binding condition (see Fig.~\ref{fig6}). This indicates that in certain
-situations, i.e. for dust dominated runs of the semi-global disc configuration,
-streaming instability acting in a selfgravitating medium can lead to planetesimals
-formation~\citep{J07}.
 
 \begin{figure} 
   \centering
@@ -541,6 +571,16 @@ formation~\citep{J07}.
   \includegraphics[width=0.4\linewidth]{figures/hist2d_sg_04.png} 
   \caption{Histogramy masy pyłu w funkcji promienia i gęstości pyłu, lewa
   kolumna bez samograwitacji, prawa kolumna z samograwitacja}
-  \label{fig6} 
+  \label{fig:hists} 
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\linewidth]{figures/proj1.png}\\
+  \includegraphics[width=0.95\linewidth]{figures/proj2.png}\\
+  \includegraphics[width=0.95\linewidth]{figures/proj3.png}
+  \caption{Gęstość kolumnowa pyłu w symulacji BB3dS dla czasu $T=150, 200,
+  250\yr$}
+  \label{fig:projs} 
 \end{figure}
 % vim: tw=80 ts=3: 
