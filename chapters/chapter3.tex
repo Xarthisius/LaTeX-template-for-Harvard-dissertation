@@ -497,6 +497,21 @@ symetrii są zauważalne, lecz praktycznie zaniedbywalne w jakościowym opisie
 niestabilności (por. Rysunek~\ref{fig:slicenosg}. Podobnie jak w analogicznych
 symulacjach 2D, saturacja niestabilności następuje po lokalnym wzroście gęstości
 pyłu o $1\div1.5$ rzędu wielkości.
+%
+\begin{figure}
+   \centering
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_01}
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_02} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_03}
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_04} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_05}
+   \caption{
+      Migawki z symulacji BD3d obrazujące gęstość pyłu w cięciach w
+      płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
+   domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 400$}
+   \label{fig:slicenosg}
+\end{figure}
+%
 \par Obraz niestabilności strumieniowej diametralnie się zmienia po
 uwzględnieniu samograwitacji pyłu. Początkowo ewolucja przebiega wzdłuż tego
 samego scenariusza, dominujące mody niestabilności strumieniowej formują
@@ -513,37 +528,9 @@ wzajemnego oddziaływania grawitacyjnego (jak i własnego ciężaru) zaczynają 
 deformować coraz silniej zmieniając swoją strukturę w kierunku azymutalnym. W
 ciągu kolejnych $50\yr$ samograwitacja ,,ściska'' praktycznie cały pył do jednej
 płaskiej warstwy w płaszczyźnie $R - \varphi$ w formie długich pofalowanych
-włókien (Rysunek~\ref{projs}). W toku dalszej ewolucji włókna fragmentują na
+włókien (Rysunek~\ref{fig:projs}). W toku dalszej ewolucji włókna fragmentują na
 mniejsze związane grawitacyjnie obiekty -- planetezymale, które podlegają
 dalszym oddziaływaniom dynamicznym. 
-\par Wpływ samograwitacji na ewolucję układu dobrze obrazuje zestawienie
-histogramów masy pyłu w funkcji promienia orbitalnego i gęstości pyłu
-(Rysunek~\ref{fig:hists}). Dla symulacji BD3d, po mimo osiąganięcia przez nią
-lokalnie zagęszczeń o $1\div1.5$ rzędów większych niż początkowy rozkład,
-większość masy pyłu jest równomiernie rozłożona pomiędzy gęstościami $10^{-11}
-\div 5\cdot10^{-10}\g\cm^{-3}$. W połaczeniu obrazem wyłaniającym się z cięć
-przez domenę obliczeniową, sugeruje to krótki czas życia zagęszczeń i
-nieustający przepływ masy pomiędzy obszarami o niskiej i wysokiej gęstości.
-Natomiast w symulacji BD3dS rozkład masy jest zgoła inny. Po osiągnieciu
-granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna ,,uciekać'' w
-kierunku maksymalnej gęstości. Wytwarza się rozkład potęgowy opadający w
-kierunku rzadszych obszarów,  z wyraźnym gwałtownym obcięciem na wartości
-granicznej gęstości $\sim10^{-8}\g\cm^{-3}$.
-
-%
-\begin{figure}
-   \centering
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_01}
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_02} \\
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_03}
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_04} \\
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_05}
-   \caption{
-      Migawki z symulacji BD3d obrazujące gęstość pyłu w cięciach w
-      płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
-   domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 400$}
-   \label{fig:slicenosg}
-\end{figure}
 %
 \begin{figure}
    \centering
@@ -558,7 +545,45 @@ granicznej gęstości $\sim10^{-8}\g\cm^{-3}$.
    domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 250$}
    \label{fig:slicesg}
 \end{figure}
-
+%
+\par Wpływ samograwitacji na ewolucję układu dobrze obrazuje zestawienie
+histogramów masy pyłu w funkcji promienia orbitalnego i gęstości pyłu
+(Rysunek~\ref{fig:hists}). Dla symulacji BD3d, po mimo osiąganięcia przez nią
+lokalnie zagęszczeń o $1\div1.5$ rzędów większych niż początkowy rozkład,
+większość masy pyłu jest równomiernie rozłożona pomiędzy gęstościami $10^{-11}
+\div 5\cdot10^{-10}\g\cm^{-3}$. W połaczeniu obrazem wyłaniającym się z cięć
+przez domenę obliczeniową, sugeruje to krótki czas życia zagęszczeń i
+nieustający przepływ masy pomiędzy obszarami o niskiej i wysokiej gęstości.
+Natomiast w symulacji BD3dS rozkład masy jest zgoła inny. Po osiągnieciu
+granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna ,,uciekać'' w
+kierunku maksymalnej gęstości. Wytwarza się rozkład potęgowy opadający w
+kierunku rzadszych obszarów, z wyraźnym gwałtownym obcięciem na wartości
+granicznej gęstości $\sim10^{-8}\g\cm^{-3}$.
+\par Histogram masy niestety nie daję informacji o kształcie i
+charakterystycznych skalach obiektów w których znajduje się większość masy pyłu,
+ani nie pozwala stwierdzić czy pył jest grawitacyjnie związany. W celu
+rozszerzenia przeprowadzonej analizy zebrany materiał poddano procedurze
+identyfikacji topologicznie powiązanych ze sobą komórek w przedziale gęstości
+$10^{-10}\div10^{-8}\g\cm^{-3}$ obliczeniowych za pomocą
+pakietu~\yt{}~\footnote{Szczegółowe informacje na temat
+\emph{clump-finder'a} można znaleźć w rozdziale 7.7 w pracy~\cite{yt}. Autor
+niniejszej pracy rozszerzył pakiet \yt{} o możliwość czytania plików wynikowych
+z kodu PIERNIK, a także zaimplementował wsparcie dla współrzędnych
+cylindrycznych.}.
+Uzyskanie informacji o topologii rozkładu gęstości pyłu jest pierwszym krokiem
+w celu ustalenia, czy powstające zagęszczenia są w stanie utworzyć grawitacyjnie
+związane obiekty. Dla każdego zidentyfikowanego obiektu -- ,,clumpu'', można
+określić relację pomiędzy jego energią kinetyczną, a studnią potencjału w której
+się znajduje. Kryterium związania można wyrazić przez
+\begin{equation}
+   E_{\textrm{kin}} \equiv \sum\limits_{i=1}^N \frac{m_i\tilde{\mathbf{v}}_i^2}{2} 
+   < \sum\limits_{i=1}^N m_i\Phi_i \equiv E_{\textrm{pot}},
+\end{equation}
+gdzie $N$ to liczba komórek obliczeniowych wchodzących w skład clumpu, $m_i$,
+$\tilde{\mathbf{v}}$, $\Phi_i$ to odpowiednio masa pyłu, prędkość w układzie
+środka masy clumpu, potencjał wynikający z samograwitacji w poszczególnej
+komórce. 
+%
 \begin{figure} 
   \centering
   \includegraphics[width=0.4\linewidth]{figures/hist2d_nosg_01.png}
