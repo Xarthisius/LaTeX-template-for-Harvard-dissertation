@@ -14,28 +14,28 @@ na:
    \item zachowawczym schemacie numerycznym Relaxing TVD~\cite{jin-xin-95} w
       połączeniu z dzielonym, kierunkowym całkowaniem przestrzennym i czasowym
       przy użyciu algorytmu Runge-Kutta drugiego
-      rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P}.
+      rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P},
    \item implementacji wielopłynowości, tj. możliwości symulowania wielofazowego
       ośrodka np. płynu neutralnego i płynu bezciśnieniowego (pył) z
-      uwzględnieniem oddziaływań międzypłynowych~\cite{piernik1,piernik2}
+      uwzględnieniem oddziaływań międzypłynowych~\cite{piernik1,piernik2},
    \item solwerze multigridowym pozwalającym efektywnie rozwiązywać paraboliczne
       i eliptyczne równania różniczkowe, a w szczególności równanie Poissona
-      opisujące samograwitację pyłu
+      opisujące samograwitację pyłu~\citep{HG00},
    \item solwerze multipolowym pozwalającym na szybkie określenie warunków
-      brzegowych dla potencjału grawitacyjnego.
+      brzegowych dla potencjału grawitacyjnego~\citep{J77}.
    \item implementacji cylindrycznego układu współrzędnych w postaci
-      zachowującej moment pędu~\cite{M07,SO10}.
+      zachowującej moment pędu~\cite{M07,SO10},
    \item implementacji algorytmu szybkiego transportu
       eulerowskiego~\footnote{ang. \emph{Fast Advection in Rotating Gaseous Objects --
-      FARGO}}~\citep{fargo} w ujęciu wielopłynowym.
+      FARGO}}~\citep{M00} w ujęciu wielopłynowym.
 
 \end{itemize}
-Ponadto PIERNIK korzysta z algorytmu typu \emph{Constraint Transport}
-zapewniającego bez źródłowość ewolucji pola magnetycznego, a także możliwość
-wykonywania symulacji przy użyciu siatek adaptywnych~\footnote{ang.
-\emph{Adaptive Mesh Refinement -- AMR}}.
-\par Obliczenia opisywane w tej pracy zostały przeprowadzone z
-wykorzystaniem:
+Ponadto PIERNIK korzysta z algorytmu typu \emph{Constraint
+Transport}~\cite{EH88} zapewniającego bez źródłowość ewolucji pola
+magnetycznego, a także możliwość wykonywania symulacji przy użyciu siatek
+adaptywnych~\footnote{ang.  \emph{Adaptive Mesh Refinement -- AMR}}.  
+%
+\par Obliczenia opisywane w tej pracy zostały przeprowadzone z wykorzystaniem:
 
 \begin{itemize}
    \item infrastruktury PL-Grid, w szczególności klastrów
@@ -60,8 +60,8 @@ takiego modelu następującą postać:
 
 % CONSERVATIVE FORM
 \begin{align}
-\partial_t \rho_g &+ \nabla\cdot\left(\rho_g\mathbf{u}\right) = 0,\\
-\partial_t \rho_d &+ \nabla\cdot\left(\rho_d\mathbf{w}\right) = 0,\\
+   \partial_t \rho_g &+ \nabla\cdot\left(\rho_g\mathbf{u}\right) = 0,\label{eq1}\\
+   \partial_t \rho_d &+ \nabla\cdot\left(\rho_d\mathbf{w}\right) = 0,\label{eq2}\\
 \partial_t \left(\rho_g\mathbf{u}\right) &+
    \nabla\cdot(\mathbf{u}\otimes(\rho_g\mathbf{u})+P) \notag\\
  &= -\rho_g\left(\nabla\Phi +
@@ -95,12 +95,11 @@ moment pędu~\cite{M07,SO10}, która wprowadza tylko jeden, dodatkowy wyraz
 $\left((\rho_g u_\phi + P) / R\right)\mathbf{\hat{R}}$ oraz $(\rho_d w_\phi / R)
 \mathbf{\hat{R}}$.
 \par Sprzężenie pomiędzy gazem a pyłem, które przyjmuje postać
-$\rho_d/\tau_f\rho_g(\mathbf{u}-\mathbf{w})$ i
-$1/\tau_f(\mathbf{w}-\mathbf{u})$ odpowiednio dla równań \mref{eq3} i \mref{eq4}
- w zależności od tego jak zostanie potraktowane, może prowadzić do
- znacznego skrócenia kroku czasowego. Z tego względu zdecydowałem o
- implementacji pół niejawnego schematu modyfikującego bezpośrednio prędkości gazu
- i pyłu, zaproponowanego przez~\cite{TB09}.
+$\rho_d/\tau_f\rho_g(\mathbf{u}-\mathbf{w})$ i $1/\tau_f(\mathbf{w}-\mathbf{u})$
+odpowiednio dla równań \mref{eq3} i \mref{eq4} w zależności od tego jak zostanie
+potraktowane, może prowadzić do znacznego skrócenia kroku czasowego. Z tego
+względu zdecydowano o implementacji pół niejawnego schematu modyfikującego
+bezpośrednio prędkości gazu i pyłu, zaproponowanego przez~\cite{TB09}.
 
 %W ramach pracy skupiono się na dyskach rozciągających się relatywnie dużych
 %promienii tj. 2~AU. Zakładając, za pracą~\cite{CD93}, że przejście do
@@ -113,22 +112,178 @@ $1/\tau_f(\mathbf{w}-\mathbf{u})$ odpowiednio dla równań \mref{eq3} i \mref{eq
 %symulowanych przez nas ziaren pyłu. Skala czasowa tarcia przyjmuję zatem
 %następującą postać:
 %
-%
+
+\subsection{PIERNIK}
+Do rozwiązania układu równań \mref{eq1}--\mref{eq4} zastosowano kod numeryczny
+\textbf{PIERNIK} stworzony i rozwijany w Centrum Astronomii UMK.  Implementuje
+on tzw. \textit{metodę relaksacji TVD}~\cite{jin-xin-95}, która zapewnia wysoką
+dokładność rozwiązań równań hydrodynamicznych oraz numeryczną stabilność, przy
+stosunkowo niskich nakładach mocy obliczeniowych. Poniżej przedstawiono krótki
+zarys użytej \textit{metody relaksacji TVD} na przykładzie równania
+
+\begin{equation}\label{diffeuler}
+   \partial_t \mathbf{u} + \partial_{x} \mathbf{F}(\mathbf{u}) = 0.
+\end{equation}
+wzorując się na pracach Trac \& Pen~\cite*{2003PASP..115..303T}
+oraz Pen, et al.~\cite*{2003ApJS..149..447P}, które zostały użyte jako punkt
+wyjścia przy tworzeniu \textbf{PIERNIKa}. 
+
+\paragraph{Podział ,,zaburzenia'' na fale biegnące w prawą i lewą stronę.} ~\\
+
+Układ \mref{diffeuler} można zastąpić układem relaksacyjnym postaci:
+
+\begin{gather}
+   \partial_t \mathbf{u} + \partial_x (c\mathbf{w}) = 0, \label{rel1}\\
+   \partial_t \mathbf{w} + \partial_x (c\mathbf{u}) = 0, \label{rel2}
+\end{gather}
+
+gdzie $c(x,t)$ jest dowolną, dodatnią funkcja nazywaną \emph{prędkością
+mrożącą}, a $\mathbf{w} = \mathbf{F}(\mathbf{u})/c$. Układ relaksacyjny zawiera
+dwa sprzężone, liniowe równania adwekcji wielkości zachowawczych $\mathbf{u}$
+oraz $\mathbf{w}$. Aby rozwiązać równania \mref{rel1} i \mref{rel2} należy
+dokonać zamiany zmiennych:
+
+\begin{gather}
+   \mathbf{u}^R = \frac{\mathbf{u} + \mathbf{w}}{2}, \\
+   \mathbf{u}^L = \frac{\mathbf{u} - \mathbf{w}}{2}, \\
+   \intertext{co pozwala zapisać}
+   \partial_t \mathbf{u}^R + \partial_x (c\mathbf{u}^R) = 0,\label{rel3}\\
+   \partial_t \mathbf{u}^L + \partial_x (c\mathbf{u}^L) = 0.\label{rel4}
+\end{gather}
+
+Równania \mref{rel3} i \mref{rel4} można interpretować jako przepływ wielkości
+zachowawczych w pra\-wą i lewą stronę z prędkością $c$. Sumując można je wyrazić
+jako
+
+\begin{equation}
+   \partial_t \mathbf{u} + \partial_x \mathbf{F}^R - \partial_x \mathbf{F}^L = 0,\\
+\end{equation}
+
+gdzie $\mathbf{F}^R=c \mathbf{u}^R$ i $\mathbf{F}^L=c \mathbf{u}^L$. 
+
+\paragraph{Obliczenie strumieni wielkości zachowawczych metodą \emph{,,pod wiatr''}.}~\\
+
+W celu rozwiązania \mref{rel3} i \mref{rel4} należy policzyć strumienie
+wielkości zachowawczych. W podstawowej wersji \textbf{Piernika--MHD} strumienie
+na brzegach komórek są liczone z dokładnością do drugiego rzędu w przestrzeni
+$\left(\epsilon \sim O\left[(\Delta x)^2\right]\right).$ Duża dokładność jest
+uzyskiwana poprzez obliczenie strumieni pierwszego rzędu
+$\mathbf{F}^{(1),t}_{n+1/2}$ \emph{metodą ,,pod wiatr''}\footnote{ang.
+,,upwind'' method}~\cite{cir}, która zapewnia stabilność rozwiązania w tym
+sensie, że błędy numeryczne nie narastają nieograniczenie w czasie.  Korzystając
+z definicji strumienia $\mathbf{F}_n^{(1),t}=c \mathbf{u}_n^t$, jako wielkości
+określonej na środku komórki, w zależności od kierunku propagacji fali strumień
+na brzegu jest obliczany w następujący sposób:
+
+\begin{equation}
+   \mathbf{F}^{(1),t}_{n+1/2} = 
+   \begin{cases}
+      \mathbf{F}^{(1),t}_{n}  \quad \textrm{jeżeli }c>0,\\
+      \mathbf{F}^{(1),t}_{n+1}\quad \textrm{jeżeli }c<0.
+   \end{cases}
+\end{equation}
+
+Następnie liczona jest poprawka strumieni drugiego rzędu, ponownie z
+uwzględnieniem kierunku propagacji fali:
+
+\begin{align} \label{lab1}
+   \begin{cases} 
+      \Delta \mathbf{F}^{L,t}_{n+1/2} = \frac{\mathbf{F}^t_{n} - \mathbf{F}^t_{n-1}}{2} \\
+      \Delta \mathbf{F}^{R,t}_{n+1/2} = \frac{\mathbf{F}^t_{n+1} - \mathbf{F}^t_{n}}{2}
+   \end{cases} \textrm{ dla prędkości }c>0,\\
+   \label{lab2}\begin{cases} 
+   \Delta \mathbf{F}^{L,t}_{n+1/2} = -\frac{\mathbf{F}^t_{n+1} - \mathbf{F}^t_{n}}{2} \\
+   \Delta \mathbf{F}^{R,t}_{n+1/2} = -\frac{\mathbf{F}^t_{n+2} - \mathbf{F}^t_{n+1}}{2}
+   \end{cases} \textrm{ dla prędkości }c<0.
+\end{align}
+
+\paragraph{Użycie ,,ogranicznika strumienia''.}~\\
+Do wyznaczenia ostatecznej poprawki drugiego rzędu jest użyta specjalna funkcja,
+tzw. \emph{ogranicznik strumienia}. Ograniczniki strumienia są używane, aby
+uniknąć niefizycznych oscylacji, które pojawiłyby się po dodaniu poprawek
+drugiego rzędu w obszarach zawierających nieciągłości.  Ostateczna poprawka jest
+wyznaczana z wyrażenia
+
+\begin{equation}
+   \Delta \mathbf{F}^{t}_{n+1/2} = \phi\left(\Delta
+   \mathbf{F}^{L,t}_{n+1/2},\Delta \mathbf{F}^{R,t}_{n+1/2} \right),
+\end{equation}
+
+gdzie przykładowy ogranicznik strumienia~\cite{leer} to
+
+\begin{equation}
+   \phi(a,b) = 
+   \begin{cases}
+      \frac{2ab}{a+b}, & \textrm{ gdy }ab>0 \\
+      0, & \textrm{ gdy }ab<0
+   \end{cases}.
+\end{equation}
+
+Użycie funkcji $\phi$ jest jednym z warunków metody \emph{relaksacji TVD} i
+przekłada się na stabilność schematu numerycznego.
+
+\paragraph{Całkowanie w czasie}~\\
+
+Całkowanie w czasie jest przeprowadzone przy użyciu standardowego schematu
+Rungego -- Kutty. Najpierw wykonywany jest krok połówkowy
+
+\begin{equation}
+   \mathbf{u}^{t+\Delta t/2}_{n} = \mathbf{u}^{t}_{n} -
+   \left(\frac{\mathbf{F}^t_{n+1/2} - \mathbf{F}^t_{n-1/2}}{\Delta x}
+   \right)\frac{\Delta t}{2} + \mathbf{S}_n^t \frac{\Delta t}{2},
+\end{equation}
+
+gdzie
+
+\begin{equation}
+   \mathbf{F}^{t}_{n+1/2} = \mathbf{F}^{R,t}_{n+1/2} -
+   \mathbf{F}^{L,t}_{n+1/2};\quad \mathbf{S}_n^t\textrm{ --- wyrazy źródłowe}.
+\end{equation}
+
+Następnie, przy użyciu wartości połówkowych $\mathbf{u}^{t+\Delta t/2}_{n}$,
+obliczane są poprawki do strumieni i wykonywany jest całkowity krok czasowy
+
+\begin{equation}
+   \mathbf{u}^{t+\Delta t}_{n} = \mathbf{u}^{t}_{n} -
+   \left(\frac{\mathbf{F}^{t+\Delta t/2}_{n+1/2} - \mathbf{F}^{t+\Delta
+   t/2}_{n-1/2}}{\Delta x} \right)\Delta t + S_n^{t+\Delta t/2}\Delta t.
+\end{equation}
+
+Dodatkowym warunkiem, który trzeba nałożyć na powyższy schemat dla zapewnienia
+stabilności numerycznej, jest założenie, aby prędkość mrożąca $c$ była większa
+niż dowolna prędkość charakterystyczna układu. Dla układu równań Eulera spełnia
+to warunek
+
+\begin{equation}\label{fs}
+   c = |v| + c_s
+\end{equation}
+
+Równanie \mref{fs}, zgodnie z warunkiem CFL zapewniającym stabilność schematu
+
+\begin{equation}\label{cfl}
+   \frac{c_{\textrm{max}}\Delta t}{\Delta x} \le 1,
+\end{equation}
+
+nakłada nam silne ograniczenie na krok czasowy. 
+% Zgodnie z \mref{cfl} im większa prędkość gazu, tym krótszy krok czasowy, co
+% okaże się dużą niedogodnością przy zastosowaniu \emph{klasycznej metody kostki
+% ścinanej} opisanej dalszej części pracy.
+
 \subsection{FARGO}
 Ze względu na obecność rotacji, dyski keplerowskie stanowią mało wdzięczny
 obiekt badań numerycznych, szczególnie w wypadku kiedy charakterystyczne
 prędkości płynu osiągane w interesujących procesach są drobnym ułamkiem
-prędkości rotacji. Zgodnie z warunkiem Couranta-Friedrichsa-Lewy'ego, stabilność
-schematu numerycznego jest zapewniona wtedy i tylko wtedy, kiedy w jednym kroku
-całkowania numerycznego sygnał nie propaguję się dalej niż o jedną komórkę
-obliczeniową. W związku z tym, że zarówno prędkość rotacji dysku keplerowskiego
-jak i azymutalny rozmiar komórki na siatce cylindrycznej jest malejącą funkcją
-promienia, to najsilniejsze ograniczenie na rozmiar kroku czasowego wprowadza
-dynamika gazu na najkrótszej symulowanej orbicie. Jedną z technik pozwalających
-uniknąć powyższych więzów jest algorytm FARGO~\citep{Masset00}. Oryginalnie
-został on zaprojektowany dla dwuwymiarowych dysków, lecz został rozszerzony
-przez innych autorów~\cite{fargo2} do przypadków trójwymiarowych. Poniższa praca
-rozwija go w kontekście wielu płynów.
+prędkości rotacji. Zgodnie z warunkiem Couranta-Friedrichsa-Lewy'ego~\cite{cir},
+stabilność schematu numerycznego jest zapewniona wtedy i tylko wtedy, kiedy w
+jednym kroku całkowania numerycznego sygnał nie propaguję się dalej niż o jedną
+komórkę obliczeniową. W związku z tym, że zarówno prędkość rotacji dysku
+keplerowskiego jak i azymutalny rozmiar komórki na siatce cylindrycznej jest
+malejącą funkcją promienia, to najsilniejsze ograniczenie na rozmiar kroku
+czasowego wprowadza dynamika gazu na najkrótszej symulowanej orbicie. Jedną z
+technik pozwalających uniknąć powyższych więzów jest algorytm FARGO~\citep{M00}.
+Oryginalnie został on zaprojektowany dla dwuwymiarowych dysków, lecz został
+rozszerzony przez innych autorów~\cite{KBK09} do przypadków trójwymiarowych.
+Poniższa praca rozwija go w kontekście wielu płynów.
 
 \par FARGO opiera się na kierunkowym podziale części adwekcyjnej równań
 hydrodynamiki. W kierunku radialnym i wertykalnym stosuje się klasyczny solwer
@@ -222,10 +377,10 @@ Kelvina-Helmholtza~\cite{JHK06}
    \nabla^2 \Phi_{\textrm{self}} = 4\pi G \rho.
 \end{equation}
 Do rozwiązania równania \mref{eq:poisson} został użyty iteracyjny, solwer
-multigridowy~\citep{doi:10.1137/S1064827598346235} połączony z solwerem
-multipolowym~\citep{1977JCoPh..25...71J} w celu odpowiedniego obliczenia
-potencjału na nieperiodycznych brzegach domeny obliczeniowej. Oba algorytmy
-zostały zaimplementowane w PIERNIKu przez dra Artura Gawryszczaka (CAMK W-wa).
+multigridowy~\citep{HG00} połączony z solwerem multipolowym~\citep{J77} w celu
+odpowiedniego obliczenia potencjału na nieperiodycznych brzegach domeny
+obliczeniowej. Oba algorytmy zostały zaimplementowane w PIERNIKu przez dra
+Artura Gawryszczaka (CAMK W-wa).
 
 \section{Warunki początkowe}
 Domena obliczeniowa we wszystkich eksperymentach rozciąga się pomiędzy $2\AU$, a

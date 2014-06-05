@@ -167,7 +167,7 @@ Poniżej przedstawiono opis wyników uzyskanych dla symulacji w przypadku
 dwuwymiarowym. Ich celem, w połączeniu z liniową analizą stabilności, była
 weryfikacja zaimplementowanych metod oraz poprawności przyjętego modelu. Każdy z
 przedstawionych wyników można porównać do analogicznych eksperymentów
-numerycznych z pracy JY05~\cite{JY05}. Pomimo istotnych różnic w użytych
+numerycznych z pracy JY07~\cite{JY07}. Pomimo istotnych różnic w użytych
 metodach (JY stosowali kod wysokiego rzędu -- PENCIL, a także traktowali pył
 jako cząstki materialne, a nie płyn), wyniki we wszystkich przypadkach wykazują
 zgodność ilościową i jakościową.
@@ -431,7 +431,7 @@ tych samych parametrach początkowych, ale różnych rozdzielczościach.
 Powyższy schemat działania pozwala potwierdzić, że liczby falowe dominujących modów
 wzbudzanych w eksperymencie numerycznym, układają wzdłuż wspomnianego wcześniej
 grzbietu. Jedynym czynnikiem ograniczającym jest dostępna rozdzielczość domeny
-obliczeniowej. Dla serii symulacji BB3d, BB, BB3d efektywna rozdzielczość siatki
+obliczeniowej. Dla serii symulacji BB3d, BB, BBh efektywna rozdzielczość siatki
 wyniosła odpowiednio $150^2, 300^2, 600^2$ komórek obliczeniowych. Dominujące
 mody symulacji o najniższej rozdzielczości grupują się poniżej konturu
 ''$(-1.0)$'', zaś dla najwyższej praktycznie wszystkie mają tempo wzrostu
@@ -624,16 +624,18 @@ kryterium~\mref{eq:bcrit} dla każdego zidentyfikowanego obiektu, pozwoliło na
 oszacowanie że ok. $19\%$ masy pyłu po czasie $T = 250\yr$ skupiła się w formie
 grawitacyjnie związanych obłoków. Na wynik ten ma wpływ dobór parametru $\alpha$
 ze względu na postać równania energii kinetycznej~\mref{eq:ekin}. Dla $\alpha <
-0.05$ wyraz staje się zaniedbywalny i nie zmienia liczby związanych obłoków
-pyłu. Dla $\alpha = 0.1$ związana masa pyłu spada do $\sim 9\%$ całkowitej masy.
-Szczegółowy histogram mas wszystkich zidentyfikowanych obiektów ($\alpha =
-0.05$) został przedstawiony na Rysunku~\ref{fig:masshist}.
+0.05$ wyraz wynikający z turbulentnego transportu momentu pędu staje się
+zaniedbywalny i nie zmienia liczby związanych obłoków pyłu. Dla $\alpha = 0.1$
+związana masa pyłu spada do $\sim 9\%$ całkowitej masy.  Szczegółowy histogram
+mas wszystkich zidentyfikowanych obiektów ($\alpha = 0.05$) został przedstawiony
+na Rysunku~\ref{fig:masshist}.
+
 \begin{figure}
    \centering
    \includegraphics[width=0.49\linewidth]{figures/masshist.png}
    \includegraphics[width=0.49\linewidth]{figures/energie.png}
    \caption{(Lewy panel) Histogram przedstawiający rozkład masy w topologicznie powiązanych
-   obiektach istniejących w domenie obliczeniowej dla symulacji BB3dS dla czasu
+   obiektach istniejących w domenie obliczeniowej dla symulacji BD3dS dla czasu
    $T=250\yr$. Kolorem niebieskim zaznaczono clumpy związane grawitacyjnie, zaś
    kolorem czerwonym wszystkie obiekty.
    (Prawy panel) Przekrój azymutalny przez domenę obliczeniową dla $R=3.84\AU$
@@ -647,8 +649,25 @@ Szczegółowy histogram mas wszystkich zidentyfikowanych obiektów ($\alpha =
    \centering
    \includegraphics[width=0.95\linewidth]{figures/proj1.png}\\
    \includegraphics[width=0.95\linewidth]{figures/proj2.png}\\
-   \includegraphics[width=0.95\linewidth]{figures/proj3.png} \caption{Gęstość
-      kolumnowa pyłu w symulacji BB3dS dla czasu $T=150, 200, 250\yr$}
+   \includegraphics[width=0.95\linewidth]{figures/proj3.png}
+   \caption{Gęstość
+      kolumnowa pyłu w symulacji BD3dS dla czasu $T=150, 200, 250\yr$}
    \label{fig:projs}
 \end{figure}
+%
+\begin{figure}
+   \centering
+   \includegraphics[width=0.95\linewidth]{figures/nosg_vlzd_growth}
+   \includegraphics[width=0.95\linewidth]{figures/sg_vlzd_growth}
+   \caption{6 dominujacych modów z BD3d i BD3dS}
+   \label{fig:modes3d}
+\end{figure}
+%   
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/3d_map_x3_50.png}
+   \caption{Mapa stabilności BD3d i BD3dS}
+   \label{fig:modes3d}
+\end{figure}
+% x3_50n.png
 % vim: tw=80 ts=3: 
