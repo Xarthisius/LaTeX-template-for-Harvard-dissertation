@@ -276,14 +276,14 @@ prędkości płynu osiągane w interesujących procesach są drobnym ułamkiem
 prędkości rotacji. Zgodnie z warunkiem Couranta-Friedrichsa-Lewy'ego~\cite{cir},
 stabilność schematu numerycznego jest zapewniona wtedy i tylko wtedy, kiedy w
 jednym kroku całkowania numerycznego sygnał nie propaguję się dalej niż o jedną
-komórkę obliczeniową. W związku z tym, że zarówno prędkość rotacji dysku
-keplerowskiego jak i azymutalny rozmiar komórki na siatce cylindrycznej jest
-malejącą funkcją promienia, to najsilniejsze ograniczenie na rozmiar kroku
-czasowego wprowadza dynamika gazu na najkrótszej symulowanej orbicie. Jedną z
-technik pozwalających uniknąć powyższych więzów jest algorytm FARGO~\citep{M00}.
+komórkę obliczeniową. W związku z tym, że prędkość rotacji dysku keplerowskiego
+jest malejąca, a azymutalny rozmiar komórki na siatce cylindrycznej jest rosnącą
+funkcją promienia, to najsilniejsze ograniczenie na rozmiar kroku czasowego
+wprowadza dynamika gazu na najkrótszej symulowanej orbicie. Jedną z technik
+pozwalających uniknąć powyższych ograniczeń jest algorytm FARGO~\citep{M00}.
 Oryginalnie został on zaprojektowany dla dwuwymiarowych dysków, lecz został
 rozszerzony przez innych autorów~\cite{KBK09} do przypadków trójwymiarowych.
-Poniższa praca rozwija go w kontekście wielu płynów.
+Poniższa praca rozwija go w kierunku zastosowań do układu wielu płynów.
 
 \par FARGO opiera się na kierunkowym podziale części adwekcyjnej równań
 hydrodynamiki. W kierunku radialnym i wertykalnym stosuje się klasyczny solwer
@@ -296,46 +296,69 @@ adwekcję na trzy etapy:
          \bar{\omega}_i = \frac{1}{N_\varphi~N_z} ~ \sum_{j,k} \omega_{i,j,k},
       \end{equation}
       gdzie $N_\varphi,\,N_z$ to odpowiednio liczba komórek w kierunku
-      azymutalnym i wertykalnym.
-
+      azymutalnym i wertykalnym, zaś $\omega_{i,j,k}$ to prędkość kątowa
+      poszczególnych komórek obliczeniowych.
    \item  obliczenie całkowitej liczby komórek dla przesunięcia w kierunku
       azymutalnym
       \begin{equation}
          n_i = {\tt Nint} \left( \bar{\omega}_i \Delta t/\Delta \varphi \right),
       \end{equation}
       gdzie {\tt Nint} oznacza funkcję określającą \emph{najbliższą liczbę
-      całkowitą}. Co można wyrazić jako ,,prędkość przesunięcia''
+      całkowitą}, $\Delta\varphi$ rozmiar komórki w kierunku azymutalnym,
+      $\Delta t$ bieżący krok czasowy. Przesunięcie o odległość $n_i \Delta
+      \varphi$ w czasie $\Delta t$ można wykorzystać do
+      zdefiniowania tzw. ,,prędkości kątowej przesunięcia'' (ang. \emph{Shift
+      velocity})
       \begin{equation}
-         \omega_i^{\rm SH} = n_i \frac{\Delta \varphi}{\Delta t}.
+         \omega_i^{\rm sh} = n_i \frac{\Delta \varphi}{\Delta t}.
       \end{equation}
-   \item obliczenie stałej wartości prędkości ,,rezydualnej'' dla każdego
-      promienia
+   \item obliczenie ,,stałej, rezydualnej'' (ang. \emph{Constant Residual})
+      prędkości kątowej  dla każdego promienia, będącej odchyleniem prędkości
+      przesunięcią od wartości średniej
       \begin{equation}
-         \omega_i^{\rm cr}= \bar{\omega}_i - \omega_i^{\rm SH}
+         \omega_i^{\rm cr}= \bar{\omega}_i - \omega_i^{\rm sh}
       \end{equation}
-   \item obliczenie właściwej prędkości ,,rezydualnej'' dla każdej komórki
+   \item obliczenie właściwej prędkości ,,rezydualnej'' (ang. \emph{residual})
+      dla każdej komórkim, będacej odchyleniem lokalnej prędkości kątowej w
+      każdej komórce od średniej prędkości kątowej na promieniu na którym
+      znajduje się dana komórka obliczeniowa 
       \begin{equation}
          \omega_{i,j,k}^{\rm res} = \omega_{i,j,k} - \bar{\omega}_i
       \end{equation}
 \end{enumerate}
 
-Powyższe cząstkowe prędkości kątowe sumują się do wyjściowej prędkości dla
-poszczególnych komórek
+Powyższe cząstkowe prędkości kątowe $\omega_i^{\rm sh}, \omega_i^{\rm cr},
+\omega_{i,j,k}^{\rm res}$ sumują się do wyjściowej prędkości kątowej
+$\omega_{i,j,k}$ dla poszczególnych komórek:
 
 \begin{equation}
-   \omega_{i,j,k} = \omega_{i,j,k}^{\rm res} + \omega_i^{\rm cr} + \omega_i^{\rm SH}.  
+   \omega_{i,j,k} = \omega_{i,j,k}^{\rm res} + \omega_i^{\rm cr} + \omega_i^{\rm
+sh}.
 \end{equation}
 
-Adwekcja jest następnie wykonywana w trzech krokach, odpowiednio dla każdej
-prędkości kątowej $\omega_i^{\rm SH}, \omega_i^{\rm cr}, \omega_{i,j,k}^{\rm
-res}$: ostatnie dwie prędkości przy użyciu oryginalnego algorytmu numerycznego
-(RTVD), zaś $\omega_i^{\rm SH}$ poprzez zwykłe przesunięcie wartości płynowych o
-całkowitą liczbę komórek. Korzystając z faktu, że $\omega_i^{\rm SH} \gg
-\max\left(\omega_i^{\rm cr}, \omega_{i,j,k}^{\rm res}\right)$, a tylko prędkości
-po prawej stronie nierówności mają wpływ na warunek CFL, w znaczący sposób
-zwiększamy krok czasowy. Co prawda, aby zachować stabilność algorytmu należy
-zapewnić że przesunięcie w kierunku azymutalnym nie odseparuje dwóch sąsiednich
-(w kierunku radialnym i wertykalnym) komórek, co przekłada się na warunek
+Transport zachowawczych wielości płynowych zgodnie z rówaniami \mref{eq1} --
+\mref{eq4} w kierunku azymutalnym jest następnie wykonywana w trzech krokach:
+
+\begin{enumerate}
+   \item przesunięcie wartości wielkości zachowawczych o $n_i$ komórek. Jak już
+      było wcześniej wspomniane, ten krok jest równoznaczny z transportem płynu
+      z prędkością $\omega_i^{\rm sh}$. Ze względu na fakt, iż ta operacja
+      sprowadza się do przeindeksowania komórek obliczeniowych, nie nakłada ona
+      żadnych ograniczeń na numeryczny krok czasowy.
+   \item adwekcja~\footnote{adwekcja jest rozumiana jako rozwiązanie układu
+         równań \mref{eq1} -- \mref{eq4}, tak jakby prawe strony tych równań
+      były równe 0} wielkości zachowawczych z prędkością $\omega_i^{\rm cr}$
+      przy użyciu metody RTVD
+   \item wykonanie pełnego całkowania równań \mref{eq1} -- \mref{eq4} przy
+      założenie, że płyn poruszą się teraz z prędkością kątową
+      $\omega_{i,j,k}^{\rm res}$.
+\end{enumerate}
+Korzystając z faktu, że $\omega_i^{\rm sh} \gg \max\left(\omega_i^{\rm cr},
+\omega_{i,j,k}^{\rm res}\right)$, a tylko prędkości po prawej stronie
+nierówności mają wpływ na warunek CFL, w znaczący sposób zwiększamy krok
+czasowy. Co prawda, aby zachować stabilność algorytmu należy zapewnić że
+przesunięcie w kierunku azymutalnym nie odseparuje dwóch sąsiednich (w kierunku
+radialnym i wertykalnym) komórek, co przekłada się na warunek
 
 \begin{equation}\label{eq:tshear}
    \Delta t_{\rm shear} = 0.5 ~ \min_{i,j,k} \left( \frac{\Delta\varphi}
@@ -386,9 +409,6 @@ Artura Gawryszczaka (CAMK W-wa).
 Domena obliczeniowa we wszystkich eksperymentach rozciąga się pomiędzy $2\AU$, a
 $7\AU$ w kierunku radialnym i ma $0.375\AU$ wysokości. W przypadkach
 trójwymiarowych rozciągłość w kącie azymutalnym wynosi $\pi / 6$.
-Zarówno w kierunku $z$ jak i $\phi$ zastosowano periodyczne warunki brzegowe,
-zaś w kierunku radialnym użyto warunków odbiciowych, aby zapobiec ucieczce masy
-z domeny obliczeniowej.
 
 \par Początkowy rozkład gęstości materii w dysku określony jest poprzez formułę
 wynikająca z przepisu Minimalnej Masy Mgławicy Słonecznej~\footnote{ang.
@@ -399,12 +419,19 @@ wynikająca z przepisu Minimalnej Masy Mgławicy Słonecznej~\footnote{ang.
 \end{equation}
 W przeciwieństwie do MMSN dla której profil temperatury jest wykładniczą funkcją
 promienia, zakładamy że izotermiczny gaz posiada stałą temperaturę $T_0 = 170\K$
-w całej objętości. Przyjmujemy iż zewnętrzny potencjał~\mref{eq:phiext} jest
-określony przez masę punktową $M=1\,\textrm{M}_\odot$
-Po mimo zaniedbywania pionowej składowej grawitacji, określamy charakterystyczną
-pionową skalę wysokości $H$, aby oszacować gęstość przestrzenna na wybranym
-promieniu, wykorzystując~\mref{eq:mmsn}, tak jakby gaz znajdował się w pionowej
-równowadze hydrostatycznej
+w całej objętości. Należy mieć na uwadze, że w izotermicznym gazie najłatwiej
+doprowadzić do formowania się zagęszczeń na skutek jego samograwitacji, w
+porównaniu do przypadku adiabatycznego, który wymaga uważnego potraktowania
+dodatkowych procesów fizycznych t.j. grzanie i chłodzenie się gazu~\cite{Nel00}.
+Ze względu na szereg komplikacji i technicznych przeszkód na drodze do bardziej
+realistycznego opisu gazu, zdecydowano się na zastosowania warunku
+izotermicznego jak najprostszego z możliwych opisów.
+\par Przyjmujemy iż zewnętrzny potencjał~\mref{eq:phiext} jest określony przez
+masę punktową $M=1\,\textrm{M}_\odot$ Po mimo zaniedbywania pionowej składowej
+grawitacji, określamy charakterystyczną pionową skalę wysokości $H$, aby
+oszacować gęstość przestrzenna na wybranym promieniu,
+wykorzystując~\mref{eq:mmsn}, tak jakby gaz znajdował się w pionowej równowadze
+hydrostatycznej
 %
 \begin{equation}\label{eq:rhoR}
    \rho(R,z) =  \rho(R,0) \exp\left(-\frac{z^2}{2H(R)^2}\right),
@@ -412,12 +439,13 @@ równowadze hydrostatycznej
 gdzie $\rho(R,0)$ jest gęstością gazu w płaszczyźnie dysku, a $H^2 = 2 c_s^2 R^3/
 GM$.
 %
-Z definicji gęstości powierzchniowej
+Powyższe równanie całkujemy ze względu na współrzędną \emph{z} korzystająć z
+definicji gęstości powierzchniowej
 \begin{equation} \label{eq:sigmaR}
    \Sigma(R) = \int_{-\infty}^\infty \rho(R,z) dz,
 \end{equation}
 %
-Łącząc równanie~\mref{eq:sigmaR} oraz~\mref{eq:rhoR} otrzymujemy zależność
+otrzymujemy zależność
 \begin{equation}
    \label{eq:rho}
     \rho(R,0) = \frac{\Sigma(R) }{\int_{-\infty}^\infty
@@ -431,6 +459,14 @@ składnika gazowego i pyłowego. Gaz utrzymywany jest w równowadze hydrostatycz
 pomiędzy grawitacją, siła odśrodkową i gradientem ciśnienia, pył natomiast
 porusza się z prędkością keplerowską tak, aby równoważyć radialną składową
 grawitacji.
+
+\paragraph{Warunki brzegowe}
+Zarówno w kierunku $z$ jak i $\phi$ zastosowano periodyczne warunki brzegowe.
+Aby zapobiec ucieczce masy z domeny obliczeniowej w kierunku radialnym użyto
+warunków odbiciowych, tzn. w warstwie brzegowej wielkości płynowe z najbliższej
+brzegu warstwy fizycznej domeny obliczeniowej są kopiowane ze zmianą znaku
+składowej pędu prostopadłej do ściany domeny.
+
 \par Aby zminimalizować niefizyczne odbicia fal od radialnych brzegów domeny,
 wprowadzono obszary tłumiące na wewnętrznych i zewnętrznych obszarach dysku o
 szerokości $\sim0.5\AU$. W obszarach tych wszystkie wielkości płynowe są
@@ -439,7 +475,7 @@ poddawane ewolucji z dodatkowym wyrazem tłumiącym
   \frac{\textrm{d}X}{\textrm{d}t} = - \frac{X-X_0}{T_d}f(R).
 \end{equation}
 Ze względów stabilności numerycznej funkcja $f(R)$ ma skomplikowany przebieg
-\begin{equation}
+\begin{equation}\label{eq:overlap}
    \begin{split} 
       f(R) &= 1 - \tanh\left(\left(R - R_\textrm{in} + 1
       \right)^{f_\textrm{in}}\right)\\ &+ \max\left\{ \tanh\left(\left(R -
@@ -451,7 +487,17 @@ rzędu okresu orbitalnego na najniższej orbicie.
 Wykładniki $f_\textrm{in}=f_\textrm{out}\equiv10$ określają szerokość przedziału
 przejściowego pomiędzy obszarem ewoluującym bez tłumienia, a obszarem tłumionym
 i zostały dobrane tak, aby tłumienie nie wpływało w znaczącym stopniu na
-stabilność całego układu.
+stabilność całego układu. Przebieg funkcji $f(R)$ opisywanej rówananiem
+\mref{eq:overlap} został przedstawiony na rysunku~\ref{fig:overlap}.
+%
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\textwidth]{figures/overlap}
+   \caption{Przebieg funkcji $f(R)$ opisywanej równaniem~\mref{eq:overlap} dla
+   zakresu promieni użytego we wszystkich symulacjach przedstawionych w tej
+pracy.}
+   \label{fig:overlap}
+\end{figure}
 %
 \subsection{Parametry symulacji}\label{ch2:simpar}
 %
@@ -460,12 +506,12 @@ początkowy $\epsilon$ oraz promień cząstek $a$, w celu weryfikacji użytych m
 i wskazania optymalnych parametrów dla pełnych symulacji trójwymiarowych. Aby
 móc porównać wyniki z pracą innych autorów~\citep{JY07} parametr $\epsilon$
 wybrano z przedziału $[0.2, 2.0]$. Taki dobór parametru $\epsilon$ pozwala także
-wzbudzić morfologicznie różne manifestacje niestabilności strumieniowej, które
-zostaną opisane w dalszej części pracy. Promień cząstek pyłu został dobrany,
-poza zgodnością z JY07, tak aby ziarna pyłu były opisywane poprzez siłę tarcia
-Epsteina i były na tyle małe żeby ich rozmiar można było wyjaśnić poprzez
-zderzeniowy wzrost opisany w rozdziale 1. Pełne zestawienie użytych parametrów
-zostało przedstawione w tabeli~\ref{tab1}.
+wzbudzić morfologicznie odmienny wyniki niestabilności strumieniowej, które
+zostaną opisane w dalszej części pracy. Promień cząstek pyłu został dobrany, tak
+aby otrzymane wyniki można było porównać z pracą JY, a także tak, aby były na
+tyle małe aby ich obecność w dysku protoplanetarnym można było wyjaśnić w ramach
+modelu zderzeniowego wzrostu przedstawionego w rozdziale 1. Pełne zestawienie
+użytych parametrów zostało przedstawione w tabeli~\ref{tab1}.
 
 \begin{table}
    \centering

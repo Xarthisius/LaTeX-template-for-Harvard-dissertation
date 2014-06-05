@@ -397,7 +397,7 @@
 \def\mum{\hbox{$\thinspace\mu\textrm{m}$}}
 \def\s{\hbox{$\thinspace\textrm{s}$}}
 \def\K{\hbox{$\thinspace\textrm{K}$}}
-\def\yr{\hbox{$\thinspace\textrm{yr}$}}
+\def\yr{\hbox{$\thinspace\textrm{lat}$}}
 \def\mH{\hbox{$m_{\textrm{H}}$}}
 \DeclareMathAlphabet\EuRoman{U}{eur}{m}{n}
 \SetMathAlphabet\EuRoman{bold}{U}{eur}{b}{n}
