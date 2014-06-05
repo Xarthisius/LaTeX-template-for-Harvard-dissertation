@@ -6,181 +6,6 @@
 
 \chapter{Wyniki}
 
-\section{Liniowa analiza stabilności}
-\label{sec:lsa}
-Jednym z celów naukowych poniższej pracy jest walidacja wyników eksperymentu
-numerycznego poprzez porównanie z tempem wzrostu najsilniejszych modów
-otrzymanych z liniowej analizy stabilności. W tym rozdziale przedstawiono
-poszczególne kroki liniowej analizy stabilności dla niestabilności strumieniowej
-w oparciu o pracę~\citep{YG05}.
-
-Analiza stabilności opiera się na trzech elementach:
-\begin{enumerate}
-   \item znalezieniu stanu równowagi dla zadanego układu równań,
-   \item zaburzeniu układu znaną funkcją o małej amplitudzie 
-   \item wyprowadzeniu modów własnych oraz ich tempa wzrostu.
-\end{enumerate}
-Niestety dla układu równań hydrodynamiki dwóch sprzężonych płynów w rozciągłym
-dysku keplerowskim nie istnieje warunek równowagowy. Spowodowane jest to
-migracja pyłu na centrum grawitacji na skutek utraty momentu pędu przez tarcie
-aerodynamiczne. Naturalną konsekwencją migracji są znaczne zmiany w radialnym
-profilu rozkładu gęstości pyłu. Należy jednak zauważyć, że charakterystyczna
-skala czasowa migracji jest rzędu setek bądź więcej lat, przy założeniu iż mamy
-do czynienia z aglomeratami pyłu o rozmiarach metrowych. Z tego względu możemy
-założyć że zmiany w profilu gęstości są procesem powolnym w stosunku do typowego
-tempa wzrostu niestabilności strumieniowej, co zostanie wykazane w dalszej
-części wywodu.
-
-Kolejnym utrudnieniem jest radialna rozciągłość rozważanego dysku
-okołogwiazdowego, która implikuje zmienność potencjalnego stanu równowagowego
-wraz z promieniem dysku. W tym wypadku najogólniejszym podejściem byłaby
-globalna analiza stabilności po przez rozwiązanie dwupunktowego problem
-brzegowego (np.~\cite{PHM04, KH06}), jednakże takie podejście jest dużo bardziej
-skomplikowane. Przedstawianą tu lokalną analizę należy zatem traktować jako
-pierwsze przybliżenie pełnej analizy stabilności niestabilności strumieniowej.
-Niestabilne mody uzyskane w ramach liniowej analizy posłużą nam jako punkt
-odniesienia dla modów uzyskiwanych w globalnym eksperymencie numerycznym.
-
-Najbardziej wygodnym układem do lokalnego opisu niestabilności strumieniowej
-jest tzw. kostka ścinana~\footnote{ang. shearing box}~\citep{HGB95}, czyli
-kartezjański układ współrzędnych, którego początek współporusza się z płynem na
-wybranej orbicie $R_0$ z częstością keplerowską $\Omega_0 \equiv
-\Omega\left(R_0\right)$. Zwyczajowo przyjmuje się, że oś $x$ jest skierowana
-radialnie na zewnątrz, oś $y$ jest w kierunku azymutalnym, zaś $z$ jest osią
-wertykalną. Zgodnie z pracą~\cite*{YJ07} układ równań ciągłości oraz ruchu dla
-obu składników można wyrazić poprzez:
-%
-\begin{align}
-\partial_t \rho_g &+ \mathbf{u}\cdot\nabla\rho_g - \frac{3}{2}\Omega x\partial_y\rho_g 
- = -\rho_g\nabla\cdot\mathbf{u},\label{eqc1}\\
-\partial_t \rho_d &+ \mathbf{w}\cdot\nabla\rho_d - \frac{3}{2}\Omega x\partial_y\rho_d 
- = -\rho_d\nabla\cdot\mathbf{w},\label{eqc2}\\
-\partial_t \mathbf{u} &+ \left(\mathbf{u}\cdot\nabla\right)\mathbf{u} 
- - \frac{3}{2}\Omega x\partial_y\mathbf{u} 
- = 2\Omega u_y \hat{\mathbf{x}} -\frac{1}{2}\Omega u_x \hat{\mathbf{y}} \notag\\
- &- \frac{\epsilon}{\tau_f}(\mathbf{u}-\mathbf{w}) -c_s^2\nabla\ln\rho_g 
- +2\eta\Omega^2 R \hat{\mathbf{x}},\label{eqm1}\\
-\partial_t \mathbf{w} &+ \left(\mathbf{w}\cdot\nabla\right)\mathbf{w} 
- - \frac{3}{2}\Omega x\partial_y\mathbf{w}
- = 2\Omega w_y \hat{\mathbf{x}} -\frac{1}{2}\Omega w_x \hat{\mathbf{y}} \notag\\
- &- \frac{1}{\tau_f}(\mathbf{w}-\mathbf{u}), \label{eqm2}
-\end{align}
-%
-gdzie wyrazy takie jak $(3/2)\Omega x$ po lewej stronie równań, pojawiają się na
-skutek transformacji wszystkich prędkości względem liniowego, ścinanego przepływu
-$\mathbf{v}_0 = -(3/2)\Omega x \hat{\mathbf{y}}$ w rotującym układzie
-współrzędnych. Warto nadmienić, że wyraz $-(1/2)\Omega \{u,w\}_x
-\hat{\mathbf{y}}$ po prawej stronie równań ruchu \mref{eqm1}-\mref{eqm2} jest
-sumą dwóch składników: $(-2\Omega \{u,w\}_x + (3/2)\Omega \{u,w\}_x)
-\hat{\mathbf{y}}$ z których pierwszy jest składową siły Coriolisa, a drugi
-wynika z odjęcia wspomnianego wcześniej przepływu średniego. Główną różnicą
-pomiędzy równaniami \mref{eqm1} oraz \mref{eqm2} jest brak wyrazu ciśnieniowego
-dla składnika pyłowego. YG05 zauważyli, że można w spójny sposób uwzględnić
-globalny, radialny gradient ciśnienia gazu w ramach kostki ścinanej, poprzez
-dodanie liniowego wyrazu, który jest sparametryzowany wielkością określającą
-bezwymiarową miarę rotacji podkeplerowskiej:
-
-\begin{equation}
-\eta \equiv - \frac{\partial_R P}{2\rho_g\Omega^2 R} \sim \frac{c_s^2}{v_K^2}.
-\end{equation}
-
-Układ równań \mref{eqc1}-\mref{eqm2} posiada znane rozwiązanie równowagowe~\citep{N86}
-
-\begin{align}
-\bar{\mathbf{w}} &= \left[ 
- -2\tau_s\xi, \frac{\tau_s^2\xi - 1}{1+\epsilon},
- 0
-\right]\eta v_K, \label{eq:w0}\\
-\bar{\mathbf{u}} &= \left[ 
- 2\epsilon\tau_s\xi, -\frac{1 + \epsilon\tau_s^2\xi}{1+\epsilon},
- 0
-\right]\eta v_K, \label{eq:u0}
-\end{align}
-%
-gdzie $\tau_s = \Omega \tau_f$ to bezwymiarowy \emph{czas
-zatrzymania}~\footnote{ang. dimensionless stopping time} i $\xi =
-((1+\epsilon)^2 + \tau_s^2)^{-1}$.  Linearyzacja równań \mref{eqc1}-\mref{eqm2},
-polega na rozbiciu zmiennych na część stałą $\bar{\mathbf{q}}$ oraz zaburzenie
-$\mathbf{q}^\prime$. W rezultacie $\mathbf{q} =
-\bar{\mathbf{q}} + \mathbf{q}^\prime$, gdzie $\mathbf{q}=[\rho_d, w_x, w_y, w_z,
-\rho_g, u_x, u_y, u_z]$. Zakładamy równocześnie, że zaburzenie przyjmuje postać
-osiowo-symetrycznej fali płaskiej:
-
-\begin{equation}
-   \label{eq:planar}
-   \mathbf{q}^\prime(x,z,t) = \tilde{\mathbf{q}}
- \exp\left[i(k_x x + k_z z -\omega t)\right]
-\end{equation}
-
-Po podstawieniu liniowego zaburzenia układ równań przyjmuje następującą postać
-
-\begin{align}
--i(\omega- k_x\bar{w}_x)\tilde{\rho}_d &= 
- - i \bar{\rho}_d(k_x\tilde{w}_x + k_z\tilde{w}_z), \label{lin1}\\
--i(\omega- k_x\bar{u}_x)\tilde{\rho}_g &= 
- - i \bar{\rho}_g(k_x\tilde{u}_x + k_z\tilde{u}_z), \label{lin2}\\
--i(\omega- k_x\bar{u}_x)\tilde{\mathbf{u}} &= 
- 2\Omega \tilde{u}_y\hat{\mathbf{x}} - \frac{1}{2}\Omega \tilde{u}_x
- \hat{\mathbf{y}}
- -\frac{\epsilon}{\tau_f}(\tilde{\mathbf{u}} - \tilde{\mathbf{w}}) \notag\\
-  -\frac{\tilde{\rho}_d}{\bar{\rho}_g\tau_f}
-  (\bar{\mathbf{u}} &- \bar{\mathbf{w}})
-  - \frac{c_s^2}{\bar{\rho}_g}ik_x\tilde{\rho}_g\hat{\mathbf{x}} -
-  - \frac{c_s^2}{\bar{\rho}_g}ik_z\tilde{\rho}_g\hat{\mathbf{z}}, \label{lin3}\\
--i(\omega- k_x\bar{w}_x)\tilde{\mathbf{w}} &= 
- 2\Omega \tilde{w}_y\hat{\mathbf{x}} - \frac{1}{2}\Omega \tilde{w}_x
- \hat{\mathbf{y}} 
- - \frac{1}{\tau_f} (\tilde{\mathbf{w}} - \tilde{\mathbf{u}}), \label{lin4}
-\end{align}
-%
-gdzie $\epsilon = \bar{\rho}_d/\bar{\rho}_g$. Układ równań
-\mref{lin1}-\mref{lin4} można zapisać jako
-
-\begin{equation}
- \eurom{A}(k_x,k_z,\omega)\tilde{\mathbf{q}} = 0,
- \label{eq:linset}
-\end{equation}
-gdzie 
-\begin{equation}
- A =
- \setlength\arraycolsep{2pt}
- \begin{bmatrix}
-    -i\tilde{\omega}_d & i k_x \bar{\rho}_d & 0 & i k_z \bar{\rho}_d & 0 & 0 & 0 & 0 \\
-    0 & \frac{1}{\tau_f} -i \tilde{\omega}_d & -2\Omega & 0 & 0 & \frac{1}{\tau_f} & 0 & 0 \\
-    0 & \frac{1}{2}\Omega & \frac{1}{\tau_f} -i \tilde{\omega}_d & 0 & 0 & 0 & \frac{1}{\tau_f} & 0 \\
-    0 & 0 & 0 & \frac{1}{\tau_f} -i \tilde{\omega}_d & 0 & 0 & 0 & \frac{1}{\tau_f} \\
-    0 & 0 & 0 & 0 & -i\tilde{\omega}_g & i k_x \bar{\rho}_g & 0 & i k_z \bar{\rho}_g \\
-    \frac{\bar{u}_x - \bar{w}_x}{\tau_f \bar{\rho}_g} & -\frac{\epsilon}{\tau_f} & 0 & 0 &
-    \frac{c_s^2}{\bar{\rho}_g i k_x} & \frac{\epsilon}{\tau_f}-i\tilde{\omega}_g &
-    -2\Omega & 0\\
-    \frac{\bar{u}_y - \bar{w}_y}{\tau_f \bar{\rho}_g} & 0 & -\frac{\epsilon}{\tau_f} & 0 & 0 &
-    \frac{1}{2}\Omega & \frac{\epsilon}{\tau_f} -i \tilde{\omega}_g & 0 \\
-    0 & 0 & 0 & -\frac{\epsilon}{\tau_f} & \frac{c_s^2}{\bar{\rho}_g i k_z} & 0 & 0 &
-    \frac{\epsilon}{\tau_f} -i \tilde{\omega}_g
- \end{bmatrix}
-%
-\end{equation}
-zaś $\tilde{\omega}_d = \omega - k_x \bar{w}_x$ i $\tilde{\omega}_g = \omega -
-k_x \bar{u}_x$.
-%
-Nietrywialne rozwiązania układu liniowego \mref{eq:linset} istnieją wtedy i tylko
-wtedy gdy równanie dyspersyjne 
-\begin{equation}
- \det|\eurom{A}(k_x,k_z,\omega)|=0.
- \label{eq:disprel}
-\end{equation}
-%
-Dla zadanych wartości $(k_x, k_x)$ relację \mref{eq:disprel} można rozwiązać ze
-względu na $\omega$ i dzięki temu otrzymać związki pomiędzy amplitudami
-składowych wektora $\tilde{\mathbf{q}}$.
-Tempo wzrostu niestabilności definiujemy jako urojoną część zespolonej
-częstotliwości $s=\Im(\omega)$.
-%
-
-Początkowe stadia ewolucji niestabilności strumieniowej są podobne dla
-wszystkich wartości parametrów $\epsilon$ i $a$ t.j. dominują mody liniowe.
-Dokładna analiza fazy liniowej została przedstawiona w
-podrozdziale~\ref{simulation_analysis}.
 
 %The following two sections describe
 %different non-linear evolution of streaming instability in quasi-global setup
@@ -520,7 +345,7 @@ przebiega głównie w płaszczyźnie \textit{r-z}. Początkowo w gęstości pył
 wyłania się przedstawiony już wcześniej ukośny wzór, będący wynikiem działania
 najbardziej niestabilnych modów. Wydłużone zagęszczenia pyłu formują warstwy
 rozciągające się na cały dysk w kierunku azymutalnym. Odstępstwa od osiowej
-symetrii są zauważalne, lecz praktycznie zaniedbywalne w jakościowym opisie
+symetrii są zauważalne, lecz praktycznie nie wpływają na zachowanie się
 niestabilności (por. Rysunek~\ref{fig:slicenosg}. Podobnie jak w analogicznych
 symulacjach 2D, saturacja niestabilności następuje po lokalnym wzroście gęstości
 pyłu o $1\div1.5$ rzędu wielkości.
@@ -542,22 +367,25 @@ pyłu o $1\div1.5$ rzędu wielkości.
 \par Obraz niestabilności strumieniowej diametralnie się zmienia po
 uwzględnieniu samograwitacji pyłu. Początkowo ewolucja przebiega wzdłuż tego
 samego scenariusza, dominujące mody niestabilności strumieniowej formują
-charakterystyczny wzór--kratkę (Rysunek.~\ref{slicesg}). Tempo tworzenia się
-zagęszczeń w tej fazie $(50 - 100\yr)$ jest tylko nieznacznie większe niż w
-przypadku symulacji pozbawionej samograwitacji. Pierwsza zauważalną różnicą jest
+charakterystyczny wzór--kratkę (Rysunek~\ref{fig:slicesg}). Tempo tworzenia się
+zagęszczeń w tej fazie $(50 - 100\yr)$ jest takie samo jak w przypadku bez
+samograwitacji~(Rysunek~\ref{fig:modes3d}). Ponadto dominujące mody lokują się
+na mapie stabilności w obszarze o największym tempie wzrostu wynikającyc z
+liniowej analizy (Rysunek~\ref{fig:map3d}).  Pierwsza zauważalną różnicą jest
 przekroczenie przez pył gęstości na której wcześniej niestabilność strumieniowa
 się wysycała (por. środkowy panel na Rysunku~\ref{fig:hists}). Jest to prostą
 konsekwencją faktu, że każde formujące się zagęszczenie jest dodatkowo
-wspomagane działającą do wewnątrz siłą samograwitacyjną. Po $150$~latach dysk pyłowy
-staje się dużo bardziej pofragmentowany w kierunku azymutalnym. Odstępstwo od
-osiowej symetrii jest wyraźnie zauważalne. Warstwy gęstego pyłu na skutek
-wzajemnego oddziaływania grawitacyjnego (jak i własnego ciężaru) zaczynają się
-deformować coraz silniej zmieniając swoją strukturę w kierunku azymutalnym. W
-ciągu kolejnych $50$~latach samograwitacja ,,ściska'' praktycznie cały pył do jednej
-płaskiej warstwy w płaszczyźnie $R - \varphi$ w formie długich pofalowanych
-włókien (Rysunek~\ref{fig:projs}). W toku dalszej ewolucji włókna fragmentują na
-mniejsze związane grawitacyjnie obiekty -- planetezymale, które podlegają
-dalszym oddziaływaniom dynamicznym. 
+wspomagane działającą do wewnątrz siłą samograwitacyjną. Po $150$~latach dysk
+pyłowy staje się dużo bardziej pofragmentowany w kierunku azymutalnym.
+Odstępstwo od osiowej symetrii jest wyraźnie zauważalne. Warstwy gęstego pyłu na
+skutek wzajemnego oddziaływania grawitacyjnego (jak i własnego ciężaru)
+zaczynają się deformować coraz silniej zmieniając swoją strukturę w kierunku
+azymutalnym. W ciągu kolejnych $50$~latach samograwitacja ,,ściska'' praktycznie
+cały pył do jednej płaskiej warstwy w płaszczyźnie $R - \varphi$ w formie
+długich pofalowanych włókien (Rysunek~\ref{fig:projs}). W toku dalszej ewolucji
+włókna fragmentują na mniejsze związane grawitacyjnie obiekty -- planetezymale,
+które podlegają dalszym oddziaływaniom dynamicznym. 
+
 %
 \begin{figure}
    \centering
@@ -606,18 +434,19 @@ granicznej gęstości $\sim10^{-8}\g\cm^{-3}$.
 charakterystycznych skalach obiektów w których znajduje się większość masy pyłu,
 ani nie pozwala stwierdzić czy pył jest grawitacyjnie związany. W celu
 rozszerzenia przeprowadzonej analizy zebrany materiał poddano procedurze
-identyfikacji topologicznie powiązanych ze sobą komórek w przedziale gęstości
-$10^{-10}\div10^{-8}\g\cm^{-3}$ obliczeniowych za pomocą
-pakietu~\yt{}~\footnote{Szczegółowe informacje na temat
-\emph{clump-finder'a} można znaleźć w rozdziale 7.7 w pracy~\cite{yt}. Autor
-niniejszej pracy rozszerzył pakiet \yt{} o możliwość czytania plików wynikowych
-z kodu PIERNIK, a także zaimplementował wsparcie dla współrzędnych
-cylindrycznych.}.
-Uzyskanie informacji o topologii rozkładu gęstości pyłu jest pierwszym krokiem
-w celu ustalenia, czy powstające zagęszczenia są w stanie utworzyć grawitacyjnie
+identyfikacji topologicznie powiązanych ze sobą komórek obliczeniowych
+znajdujących się w przedziale gęstości $10^{-10}\div10^{-8}\g\cm^{-3}$. W tym
+celu wykorzystano pakiet do analizy i wizualizacji
+danych~\yt{}~\footnote{Szczegółowe informacje na temat \emph{clump-finder'a}
+można znaleźć w rozdziale 7.7 w pracy~\cite{yt}. Autor niniejszej pracy
+rozszerzył pakiet \yt{} o możliwość czytania plików wynikowych z kodu
+PIERNIK, a także zaimplementował wsparcie dla współrzędnych cylindrycznych.}.
+Uzyskanie informacji o topologii rozkładu gęstości pyłu jest pierwszym krokiem w
+celu ustalenia, czy powstające zagęszczenia są w stanie utworzyć grawitacyjnie
 związane obiekty. Dla każdego zidentyfikowanego obiektu -- ,,clumpu'', można
 określić relację pomiędzy jego energią kinetyczną, a studnią potencjału w której
 się znajduje. Kryterium związania można wyrazić przez
+
 \begin{equation}
    \label{eq:bcrit}
    E_{\textrm{kin}} \equiv \sum\limits_{i=1}^N \frac{m_i\tilde{\mathbf{v}}_i^2}{2} 
@@ -694,7 +523,7 @@ na Rysunku~\ref{fig:masshist}.
    \centering
    \includegraphics[width=0.5\linewidth]{figures/3d_map_x3_50.png}
    \caption{Mapa stabilności BD3d i BD3dS}
-   \label{fig:modes3d}
+   \label{fig:map3d}
 \end{figure}
 % x3_50n.png
 % vim: tw=80 ts=3: 
