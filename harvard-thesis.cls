@@ -390,6 +390,7 @@
 \newcommand\mref[1]{(\ref{#1})}%
 \def\Msun{\hbox{$\mathrm{\thinspace M_{\odot}}$}}
 \def\g{\hbox{$\thinspace\textrm{g}$}}
+\def\pc{\hbox{$\thinspace\textrm{pc}$}}
 \def\AU{\hbox{$\thinspace\textrm{AU}$}}
 \def\cm{\hbox{$\thinspace\textrm{cm}$}}
 \def\km{\hbox{$\thinspace\textrm{km}$}}
@@ -398,6 +399,7 @@
 \def\s{\hbox{$\thinspace\textrm{s}$}}
 \def\K{\hbox{$\thinspace\textrm{K}$}}
 \def\yr{\hbox{$\thinspace\textrm{lat}$}}
+\def\Myr{\hbox{$\thinspace\textrm{Myr}$}}
 \def\mH{\hbox{$m_{\textrm{H}}$}}
 \DeclareMathAlphabet\EuRoman{U}{eur}{m}{n}
 \SetMathAlphabet\EuRoman{bold}{U}{eur}{b}{n}
