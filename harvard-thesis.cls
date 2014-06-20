@@ -389,6 +389,8 @@
 \newcommand\Pisces{\astro{\char22}}%
 \newcommand\mref[1]{(\ref{#1})}%
 \def\Msun{\hbox{$\mathrm{\thinspace M_{\odot}}$}}
+\def\Rsun{\hbox{$\mathrm{\thinspace R_{\odot}}$}}
+\def\Lsun{\hbox{$\mathrm{\thinspace L_{\odot}}$}}
 \def\g{\hbox{$\thinspace\textrm{g}$}}
 \def\pc{\hbox{$\thinspace\textrm{pc}$}}
 \def\AU{\hbox{$\thinspace\textrm{AU}$}}
