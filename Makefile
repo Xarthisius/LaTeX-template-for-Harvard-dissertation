@@ -13,3 +13,6 @@ tarball:
 
 clean:
 	rm -rf ${BNAME}.{pdf,log,dvi,aux,out,tgz,bbl,blg}
+
+upload:
+	scp thesis.pdf root@hyperion:/var/www/html/data/media/files/
