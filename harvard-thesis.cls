@@ -117,6 +117,7 @@
 
 \renewcommand{\maketitle}{
 	\singlespacing
+	\setcounter{page}{-2}
 	\thispagestyle{empty}
 	\vspace*{\fill} \vspace{150pt} \begin{center}
 	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
