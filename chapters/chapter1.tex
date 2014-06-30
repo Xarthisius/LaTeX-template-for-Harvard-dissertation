@@ -132,8 +132,9 @@ scenariuszu fluktuacje gęstości muszą jednak saturować się na odpowiednio n
 poziomie aby dysk nie rozpadł się, nie jest do końca jasne czy w takich
 warunkach możliwe jest osiągnięcie quasi-stacjonarnego stanu równowagi. W
 przeciwnym wypadku dysk ulega fragmentacji tworząc układ podwójny lub
-wielokrotny. Ewolucja masywnego dysku zostanie dokładnie opisana w
-podrozdziale~\ref{sec:GI}. 
+wielokrotny.
+%Ewolucja masywnego dysku zostanie dokładnie opisana w
+%podrozdziale~\ref{sec:GI}. 
 
 \par Formujące się w centrum zagęszczenie staje się nieprzezroczyste dla
 termicznej emisji pyłu dla gęstości gazu większej niż $10^{-13}\g\cm^{-3}$
@@ -288,7 +289,7 @@ promieni świetlnych w polu grawitacyjnym masywnego ciała ang.
    pomiędzy utworzonymi planetami, a także z gwiazdą macierzystą~\cite{CW98}.
    Układ planetarny może na tym etapie utracić znaczną część masy pyłowej,
    poprzez pochłonięcie planety przez gwiazdę, bądź wprowadzenie jej na orbitę
-   hiperboliczną~\cite{DDA13}.
+   hiperboliczną~\cite{DAA13}.
 \end{description}
 Kluczowym, aczkolwiek najmniej zbadnym etapem powyższego scenariusza jest
 formowanie się planetezymali. Założenie, że proces koagulacji zderzeniowej bez
@@ -298,13 +299,76 @@ pokazują, że efektywność tego procesu zależy od szeregu czynników, t.j. sk
 chemiczny, porowatość, ładunek elektryczny i wielu innych~\cite{SBT97, GBZ10}.
 Wzrost planetezymali może być znacznie przyspieszony przez tzw. mechanizm
 Goldreicha i Warda~\cite{GW73}, czyli fragmentację grawitacyjną gęstego
-,,poddysku'' pyłowego tworzącego się poprzez opadanie pyłu na płaszczyznę dysko
-wokółgwiazdowego. Mechanizm
+,,poddysku'' pyłowego tworzącego się na skutek opadania pyłu na płaszczyznę
+dysku wokółgwiazdowego i jego radialnego dryfu (patrz Rysunek~\ref{fig:GW}).
 
-Alternatywną teorią, szczególnie
-wdzięcznie wyjaśniająca powstawanie gazowych olbrzymów w masywnych dyskach
-protoplanetarnych, jest model zakładający kolaps i fragmentację grawitacyjną
-dysku~\cite{Boss97}. Zostanie ona omówiona w dalszej części tego rozdziału.
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.9\textwidth]{figures/sedymentacja.png}
+   \caption{Ilustracja mechanizmu Goldreicha-Warda. Połączenie sedymentacji pyłu
+      na płaszczyznę dysku oraz jego radialnego dryfu (a) może prowadzić do
+      wytworzenia się cienkiej i masywnej warstwy pyłu (b), która jest
+      niestabilna grawitacyjnie. Fragmentacja pod wpływem samograwitacji może
+      prowadzić do wytworzenia się planetezymali w lokalnych zagęszczeniach pyłu
+      (c). Obrazek pochodzi z pracy~\cite{armitage}
+   }
+   \label{fig:GW}
+\end{figure}
+
+\par Aby zrozumieć pewne niedostatki powyżej hipotezy, należy
+dokładnie przeanalizować procesy zachodzące podczas ewolucji gazowo-pyłowego
+dysko okołogwiazdowego. Syntetyczne zestawienie najbardziej istotnych
+mechanizmów zostało przedstawione w dalszej części tego rozdziału.
+
+\par Alternatywną teorią, szczególnie wdzięcznie wyjaśniająca powstawanie
+gazowych olbrzymów w masywnych dyskach protoplanetarnych, jest model zakładający
+kolaps i fragmentację grawitacyjną całego gazowo-pyłowego dysku
+protoplanetarnego~\cite{Boss97}. O tym czy zaburzenia w gęstości materii w dysku
+będą wzrastać nieograniczenie decyduje równowaga pomiędzy destabilizującym
+wpływem samograwitacji, a stabilizującymi właściwościami ciśnienia oraz rotacji.
+Wartość graniczna dla stabilności cienkiego, osiowo symetrycznego dysku została
+pierwszy raz wyprowadzona przez Toomre'ego~\cite{T64}, jako
+
+\begin{equation}
+   Q = \frac{c_s\kappa}{\pi G \Sigma}\sim 1,
+   \label{eq:toomre}
+\end{equation}
+gdzie $c_s$ to prędkość dźwięku, $\kappa$ częstość epicykliczna, $\Sigma$
+gęstość powierzchniowa gazu. Kryterium to z powodzeniem jest stosowane do
+globalnych, ustratyfikowanych dysków podlegających nie osiowo symetrycznym
+zaburzeniom, tzn. symulacje numeryczne wykazują fragmentację takich dysków dla
+$Q\sim 1$~\cite{NBAA98}. Dodatkowym efektem nie uwzględnionym w kryterium
+Toomre'a~\mref{eq:toomre} jest formowanie się struktur spiralnych w dysku. Jak
+pokazują symulacje numeryczne efekt ten zachodzi już dla $Q\lesssim 1.7$, a więc
+za nim dysk stanie się na tyle chłodny i masywny aby ulec
+fragmentacji~\cite{Duris07}. Fale spiralne wytwarzają dodatkowe momenty sił i
+fale uderzeniowe, które odpowiadają za transport masy i momentu pędu oraz
+podgrzewanie gazu~\cite{YC85}, stabilizując dysk. Podobnie,
+kryterium~\mref{eq:toomre} nie uwzględnia destabilizujących efektów
+promienistego (bądź konwektywnego) chłodzenia gazu~\cite{BMD06}. Dokładny
+przebieg niestabilności strumieniowej w realistycznych modelach dysków
+okołogwiazdowych jest ciągle niejasny i podlega intensywnym badaniom~\cite{MB11,
+LC11}. Niemniej jednak symulacje numeryczne sugerują, że niestabilność
+grawitacyjna jest w stanie wytworzyć w dysku związane obłoki materii o masach 
+$\sim 1\div 10\Mjup$~\cite{BHM10, FR11}. Ich dalsza ewolucja przebiega w
+podobny sposób jak w modelu, akrecji jąder tj. pył sedymentuje na centrum
+grawitacji tworząc skaliste jądro w skalach czasowych od $10^3$ do $10^6$
+lat~\cite{HB11, GHB12}. Biorąc jednak pod uwagę typowe wartości parametrów
+fizycznych obserwowanych w dyskach protoplanetarnych, parameter $Q$ można
+wyrazić jako
+
+\begin{equation}
+   Q \sim 10^2 
+   \left(\frac{T}{100\K}\right)^{0.5}
+   \left(\frac{\Sigma}{10^3\g\cm^{-3}}\right)^{-1}
+   \left(\frac{R}{1\AU}\right)^{-1.5}.
+\end{equation}
+Z tego względu niestabilność grawitacyjna ma znaczenie tylko dla zewnętrznych
+obszarów dysku protoplanetarnego.
+\par Niestabilność grawitacyjna nie koniecznie wyklucza się z modelem akrecji na
+jądrą. 
+
+
 
 \begin{figure}[p]
 \centering 
@@ -318,7 +382,8 @@ dysku~\cite{Boss97}. Zostanie ona omówiona w dalszej części tego rozdziału.
    rozpoczyna się proces formowania planet; e) zanika składowa gazowa, planety
 otwierają przerwy w dysku, następuje również ich migracja; f) cały gaz oraz
 mniejsze ciała zostają pochłonięte przez planety lub usunięte z dysku, układ
-planetarny przyjmuje ostateczny kształt.}
+planetarny przyjmuje ostateczny kształt. Obrazek zamieszczony dzięki uprzejmości
+Joanny Drążkowskiej}
 
 \label{fig:planet}
 \end{figure}
@@ -500,28 +565,6 @@ w której turbulencja wzbudzana przez MRI nie występuje~\cite{DFT10}.
    \label{fig:sed}
 \end{figure}
 
-\subsection{Niestabilność grawitacyjna}
-\label{sec:GI}
-Dla odpowiednio masywnych i zimnych dysków protoplanetarnych, samograwitacja
-materii jest w stanie przeważyć nad stabilizującymi efektami ciśnienia gazu oraz
-rotacji i spowodować kolaps, a następnie fragmentację dysku. Podatność układu na
-niestabilność grawitacyjną przyjęło się określać poprzez parametr Toomre'a $Q$
-wyrażony poprzez
-\begin{equation}
-   Q = \frac{c_s\Omega}{\pi G \Sigma} \sim 10^2 
-   \left(\frac{T}{100\K}\right)^{0.5}
-   \left(\frac{\Sigma}{10^3\g\cm^{-3}}\right)^{-1}
-   \left(\frac{R}{1\AU}\right)^{-1.5}.
-\end{equation}
-Jeżeli $Q\lesssim1$ dysk może się rozpaść na szereg grawitacyjnie związanych
-obłoków, które okrążając gwiazdę macierzystą będą akreaować coraz więcej
-materii. Każdy z tych obłoków może na skutek dalszej kontrakcji przekształcić
-się planety, w szczególności w gazowe olbrzymy takie jak Jowisz czy
-Saturn~\cite{B00}. Mechanizm ten jest alternatywnym do akrecji na jądra,
-procesem prowadzącym do uformowania się planet. Jednakże dla typowych wartości
-$T$ i $\Sigma_g$ parametr $Q\gg 1$ dla wewnętrznych obszarów dysku. Zewnętrze
-obszary powinny być bardziej podatne na niestabilność grawitacyjną, choć dalej
-wymagają efektywnych procesów chłodzenia w dysku. 
 
 \subsection{Oddziaływanie pomiędzy gazem, a pyłem}
 Oddziaływanie pomiędzy pyłem a gazem odbywa się poprzez tarcie aerodynamiczne.
