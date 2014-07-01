@@ -7,42 +7,42 @@ strike with force.
 \chapter{Eksperyment numeryczny}
 \newthought{Lorem ipsum dolor sit amet}, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci
 \section{Metodyka}
-W ramach poniższej pracy doktorskiej przeprowadzono szereg eksperymentów
+W~ramach poniższej pracy doktorskiej przeprowadzono szereg eksperymentów
 numerycznych przy użyciu autorskiego kodu siatkowego PIERNIK, który opiera się
 na:
 \begin{itemize}
    \item zachowawczym schemacie numerycznym Relaxing TVD~\cite{jin-xin-95} w
-      połączeniu z dzielonym, kierunkowym całkowaniem przestrzennym i czasowym
-      przy użyciu algorytmu Runge-Kutta drugiego
+      połączeniu z~dzielonym, kierunkowym całkowaniem przestrzennym i~czasowym
+      przy użyciu algorytmu\linebreak Runge-Kutta drugiego
       rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P},
    \item implementacji wielopłynowości, tj. możliwości symulowania wielofazowego
-      ośrodka np. płynu neutralnego i płynu bezciśnieniowego (pył) z
+      ośrodka np. płynu neutralnego i~płynu bezciśnieniowego (pył) z
       uwzględnieniem oddziaływań międzypłynowych~\cite{piernik1,piernik2},
    \item solwerze multigridowym pozwalającym efektywnie rozwiązywać paraboliczne
-      i eliptyczne równania różniczkowe, a w szczególności równanie Poissona
+      i~eli\-pty\-czne równania różniczkowe, a w~szczególności równanie Poissona
       opisujące samograwitację pyłu~\citep{HG00},
    \item solwerze multipolowym pozwalającym na szybkie określenie warunków
       brzegowych dla potencjału grawitacyjnego~\citep{J77}.
-   \item implementacji cylindrycznego układu współrzędnych w postaci
+   \item implementacji cylindrycznego układu współrzędnych w~postaci
       zachowującej moment pędu~\cite{M07,SO10},
    \item implementacji algorytmu szybkiego transportu
       eulerowskiego~\footnote{ang. \emph{Fast Advection in Rotating Gaseous Objects --
-      FARGO}}~\citep{M00} w ujęciu wielopłynowym.
+      FARGO}}~\citep{M00} w~ujęciu wielopłynowym.
 
 \end{itemize}
-Ponadto PIERNIK korzysta z algorytmu typu \emph{Constraint
+Ponadto PIERNIK korzysta z~algorytmu typu \emph{Constraint
 Transport}~\cite{EH88} zapewniającego bez źródłowość ewolucji pola
 magnetycznego, a także możliwość wykonywania symulacji przy użyciu siatek
 adaptywnych~\footnote{ang.  \emph{Adaptive Mesh Refinement -- AMR}}.  
 %
-\par Obliczenia opisywane w tej pracy zostały przeprowadzone z wykorzystaniem:
+\par Obliczenia opisywane w~tej pracy zostały przeprowadzone z~wykorzystaniem:
 
 \begin{itemize}
-   \item infrastruktury PL-Grid, w szczególności klastrów
+   \item infrastruktury PL-Grid, w~szczególności klastrów
       komputerowych Galera+ (TASK), Hydra (ICM), Zeus (ACK CYFRONET), Inula
-      (PCSS) w ramach grantu \emph{plggpiernik},
-   \item klastrów PRACE, w szczególności klastrów komputerowych
-      Cartesius (SurfSara), Fionn (ICHEC) w ramach grantu \emph{PIERNIK-SI} w
+      (PCSS) w~ramach grantu \emph{plggpiernik},
+   \item klastrów PRACE, w~szczególności klastrów komputerowych
+      Cartesius (SurfSara), Fionn (ICHEC) w~ramach grantu \emph{PIERNIK-SI} w
       projekcie DECI-11
 \end{itemize}
 Sumaryczne zużycie wyniosło kilka milionów CPUh.
@@ -82,26 +82,26 @@ takiego modelu następującą postać:
 % -\nabla\Phi - \frac{1}{\tau_f}(\mathbf{w}-\mathbf{u}),\label{eq4}
 %\end{align}
 
-\noindent gdzie $\rho_g$, $\rho_d$ to odpowiednio gęstości gazu i pyłu,
+\noindent gdzie $\rho_g$, $\rho_d$ to odpowiednio gęstości gazu i~pyłu,
 $\mathbf{u}$, $\mathbf{w}$ ich prędkości, $P$ to ciśnienie gazu, $\tau_f$ jest
 skalą czasową tarcia~\footnote{ang. friction time}~\mref{eq:tauf}, a $\Phi$ to
 potencjał grawitacyjny.
 
-\par Ze względu na specyfikę zagadnienia badanego w niniejszej pracy
-najwygodniejszym układem współrzędnych jest układ cylindryczny. W kodzie
-PIERNIK geometria cylindryczna jest zaimplementowana w formie zachowującej
+\par Ze względu na specyfikę zagadnienia badanego w~niniejszej pracy
+najwygodniejszym układem współrzędnych jest układ cylindryczny. W~kodzie
+PIERNIK geometria cylindryczna jest zaimplementowana w~formie zachowującej
 moment pędu~\cite{M07,SO10}, która wprowadza tylko jeden, dodatkowy wyraz
 źródłowy do równań ruchu~\mref{eq3} - \mref{eq4}: odpowiednio
 $\left((\rho_g u_\phi + P) / R\right)\mathbf{\hat{R}}$ oraz $(\rho_d w_\phi / R)
 \mathbf{\hat{R}}$.
 \par Sprzężenie pomiędzy gazem a pyłem, które przyjmuje postać
-$\rho_d/\tau_f\rho_g(\mathbf{u}-\mathbf{w})$ i $1/\tau_f(\mathbf{w}-\mathbf{u})$
-odpowiednio dla równań \mref{eq3} i \mref{eq4} w zależności od tego jak zostanie
+$\rho_d/\tau_f\rho_g(\mathbf{u}-\mathbf{w})$ i~$1/\tau_f(\mathbf{w}-\mathbf{u})$
+odpowiednio dla równań \mref{eq3} i~\mref{eq4} w~zależności od tego jak zostanie
 potraktowane, może prowadzić do znacznego skrócenia kroku czasowego. Z tego
 względu zdecydowano o implementacji pół niejawnego schematu modyfikującego
-bezpośrednio prędkości gazu i pyłu, zaproponowanego przez~\cite{TB09}.
+bezpośrednio prędkości gazu i~pyłu, zaproponowanego przez~\cite{TB09}.
 
-%W ramach pracy skupiono się na dyskach rozciągających się relatywnie dużych
+%W~ramach pracy skupiono się na dyskach rozciągających się relatywnie dużych
 %promienii tj. 2~AU. Zakładając, za pracą~\cite{CD93}, że przejście do
 %reżimu Stokesa zachodzi dla ziaren pyłu o promieniu większym niż
 %$a = 9/4\lambda_g$ gdzie $\lambda_g = 4.2\times 10^4\textrm{
@@ -115,7 +115,7 @@ bezpośrednio prędkości gazu i pyłu, zaproponowanego przez~\cite{TB09}.
 
 \subsection{PIERNIK}
 Do rozwiązania układu równań \mref{eq1}--\mref{eq4} zastosowano kod numeryczny
-\textbf{PIERNIK} stworzony i rozwijany w Centrum Astronomii UMK.  Implementuje
+\textbf{PIERNIK} stworzony i~rozwijany w~Centrum Astronomii UMK.  Implementuje
 on tzw. \textit{metodę relaksacji TVD}~\cite{jin-xin-95}, która zapewnia wysoką
 dokładność rozwiązań równań hydrodynamicznych oraz numeryczną stabilność, przy
 stosunkowo niskich nakładach mocy obliczeniowych. Poniżej przedstawiono krótki
@@ -128,7 +128,7 @@ wzorując się na pracach Trac \& Pen~\cite*{2003PASP..115..303T}
 oraz Pen, et al.~\cite*{2003ApJS..149..447P}, które zostały użyte jako punkt
 wyjścia przy tworzeniu \textbf{PIERNIKa}. 
 
-\paragraph{Podział ,,zaburzenia'' na fale biegnące w prawą i lewą stronę.} ~\\
+\paragraph{Podział ,,zaburzenia'' na fale biegnące w~prawą i~lewą stronę.} ~\\
 
 Układ \mref{diffeuler} można zastąpić układem relaksacyjnym postaci:
 
@@ -140,7 +140,7 @@ Układ \mref{diffeuler} można zastąpić układem relaksacyjnym postaci:
 gdzie $c(x,t)$ jest dowolną, dodatnią funkcja nazywaną \emph{prędkością
 mrożącą}, a $\mathbf{w} = \mathbf{F}(\mathbf{u})/c$. Układ relaksacyjny zawiera
 dwa sprzężone, liniowe równania adwekcji wielkości zachowawczych $\mathbf{u}$
-oraz $\mathbf{w}$. Aby rozwiązać równania \mref{rel1} i \mref{rel2} należy
+oraz $\mathbf{w}$. Aby rozwiązać równania \mref{rel1} i~\mref{rel2} należy
 dokonać zamiany zmiennych:
 
 \begin{gather}
@@ -151,29 +151,29 @@ dokonać zamiany zmiennych:
    \partial_t \mathbf{u}^L + \partial_x (c\mathbf{u}^L) = 0.\label{rel4}
 \end{gather}
 
-Równania \mref{rel3} i \mref{rel4} można interpretować jako przepływ wielkości
-zachowawczych w pra\-wą i lewą stronę z prędkością $c$. Sumując można je wyrazić
+Równania \mref{rel3} i~\mref{rel4} można interpretować jako przepływ wielkości
+zachowawczych w~pra\-wą i~lewą stronę z~prędkością $c$. Sumując można je wyrazić
 jako
 
 \begin{equation}
    \partial_t \mathbf{u} + \partial_x \mathbf{F}^R - \partial_x \mathbf{F}^L = 0,\\
 \end{equation}
 
-gdzie $\mathbf{F}^R=c \mathbf{u}^R$ i $\mathbf{F}^L=c \mathbf{u}^L$. 
+gdzie $\mathbf{F}^R=c \mathbf{u}^R$ i~$\mathbf{F}^L=c \mathbf{u}^L$. 
 
 \paragraph{Obliczenie strumieni wielkości zachowawczych metodą \emph{,,pod wiatr''}.}~\\
 
-W celu rozwiązania \mref{rel3} i \mref{rel4} należy policzyć strumienie
-wielkości zachowawczych. W podstawowej wersji \textbf{Piernika--MHD} strumienie
-na brzegach komórek są liczone z dokładnością do drugiego rzędu w przestrzeni
+W~celu rozwiązania \mref{rel3} i~\mref{rel4} należy policzyć strumienie
+wielkości zachowawczych. W~podstawowej wersji \textbf{Piernika--MHD} strumienie
+na brzegach komórek są liczone z~dokładnością do drugiego rzędu w~przestrzeni
 $\left(\epsilon \sim O\left[(\Delta x)^2\right]\right).$ Duża dokładność jest
 uzyskiwana poprzez obliczenie strumieni pierwszego rzędu
 $\mathbf{F}^{(1),t}_{n+1/2}$ \emph{metodą ,,pod wiatr''}\footnote{ang.
-,,upwind'' method}~\cite{cir}, która zapewnia stabilność rozwiązania w tym
-sensie, że błędy numeryczne nie narastają nieograniczenie w czasie.  Korzystając
+,,upwind'' method}~\cite{cir}, która zapewnia stabilność rozwiązania w~tym
+sensie, że błędy numeryczne nie narastają nieograniczenie w~czasie.  Korzystając
 z definicji strumienia $\mathbf{F}_n^{(1),t}=c \mathbf{u}_n^t$, jako wielkości
-określonej na środku komórki, w zależności od kierunku propagacji fali strumień
-na brzegu jest obliczany w następujący sposób:
+określonej na środku komórki, w~zależności od kierunku propagacji fali strumień
+na brzegu jest obliczany w~następujący sposób:
 
 \begin{equation}
    \mathbf{F}^{(1),t}_{n+1/2} = 
@@ -201,8 +201,8 @@ uwzględnieniem kierunku propagacji fali:
 Do wyznaczenia ostatecznej poprawki drugiego rzędu jest użyta specjalna funkcja,
 tzw. \emph{ogranicznik strumienia}. Ograniczniki strumienia są używane, aby
 uniknąć niefizycznych oscylacji, które pojawiłyby się po dodaniu poprawek
-drugiego rzędu w obszarach zawierających nieciągłości.  Ostateczna poprawka jest
-wyznaczana z wyrażenia
+drugiego rzędu w~obszarach zawierających nieciągłości.  Ostateczna poprawka jest
+wyznaczana z~wyrażenia
 
 \begin{equation}
    \Delta \mathbf{F}^{t}_{n+1/2} = \phi\left(\Delta
@@ -219,12 +219,12 @@ gdzie przykładowy ogranicznik strumienia~\cite{leer} to
    \end{cases}.
 \end{equation}
 
-Użycie funkcji $\phi$ jest jednym z warunków metody \emph{relaksacji TVD} i
+Użycie funkcji $\phi$ jest jednym z~warunków metody \emph{relaksacji TVD} i
 przekłada się na stabilność schematu numerycznego.
 
-\paragraph{Całkowanie w czasie}~\\
+\paragraph{Całkowanie w~czasie}~\\
 
-Całkowanie w czasie jest przeprowadzone przy użyciu standardowego schematu
+Całkowanie w~czasie jest przeprowadzone przy użyciu standardowego schematu
 Rungego -- Kutty. Najpierw wykonywany jest krok połówkowy
 
 \begin{equation}
@@ -241,7 +241,7 @@ gdzie
 \end{equation}
 
 Następnie, przy użyciu wartości połówkowych $\mathbf{u}^{t+\Delta t/2}_{n}$,
-obliczane są poprawki do strumieni i wykonywany jest całkowity krok czasowy
+obliczane są poprawki do strumieni i~wykonywany jest całkowity krok czasowy
 
 \begin{equation}
    \mathbf{u}^{t+\Delta t}_{n} = \mathbf{u}^{t}_{n} -
@@ -258,55 +258,55 @@ to warunek
    c = |v| + c_s
 \end{equation}
 
-Równanie \mref{fs}, zgodnie z warunkiem CFL zapewniającym stabilność schematu
+Równanie \mref{fs}, zgodnie z~warunkiem CFL zapewniającym stabilność schematu
 
 \begin{equation}\label{cfl}
    \frac{c_{\textrm{max}}\Delta t}{\Delta x} \le 1,
 \end{equation}
 
 nakłada nam silne ograniczenie na krok czasowy. 
-% Zgodnie z \mref{cfl} im większa prędkość gazu, tym krótszy krok czasowy, co
+% Zgodnie z~\mref{cfl} im większa prędkość gazu, tym krótszy krok czasowy, co
 % okaże się dużą niedogodnością przy zastosowaniu \emph{klasycznej metody kostki
 % ścinanej} opisanej dalszej części pracy.
 
 \subsection{FARGO}
 Ze względu na obecność rotacji, dyski keplerowskie stanowią mało wdzięczny
-obiekt badań numerycznych, szczególnie w wypadku kiedy charakterystyczne
-prędkości płynu osiągane w interesujących procesach są drobnym ułamkiem
-prędkości rotacji. Zgodnie z warunkiem Couranta-Friedrichsa-Lewy'ego~\cite{cir},
-stabilność schematu numerycznego jest zapewniona wtedy i tylko wtedy, kiedy w
+obiekt badań numerycznych, szczególnie w~wypadku kiedy charakterystyczne
+prędkości płynu osiągane w~interesujących procesach są drobnym ułamkiem
+prędkości rotacji. Zgodnie z~warunkiem Couranta-Friedrichsa-Lewy'ego~\cite{cir},
+stabilność schematu numerycznego jest zapewniona wtedy i~tylko wtedy, kiedy w
 jednym kroku całkowania numerycznego sygnał nie propaguję się dalej niż o jedną
-komórkę obliczeniową. W związku z tym, że prędkość rotacji dysku keplerowskiego
+komórkę obliczeniową. W~związku z~tym, że prędkość rotacji dysku keplerowskiego
 jest malejąca, a azymutalny rozmiar komórki na siatce cylindrycznej jest rosnącą
 funkcją promienia, to najsilniejsze ograniczenie na rozmiar kroku czasowego
-wprowadza dynamika gazu na najkrótszej symulowanej orbicie. Jedną z technik
+wprowadza dynamika gazu na najkrótszej symulowanej orbicie. Jedną z~technik
 pozwalających uniknąć powyższych ograniczeń jest algorytm FARGO~\citep{M00}.
 Oryginalnie został on zaprojektowany dla dwuwymiarowych dysków, lecz został
 rozszerzony przez innych autorów~\cite{KBK09} do przypadków trójwymiarowych.
-Poniższa praca rozwija go w kierunku zastosowań do układu wielu płynów.
+Poniższa praca rozwija go w~kierunku zastosowań do układu wielu płynów.
 
 \par FARGO opiera się na kierunkowym podziale części adwekcyjnej równań
-hydrodynamiki. W kierunku radialnym i wertykalnym stosuje się klasyczny solwer
-(w przypadku PIERNIKa RTVD), natomiast w kierunku azymutalnym rozbija się
+hydrodynamiki. W~kierunku radialnym i~wertykalnym stosuje się klasyczny solwer
+(w przypadku PIERNIKa RTVD), natomiast w~kierunku azymutalnym rozbija się
 adwekcję na trzy etapy:
 \begin{enumerate}
    \item obliczenie średniej prędkości kątowej $\bar{\omega}_i$ dla każdego
-      płynu i każdego promienia o indeksie $i$
+      płynu i~każdego promienia o indeksie $i$
       \begin{equation}
          \bar{\omega}_i = \frac{1}{N_\varphi~N_z} ~ \sum_{j,k} \omega_{i,j,k},
       \end{equation}
-      gdzie $N_\varphi,\,N_z$ to odpowiednio liczba komórek w kierunku
-      azymutalnym i wertykalnym, zaś $\omega_{i,j,k}$ to prędkość kątowa
+      gdzie $N_\varphi,\,N_z$ to odpowiednio liczba komórek w~kierunku
+      azymutalnym i~wertykalnym, zaś $\omega_{i,j,k}$ to prędkość kątowa
       poszczególnych komórek obliczeniowych.
-   \item  obliczenie całkowitej liczby komórek dla przesunięcia w kierunku
+   \item  obliczenie całkowitej liczby komórek dla przesunięcia w~kierunku
       azymutalnym
       \begin{equation}
          n_i = {\tt Nint} \left( \bar{\omega}_i \Delta t/\Delta \varphi \right),
       \end{equation}
       gdzie {\tt Nint} oznacza funkcję określającą \emph{najbliższą liczbę
-      całkowitą}, $\Delta\varphi$ rozmiar komórki w kierunku azymutalnym,
+      całkowitą}, $\Delta\varphi$ rozmiar komórki w~kierunku azymutalnym,
       $\Delta t$ bieżący krok czasowy. Przesunięcie o odległość $n_i \Delta
-      \varphi$ w czasie $\Delta t$ można wykorzystać do
+      \varphi$ w~czasie $\Delta t$ można wykorzystać do
       zdefiniowania tzw. ,,prędkości kątowej przesunięcia'' (ang. \emph{Shift
       velocity})
       \begin{equation}
@@ -336,29 +336,29 @@ $\omega_{i,j,k}$ dla poszczególnych komórek:
 sh}.
 \end{equation}
 
-Transport zachowawczych wielości płynowych zgodnie z rówaniami \mref{eq1} --
-\mref{eq4} w kierunku azymutalnym jest następnie wykonywana w trzech krokach:
+Transport zachowawczych wielości płynowych zgodnie z~rówaniami \mref{eq1} --
+\mref{eq4} w~kierunku azymutalnym jest następnie wykonywana w~trzech krokach:
 
 \begin{enumerate}
    \item przesunięcie wartości wielkości zachowawczych o $n_i$ komórek. Jak już
-      było wcześniej wspomniane, ten krok jest równoznaczny z transportem płynu
-      z prędkością $\omega_i^{\rm sh}$. Ze względu na fakt, iż ta operacja
+      było wcześniej wspomniane, ten krok jest równoznaczny z~transportem płynu
+      z~prędkością $\omega_i^{\rm sh}$. Ze względu na fakt, iż ta operacja
       sprowadza się do przeindeksowania komórek obliczeniowych, nie nakłada ona
       żadnych ograniczeń na numeryczny krok czasowy.
    \item adwekcja~\footnote{adwekcja jest rozumiana jako rozwiązanie układu
          równań \mref{eq1} -- \mref{eq4}, tak jakby prawe strony tych równań
-      były równe 0} wielkości zachowawczych z prędkością $\omega_i^{\rm cr}$
+      były równe 0} wielkości zachowawczych z~prędkością $\omega_i^{\rm cr}$
       przy użyciu metody RTVD
    \item wykonanie pełnego całkowania równań \mref{eq1} -- \mref{eq4} przy
-      założenie, że płyn poruszą się teraz z prędkością kątową
+      założenie, że płyn poruszą się teraz z~prędkością kątową
       $\omega_{i,j,k}^{\rm res}$.
 \end{enumerate}
-Korzystając z faktu, że $\omega_i^{\rm sh} \gg \max\left(\omega_i^{\rm cr},
+Korzystając z~faktu, że $\omega_i^{\rm sh} \gg \max\left(\omega_i^{\rm cr},
 \omega_{i,j,k}^{\rm res}\right)$, a tylko prędkości po prawej stronie
-nierówności mają wpływ na warunek CFL, w znaczący sposób zwiększamy krok
+nierówności mają wpływ na warunek CFL, w~znaczący sposób zwiększamy krok
 czasowy. Co prawda, aby zachować stabilność algorytmu należy zapewnić że
-przesunięcie w kierunku azymutalnym nie odseparuje dwóch sąsiednich (w kierunku
-radialnym i wertykalnym) komórek, co przekłada się na warunek
+przesunięcie w~kierunku azymutalnym nie odseparuje dwóch sąsiednich (w kierunku
+radialnym i~wertykalnym) komórek, co przekłada się na warunek
 
 \begin{equation}\label{eq:tshear}
    \Delta t_{\rm shear} = 0.5 ~ \min_{i,j,k} \left( \frac{\Delta\varphi}
@@ -366,17 +366,17 @@ radialnym i wertykalnym) komórek, co przekłada się na warunek
 \end{equation}
 
 Niemniej jednak pomimo ograniczenia~\mref{eq:tshear}, dla typowych eksperymentów
-numerycznych przeprowadzonych w tej pracy zastosowanie FARGO pozwoliło uzyskać
+numerycznych przeprowadzonych w~tej pracy zastosowanie FARGO pozwoliło uzyskać
 od 10 do 100 krotnego wydłużenia kroku czasowego.
 
 
 \subsection{Potencjał grawitacyjny}
-Potencjał grawitacyjny obecny w równianach ruchu~\mref{eq3} - \mref{eq4} można
+Potencjał grawitacyjny obecny w~równianach ruchu~\mref{eq3} - \mref{eq4} można
 rozbić na dwa składniki
 \begin{equation}
    \Phi = \Phi_{\textrm{ext}} + \Phi_{\textrm{self}},
 \end{equation}
-gdzie $\Phi_{\textrm{ext}}$ jest stałym w czasie potencjałem pochodzącym od
+gdzie $\Phi_{\textrm{ext}}$ jest stałym w~czasie potencjałem pochodzącym od
 gwiazdy macierzystej, zaś $\Phi_{\textrm{self}}$ potencjałem samograwitującego
 płynu. Potencjał zewnętrzny $\Phi_{\textrm{ext}}$ został przyjęty jako potencjał
 od masy punktowej
@@ -385,11 +385,11 @@ od masy punktowej
 \end{equation}
 gdzie $G$ to stała grawitacji, $M = 1\Msun$ masa obiektu centralnego, $r$
 promień sferyczny, $\mathbf{e}_r$ radialny wersor kierunkowy.
-Jako, że celem pracy jest wyizolowanie niestabilności strumieniowej z pośród
-szeregu innych procesów, które mogą w dysku protoplanetarnym. Z tego względu
+Jako, że celem pracy jest wyizolowanie niestabilności strumieniowej z~pośród
+szeregu innych procesów, które mogą w~dysku protoplanetarnym. Z tego względu
 zaniedbano pionową składową przyspieszenia grawitacyjnego pochodzącą od
-centralnego obiektu w dysku, która prowadziła by do naturalnej sedymentacji pyłu
-w płaszczyźnie dysku i wzbudzenia się niestabilności
+centralnego obiektu w~dysku, która prowadziła by do naturalnej sedymentacji pyłu
+w płaszczyźnie dysku i~wzbudzenia się niestabilności
 Kelvina-Helmholtza~\cite{JHK06}
 \begin{equation}\label{eq:phiext}
    \Phi_{\textrm{ext}} = -\frac{GM}{R} \mathbf{e}_R.
@@ -400,43 +400,43 @@ Kelvina-Helmholtza~\cite{JHK06}
    \nabla^2 \Phi_{\textrm{self}} = 4\pi G \rho.
 \end{equation}
 Do rozwiązania równania \mref{eq:poisson} został użyty iteracyjny, solwer
-multigridowy~\citep{HG00} połączony z solwerem multipolowym~\citep{J77} w celu
+multigridowy~\citep{HG00} połączony z~solwerem multipolowym~\citep{J77} w~celu
 odpowiedniego obliczenia potencjału na nieperiodycznych brzegach domeny
-obliczeniowej. Oba algorytmy zostały zaimplementowane w PIERNIKu przez dra
+obliczeniowej. Oba algorytmy zostały zaimplementowane w~PIERNIKu przez dra
 Artura Gawryszczaka (CAMK W-wa).
 
 \section{Warunki początkowe}
 Domena obliczeniowa we wszystkich eksperymentach rozciąga się pomiędzy $2\AU$, a
-$7\AU$ w kierunku radialnym i ma $0.375\AU$ wysokości. W przypadkach
-trójwymiarowych rozciągłość w kącie azymutalnym wynosi $\pi / 6$.
+$7\AU$ w~kierunku radialnym i~ma $0.375\AU$ wysokości. W~przypadkach
+trójwymiarowych rozciągłość w~kącie azymutalnym wynosi $\pi / 6$.
 
-\par Początkowy rozkład gęstości materii w dysku określony jest poprzez formułę
-wynikająca z przepisu Minimalnej Masy Mgławicy Słonecznej~\footnote{ang.
+\par Początkowy rozkład gęstości materii w~dysku określony jest poprzez formułę
+wynikająca z~przepisu Minimalnej Masy Mgławicy Słonecznej~\footnote{ang.
 \emph{Minimal Mass Solar Nebula}}~\cite{H81}
 \begin{equation}\label{eq:mmsn}
    \Sigma(R) = 1700 \left(\frac{R}{1\textrm{ AU}}\right)^{-3/2} 
    \textrm{ g cm}^{-2}.
 \end{equation}
-W przeciwieństwie do MMSN dla której profil temperatury jest wykładniczą funkcją
+W~przeciwieństwie do MMSN dla której profil temperatury jest wykładniczą funkcją
 promienia, zakładamy że izotermiczny gaz posiada stałą temperaturę $T_0 = 170\K$
-w całej objętości. Należy mieć na uwadze, że w izotermicznym gazie najłatwiej
+w całej objętości. Należy mieć na uwadze, że w~izotermicznym gazie najłatwiej
 doprowadzić do formowania się zagęszczeń na skutek jego samograwitacji, w
 porównaniu do przypadku adiabatycznego, który wymaga uważnego potraktowania
-dodatkowych procesów fizycznych t.j. grzanie i chłodzenie się gazu~\cite{Nel00}.
-Ze względu na szereg komplikacji i technicznych przeszkód na drodze do bardziej
+dodatkowych procesów fizycznych t.j. grzanie i~chłodzenie się gazu~\cite{Nel00}.
+Ze względu na szereg komplikacji i~technicznych przeszkód na drodze do bardziej
 realistycznego opisu gazu, zdecydowano się na zastosowania warunku
-izotermicznego jak najprostszego z możliwych opisów.
+izotermicznego jak najprostszego z~możliwych opisów.
 \par Przyjmujemy iż zewnętrzny potencjał~\mref{eq:phiext} jest określony przez
 masę punktową $M=1\,\textrm{M}_\odot$ Pomimo zaniedbywania pionowej składowej
 grawitacji, określamy charakterystyczną pionową skalę wysokości $H$, aby
 oszacować gęstość przestrzenna na wybranym promieniu,
-wykorzystując~\mref{eq:mmsn}, tak jakby gaz znajdował się w pionowej równowadze
+wykorzystując~\mref{eq:mmsn}, tak jakby gaz znajdował się w~pionowej równowadze
 hydrostatycznej
 %
 \begin{equation}\label{eq:rhoR}
    \rho(R,z) =  \rho(R,0) \exp\left(-\frac{z^2}{2H(R)^2}\right),
 \end{equation}
-gdzie $\rho(R,0)$ jest gęstością gazu w płaszczyźnie dysku, a $H^2 = 2 c_s^2 R^3/
+gdzie $\rho(R,0)$ jest gęstością gazu w~płaszczyźnie dysku, a $H^2 = 2 c_s^2 R^3/
 GM$.
 %
 Powyższe równanie całkujemy ze względu na współrzędną \emph{z} korzystająć z
@@ -451,26 +451,26 @@ otrzymujemy zależność
     \rho(R,0) = \frac{\Sigma(R) }{\int_{-\infty}^\infty
    \exp\left(-\frac{z^2}{2H(R)^2}\right) dz}.
 \end{equation}
-Dla wybranej temperatury $T_0$ dysku, całka w mianowniku po prawej stronie
-równanie~\mref{eq:rho} przyjmuje wartości z przedziału $[0.4,2]\AU$ dla $R \in
+Dla wybranej temperatury $T_0$ dysku, całka w~mianowniku po prawej stronie
+równanie~\mref{eq:rho} przyjmuje wartości z~przedziału $[0.4,2]\AU$ dla $R \in
 [2,7]\AU$. Dla ułatwienia obliczeń przyjmujemy, że wartość tej całki wynosi $1\AU$.
 Warunek początkowy opiera się o radialną równowagę sił obliczoną niezależnie dla
-składnika gazowego i pyłowego. Gaz utrzymywany jest w równowadze hydrostatycznej
-pomiędzy grawitacją, siła odśrodkową i gradientem ciśnienia, pył natomiast
-porusza się z prędkością keplerowską tak, aby równoważyć radialną składową
+składnika gazowego i~pyłowego. Gaz utrzymywany jest w~równowadze hydrostatycznej
+pomiędzy grawitacją, siła odśrodkową i~gradientem ciśnienia, pył natomiast
+porusza się z~prędkością keplerowską tak, aby równoważyć radialną składową
 grawitacji.
 
 \subsection{Warunki brzegowe}
-Zarówno w kierunku $z$ jak i $\phi$ zastosowano periodyczne warunki brzegowe.
-Aby zapobiec ucieczce masy z domeny obliczeniowej w kierunku radialnym użyto
-warunków odbiciowych, tzn. w warstwie brzegowej wielkości płynowe z najbliższej
+Zarówno w~kierunku $z$ jak i~$\phi$ zastosowano periodyczne warunki brzegowe.
+Aby zapobiec ucieczce masy z~domeny obliczeniowej w~kierunku radialnym użyto
+warunków odbiciowych, tzn. w~warstwie brzegowej wielkości płynowe z~najbliższej
 brzegu warstwy fizycznej domeny obliczeniowej są kopiowane ze zmianą znaku
 składowej pędu prostopadłej do ściany domeny.
 
 \par Aby zminimalizować niefizyczne odbicia fal od radialnych brzegów domeny,
-wprowadzono obszary tłumiące na wewnętrznych i zewnętrznych obszarach dysku o
-szerokości $\sim0.5\AU$. W obszarach tych wszystkie wielkości płynowe są
-poddawane ewolucji z dodatkowym wyrazem tłumiącym
+wprowadzono obszary tłumiące na wewnętrznych i~zewnętrznych obszarach dysku o
+szerokości $\sim0.5\AU$. W~obszarach tych wszystkie wielkości płynowe są
+poddawane ewolucji z~dodatkowym wyrazem tłumiącym
 \begin{equation}
   \frac{\textrm{d}X}{\textrm{d}t} = - \frac{X-X_0}{T_d}f(R).
 \end{equation}
@@ -486,7 +486,7 @@ gdzie $X_0$ jest początkową wartością $X$, a $T_d$ jest skalą czasową tłu
 rzędu okresu orbitalnego na najniższej orbicie.
 Wykładniki $f_\textrm{in}=f_\textrm{out}\equiv10$ określają szerokość przedziału
 przejściowego pomiędzy obszarem ewoluującym bez tłumienia, a obszarem tłumionym
-i zostały dobrane tak, aby tłumienie nie wpływało w znaczącym stopniu na
+i zostały dobrane tak, aby tłumienie nie wpływało w~znaczącym stopniu na
 stabilność całego układu. Przebieg funkcji $f(R)$ opisywanej rówananiem
 \mref{eq:overlap} został przedstawiony na rysunku~\ref{fig:overlap}.
 %
@@ -494,24 +494,24 @@ stabilność całego układu. Przebieg funkcji $f(R)$ opisywanej rówananiem
    \centering
    \includegraphics[width=0.5\textwidth]{figures/overlap}
    \caption{Przebieg funkcji $f(R)$ opisywanej równaniem~\mref{eq:overlap} dla
-   zakresu promieni użytego we wszystkich symulacjach przedstawionych w tej
+   zakresu promieni użytego we wszystkich symulacjach przedstawionych w~tej
 pracy.}
    \label{fig:overlap}
 \end{figure}
 %
 \subsection{Parametry symulacji}\label{ch2:simpar}
 %
-W ramach pracy doktorskiej przeprowadzono szereg symulacji 2D modyfikując
-początkowy $\epsilon$ oraz promień cząstek $a$, w celu weryfikacji użytych metod
+W~ramach pracy doktorskiej przeprowadzono szereg symulacji 2D modyfikując
+początkowy $\epsilon$ oraz promień cząstek $a$, w~celu weryfikacji użytych metod
 i wskazania optymalnych parametrów dla pełnych symulacji trójwymiarowych. Aby
-móc porównać wyniki z pracą innych autorów~\citep{JY07} parametr $\epsilon$
-wybrano z przedziału $[0.2, 2.0]$. Taki dobór parametru $\epsilon$ pozwala także
+móc porównać wyniki z~pracą innych autorów~\citep{JY07} parametr $\epsilon$
+wybrano z~przedziału $[0.2, 2.0]$. Taki dobór parametru $\epsilon$ pozwala także
 wzbudzić morfologicznie odmienny wyniki niestabilności strumieniowej, które
-zostaną opisane w dalszej części pracy. Promień cząstek pyłu został dobrany, tak
-aby otrzymane wyniki można było porównać z pracą JY, a także tak, aby były na
-tyle małe aby ich obecność w dysku protoplanetarnym można było wyjaśnić w ramach
-modelu zderzeniowego wzrostu przedstawionego w rozdziale 1. Pełne zestawienie
-użytych parametrów zostało przedstawione w tabeli~\ref{tab1}.
+zostaną opisane w~dalszej części pracy. Promień cząstek pyłu został dobrany, tak
+aby otrzymane wyniki można było porównać z~pracą JY, a także tak, aby były na
+tyle małe aby ich obecność w~dysku protoplanetarnym można było wyjaśnić w~ramach
+modelu zderzeniowego wzrostu przedstawionego w~rozdziale 1. Pełne zestawienie
+użytych parametrów zostało przedstawione w~tabeli~\ref{tab1}.
 
 \begin{table}
    \centering
@@ -536,10 +536,10 @@ użytych parametrów zostało przedstawione w tabeli~\ref{tab1}.
       BBh   &  $10240 \times 1   \times 600$  & 50  & 1.0 & 3000 \\
       \hline
    \end{tabular}
-\caption{Parametry użyte w symulacjach. Kolumny opisują w kolejności: oznaczenie
-   kodowe symulacji, ilość komórek obliczeniowych w kierunkach $r$, $\varphi$ i
+\caption{Parametry użyte w~symulacjach. Kolumny opisują w~kolejności: oznaczenie
+   kodowe symulacji, ilość komórek obliczeniowych w~kierunkach $r$, $\varphi$ i
    $z$, promień cząstek, początkowy stosunek gęstości pyłu do gęstości gazu,
-całkowity czas trwania symulacji w latach.}
+całkowity czas trwania symulacji w~latach.}
 \label{tab1}
 \end{table}
 
