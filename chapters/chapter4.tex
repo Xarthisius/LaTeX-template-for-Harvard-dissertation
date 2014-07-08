@@ -1,19 +1,47 @@
 \begin{savequote}[75mm]
-   If I model a phenomenon accurately, does that mean I understand it? Or might it be simple coincidence, or an artifact
-   of the technique? Of course, as an ardent simulationist, I myself put much faith in Engine-modeling.
-\qauthor{Edward Mallory, The Difference Engine by William Gibson and Bruce Sterling}
+   If I model a phenomenon accurately, does that mean I understand it? Or might
+   it be simple coincidence, or an artifact of the technique? Of course, as an
+   ardent simulationist, I myself put much faith in Engine-modeling.
+\qauthor{Edward Mallory, The Difference Engine by William Gibson and Bruce
+   Sterling}
 \end{savequote}
 
 \chapter{Dyskusja}
+W ramach tej pracy przeprowadzono serię dwu- i trójwymiarowych symulacji
+wzajemnie oddziałujących płynów: gazu i pyłu, w dysku keplerowskim. Przy czym
+zaniedbano pionową składową grawitacji od masy punktowej umieszczonej w centrum
+układu współrzędnych. Dla ziaren pyłu o rozmiarach od 10 do 50$\cm$
+zaobserwowano gwałtowny wzrost zaburzeń w gęstości i prędkości pyłu na
+charakterystyczych długościach fali zgodnych z przewidywaniami lokalnej,
+liniowej analizy stabilności takiego układu. Wcześniejsze badania innych
+autorów~\cite{YG05, JY07, TB09, BS10a, BS10b} opierały się w pełni na lokalnym
+przybliżeniu kostki ścinanej, co prowadziło do szeregu uproszczeń m.in.
+traktowania globalnego, radialnego ciśnienia gazu jako stałego i niezmiennego
+współczynnika~\cite{N86}, stosowania bezwymiarowego czasu zatrzymania przy
+obliczaniu wzajemnego oddziaływania obu płynów~\cite{YG05}. Bardzo ważnym
+osiągnięciem poniższej pracy jest rozszerzenie stosowanego uprzednio modelu o
+
+
+
+Model akrecji na jądra silnie zależy od procesu odpowiedzialnego za formowanie
+się planetezymali.
+
+Niestabiność strumieniowa zageszcza pył nawet 100 krotnie.
+
+Dysk jest stabilny $Q \sim 40$ (równanie 1.6)
 
 Zależność od parametru $\alpha$ w kryterium związania: dla $0.1$ tylko $8\%$.
+Nie ma dobrego kryterium na zwiazanie obłoku, potrzeba duzo wiekszej rozdzielczosci
 
-We performed a set of 2D simulations and 3D simulation of two mutually
-interacting fluids, i.e. gas and dust in protoplanetary disc, while neglecting
-vertical component of gravity. For the spectrum of grain sizes ranging from
-$10\div50$~cm we observe rapid growth of unstable modes in dust component, which
-are consistent with modes obtained for streaming instability within the
-framework of local linear analysis.
+Dopiero uwzględnienie ewolucji obłoku (cytacja), dluzsza skala czasowa
+pozwalajaca uwzglednic dynamike wiekowa i efekty migracyjne (cytacja).
+
+
+Rozszerzenie moze isc w dwie strony: bardziej realistyczny model dysku t.j.
+stratyfikacja~(Johansen ostatnie prace) i pole magnetyczne, rozwoj
+algorytmniczny t.j. adaptywna siatka niezbedna do sledzenia zapadania sie
+obloku, podskalowy model ewolucji pylu np.  metodami MC~(Aska)
+
 
 Our model enhances previous work of other authors by taking into account the
 full dynamics of protoplanetary disc, e.g. radial migration, that lead to
@@ -74,3 +102,6 @@ azimuthal velocity in 3d simulations, we consider implementing {\sc FARGO}-like
 algorithm~\cite{M00} for our future work.
 This is an important step towards complete model of planetesimals formation due
 to combined action of various fluid instabilities postulated by~\citet{J07}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: tw=80 ts=3: 
