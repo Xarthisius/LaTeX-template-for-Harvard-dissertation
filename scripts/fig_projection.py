@@ -13,11 +13,11 @@ FILES = [
     'dend_proj_kepler_tst_0146.npy'
 ]
 
-matplotlib.rcParams['font.size'] = 16
 preamble = {
     'text.usetex': True,
     "pgf.rcfonts": False,
     "text.latex.unicode": True,
+    'font.size': 22,
     "pgf.preamble": [
         r"\usepackage[T1]{polski}",
         r"\usepackage{mathspec}",
