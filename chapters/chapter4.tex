@@ -19,19 +19,49 @@ przybliżeniu kostki ścinanej, co prowadziło do szeregu uproszczeń m.in.
 traktowania globalnego, radialnego ciśnienia gazu jako stałego i niezmiennego
 współczynnika~\cite{N86}, stosowania bezwymiarowego czasu zatrzymania przy
 obliczaniu wzajemnego oddziaływania obu płynów~\cite{YG05}. Bardzo ważnym
-osiągnięciem poniższej pracy jest rozszerzenie stosowanego uprzednio modelu o
+osiągnięciem poniższej pracy jest rozszerzenie modelu stosowanego przez innych
+autorów poprzez uwzględnienie pełnej dynamiki okołogwiazdowego dysku w kierunku
+radialnym i wykazanie, że w takim przypadku można wzbudzić niestabilność
+strumieniową. Ponadto do opisu oddziaływania wiążącego oba płyny użyto
+właściwego dla ich charakterystyk prawa tarcia aerodynamicznego~\mref{eq:tauf}
+zamiast przybliżonego rachunku opartego na stałym, bezwymiarowym czasie
+zatrzymania.
+
+\par Przyjęty model, choć stanowi wyraźny postęp względem innych prac, jest
+ciągle mało realistycznym przybliżeniem pełnego dysku protoplanetarnego. Do jego
+największych wad można zaliczyć brak stratyfikacji oraz nieuwzględnienie wpływu
+globalnej turbulencji wywołanej niestabilnością magneto-rotacyjną~\cite{DKJ14}. 
 
 
+\par Otrzymane, we wszystkich przeprowadzonych eksperymentach numerycznych,
+liczby falowe najszybciej rosnących modów niestabilności, a także ich pozycja na
+mapie stabilności ($s(k_x, k_z)$), są zgodne z przewidywaniami liniowej analizy
+niestabilności strumieniowej. Pierwszy etap pracy opierał się na wykonaniu
+testów zbieżnościowych dla różnych parametrów fizycznych dysku protoplanetarnego
+co pozwolilo na określenie minimalnej liczby komórek obliczeniowych
+$(n\approx32)$ dla kodu \textsc{PIERNIK},umożliwiającej na dokładne odwzorowanie
+liniowej fazy wzrostu. 
 
 Model akrecji na jądra silnie zależy od procesu odpowiedzialnego za formowanie
 się planetezymali.
 
+
 Niestabiność strumieniowa zageszcza pył nawet 100 krotnie.
 
-Dysk jest stabilny $Q \sim 40$ (równanie 1.6)
 
 Zależność od parametru $\alpha$ w kryterium związania: dla $0.1$ tylko $8\%$.
 Nie ma dobrego kryterium na zwiazanie obłoku, potrzeba duzo wiekszej rozdzielczosci
+
+
+Należy podkreślić, że pomimo założenia dużo większej niż kanoniczna wartości
+stosunku gęstości gazu do gęstości pyłu, symulowany dysk jest stabilny zgodnie z
+kryterium Jeansa.  Parameter $Q$ jest stały dla całej domeny obliczeniowej i
+wynosi około $40$ (rów.~\ref{eq:Qemp}).
+
+\par Typowe rozmiary otrzymanych w symulacji BD3dS zagęszczęń mieszczą się w
+przedziale $10^{11} \div 10^{12}\cm$, zaś ich srednie gęstości wynoszą $10^{-12}
+\div 10^{-10}\g/\cm^3$ i są one spójne z charakterystykami obiektów, które są
+mogą tworzyć zwarte planetezymale w toku dalszej ewolucji~\cite{HS08}.
 
 Dopiero uwzględnienie ewolucji obłoku (cytacja), dluzsza skala czasowa
 pozwalajaca uwzglednic dynamike wiekowa i efekty migracyjne (cytacja).
@@ -43,13 +73,6 @@ algorytmniczny t.j. adaptywna siatka niezbedna do sledzenia zapadania sie
 obloku, podskalowy model ewolucji pylu np.  metodami MC~(Aska)
 
 
-Our model enhances previous work of other authors by taking into account the
-full dynamics of protoplanetary disc, e.g. radial migration, that lead to
-significant variation in physical quantities, such as gas pressure gradient, and
-were previously treated as constant. Moreover instead of using a general
-dimensionless stopping time parameter to couple both fluid components, we
-implement specific drag law (Eqn.~\mref{eq:tauf}) which is best suited to the
-physical properties of simulated fluids.
 
 \par In the present quasi-global approach we relieved the restriction of the
 fixed  radial pressure gradient, adopted for numerical modeling of the streaming
@@ -62,13 +85,6 @@ While locality of shearing box fully justifies using a constant dimensionless
 stopping time to calculate mutual linear drag force, that approximation is no
 longer valid in the global disc. 
 
-\par The wave numbers of the fastest growing modes, extracted from numerical
-models, and their positions at  the  map of growth rate  $s$ vs. $k_x$ and $k_z$
-coincide with the predictions of linear analysis of streaming instability. We
-reproduce reasonably well the linear growth rates, getting rapid convergence
-near $\sim 32$ cells per wavelength. It is apparent, however,  that due to
-diffusive nature of the Relaxing TVD scheme, PIERNIK needs high resolution to
-capture linear growth phase accurately.
 
 \par The instability saturates when dust overdensities synchronize their
 velocity with the gas component. We must note that despite the steady outward
