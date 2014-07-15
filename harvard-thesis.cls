@@ -405,6 +405,7 @@
 \def\s{\hbox{$\thinspace\textrm{s}$}}
 \def\K{\hbox{$\thinspace\textrm{K}$}}
 \def\yr{\hbox{$\thinspace\textrm{lat}$}}
+\def\rok{\hbox{$\thinspace\textrm{rok}$}}
 \def\Myr{\hbox{$\thinspace\textrm{Myr}$}}
 \def\mH{\hbox{$m_{\textrm{H}}$}}
 \DeclareMathAlphabet\EuRoman{U}{eur}{m}{n}

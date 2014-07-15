@@ -498,8 +498,12 @@ musi działać mechanizm powodujący utratę, bądź chociaż redystrybucję mom
 pędu.
 
 \subsection{Transport momentu pędu}
+$\ldots$
+Obserwacje 
 Z obserwacji jasno wynika~\citep{MME04}, że dyski protoplanetarne nie są
-obiektami stacjonarnymi. Co więcej, obiekty klasy I posiadają wysokie tempa
+obiektami stacjonarnymi. 
+
+Co więcej, obiekty klasy I posiadają wysokie tempa
 akrecji $\sim 10^{-5}\Msun\yr^{-1}$. Aby był możliwy radialny przepływ materii
 w~kierunku gwiazdy macierzystej, potrzebny jest mechanizm transportu momentu
 pędu. W~tym celu trzeba założyć, że ośrodek jest lepki. Zatem należy zastosować
@@ -515,7 +519,7 @@ równania~\mref{eq:ns2}):
 \label{eq:ns2}
 \end{gather}
 %
-Jeżeli dodatkowo założymy, że mamy do czynienia z~płynem doskonale lepkim, tensor
+Jeżeli dodatkowo założymy, że mamy do czynienia z~płynem newtonowskim, tensor
 naprężeń można zredukować do postaci $\Pi = (\rho_g \nu)\nabla\cdot\mathbf{u}$,
 gdzie $\nu$ jest lepkością kinematyczną. Całkując układ
 równań~\mref{eq:ns1}-\mref{eq:ns2} w~kierunku wertykalnym i~dokonując prostych
@@ -558,6 +562,7 @@ Problemem pozostaje wyjaśnienie mechanizmu powstawania turbulencji w~dysku. Z
 kryterium Rayleigha~\cite{C61}:
 %
 \begin{equation}
+   \frac{\mathrm{d}}{\mathrm{d}r} j =
    \frac{\mathrm{d}}{\mathrm{d}r}\left(r^2\Omega\right) > 0,
 \end{equation}
 %
@@ -567,7 +572,7 @@ słabego pola magnetycznego. Balbus i~Hawley~\citep{BH91} pokazali, że przepły
 magnetohydrodynamiczny jest stabilny liniowo wtedy i~tylko wtedy, gdy:
 %
 \begin{equation}\label{eq:mri}
-   \frac{\mathrm{d}}{\mathrm{d}r} j\frac{\mathrm{d}}{\mathrm{d}r}\left(\Omega^2\right) > 0.
+   \frac{\mathrm{d}}{\mathrm{d}r}\left(\Omega^2\right) > 0.
 \end{equation}
 %
 Warunek \mref{eq:mri} \emph{nie jest} spełniony dla dysków keplerowskich. W
@@ -579,16 +584,23 @@ turbulencję. Proces ten określany jest mianem niestabilności magnetorotacyjne
 i globalne~\cite{FD11} szacują parametr lepkości $\alpha$ dla dysku, w którym
 turbulencja została wzbudzona przez MRI na $\alpha\sim 10^{-2}$.
 \par Należy zauważyć, że niestabilność magnetorotacyjna wymaga choćby
-szczątkowej jonizacji gazu. Jeżeli założymy że źródłem jonizacji jest wysoko energetyczne
+szczątkowej jonizacji gazu. 
+
+$\ldots$
+Jeżeli założymy że źródłem jonizacji jest wysoko energetyczne
 promieniowanie pochodzące od gwiazdy macierzystej i~weźmiemy pod uwagę strukturę
 pionową dysku~\mref{eq:zeq}, to dojdziemy do wniosku, iż od pewnej wysokości
-$H_i$ dysku gaz znajdujący się poniżej $(H < H_i)$ jest efektywnie osłaniany
-przez warstwy gazu o $H > H_i$. Obszar $H < H_i$ jest zatem \emph{martwą strefą}
-w której turbulencja wzbudzana przez MRI nie występuje~\cite{DFT10}.
+$h_i$ materia w dysku jest efektywnie osłaniana przez warstwy gazu o $h > h_i$, gdzie
+$h_i$ jest wysokością podstawy
+
+zjonizowanego gazu. 
+Obszar $h < h_i$ jest zatem \emph{martwą strefą}
+w której niestabilność magnetorotacyjna nie występuje~\cite{DFT10} i nie może
+być zatem źródłem turbulencji. 
 
 \begin{figure}
    \includegraphics[width=0.9\textwidth]{figures/chap1_sed.png}
-   \caption{Rozkład widma energii dla gwiazdy HD 34282. Symbole oznaczają
+   \caption{Rozkład widma energii dla gwiazdy HD 34282~\cite{MME4}. Symbole oznaczają
       obserwacje różnymi metodami dla odpowiednich długości fali. Do obserwacji
       dopasowano następujące modele: linia przerywana model widma gwiazdowego
       dla obiektu typu A3V $(T\sim 8600\K)$, cienka ciągła
@@ -602,7 +614,7 @@ w której turbulencja wzbudzana przez MRI nie występuje~\cite{DFT10}.
 
 \subsection{Oddziaływanie pomiędzy gazem, a pyłem}
 Oddziaływanie pomiędzy pyłem a gazem odbywa się poprzez tarcie aerodynamiczne.
-Charakterystyczną skalę czasową tego procesu można wyrazić jako:
+Charakterystyczną skalę czasową tego procesu można wyrazić jako~\cite{W73}:
 %
 \begin{equation}
    \tau_f = \frac{mv_\textrm{pg}}{F_\textrm{D}},
@@ -613,7 +625,7 @@ i prędkość cząstek pyłu względem gazu, zaś $F_\textrm{D}$ to siła tarcia
 $\tau_f$ można interpretować jako czas potrzebny do wytracenia pędu cząstki pyłu
 i zrównania jej prędkości z~gazem. Siła $F_\textrm{D}$ jest definiowana w~różny
 sposób, w~zależności od rozmiaru ziaren pyłu. Dla cząstek pyłu o promieniu $a < 9
-\lambda / 4$ siła tarcia wyraża się prawem Epsteina:
+\lambda / 4$ siła tarcia wyraża się prawem Epsteina~\cite{W77}:
 %
 \begin{equation}
    F_\textrm{D} = \frac{4}{3}\pi a^2 \rho_\bullet \rho_G c_s v_\textrm{pg}, 
@@ -621,40 +633,52 @@ sposób, w~zależności od rozmiaru ziaren pyłu. Dla cząstek pyłu o promieniu
 %
 gdzie $\rho_\bullet = 1.6\g\cm^{-3}$ jest gęstością materiału, z~którego
 zbudowany jest pył. Dla ziaren pyłu o rozmiarach porównywalnych z~drogą swobodną
-molekuł gazu, siła tarcia wyraża się poprzez prawo Stokesa i~jest zależna od
-liczby Reynoldsa, co znacznie komplikuje jej postać. W~ramach pracy skupiono się
+molekuł gazu, siła tarcia wyraża się poprzez prawo Stokesa~\cite{W77}:
+\begin{equation}
+  F_\textrm{D} = C_\textrm{D} \pi a^2 \rho \frac{v^2}{2},
+\end{equation}
+gdzie $v$ to prędkość gazu, zaś współczynnik $C_\textrm{D}$ jest zależny od
+liczby Reynoldsa~\cite{W77}:
+\begin{equation}
+   \textrm{Re} = 2 a \rho \frac{v}{\eta}.
+   \label{eq:Re}
+\end{equation}
+Parametr $\eta$ w równaniu \mref{eq:Re} jest lepkością gazu.
+W~niniejszej pracy skupiono się
 na obszarach dysków rozciągających się od relatywnie dużych promieni, tj.
 $>2\AU$.  Biorąc pod uwagę, iż średnią drogę swobodną możemy wyrazić przez
 $\lambda_g = 4.2\times 10^4\textrm{ cm} (10^{-14}\textrm{ g cm}^{-3}/\rho_g)
-\approx (R/1 \textrm{AU})^{2.75}\cm$~\citep{W77,BT09}, gdzie$R$ jest odległością
-radialną od centrum dysku, reżim Epsteina ma zastosowanie dla dominującej części
+\approx (R/1 \textrm{AU})^{2.75}\cm$~\citep{W77,BT09}, gdzie $R$ jest odległością
+radialną od centrum dysku, prawo Epsteina ma zastosowanie dla dominującej części
 domeny obliczeniowej nawet dla największych symulowanych przez nas ziaren pyłu.
-Skala czasowa tarcia przyjmuję zatem następującą postać:
+Skalę czasową tarcia można wyrazić wzorem:
 %
 \begin{equation} 
    \tau_f = \frac{\rho_\bullet a} {\rho_g \sqrt{c_s^2 +
       |\mathbf{u} - \mathbf{w}|^2 }} \label{eq:tauf} 
 \end{equation}
 %
-Źródłem różnicy względnej prędkości pomiędzy pyłem a gazem może być wiele
+Powodem różnicy prędkości pomiędzy pyłem a gazem może być wiele
 procesów, przede wszystkim turbulencja obecna w~gazie, ale także radialny dryf
 pyłu (o którym będzie mowa w~dalszej części tego rozdziału) oraz ruchy
-brownowskie. Te ostatnie bardzo silnie zależą od rozmiaru cząstek, tj.
+Browna. Te ostatnie bardzo silnie zależą od rozmiaru cząstek, tj.
 makroskopowe cząstki pyłu praktycznie nie odczuwają ich wpływu, nie są zaś
-zależne od gęstości gazu. Ruch brownowskie są niezwykle istotne dla rozpoczęcia
+zależne od gęstości gazu. Ruchy Browna są niezwykle istotne dla rozpoczęcia
 procesów koagulacji pyłu w~początkowej fazie formacji
-protoplanet~\citep{DD05}, jako że wzbudzają dość znaczne prędkości względne
+protoplanet~\citep{DD05}, ponieważ skutkują dość znacznym prędkościom względnym
 dla najmniejszych ziaren pyłu, które są najsilniej związane z~gazem. Turbulencja
-i radialny dryf natomiast tym silniej pływają na dynamikę, im większa jest
-gęstość gazu. Ich rola jest większa dla cząstek o rozmiarach pośrednich, które
-zaczynają odprzęgać się od dynamiki gazu.
+i radialny dryf natomiast tym silniej wpływają na dynamikę, im większa jest
+gęstość gazu. Ich znaczenie jest większe dla cząstek o rozmiarach pośrednich, które
+są słabie sprzężone z chaotycznymi ruchami gazu.
 
 \subsection{Radialny dryf pyłu}
-Pył w~dysku protoplanetarnym można traktować jako bezciśnieniowy płyn. Ten
-prosty fakt niesie za sobą ogromne konsekwencje. Jako że rozkład materii w~dysku
-jest malejącą funkcją promienia, to dla izotermicznego gazu gradient ciśnienia
-jest ujemny dla całej rozciągłości dysku. W~rezultacie gaz w~jest efektywnie
-ekranowany od siły grawitacyjnej. Z równowagi sił:
+Jedno z przybliżeń stosowanych w opisie dysków gazowo-pyłowych opiera się na
+załóżeniu, że pył w~dysku protoplanetarnym można traktować jako bezciśnieniowy płyn. 
+Jako że gęstość materii w~dysku zgodnie z założeniami jest malejącą funkcją
+promienia, to dla izotermicznego gazu gradient ciśnienia jest ujemny dla całej
+rozciągłości dysku. W~rezultacie radialna składowa siły grawitacyjnej dla gazu
+jest pomniejszona o gradient ciśnienia. Równanie równowagi sił można wyrazić
+jako:
 %
 \begin{equation}
    R\Omega_g^2 = \partial_R P / \rho_G + R\Omega_K^2
