@@ -340,16 +340,40 @@ względu na rozmiar najmniejszej komórki obliczeniowej.
 W~ramach poniższej pracy przeprowadzono 2 rodzaje symulacji pełnego,
 trójwymiarowego modelu dysku: z~uwzględnieniem efektów samograwitacji płynów
 (BD3dS) oraz bez jej udziału (BB3d, BD3d). Symulacja BB3d została przeprowadzana
-w celu ścisłego porównania wyników z~analogicznymi symulacjami dwuwymiarowymi.
-Podobnie jak w~przypadku zredukowanym, ewolucja niestabilności strumieniowej
-przebiega głównie w~płaszczyźnie \textit{r-z}. Początkowo w~gęstości pyłu
-wyłania się przedstawiony już wcześniej ukośny wzór, będący wynikiem działania
-najbardziej niestabilnych modów. Wydłużone zagęszczenia pyłu formują warstwy
-rozciągające się na cały dysk w~kierunku azymutalnym. Odstępstwa od osiowej
-symetrii są zauważalne, lecz praktycznie nie wpływają na zachowanie się
-niestabilności (por. Rysunek~\ref{fig:slicenosg}. Podobnie jak w~analogicznych
-symulacjach 2D, saturacja niestabilności następuje po lokalnym wzroście gęstości
-pyłu o $1\div1.5$ rzędu wielkości.
+jako trójwymiarowy analog wcześniej opisywanych symulacji dwuwymiarowych.
+
+Wybrane migawki z trójwymiarowej ewolucji dysku zostały pokazane na rysunku
+$\ldots$ dla czasów $t = \ldots$. Przedstawione na tym rysunku rozkłady gęstości
+pyłu w cięciach \textit{r-z} ujawniają duże podobieństwo wizualne do rozkładów gęstości
+w symulacjach dwuwymiarowych. 
+
+Początkowo w~rozkładzie gęstości pyłu wyłania się przedstawiony już wcześniej
+ukośny wzór, będący superpozycją działania najbardziej niestabilnych modów.
+Model trójwymiarowy pokazuje, że zagęszczenia widoczne w płaszczyźnie
+\textit{r-z} są w rzeczywistości cięciami włóknien rozciągłych w kierunku
+azymutalnym. Liniowy zakres ewolucji niestabilności strumieniowej w 3D przebiega
+zgodnie z przewidywaniami liniowej analizy stabilności przedstawionej dla
+przypomnienia w rozdziale drugim. Najszybciej rosnące mody niestabilności
+strumieniowej lokują się na mapach stabilności (Rys.~\ref{fig9} dla symulacji
+BB3d oraz Rys.~\ref{fig:map3d} dla symulacji BD3d) wzdłuż grzebietu
+wyznaczającego największe analityczne tempa wzrostu wynikające z liniowej
+analizy stabilności. Wybrane migawki z trójwymiarowej
+ewolucji dysku w symulacji BD3d zostały pokazane na rysunku~\ref{fig:slicenosg}
+dla czasów $t =  50, 100, 150, 200, 400$ lat. Przedstawione na tym rysunku
+cięcia zarówno w płaszczyźnie \textit{r-z} jak i \textit{r-}$\varphi$ pokazują, że
+gęstość pyłu mierzona wzdłuż włókien wykazuje wyraźną modulację wskazującą na
+potrzebę uwzględnienia azymutalnej liczby falowej w liniowej analizie
+niestabilności strumieniowej. 
+
+{\bf poprzednie zdanie wyklucza następne?}
+Odstępstwa od osiowej symetrii są widoczne, lecz praktycznie nie
+wpływają na zachowanie się niestabilności w liniowym zakresie (por.
+Rysunek~\ref{fig:slicenosg}. Podobnie jak w~analogicznych symulacjach 2D,
+saturacja niestabilności następuje po lokalnym wzroście gęstości pyłu o
+$1\div1.5$ rzędu wielkości
+
+??Na poziomie dokładności określonej przez ograniczoną rozdzielczość symulacji 3D?
+
 %
 \begin{figure}
    \centering
@@ -361,7 +385,7 @@ pyłu o $1\div1.5$ rzędu wielkości.
    \caption{
       Migawki z~symulacji BD3d obrazujące gęstość pyłu w~cięciach w
       płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
-   domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 400$}
+   domeny obliczeniowej, dla czasów $t= 50, 100, 150, 200, 400$ lat}
    \label{fig:slicenosg}
 \end{figure}
 %
