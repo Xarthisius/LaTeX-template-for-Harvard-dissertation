@@ -814,16 +814,28 @@ wybranej orbicie z~prędkością keplerowską, natomiast gaz pod wpływem radial
 gradientu ciśnienia z~prędkością podkeplerowską. Duża koncentracja pyłu
 w~płaszczyźnie powoduje, że gaz jest efektywniej ,,pchany'' przez pył i~zaczyna
 poruszać się szybciej niż warstwy gazu leżące poniżej i~powyżej płaszczyzny
-rotacji dysku.  Prowadzi to do wytworzenia się pionowego gradientu prędkości
-azymutalnej gazu.  Taka sytuacja powoduje wzbudzenie niestabilności
-Kelvina-Helmholtza i~pojawienie się turbulencji w~gazie.  Na skutek wzajemnego
-sprzężenia turbulentne ruchy gazu skutkują mieszaniem składnika pyłowego
-i~hamowaniem sedymentacji~\cite{JHK06}. Niedawne badania pokazują że tylko
-bardzo masywne dyski, o~metaliczności dużo większej niż słoneczna, są nie
-wrażliwe na ten proces~\citep{L10}. Podobnie jak w~przypadku niestabilności
-magnetorotacyjnej turbulentne ruchy gazu skutkują analogicznymi ruchami pyłu,
-jednakże i~w~tym wypadku ustala się pewien stan równowagi dynamicznej między
-sedymentacją pyłu, a turbulencją~\cite{JHK06}. 
+rotacji dysku. Prowadzi to do wytworzenia się pionowego gradientu prędkości
+azymutalnej gazu. Ruch płynu w płaszczyźnie \emph{phi-z} można w takiej sytuacji
+przybliżyć jako laminarny, stacjonarny przepływ. Eliminując wyrazy zależne od
+czasu w równaniu~\mref{eq:vort} otrzymujemy różniczkową postać prawa
+Bernoulliego:
+\begin{equation}
+   \nabla\left(\frac{1}{2}u^2\right) -
+   \mathbf{u}\times\left(\nabla\times\mathbf{u}\right) =
+-\frac{1}{\rho}\nabla p - \nabla\Phi.
+   \label{eq:bern}
+\end{equation}
+Można pokazać~\cite{C98}, że drobne zaburzenia przepływu ścinanego dla płynu o
+różnej gęstości opisywanego równaniem~\mref{eq:bern} są efektywnie wzmacniane.
+Mechanizm ten nosi miano niestabilności Kelvina-Helmholtza i~w~warunkach
+opisanych powyżej prowadzi do pojawienia się turbulencji w~gazie znajdującym się
+dysku protoplanetarnym. Na skutek wzajemnego sprzężenia turbulentne ruchy gazu
+skutkują mieszaniem składnika pyłowego i~hamowaniem sedymentacji~\cite{JHK06}.
+Niedawne badania pokazują że tylko bardzo masywne dyski, o~metaliczności dużo
+większej niż słoneczna, są nie wrażliwe na ten proces~\citep{L10}. Podobnie jak
+w~przypadku niestabilności magnetorotacyjnej turbulentne ruchy gazu skutkują
+analogicznymi ruchami pyłu, jednakże i~w~tym wypadku ustala się pewien stan
+równowagi dynamicznej między sedymentacją pyłu, a turbulencją~\cite{JHK06}. 
 
 \subsection{Niestabilność strumieniowa}
 Pomimo działania turbulencji wywołanej poprzez szereg opisywanych wcześniej
