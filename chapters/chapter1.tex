@@ -609,6 +609,42 @@ występuje~\cite{DFT10} i nie może być zatem źródłem turbulencji.
    \label{fig:sed}
 \end{figure}
 
+Obecność obszarów niepodatnych na niestabilność magnetorotacyjną w dysku
+wymusiła potrzebę znalezienia innego mechanizmu odpowiadzialnego za generację
+turbulentnej lepkości w martwych strefach. Jednym z obiecujących procesów jest
+niestabilność baroklinowa~\cite{KB03, Kl04}. Przepływ baroklinowy występuje
+kiedy ciśnienie płynu zależy równocześnie od jego gęstości jak i temperatury, w
+przeciwieństwie do przepływu barotropowego, w którym ciśnienie jest funkcją
+tylko gęstości. Aplikując obustronnie do równania~\mref{eq:hd2} operator
+wektorowej rotacji pomijając siły zewnętrzne i dokonując prostych przekształceń
+matematycznych otrzymujemy:
+
+\begin{equation}
+   \partial_t \mathbf{\omega} + (\mathbf{u}\cdot\nabla)\mathbf{\omega} =
+   (\mathbf{\omega}\cdot\nabla)\mathbf{u} -
+   \mathbf{\omega}\left(\nabla\cdot\mathbf{u}\right) + \rho^{-2}\nabla \rho \times
+      \nabla p,
+   \label{eq:vort}
+\end{equation}
+
+gdzie $\mathbf{\omega}$ to wirowość. 
+W wypadku istnienia w dysku radialnego gradientu entropii nachylenie pomiędzy izopykną,
+tzn. powierzchnią o stałej gęstości płynu, a izobarą, tzn. powierzchnią o
+stałym ciśnieniu, sprawia że ostatni wyraz w równaniu~\mref{eq:vort} jest
+niezerowy~\cite{LK11}. Baroklinowość jest m.in. odpowiedzialna za tworzenie się
+cyklonów i antycyklonów w atmosferze Ziemii. Istotną rzeczą przy przepływie
+baroklinowym w dyskach okołogwiazdowych jest skończona bezwładność
+cieplna~\cite{P07a, P07b}. W przypadku kiedy czas potrzebny płynowi na
+zareagowanie na zmianę temperatury jest porównywalny z okresem obrotu
+wytworzonego w nim wiru, wir ten jest w stanie wytworzyć gradient entropii wokół
+siebie. Lokalny gradient entropii równoważy globalny gradient entropii, który
+był początkowo odpowiedzialny za utworzenie wiru~\cite{KB03}. Gradient entropii
+oddziaływuje zwrotnie z wirem i dzięki wyporności generuje więcej wirowości.
+Dochodzi do dodatniego sprzężenia zwrotnego i wir rośnie. Trójwymiarowe
+symulacje~\cite{KB03} pokazują, że niestabilność baroklinowa jest w stanie
+prowadzić turbulencji zapewniającej parametr lepkości $\alpha$ na poziomie
+$10^{-3}\div10^{-2}$.
+
 \subsection{Oddziaływanie pomiędzy gazem, a pyłem}
 Oddziaływanie pomiędzy pyłem a gazem odbywa się poprzez tarcie aerodynamiczne.
 Charakterystyczną skalę czasową tego procesu można wyrazić jako~\cite{W73}:
@@ -660,13 +696,13 @@ przede wszystkim turbulencja obecna w~gazie, ale także radialny dryf pyłu (o
 którym będzie mowa w~dalszej części tego rozdziału) oraz ruchy Browna.  Te
 ostatnie są wynikiem transportu momentu pędu na skutek zderzeń ziaren pyłu z
 cząsteczkami gazu~\cite{E1905}.  Stochastyczność tych zderzeń przekłada się na
-losowe błądzenie ziaren pyłu ze średnią prędkością
-
+losowe błądzenie ziaren pyłu ze średnią prędkością:
+%
 \begin{equation}
-\Delta v_{\textrm{BM}} = \sqrt{\frac{8k_{\textrm{B} T}{\pi m_\mu}},
+   \Delta v_{\textrm{BM}} = \sqrt{\frac{8k_{\textrm{B} T}}{\pi m_\mu}},
 \label{eq:bm}
 \end{equation}
-
+%
 gdzie $m_\mu = m_1m_2/(m_1+m_2)$ to zredukowana masa cząstek. Z
 równania~\mref{eq:bm} wynika, że różnica prędkości maleje z potęgą $-3/2$
 promienia ziaren pyłu. Z tego względu ruchy Browna są istotne tylko dla najmniej
@@ -674,6 +710,7 @@ masywnych ziaren pyłu o rozmiarach rzędu $\mu m$ i odgrywają znaczącą rolę
 procesów koagulacji pyłu w~początkowej fazie formacji protoplanet~\citep{DD05}. 
 Turbulencja i radialny dryf natomiast mają większe znaczenie dla cząstek o
 rozmiarach pośrednich, które są słabiej sprzężone z chaotycznymi ruchami gazu.
+
 
 \subsection{Radialny dryf pyłu}
 Jedno z przybliżeń stosowanych w opisie dysków gazowo-pyłowych opiera się na
