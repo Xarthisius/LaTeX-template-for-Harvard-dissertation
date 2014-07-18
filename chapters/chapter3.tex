@@ -444,10 +444,12 @@ większość masy pyłu jest równomiernie rozłożona pomiędzy gęstościami $
 przez domenę obliczeniową, sugeruje to krótki czas życia zagęszczeń i
 nieustający przepływ masy pomiędzy obszarami o niskiej i~wysokiej gęstości.
 Natomiast w~symulacji BD3dS rozkład masy jest zgoła inny. Po osiągnięciu
-granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna ,,uciekać'' w
-kierunku maksymalnej gęstości. Wytwarza się rozkład potęgowy opadający w
-kierunku rzadszych obszarów, z~wyraźnym gwałtownym obcięciem na wartości
-granicznej gęstości $\sim10^{-8}\g\cm^{-3}$.
+granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna przemieszczać
+się w kierunku maksymalnej gęstości. Dla ustalonej orbity, większość pyłu
+ostatecznie lokuje się w przedziale gęstości $\sim10^{-8}\div10^{-9}\g\cm^{-3}$.
+Wartość graniczna $10^{-8}\g\cm^{-3}$ jest najprawdopodobniej konsekwencją
+poziomiu dokładności określonej przez ograniczoną rozdzielczość przestrzenną
+symulacji.
 %
 \begin{figure} 
   \centering
@@ -468,18 +470,18 @@ granicznej gęstości $\sim10^{-8}\g\cm^{-3}$.
 charakterystycznych skalach obiektów w~których znajduje się większość masy pyłu,
 ani nie pozwala stwierdzić czy pył jest grawitacyjnie związany. W~celu
 rozszerzenia przeprowadzonej analizy zebrany materiał poddano procedurze
-identyfikacji topologicznie powiązanych ze sobą komórek obliczeniowych
-znajdujących się w~przedziale gęstości $10^{-10}\div10^{-8}\g\cm^{-3}$. W~tym
+identyfikacji topologicznie powiązanych ze sobą komórek obliczeniowych, które
+zawierają porcje pyłu o~gęstości w~przedziale $10^{-10}\div10^{-8}\g\cm^{-3}$. W~tym
 celu wykorzystano pakiet do analizy i~wizualizacji
 danych~\yt{}~\footnote{Szczegółowe informacje na temat \emph{clump-finder'a}
 można znaleźć w~rozdziale 7.7 w~pracy~\cite{yt}. Autor niniejszej pracy
 rozszerzył pakiet \yt{} o możliwość czytania plików wynikowych z~kodu
 PIERNIK, a także zaimplementował wsparcie dla współrzędnych cylindrycznych.}.
-Uzyskanie informacji o topologii rozkładu gęstości pyłu jest pierwszym krokiem w
+Uzyskanie informacji o strukturze rozkładu gęstości pyłu jest pierwszym krokiem w
 celu ustalenia, czy powstające zagęszczenia są w~stanie utworzyć grawitacyjnie
-związane obiekty. Dla każdego zidentyfikowanego obiektu -- ,,clumpu'', można
-określić relację pomiędzy jego energią kinetyczną, a studnią potencjału w~której
-się znajduje. Kryterium związania można wyrazić przez
+związane obiekty. Dla każdego zidentyfikowanego obiektu można
+określić relację pomiędzy jego energią kinetyczną i lokalna energia potencjalna
+w studni potencjału, w~której się znajduje. Kryterium związania można wyrazić przez
 
 \begin{equation}
    \label{eq:bcrit}
