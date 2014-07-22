@@ -8,13 +8,13 @@ matplotlib.use('pgf')
 
 FILES = [
     '../data/hist_nosg_050.pkl',
-    '../data/hist_nosg_050.pkl',
+    '../data/hist_sg_050.pkl',
     '../data/hist_nosg_100.pkl',
-    '../data/hist_nosg_100.pkl',
+    '../data/hist_sg_100.pkl',
     '../data/hist_nosg_200.pkl',
-    '../data/hist_nosg_200.pkl',
+    '../data/hist_sg_200.pkl',
     '../data/hist_nosg_300.pkl',
-    '../data/hist_nosg_300.pkl',
+    '../data/hist_sg_300.pkl',
 ]
 
 preamble = {
@@ -54,7 +54,7 @@ for ifn, fn in enumerate(FILES):
     grid.set_xlim(2.5, 6.0)
     grid.set_ylim(1e-14, 1e-7)
     im = grid.pcolormesh(
-        x, y, z, shading='flat', rasterized=True, norm=norm
+        x, y, z, shading='flat', rasterized=True, norm=norm, cmap="YlOrBr",
     )
     grid.xaxis.set_major_locator(MaxNLocator(8, prune="both"))
 for grid in axs[:, 0]:
