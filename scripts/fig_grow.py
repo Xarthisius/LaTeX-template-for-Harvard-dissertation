@@ -20,8 +20,8 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 
 FILES = [
-    ('sg_modes.pkl', '../figures/sg_vlzd_growth.pdf'),
-    ('nosg_modes.pkl', '../figures/nosg_vlzd_growth.pdf'),
+    ('../data/sg_modes.pkl', '../figures/sg_vlzd_growth.pdf'),
+    ('../data/nosg_modes.pkl', '../figures/nosg_vlzd_growth.pdf'),
 ]
 
 def format_my(x, pos=None):

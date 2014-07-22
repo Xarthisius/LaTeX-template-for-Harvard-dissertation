@@ -7,10 +7,10 @@ matplotlib.use('pgf')
 
 
 FILES = [
-    'dend_proj_kepler_tst_0075.h5.npy',
-    'dend_proj_kepler_tst_0100.h5.npy',
-    'dend_proj_kepler_tst_0126.h5.npy',
-    'dend_proj_kepler_tst_0146.npy'
+    '../data/dend_proj_kepler_tst_0075.h5.npy',
+    '../data/dend_proj_kepler_tst_0100.h5.npy',
+    '../data/dend_proj_kepler_tst_0126.h5.npy',
+    '../data/dend_proj_kepler_tst_0146.npy'
 ]
 
 preamble = {
