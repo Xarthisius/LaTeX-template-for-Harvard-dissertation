@@ -336,16 +336,50 @@ względu na rozmiar najmniejszej komórki obliczeniowej.
    \label{fig10} 
 \end{figure}
 
-\section{Symulacje trójwymiarowe}
-W~ramach poniższej pracy przeprowadzono 2 rodzaje symulacji pełnego,
+\section{Symulacje trójwymiarowe z udziałem samograwitacji}
+Przedmiotem dotychczasowych badań była niestabilność strumieniowa bez udziału
+samograwitacji. Pokazaliśmy, że w dwuwymiarowym przybliżeniu tempo wzrostu
+niestabilności w liniowym zakresie bardzo dobrze zgadza się z przewidywaniami
+liniowej teorii, a zagęszczenia pyłu powstające w nieliniowej fazie rozwoju
+niestabilności osiągają amplitudę przewyższającą gęstość początkową od jednego
+do dwóch rzędów wielkości. W modelu 3d tempo wzrostu jest wyraźnie pomniejszone
+względem przewidywań liniowej teorii z powodu mniejszej dostępnej rozdzielczości
+siatki obliczeniowej, ale fluktuacje gęstości oscylują na podobnym poziomie jak
+w symulacjach dwuwymiarowych. Wynik ten stanowi silną przesłankę, że warunki dla
+niestabilności grawitacyjnej są w niewielkim stopniu zależne od rodzielczości
+siatki. W~niniejszy rozdziale przedstawione zostały 2 symulacje pełnego,
 trójwymiarowego modelu dysku: z~uwzględnieniem efektów samograwitacji płynów
 (BD3dS) oraz bez jej udziału (BB3d, BD3d). Symulacja BB3d została przeprowadzana
 jako trójwymiarowy analog wcześniej opisywanych symulacji dwuwymiarowych.
 
-Wybrane migawki z trójwymiarowej ewolucji dysku zostały pokazane na rysunku
-$\ldots$ dla czasów $t = \ldots$. Przedstawione na tym rysunku rozkłady gęstości
-pyłu w cięciach \textit{r-z} ujawniają duże podobieństwo wizualne do rozkładów gęstości
-w symulacjach dwuwymiarowych. 
+
+\begin{table}
+   \centering
+   \begin{tabular}{cccccc}
+      \hline
+      Nazwa & $N_r \times N_\varphi \times N_z$ &
+      $a$~[cm] & $\epsilon$ & $T_\textrm{end}$~[yr] \\
+      \hline
+      BD3d  &  $2560  \times 512 \times 192$  & 50  & 3.0 & 500  \\
+      BD3dS &  $2560  \times 512 \times 192$  & 50  & 3.0 & 300  \\
+      BB3d  &  $2560  \times 512 \times 192$  & 50  & 1.0 & 500  \\
+      \hline
+   \end{tabular}
+\caption{Parametry użyte w~symulacjach 3D. Kolumny opisują w~kolejności: oznaczenie
+   kodowe symulacji, ilość komórek obliczeniowych w~kierunkach $r$, $\varphi$ i
+   $z$, promień cząstek, początkowy stosunek gęstości pyłu do gęstości gazu,
+całkowity czas trwania symulacji w~latach.}
+\label{tab2}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: tw=80 ts=3: 
+
+Wybrane migawki z trójwymiarowej ewolucji dysku w symulacji BD3d zostały
+pokazane na rysunku~\ref{fig:slicenosg} dla czasów $t = 50, 100, 150, 200,
+400$~lat. Przedstawione na tym rysunku rozkłady gęstości pyłu w cięciach
+\textit{r-z} ujawniają duże podobieństwo wizualne do rozkładów gęstości w
+symulacjach dwuwymiarowych. 
 
 Początkowo w~rozkładzie gęstości pyłu wyłania się przedstawiony już wcześniej
 ukośny wzór, będący superpozycją działania najbardziej niestabilnych modów.
@@ -361,12 +395,11 @@ analizy stabilności. Wybrane migawki z trójwymiarowej
 ewolucji dysku w symulacji BD3d zostały pokazane na rysunku~\ref{fig:slicenosg}
 dla czasów $t =  50, 100, 150, 200, 400$ lat. Przedstawione na tym rysunku
 cięcia zarówno w płaszczyźnie \textit{r-z} jak i \textit{r-}$\varphi$ pokazują, że
-gęstość pyłu mierzona wzdłuż włókien wykazuje wyraźną modulację wskazującą na
+gęstość pyłu mierzona wzdłuż włókien wykazuje modulację wskazującą na
 potrzebę uwzględnienia azymutalnej liczby falowej w liniowej analizie
-niestabilności strumieniowej. 
-
-{\bf poprzednie zdanie wyklucza następne?}
-Odstępstwa od osiowej symetrii są widoczne, lecz praktycznie nie
+niestabilności strumieniowej. Jednakże, tempo wzrostu mierzone w liniowym
+zakresie pozostaje zgodne z przewidywaniami teorii dla przybliżenia
+dwuwymiarowego. Odstępstwa od osiowej symetrii są widoczne, lecz praktycznie nie
 wpływają na zachowanie się niestabilności w liniowym zakresie (por.
 Rysunek~\ref{fig:slicenosg}. Podobnie jak w~analogicznych symulacjach 2D,
 saturacja niestabilności następuje po lokalnym wzroście gęstości pyłu o
@@ -409,8 +442,9 @@ Pierwsza zauważalną różnicą jest
 przekroczenie przez pył gęstości na której wcześniej niestabilność strumieniowa
 się wysycała (por. środkowy panel na Rysunku~\ref{fig:hists}). Jest to prostą
 konsekwencją faktu, że każde formujące się zagęszczenie jest dodatkowo
-wspomagane działającą do wewnątrz siłą samograwitacyjną. Po $150$~latach dysk
-pyłowy staje się dużo bardziej pofragmentowany w~kierunku azymutalnym.
+ściskane działającą do wewnątrz siłą samograwitacyjną. Po $150$~latach dysk
+pyłowy staje się widocznie bardziej pofragmentowany w~kierunku azymutalnym w
+porównaniu z modelem bez samograwitacji.
 Odstępstwo od osiowej symetrii jest wyraźnie zauważalne. Warstwy gęstego pyłu na
 skutek wzajemnego oddziaływania grawitacyjnego (jak i~własnego ciężaru)
 zaczynają się deformować coraz silniej zmieniając swoją strukturę w~kierunku
