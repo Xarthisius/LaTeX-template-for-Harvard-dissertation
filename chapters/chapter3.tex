@@ -445,13 +445,13 @@ konsekwencją faktu, że każde formujące się zagęszczenie jest dodatkowo
 ściskane działającą do wewnątrz siłą samograwitacyjną. Po $150$~latach dysk
 pyłowy staje się widocznie bardziej pofragmentowany w~kierunku azymutalnym w
 porównaniu z modelem bez samograwitacji.
-Odstępstwo od osiowej symetrii jest wyraźnie zauważalne. Warstwy gęstego pyłu na
+Odstępstwo od osiowej symetrii jest wyraźnie zauważalne. Formacje gęstego pyłu na
 skutek wzajemnego oddziaływania grawitacyjnego (jak i~własnego ciężaru)
 zaczynają się deformować coraz silniej zmieniając swoją strukturę w~kierunku
 azymutalnym. W~ciągu kolejnych $50$~latach samograwitacja ,,ściska'' praktycznie
-cały pył do jednej płaskiej warstwy w~płaszczyźnie $R - \varphi$ w~formie
-długich pofalowanych włókien (Rysunek~\ref{fig:projs}). W~toku dalszej ewolucji
-włókna fragmentują na mniejsze związane grawitacyjnie obiekty -- planetezymale,
+cały pył do jednej płaskiej warstwy w~płaszczyźnie $R - \varphi$ tworząc
+długie, pofalowane włókna (Rysunek~\ref{fig:projs}). W~trakcie dalszej ewolucji
+włókna fragmentują na mniejsze związane grawitacyjnie obiekty,
 które podlegają dalszym oddziaływaniom dynamicznym. 
 
 %
@@ -474,16 +474,19 @@ histogramów masy pyłu w~funkcji promienia orbitalnego i~gęstości pyłu
 (Rysunek~\ref{fig:hists}). Dla symulacji BD3d, pomimo osiągnięcia przez nią
 lokalnie zagęszczeń o $1\div1.5$ rzędów większych niż początkowy rozkład,
 większość masy pyłu jest równomiernie rozłożona pomiędzy gęstościami $10^{-11}
-\div 5\cdot10^{-10}\g\cm^{-3}$. W~połączeniu obrazem wyłaniającym się z~cięć
-przez domenę obliczeniową, sugeruje to krótki czas życia zagęszczeń i
-nieustający przepływ masy pomiędzy obszarami o niskiej i~wysokiej gęstości.
-Natomiast w~symulacji BD3dS rozkład masy jest zgoła inny. Po osiągnięciu
-granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna przemieszczać
-się w kierunku maksymalnej gęstości. Dla ustalonej orbity, większość pyłu
-ostatecznie lokuje się w przedziale gęstości $\sim10^{-8}\div10^{-9}\g\cm^{-3}$.
-Wartość graniczna $10^{-8}\g\cm^{-3}$ jest najprawdopodobniej konsekwencją
-poziomiu dokładności określonej przez ograniczoną rozdzielczość przestrzenną
-symulacji.
+\div 5\cdot10^{-10}\g\cm^{-3}$. W~połączeniu obrazem wyłaniającym się
+z~obserwacji wzbudzonych na rysunku zagęszczeń pyłowych, sugeruje to krótki czas
+życia zagęszczeń i nieustający przepływ masy pomiędzy obszarami o niskiej
+i~wysokiej gęstości.  Natomiast w~symulacji BD3dS rozkład masy jest zgoła inny.
+Po osiągnięciu granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna
+przemieszczać się na histogramie w kierunku rosnących gęstości. Dla ustalonej
+orbity, większość pyłu ostatecznie lokuje się w przedziale gęstości
+$\sim10^{-8}\div10^{-9}\g\cm^{-3}$.  Wysycenie wzrostu zagęszczeń na poziomie
+$10^{-8}\g\cm^{-3}$ jest najprawdopodobniej konsekwencją
+ograniczonej rozdzielczości siatki obliczeniowej. W rzeczywistym świecie, wobec
+braku własnego ciśnienia termicznego zagęszczenia pyłu powinny zapadać się do
+momentu całkowitego sprasowania pyłu do postaci zwartych planetezymali. {\bf to
+nie jest do końca prawdziwa teza}
 %
 \begin{figure} 
   \centering
@@ -494,7 +497,7 @@ symulacji.
 \end{figure}
 %
 \par Histogram masy niestety nie daję informacji o kształcie i
-charakterystycznych skalach obiektów w~których znajduje się większość masy pyłu,
+charakterystycznych rozmiarach obiektów w~których znajduje się większość masy pyłu,
 ani nie pozwala stwierdzić czy pył jest grawitacyjnie związany. W~celu
 rozszerzenia przeprowadzonej analizy zebrany materiał poddano procedurze
 identyfikacji topologicznie powiązanych ze sobą komórek obliczeniowych, które
@@ -507,37 +510,46 @@ PIERNIK, a także zaimplementował wsparcie dla współrzędnych cylindrycznych.
 Uzyskanie informacji o strukturze rozkładu gęstości pyłu jest pierwszym krokiem w
 celu ustalenia, czy powstające zagęszczenia są w~stanie utworzyć grawitacyjnie
 związane obiekty. Dla każdego zidentyfikowanego obiektu można
-określić relację pomiędzy jego energią kinetyczną i lokalna energia potencjalna
-w studni potencjału, w~której się znajduje. Kryterium związania można wyrazić przez
-
+określić relację pomiędzy jego energią kinetyczną i energia potencjalna
+w układzie związanym ze środkiem masy obiektu. Uznajemy, że obiekt jes
+grawitacyjnie związany, gdy energia kinetyczna jest mniejsza od głębokości
+lokalnej studni potencjału:
+%
 \begin{equation}
    \label{eq:bcrit}
    E_{\textrm{kin}} \equiv \sum\limits_{i=1}^N \frac{m_i\tilde{\mathbf{v}}_i^2}{2} 
    < \sum\limits_{i=1}^N m_i\tilde{\Phi}_i \equiv E_{\textrm{pot}},
 \end{equation}
-gdzie $N$ to liczba komórek obliczeniowych wchodzących w~skład clumpu, $m_i$,
-$\tilde{\mathbf{v}}$, $\Phi_i$ to odpowiednio masa pyłu, prędkość w~układzie
-środka masy clumpu, potencjał wynikający z~samograwitacji w~poszczególnej
-komórce. Potencjał samograwitacyjny został uzyskany bezpośrednio z~PIERNIKa jako
-rozwiązanie równania Poissona~\mref{eq:poisson} dla gęstości sumarycznej obu
-składników płynowych. Ze względu na gładki rozkład gęstości gazu, jego
-kontrybucję można było wyeliminować poprzez odjęcie od potencjału
-samograwitacyjnego w~każdej komórce obliczeniowej wartości średniej z~tego
-potencjału dla każdej orbity
+%
+gdzie $N$ to liczba komórek obliczeniowych wypełnionych przez pył tworzący
+obiekt, $m_i$, $\tilde{\mathbf{v}}$, $\Phi_i$ to odpowiednio masa pyłu, prędkość
+w~układzie środka masy obiektu, potencjał w centrum wybranej komórki. Potencjał
+samograwitacyjny został uzyskany bezpośrednio z~PIERNIKa jako rozwiązanie
+równania Poissona~\mref{eq:poisson} dla sumarycznej gęstości obu składników
+płynowych (gazu i pyłu).  Lokalne zagłębienia potencjału grawitacyjnego w
+otoczeniu badanych obiektów pyłowych można obliczyć, poprzez odjęcie potencjału
+grawitacyjnego uśrednionego w płaszczyźnie \emph{z-$\varphi$} dla zadanego
+promienia $R$:
+%
 \begin{equation}
    \tilde{\Phi}_i(R,\varphi,z) = \Phi_i(R,\varphi,z) -
    \left<\Phi_i\right>_{z\varphi}(R).
 \end{equation}
 %
-Przy obliczaniu energii kinetycznej clumpu, poza przejściem z~prędkością do układu środka
-masy w~celu uwzględnienia wpływu rotacji obłoku na jego kontrakcję, dodatkowo
-wzięto pod uwagę możliwy wpływ turbulencji, która nie jest opisywana przyjętym
-modelem
+Przy obliczaniu energii kinetycznej obiektu, poza transformacją wpółrzędnych do
+układu środka masy, w~celu uwzględnienia wpływu rotacji obłoku na jego
+kontrakcję, dodatkowo wzięto pod uwagę możliwy wpływ podskalowej turbulencji,
+która nie jest opisywana przyjętym modelem:
+{\bf To zdanie trzeba rozbić i rozwinąć. Oddzielnie napisać o rotacji i o
+turbulencji podskalowej, bo nie wiadomo o co chodzi}
+%
 \begin{equation}
    \label{eq:ekin}
    \tilde{\mathbf{v}}_i = \mathbf{v}_i - \frac{\sum m_i \mathbf{v}_i}{\sum m_i}
    + \alpha c_s^2,
 \end{equation}
+%
+{\bf To jest zbyt pobieżna analiza najważniejszego wyniku pracy}
 gdzie wartość $\alpha$ ustalono na $0.05$. Zastosowanie
 kryterium~\mref{eq:bcrit} dla każdego zidentyfikowanego obiektu, pozwoliło na
 oszacowanie że ok. $19\%$ masy pyłu po czasie $T = 250\yr$ skupiła się w~formie
@@ -548,6 +560,16 @@ zaniedbywalny i~nie zmienia liczby związanych obłoków pyłu. Dla $\alpha = 0.
 związana masa pyłu spada do $\sim 9\%$ całkowitej masy.  Szczegółowy histogram
 mas wszystkich zidentyfikowanych obiektów ($\alpha = 0.05$) został przedstawiony
 na Rysunku~\ref{fig:masshist}.
+
+\begin{itemize}
+   \item Potrzebna jest szczegołowa dyskusja histogramu na rys. 4.3.5
+   \item ile powstało obiektów?
+   \item jaki jest zakres mas i ewentualnie funkcja masy?
+   \item jaka jest całkowita masa skupiona w obiektach związanych grawitacyjnie?
+   \item jakie jest tempo wyłapywania masy pyłu przez obiekty związane?
+   \item jaki jest rozkład masy obiektów związanych w funkcji $R$?
+   \item jak te wyniki mają się do Układu Słonecznego?
+\end{itemize}
 
 \begin{figure}
    \centering
