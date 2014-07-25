@@ -66,25 +66,10 @@ mogą tworzyć zwarte planetezymale w toku dalszej ewolucji~\cite{HS08}.
 Dopiero uwzględnienie ewolucji obłoku (cytacja), dluzsza skala czasowa
 pozwalajaca uwzglednic dynamike wiekowa i efekty migracyjne (cytacja).
 
-
 Rozszerzenie moze isc w dwie strony: bardziej realistyczny model dysku t.j.
 stratyfikacja~(Johansen ostatnie prace) i pole magnetyczne, rozwoj
 algorytmniczny t.j. adaptywna siatka niezbedna do sledzenia zapadania sie
 obloku, podskalowy model ewolucji pylu np.  metodami MC~(Aska)
-
-
-
-\par In the present quasi-global approach we relieved the restriction of the
-fixed  radial pressure gradient, adopted for numerical modeling of the streaming
-instability within the shearing box approximation.  It remains unknown how much
-this term affects the non-linear evolution of the system, since the additional
-term acts as an infinite energy reservoir driving the difference in azimuthal
-velocities of both fluids. In the global approach, even around fixed orbit, the
-parameter $\eta$, measuring the radial pressure gradient, is function of time.
-While locality of shearing box fully justifies using a constant dimensionless
-stopping time to calculate mutual linear drag force, that approximation is no
-longer valid in the global disc. 
-
 
 \par The instability saturates when dust overdensities synchronize their
 velocity with the gas component. We must note that despite the steady outward
@@ -94,30 +79,6 @@ certain cases, their radial velocity is significantly slower than what is
 expected from the standard estimation of the migration rate. The lack of
 additional force that would keep the blobs bounded also leads to high dispersion
 rate of the overdensities.
-
-\par In our simulations we have neglected the role of stratification of the
-disc, self-gravity of both fluids and also MRI induced turbulence. As each and
-every of the aforementioned physical processes plays significant and integral
-role in the protoplanetary disc evolution, we plan to gradually expand our setup
-increasing its complexity in order to create the more complete global model.
-
-\par We have found that nonlinear evolution of  the streaming instability forms
-conditions for the formation  of gravitationally bound dust blobs in the
-examined 3D semi-global discs configuration.  This indicates, in accordance with
-the predictions by~\citet{J07}, the possibility  for  planetesimals formation in
-accreting circumstellar discs,  and therefore we plan to incorporate selfgravity
-in our future work.
-
-\par We note that some of our runs may be underresolved, especially the
-gas-dominated setups. However the nonlinear outcomes of all setups converge to
-common solutions. Moreover, our initial simulation of full 3D setup, which took
-0.36 MCPUh, shows that we are able to perform global simulation of streaming
-instability in a convincing manner. 
-However, due to the severe CFL constraint on time-step imposed by the high
-azimuthal velocity in 3d simulations, we consider implementing {\sc FARGO}-like
-algorithm~\cite{M00} for our future work.
-This is an important step towards complete model of planetesimals formation due
-to combined action of various fluid instabilities postulated by~\citet{J07}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % vim: tw=80 ts=3: 
