@@ -9,6 +9,37 @@
 \usepackage[polish]{babel}
 %\usepackage[T1]{fontenc}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LaTeX Package Summary (http://trackchanges.sourceforge.net/)
+%%% The trackchanges.sty style file adds five new LaTeX comands commands:
+%%% \note[editor]{The note}
+%%% \annote[editor]{Text to annotate}{The note}
+%%% \add[editor]{Text to add}
+%%% \remove[editor]{Text to remove}
+%%% \change[editor]{Text to remove}{Text to add}
+%%%
+%%% In all cases [editor] can be ommitted.
+%%%
+%%% All of the TrackChanges commands allow for the specification of an editor. Specifing an editor will prefix the edits with the editor name and color code their changes in the final pdf or dvi file.
+%%%
+%%% To specify an editor name, the editor must first be declared in the preamble:
+%%% \addeditor{editor one}
+%%% \addeditor{editor two}
+%%%
+%%% Display Options
+%%% Track changes has a number of different ways that it can display the edits in the final dvi or pdf file.
+%%% finalold  - Reject all edits.
+%%% finalnew  - Accept all edits.
+%%% footnotes - Display edits as footnotes.
+%%% margins   - Display edits as margin notes.
+%%% inline    - Display edits inline.
+%%%
+%%% See the Documentation for additional options.
+%%% Examples with the differnt display options can be found on the Preview page.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[inline]{trackchanges}           %%% !!! USE THIS TO DISPLAY ALL CHANGES AND NOTES  !!!
+\addeditor{MH}
+
 \begin{document}
 
 % the front matter
