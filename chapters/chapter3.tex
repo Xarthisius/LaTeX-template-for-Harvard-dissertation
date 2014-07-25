@@ -301,7 +301,7 @@ na długość fali niestabilnego modu, aby poprawnie oddać jego tempo wzrostu.
 Należy przy tym zauważyć, że krótsze mody zawierające się w~mniejszej liczbie
 komórek nadal pozostają niestabilne, aczkolwiek mogą wykazywać mniejsze tempo
 wzrostu niż to wynikające z~liniowej analizy stabilności.
-
+%
 \begin{figure*}
   \includegraphics[width=0.48\linewidth]{figures/fig9a}
   \includegraphics[width=0.48\linewidth]{figures/fig9b}
@@ -314,8 +314,7 @@ wzrostu niż to wynikające z~liniowej analizy stabilności.
   por. Rysunek.~2 z~pracy~\cite{YG05})}
    \label{fig9}
 \end{figure*}
- 
-% \subsection{Convergence}
+%
 \par Jako że niestabilność strumieniowa w~ogólności ,,preferuje'' krótsze
 długości fali, zwiększenia rozdzielczości zawsze prowadzi do wytworzenia
 to zagęszczeń o coraz mniejszych rozmiarach w~krótszym czasie~(por.
@@ -380,7 +379,21 @@ pokazane na rysunku~\ref{fig:slicenosg} dla czasów $t = 50, 100, 150, 200,
 400$~lat. Przedstawione na tym rysunku rozkłady gęstości pyłu w cięciach
 \textit{r-z} ujawniają duże podobieństwo wizualne do rozkładów gęstości w
 symulacjach dwuwymiarowych. 
-
+%
+\begin{figure}
+   \centering
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_01}
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_02} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_03}
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_04} \\
+   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_05}
+   \caption{
+      Migawki z~symulacji BD3d obrazujące gęstość pyłu w~cięciach w
+      płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
+   domeny obliczeniowej, dla czasów $t= 50, 100, 150, 200, 400$ lat}
+   \label{fig:slicenosg}
+\end{figure}
+%
 Początkowo w~rozkładzie gęstości pyłu wyłania się przedstawiony już wcześniej
 ukośny wzór, będący superpozycją działania najbardziej niestabilnych modów.
 Model trójwymiarowy pokazuje, że zagęszczenia widoczne w płaszczyźnie
@@ -404,24 +417,14 @@ wpływają na zachowanie się niestabilności w liniowym zakresie (por.
 Rysunek~\ref{fig:slicenosg}. Podobnie jak w~analogicznych symulacjach 2D,
 saturacja niestabilności następuje po lokalnym wzroście gęstości pyłu o
 $1\div1.5$ rzędu wielkości
-
-??Na poziomie dokładności określonej przez ograniczoną rozdzielczość symulacji 3D?
-
 %
-\begin{figure}
+\begin{figure}[h]
    \centering
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_01}
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_02} \\
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_03}
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_04} \\
-   \includegraphics[width=0.44\linewidth]{figures/slice_nosg_05}
-   \caption{
-      Migawki z~symulacji BD3d obrazujące gęstość pyłu w~cięciach w
-      płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
-   domeny obliczeniowej, dla czasów $t= 50, 100, 150, 200, 400$ lat}
-   \label{fig:slicenosg}
+   \includegraphics[width=0.5\linewidth]{figures/3d_map_x3_50.png}
+   \caption{Mapa stabilności BD3d i~BD3dS}
+   \label{fig:map3d}
 \end{figure}
-%
+% x3_50n.png
 \par Obraz niestabilności strumieniowej diametralnie się zmienia po
 uwzględnieniu samograwitacji pyłu. Początkowo ewolucja przebiega wzdłuż tego
 samego scenariusza, dominujące mody niestabilności strumieniowej formują
@@ -431,29 +434,18 @@ samograwitacji~(Rysunek~\ref{fig:modes3d}). Ponadto dominujące mody lokują si�
 na mapie stabilności w~obszarze o największym tempie wzrostu wynikającyc z
 liniowej analizy (Rysunek~\ref{fig:map3d}).
 %
-\begin{figure}[h]
+\begin{figure}
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/3d_map_x3_50.png}
-   \caption{Mapa stabilności BD3d i~BD3dS}
-   \label{fig:map3d}
+   \includegraphics[height=0.44\textheight]{figures/nosg_vlzd_growth}
+   \includegraphics[height=0.44\textheight]{figures/sg_vlzd_growth}
+   \caption{Czasowa ewolucja amplitud zaburzenia wertykalnej składowej prędkości
+      pyłu (czarna krzywa) w~przestrzeni fourierowskiej dla łatki z~symulacji
+      BD3d (6 górnych paneli) i BD3dS (6 dolnych paneli) obejmującej obszar
+      $[3.35,3.65]\times[-0.15,0.15]~\AU^2$ dla $\varphi = \pi / 12$ wraz 
+      z~dopasowaniem~\mref{eq:fit} (szara linia) i~przewidywanym tempem wzrostu
+      wynikającym z~liniowej analizy stabilności (linia przerywana).}
+   \label{fig:modes3d}
 \end{figure}
-% x3_50n.png
-Pierwsza zauważalną różnicą jest
-przekroczenie przez pył gęstości na której wcześniej niestabilność strumieniowa
-się wysycała (por. środkowy panel na Rysunku~\ref{fig:hists}). Jest to prostą
-konsekwencją faktu, że każde formujące się zagęszczenie jest dodatkowo
-ściskane działającą do wewnątrz siłą samograwitacyjną. Po $150$~latach dysk
-pyłowy staje się widocznie bardziej pofragmentowany w~kierunku azymutalnym w
-porównaniu z modelem bez samograwitacji.
-Odstępstwo od osiowej symetrii jest wyraźnie zauważalne. Formacje gęstego pyłu na
-skutek wzajemnego oddziaływania grawitacyjnego (jak i~własnego ciężaru)
-zaczynają się deformować coraz silniej zmieniając swoją strukturę w~kierunku
-azymutalnym. W~ciągu kolejnych $50$~latach samograwitacja ,,ściska'' praktycznie
-cały pył do jednej płaskiej warstwy w~płaszczyźnie $R - \varphi$ tworząc
-długie, pofalowane włókna (Rysunek~\ref{fig:projs}). W~trakcie dalszej ewolucji
-włókna fragmentują na mniejsze związane grawitacyjnie obiekty,
-które podlegają dalszym oddziaływaniom dynamicznym. 
-
 %
 \begin{figure}
    \centering
@@ -467,6 +459,36 @@ które podlegają dalszym oddziaływaniom dynamicznym.
       płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
    domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 250$}
    \label{fig:slicesg}
+\end{figure}
+%
+Pierwsza zauważalną różnicą jest przekroczenie przez pył gęstości na której
+wcześniej niestabilność strumieniowa się wysycała (por. środkowy panel na
+Rysunku~\ref{fig:hists}). Jest to prostą konsekwencją faktu, że każde formujące
+się zagęszczenie jest dodatkowo ściskane działającą do wewnątrz siłą
+samograwitacyjną. Po $150$~latach dysk pyłowy staje się widocznie bardziej
+pofragmentowany w~kierunku azymutalnym w porównaniu z modelem bez
+samograwitacji.  Odstępstwo od osiowej symetrii jest wyraźnie zauważalne.
+Formacje gęstego pyłu na skutek wzajemnego oddziaływania grawitacyjnego (jak
+i~własnego ciężaru) zaczynają się deformować coraz silniej zmieniając swoją
+strukturę w~kierunku azymutalnym. W~ciągu kolejnych $50$~latach samograwitacja
+,,ściska'' praktycznie cały pył do jednej płaskiej warstwy w~płaszczyźnie $R -
+\varphi$ tworząc długie, pofalowane włókna (Rysunek~\ref{fig:projs}). W~trakcie
+dalszej ewolucji włókna fragmentują na mniejsze związane grawitacyjnie obiekty,
+które podlegają dalszym oddziaływaniom dynamicznym. 
+%
+\begin{figure}
+   \centering
+   \includegraphics[width=0.95\linewidth]{figures/proj_sg}
+   \caption{Gęstość kolumnowa pyłu w~symulacji BD3dS dla czasu $T=150, 200, 250, 300\yr$}
+   \label{fig:projs}
+\end{figure}
+%
+\begin{figure} 
+  \centering
+  \includegraphics[height=0.9\textheight]{figures/hists2d}
+  \caption{Histogramy masy pyłu w~funkcji promienia i~gęstości pyłu, lewa
+  kolumna bez samograwitacji, prawa kolumna z~samograwitacja}
+  \label{fig:hists} 
 \end{figure}
 %
 \par Wpływ samograwitacji na ewolucję układu dobrze obrazuje zestawienie
@@ -487,15 +509,6 @@ ograniczonej rozdzielczości siatki obliczeniowej. W rzeczywistym świecie, wobe
 braku własnego ciśnienia termicznego zagęszczenia pyłu powinny zapadać się do
 momentu całkowitego sprasowania pyłu do postaci zwartych planetezymali. {\bf to
 nie jest do końca prawdziwa teza}
-%
-\begin{figure} 
-  \centering
-  \includegraphics[height=0.9\textheight]{figures/hists2d}
-  \caption{Histogramy masy pyłu w~funkcji promienia i~gęstości pyłu, lewa
-  kolumna bez samograwitacji, prawa kolumna z~samograwitacja}
-  \label{fig:hists} 
-\end{figure}
-%
 \par Histogram masy niestety nie daję informacji o kształcie i
 charakterystycznych rozmiarach obiektów w~których znajduje się większość masy pyłu,
 ani nie pozwala stwierdzić czy pył jest grawitacyjnie związany. W~celu
@@ -588,17 +601,9 @@ na Rysunku~\ref{fig:masshist}.
 %
 \begin{figure}
    \centering
-   \includegraphics[width=0.95\linewidth]{figures/proj_sg}
-   \caption{Gęstość kolumnowa pyłu w~symulacji BD3dS dla czasu $T=150, 200, 250, 300\yr$}
-   \label{fig:projs}
-\end{figure}
-%
-\begin{figure}
-   \centering
-   \includegraphics[height=0.47\textheight]{figures/nosg_vlzd_growth}
-   \includegraphics[height=0.47\textheight]{figures/sg_vlzd_growth}
-   \caption{6 dominujacych modów z~BD3d i~BD3dS}
-   \label{fig:modes3d}
+   \includegraphics[width=0.95\linewidth]{figures/mass_function}
+   \caption{}
+   \label{fig:massfun}
 \end{figure}
 %   
 % vim: tw=80 ts=3: 
