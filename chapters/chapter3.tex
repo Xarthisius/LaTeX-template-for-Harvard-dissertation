@@ -590,7 +590,7 @@ Na ostateczną masę pyłu zgromadzoną w związanych obłokach i ich liczbę, d
 wpływ ma wartość parametru $\alpha$. Pierwsze związane obiekty pojawiąją się po
 około 120 latach od momentu rozpoczęcia symulacji. Pod czas kolejnych
 $100\div120$ lat następuje intensywny wzrost wartości masy zgromadzonej w
-związanych obiektach. Dla $\alpha = 0.05$, po czasie $T = 250$~lat około masa
+związanych obiektach. Dla $\alpha = 0.05$, po czasie około $T = 250$~lat masa
 pyłu związana w samograwitujących obłokach stabilizuje się na poziomie $14\%$
 całkowitej masy pyłu. Dla $\alpha = 0.1$ maksymalna masa zgromadzona w obłokach
 oscyluje wokół $5\%$ masy całkowitej. Dla $\alpha < 0.05$ wyraz wynikający
@@ -600,43 +600,82 @@ obiektów w funkcji czasu i parametru $\alpha$ została przedstawiona na prawym
 panelu rysunku~\ref{fig:bmasstime}. W okresie $120 \div 220$~lat, dla $\alpha
 \leq 0.05$ następuje liniowy wzrost liczby związanych obiektów w tempie około 40
 obiektów na 10 lat, aż do osiągnięcia granicznej wartości ok. $380$ obiektów dla
-$T > 240$~lat.  Dla $\alpha = 0.1$ wzrost liczby obiektów następuje w tempie
+$T > 240$~lat co stanowi $40\%$ z liczby wszystkich obiektów znalezionych przy
+pomocy ,,clump-findera''. Dla $\alpha = 0.1$ wzrost liczby obiektów następuje w tempie
 około 5 obiektów na 10 lat i nie można mówić o jego wysyceniu w trakcie czasu
-trwania symulacji.
-
-Szczegółowy histogram mas wszystkich zidentyfikowanych obiektów ($\alpha =
-0.05$) został przedstawiony na Rysunku~\ref{fig:masshist}.
-
-\begin{itemize}
-   \item Potrzebna jest szczegołowa dyskusja histogramu na rys. 4.3.5
-   \item ile powstało obiektów?
-   \item jaki jest zakres mas i ewentualnie funkcja masy?
-   \item jaka jest całkowita masa skupiona w obiektach związanych grawitacyjnie?
-   \item jakie jest tempo wyłapywania masy pyłu przez obiekty związane?
-   \item jaki jest rozkład masy obiektów związanych w funkcji $R$?
-   \item jak te wyniki mają się do Układu Słonecznego?
-\end{itemize}
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.49\linewidth]{figures/masshist.png}
-   \includegraphics[width=0.49\linewidth]{figures/energie.png}
-   \caption{(Lewy panel) Histogram przedstawiający rozkład masy w~topologicznie powiązanych
-   obiektach istniejących w~domenie obliczeniowej dla symulacji BD3dS dla czasu
-   $T=250\yr$. Kolorem niebieskim zaznaczono clumpy związane grawitacyjnie, zaś
-   kolorem czerwonym wszystkie obiekty.
-   (Prawy panel) Przekrój azymutalny przez domenę obliczeniową dla $R=3.84\AU$
-   i~$z=0.01\AU$ dla czasu $T=250\yr$ pokazujący energię potencjalną (zgodnie z
-   definicją w~równaniu~\mref{eq:bcrit}) oraz sumę energii potencjalnej i~energii
-   kinetycznej dla danego clumpu.}
-   \label{fig:masshist}
-\end{figure}
+trwania symulacji. W tym wypadku maksymalna liczba pod koniec czasu trwania
+symulacji wynosi około $100$, co stanowi około $10\%$ wszystkich obiektów
+znalezionych przy pomocy procedury opisanej w tym rozdziale.
+%
+\par Szczegółowy histogram mas wszystkich zidentyfikowanych obiektów dla czasu
+$T=300$~lat i parametru $\alpha = 0.01, 0.05, 0.1$ został przedstawiony na
+Rysunku~\ref{fig:masshist}. Bez względu na wartość parametru $\alpha$ ponad
+$25\%$ obiektów związanych grawitacyjnie ma masę mniejszą niż
+$20\Mceres$~\footnote{Masa Ceres wynosi około $9\cdot10^{23}\g$ co stanowi około
+$0.015\Mearth$}, przy czym najmniej masywny obiekt ma nieco ponad $2.5\Mceres$.
+Dla zakresu mas od $0$ do $40\Mceres$ liczba obiektów związanych przekracza
+$40\%$ liczby wszystkich obiektów. Zaledwie $50$ obiektów dla $\alpha \leq
+0.05$ oraz $20$ obiektów dla $\alpha = 0.1$ przekracza masę $200\Mceres$.
+Najmasywniejszy z nich osiąga masę $600\Mceres$.
 %
 \begin{figure}
    \centering
-   \includegraphics[width=0.95\linewidth]{figures/mass_function}
-   \caption{}
+   \includegraphics[width=0.95\linewidth]{figures/mass_hists}
+   \caption{Histogramy masy obiektów związanych dla $\alpha = 0.01, 0.05, 0.1$
+   (odpowiednio panel lewy, środkowy i prawy) w zakresie $[0,600]\Mceres$.
+   Szerekość pojedynczego przedziału wynosi $20\Mceres$. Na wewnętrznych
+   panelach znajduja się histogramy dla obiektów o masach mniejszych niż
+   $80\Mceres$. Szerekość pojedynczego przedziału na wewnętrznym panelu wynosi
+   $4\Mceres$}
+   \label{fig:masshist}
+\end{figure}
+%
+\par Funkcja masy...
+\begin{figure}
+   \centering
+   \includegraphics[width=0.95\linewidth]{figures/mass_func}
+   \caption{Złożenie histogramów masy obiektów związanych grawitacyjnie dla
+   $\alpha = 0.05$ dla $T \in [250, 300]$ lat (czerwone punkty). Niebieska linia
+stanowi dopasowanie funkcji wykładniczej do liczby obiektów w funkcji masy na
+przedziale $[40,200]\Mceres$. Zielona linia przedstawia schematycznie funkcję
+wykladniczą o wykładniku $-8/3$ odpowiadającą funkcji początkowej funkcji mas
+planetezymali przedstawionej w pracy~\cite{MFFK98}}
+
    \label{fig:massfun}
 \end{figure}
+%
+\begin{itemize}
+   \item Potrzebna jest szczegołowa dyskusja histogramu na rys. 4.3.5
+      \note[KK]{usunięty na rzecz rys.~\ref{fig:masshist}, szczegółowa dyskusja
+      w tekście}
+   \item ile powstało obiektów? \note[KK]{Rysunek~\ref{fig:bmasstime} i
+      dyskusja w tekście}
+   \item jaki jest zakres mas i ewentualnie funkcja masy?
+      \note[KK]{Rysunek~\ref{fig:massfun} i dyskusja w tekście}
+   \item jaka jest całkowita masa skupiona w obiektach związanych grawitacyjnie?
+      \note[KK]{Rysunek~\ref{fig:bmasstime} i dyskusja w tekście}
+   \item jakie jest tempo wyłapywania masy pyłu przez obiekty związane?
+      \note[KK]{Nie bardzo jest jak to określić}
+   \item jaki jest rozkład masy obiektów związanych w funkcji $R$? \note[KK]{z
+      tego rezygnujemy, bo nic ciekawego nie widać}
+   \item jak te wyniki mają się do Układu Słonecznego? \note[KK]{będzie w
+      rozdziale 5}
+\end{itemize}
+%
+%\begin{figure}
+%   \centering
+%   \includegraphics[width=0.49\linewidth]{figures/masshist.png}
+%   \includegraphics[width=0.49\linewidth]{figures/energie.png}
+%   \caption{(Lewy panel) Histogram przedstawiający rozkład masy w~topologicznie powiązanych
+%   obiektach istniejących w~domenie obliczeniowej dla symulacji BD3dS dla czasu
+%   $T=250\yr$. Kolorem niebieskim zaznaczono clumpy związane grawitacyjnie, zaś
+%   kolorem czerwonym wszystkie obiekty.
+%   (Prawy panel) Przekrój azymutalny przez domenę obliczeniową dla $R=3.84\AU$
+%   i~$z=0.01\AU$ dla czasu $T=250\yr$ pokazujący energię potencjalną (zgodnie z
+%   definicją w~równaniu~\mref{eq:bcrit}) oraz sumę energii potencjalnej i~energii
+%   kinetycznej dla danego clumpu.}
+%   \label{fig:masshist_fail}
+%\end{figure}
+%
 %   
 % vim: tw=80 ts=3: 

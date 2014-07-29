@@ -391,8 +391,9 @@
 \newcommand\Pisces{\astro{\char22}}%
 \newcommand\mref[1]{(\ref{#1})}%
 \def\Msun{\hbox{$\mathrm{\thinspace M_{\odot}}$}}
-\def\Mjup{\hbox{$\mathrm{\thinspace M_{\textrm{Jup}}}$}}
-\def\Mearth{\hbox{$\mathrm{\thinspace M_{\oplus}}$}}
+\def\Mjup{\hbox{$\mathrm{\thinspace M_{\textrm{jup}}}$}}
+\def\Mceres{\hbox{$\mathrm{\thinspace M_{\textrm{ceres}}}$}}
+\def\Mearth{\hbox{$\mathrm{\thinspace M_{\earth}}$}}
 \def\Rsun{\hbox{$\mathrm{\thinspace R_{\odot}}$}}
 \def\Lsun{\hbox{$\mathrm{\thinspace L_{\odot}}$}}
 \def\g{\hbox{$\thinspace\textrm{g}$}}

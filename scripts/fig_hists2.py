@@ -27,6 +27,7 @@ for ifn, fn in enumerate(FILES):
     data = np.loadtxt(fn)
 
     n, bins, patches = grid.hist(data[:, 0], bins=np.linspace(0, 600, 31))
+    print np.cumsum(n) / np.sum(n)
     grid.set_xlabel(r"Masa obiektu $[\textrm{M}_{\textrm{ceres}}]$")
     grid.xaxis.set_major_locator(MaxNLocator(8, prune="lower"))
     axins = zoomed_inset_axes(grid, zoom[ifn], loc=1)
@@ -34,6 +35,7 @@ for ifn, fn in enumerate(FILES):
                                   bins=np.linspace(0,80,21))
     axins.xaxis.set_major_locator(MaxNLocator(4, prune="lower"))
     mark_inset(grid, axins, loc1=3, loc2=4, fc="none", ec="0.5")
+    print (data[ data[:, 0] > 200 , 0]).shape
 
 ax = axs[0]
 ax.set_ylabel(u"Liczba związanych obiektów")
