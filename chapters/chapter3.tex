@@ -549,12 +549,15 @@ promienia $R$:
    \left<\Phi_i\right>_{z\varphi}(R).
 \end{equation}
 %
-Przy obliczaniu energii kinetycznej obiektu, poza transformacją wpółrzędnych do
-układu środka masy, w~celu uwzględnienia wpływu rotacji obłoku na jego
-kontrakcję, dodatkowo wzięto pod uwagę możliwy wpływ podskalowej turbulencji,
-która nie jest opisywana przyjętym modelem:
-{\bf To zdanie trzeba rozbić i rozwinąć. Oddzielnie napisać o rotacji i o
-turbulencji podskalowej, bo nie wiadomo o co chodzi}
+Przy obliczaniu energii kinetycznej obiektu wykonywana jest transformacją
+wpółrzędnych do układu środka masy, w~celu uwzględnienia wpływu rotacji.
+Jest to niezbędne, ponieważ siła odśrodkowa przeciwdziała kontrakcji obłoku na
+skutek samograwitacji. Aby uniknąć przeszacowania ilości materii, która zostaje
+związana grawitacyjnie dodatkowo wzięto pod uwagę możliwy wpływ turbulencji
+zachodzącej w skalach przestrzennych poniżej zdolności rozdzielczej siatki
+obliczeniowej. Do opisu podskalowej turbulencji użyto klasycznej parametryzacji
+współczynnikiem $\alpha$~\cite{SS73}. Ostateczna postać energii kinetycznej
+obiektu jest wyrażona poprzez:
 %
 \begin{equation}
    \label{eq:ekin}
@@ -562,17 +565,47 @@ turbulencji podskalowej, bo nie wiadomo o co chodzi}
    + \alpha c_s^2,
 \end{equation}
 %
-{\bf To jest zbyt pobieżna analiza najważniejszego wyniku pracy}
-gdzie wartość $\alpha$ ustalono na $0.05$. Zastosowanie
+gdzie wartość $\alpha$ ustalono na $0.01 \div 0.1$. Zastosowanie
 kryterium~\mref{eq:bcrit} dla każdego zidentyfikowanego obiektu, pozwoliło na
-oszacowanie że ok. $19\%$ masy pyłu po czasie $T = 250\yr$ skupiła się w~formie
-grawitacyjnie związanych obłoków. Na wynik ten ma wpływ dobór parametru $\alpha$
-ze względu na postać równania energii kinetycznej~\mref{eq:ekin}. Dla $\alpha <
-0.05$ wyraz wynikający z~turbulentnego transportu momentu pędu staje się
-zaniedbywalny i~nie zmienia liczby związanych obłoków pyłu. Dla $\alpha = 0.1$
-związana masa pyłu spada do $\sim 9\%$ całkowitej masy.  Szczegółowy histogram
-mas wszystkich zidentyfikowanych obiektów ($\alpha = 0.05$) został przedstawiony
-na Rysunku~\ref{fig:masshist}.
+określenie jaka część masy została skupiona w grawitacyjnie związanych
+obiektach. Zależność ilości masy pyłu związanego grawitacyjnie w funkcji czasu
+oraz parametru $\alpha$ przedstawiono na lewym panelu rysunku~\ref{fig:bmasstime}.
+%
+\begin{figure} 
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/bmass_vs_time}
+  \includegraphics[width=0.45\textwidth]{figures/nclumps_vs_time}
+  \caption{Lewy panel przedstawia ilość masy pyłu, która wedlug
+     kryterium~\mref{eq:bcrit} została zgromadzona w grawitacyjnie związanych
+     obiektach w funkcji czasu. Wartość maksymalna osiągnięta po około 300
+     latach ($4\div5\Mearth$ dla $\alpha = 0.05$) stanowi około $13\div14\%$
+     całkowitej masy pyłu, Prawy panel przedstawia ilość grawitacyjnie
+     związanych obiektów w funkcji czasu i parametru $\alpha$ znalezionych przy
+     pomocy procedury opisanej w niniejszym rozdziale.}
+  \label{fig:bmasstime} 
+\end{figure}
+%
+%
+Na ostateczną masę pyłu zgromadzoną w związanych obłokach i ich liczbę, duży
+wpływ ma wartość parametru $\alpha$. Pierwsze związane obiekty pojawiąją się po
+około 120 latach od momentu rozpoczęcia symulacji. Pod czas kolejnych
+$100\div120$ lat następuje intensywny wzrost wartości masy zgromadzonej w
+związanych obiektach. Dla $\alpha = 0.05$, po czasie $T = 250$~lat około masa
+pyłu związana w samograwitujących obłokach stabilizuje się na poziomie $14\%$
+całkowitej masy pyłu. Dla $\alpha = 0.1$ maksymalna masa zgromadzona w obłokach
+oscyluje wokół $5\%$ masy całkowitej. Dla $\alpha < 0.05$ wyraz wynikający
+z~turbulentnego transportu momentu pędu staje się zaniedbywalny i~nie zmienia
+znącząco liczby związanych obłoków pyłu. Liczba grawitacyjnie związanych
+obiektów w funkcji czasu i parametru $\alpha$ została przedstawiona na prawym
+panelu rysunku~\ref{fig:bmasstime}. W okresie $120 \div 220$~lat, dla $\alpha
+\leq 0.05$ następuje liniowy wzrost liczby związanych obiektów w tempie około 40
+obiektów na 10 lat, aż do osiągnięcia granicznej wartości ok. $380$ obiektów dla
+$T > 240$~lat.  Dla $\alpha = 0.1$ wzrost liczby obiektów następuje w tempie
+około 5 obiektów na 10 lat i nie można mówić o jego wysyceniu w trakcie czasu
+trwania symulacji.
+
+Szczegółowy histogram mas wszystkich zidentyfikowanych obiektów ($\alpha =
+0.05$) został przedstawiony na Rysunku~\ref{fig:masshist}.
 
 \begin{itemize}
    \item Potrzebna jest szczegołowa dyskusja histogramu na rys. 4.3.5
