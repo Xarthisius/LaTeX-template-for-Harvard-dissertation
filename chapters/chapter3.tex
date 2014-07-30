@@ -345,7 +345,7 @@ do dwóch rzędów wielkości. W modelu 3d tempo wzrostu jest wyraźnie pomniejs
 względem przewidywań liniowej teorii z powodu mniejszej dostępnej rozdzielczości
 siatki obliczeniowej, ale fluktuacje gęstości oscylują na podobnym poziomie jak
 w symulacjach dwuwymiarowych. Wynik ten stanowi silną przesłankę, że warunki dla
-niestabilności grawitacyjnej są w niewielkim stopniu zależne od rodzielczości
+niestabilności grawitacyjnej są w niewielkim stopniu zależne od rozdzielczości
 siatki. W~niniejszy rozdziale przedstawione zostały 2 symulacje pełnego,
 trójwymiarowego modelu dysku: z~uwzględnieniem efektów samograwitacji płynów
 (BD3dS) oraz bez jej udziału (BB3d, BD3d). Symulacja BB3d została przeprowadzana
@@ -397,12 +397,12 @@ symulacjach dwuwymiarowych.
 Początkowo w~rozkładzie gęstości pyłu wyłania się przedstawiony już wcześniej
 ukośny wzór, będący superpozycją działania najbardziej niestabilnych modów.
 Model trójwymiarowy pokazuje, że zagęszczenia widoczne w płaszczyźnie
-\textit{r-z} są w rzeczywistości cięciami włóknien rozciągłych w kierunku
+\textit{r-z} są w rzeczywistości cięciami włókien rozciągłych w kierunku
 azymutalnym. Liniowy zakres ewolucji niestabilności strumieniowej w 3D przebiega
 zgodnie z przewidywaniami liniowej analizy stabilności przedstawionej dla
 przypomnienia w rozdziale drugim. Najszybciej rosnące mody niestabilności
 strumieniowej lokują się na mapach stabilności (Rys.~\ref{fig9} dla symulacji
-BB3d oraz Rys.~\ref{fig:map3d} dla symulacji BD3d) wzdłuż grzebietu
+BB3d oraz Rys.~\ref{fig:map3d} dla symulacji BD3d) wzdłuż grzbietu
 wyznaczającego największe analityczne tempa wzrostu wynikające z liniowej
 analizy stabilności. Wybrane migawki z trójwymiarowej
 ewolucji dysku w symulacji BD3d zostały pokazane na rysunku~\ref{fig:slicenosg}
@@ -431,7 +431,7 @@ samego scenariusza, dominujące mody niestabilności strumieniowej formują
 charakterystyczny wzór--kratkę (Rysunek~\ref{fig:slicesg}). Tempo tworzenia się
 zagęszczeń w~tej fazie $(50 - 100\yr)$ jest takie samo jak w~przypadku bez
 samograwitacji~(Rysunek~\ref{fig:modes3d}). Ponadto dominujące mody lokują się
-na mapie stabilności w~obszarze o największym tempie wzrostu wynikającyc z
+na mapie stabilności w~obszarze o największym tempie wzrostu wynikających z
 liniowej analizy (Rysunek~\ref{fig:map3d}).
 %
 \begin{figure}
@@ -491,7 +491,7 @@ które podlegają dalszym oddziaływaniom dynamicznym.
   \label{fig:hists} 
 \end{figure}
 %
-\par Wpływ samograwitacji na ewolucję układu dobrze obrazuje zestawienie
+Wpływ samograwitacji na ewolucję układu dobrze obrazuje zestawienie
 histogramów masy pyłu w~funkcji promienia orbitalnego i~gęstości pyłu
 (Rysunek~\ref{fig:hists}). Dla symulacji BD3d, pomimo osiągnięcia przez nią
 lokalnie zagęszczeń o $1\div1.5$ rzędów większych niż początkowy rozkład,
@@ -524,7 +524,7 @@ Uzyskanie informacji o strukturze rozkładu gęstości pyłu jest pierwszym krok
 celu ustalenia, czy powstające zagęszczenia są w~stanie utworzyć grawitacyjnie
 związane obiekty. Dla każdego zidentyfikowanego obiektu można
 określić relację pomiędzy jego energią kinetyczną i energia potencjalna
-w układzie związanym ze środkiem masy obiektu. Uznajemy, że obiekt jes
+w układzie związanym ze środkiem masy obiektu. Uznajemy, że obiekt jest
 grawitacyjnie związany, gdy energia kinetyczna jest mniejsza od głębokości
 lokalnej studni potencjału:
 %
@@ -550,7 +550,7 @@ promienia $R$:
 \end{equation}
 %
 Przy obliczaniu energii kinetycznej obiektu wykonywana jest transformacją
-wpółrzędnych do układu środka masy, w~celu uwzględnienia wpływu rotacji.
+współrzędnych do układu środka masy, w~celu uwzględnienia wpływu rotacji.
 Jest to niezbędne, ponieważ siła odśrodkowa przeciwdziała kontrakcji obłoku na
 skutek samograwitacji. Aby uniknąć przeszacowania ilości materii, która zostaje
 związana grawitacyjnie dodatkowo wzięto pod uwagę możliwy wpływ turbulencji
@@ -571,11 +571,11 @@ określenie jaka część masy została skupiona w grawitacyjnie związanych
 obiektach. Zależność ilości masy pyłu związanego grawitacyjnie w funkcji czasu
 oraz parametru $\alpha$ przedstawiono na lewym panelu rysunku~\ref{fig:bmasstime}.
 %
-\begin{figure} 
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.45\textwidth]{figures/bmass_vs_time}
   \includegraphics[width=0.45\textwidth]{figures/nclumps_vs_time}
-  \caption{Lewy panel przedstawia ilość masy pyłu, która wedlug
+  \caption{Lewy panel przedstawia ilość masy pyłu, która według
      kryterium~\mref{eq:bcrit} została zgromadzona w grawitacyjnie związanych
      obiektach w funkcji czasu. Wartość maksymalna osiągnięta po około 300
      latach ($4\div5\Mearth$ dla $\alpha = 0.05$) stanowi około $13\div14\%$
@@ -587,7 +587,7 @@ oraz parametru $\alpha$ przedstawiono na lewym panelu rysunku~\ref{fig:bmasstime
 %
 %
 Na ostateczną masę pyłu zgromadzoną w związanych obłokach i ich liczbę, duży
-wpływ ma wartość parametru $\alpha$. Pierwsze związane obiekty pojawiąją się po
+wpływ ma wartość parametru $\alpha$. Pierwsze związane obiekty pojawiają się po
 około 120 latach od momentu rozpoczęcia symulacji. Pod czas kolejnych
 $100\div120$ lat następuje intensywny wzrost wartości masy zgromadzonej w
 związanych obiektach. Dla $\alpha = 0.05$, po czasie około $T = 250$~lat masa
@@ -595,7 +595,7 @@ pyłu związana w samograwitujących obłokach stabilizuje się na poziomie $14\
 całkowitej masy pyłu. Dla $\alpha = 0.1$ maksymalna masa zgromadzona w obłokach
 oscyluje wokół $5\%$ masy całkowitej. Dla $\alpha < 0.05$ wyraz wynikający
 z~turbulentnego transportu momentu pędu staje się zaniedbywalny i~nie zmienia
-znącząco liczby związanych obłoków pyłu. Liczba grawitacyjnie związanych
+znacząco liczby związanych obłoków pyłu. Liczba grawitacyjnie związanych
 obiektów w funkcji czasu i parametru $\alpha$ została przedstawiona na prawym
 panelu rysunku~\ref{fig:bmasstime}. W okresie $120 \div 220$~lat, dla $\alpha
 \leq 0.05$ następuje liniowy wzrost liczby związanych obiektów w tempie około 40
@@ -606,6 +606,18 @@ około 5 obiektów na 10 lat i nie można mówić o jego wysyceniu w trakcie cza
 trwania symulacji. W tym wypadku maksymalna liczba pod koniec czasu trwania
 symulacji wynosi około $100$, co stanowi około $10\%$ wszystkich obiektów
 znalezionych przy pomocy procedury opisanej w tym rozdziale.
+%
+\begin{figure}[ht]
+   \centering
+   \includegraphics[width=0.95\linewidth]{figures/mass_hists}
+   \caption{Histogramy masy obiektów związanych dla $\alpha = 0.01, 0.05, 0.1$
+   (odpowiednio panel lewy, środkowy i prawy) w zakresie $[0,600]\Mceres$.
+   Szerokość pojedynczego przedziału wynosi $20\Mceres$. Na wewnętrznych
+   panelach znajdują się histogramy dla obiektów o masach mniejszych niż
+   $80\Mceres$. Szerokość pojedynczego przedziału na wewnętrznym panelu wynosi
+   $4\Mceres$}
+   \label{fig:masshist}
+\end{figure}
 %
 \par Szczegółowy histogram mas wszystkich zidentyfikowanych obiektów dla czasu
 $T=300$~lat i parametru $\alpha = 0.01, 0.05, 0.1$ został przedstawiony na
@@ -618,49 +630,60 @@ $40\%$ liczby wszystkich obiektów. Zaledwie $50$ obiektów dla $\alpha \leq
 0.05$ oraz $20$ obiektów dla $\alpha = 0.1$ przekracza masę $200\Mceres$.
 Najmasywniejszy z nich osiąga masę $600\Mceres$.
 %
-\begin{figure}
-   \centering
-   \includegraphics[width=0.95\linewidth]{figures/mass_hists}
-   \caption{Histogramy masy obiektów związanych dla $\alpha = 0.01, 0.05, 0.1$
-   (odpowiednio panel lewy, środkowy i prawy) w zakresie $[0,600]\Mceres$.
-   Szerekość pojedynczego przedziału wynosi $20\Mceres$. Na wewnętrznych
-   panelach znajduja się histogramy dla obiektów o masach mniejszych niż
-   $80\Mceres$. Szerekość pojedynczego przedziału na wewnętrznym panelu wynosi
-   $4\Mceres$}
-   \label{fig:masshist}
-\end{figure}
+\par Złożenie histogramów masy obiektów dla czasu od 250 do 300 lat
+przedstawione na rysunku~\ref{fig:massfun} pozwala oszacować funkcję masy
+samograwitacyjnie związanych obiektów, która może być interpretowana jako
+początkowa funkcja masy dla przyszłych planetezymali formujących się w toku
+dalszej ewolucji układu. Na przedziale $[40, 300]\Mceres$ przebieg funkcji masy
+obiektów związanych grawitacyjnie można przybliżyć funkcją potęgową o wykładniku
+$-5/4$. Obiekty o masach mniejszych niż $40\Mceres$ są reprezentowane w
+symulacji przez co najwyżej kilkadziesiąt komórek obliczeniowych, co przekłada
+się na ich liniowy rozmiar rzędu kilku komórek. Tak niewielka ilość komórek
+obliczeniowych przekłada się na znaczną niepewność w dokładności obliczenia
+siły wynikającej z samograwitacji w danym obiekcie. Należy zatem przyjąć, iż
+liczba obiektów w tym przedziale masy i rozmiarów liniowych jest mocno
+niedoszacowana. Z kolei dla przedziału mas większych niż $300\Mceres$, mamy
+do czynienia z pojedynczymi obiektami, przez co próbka jest statystycznie
+niereprezentatywna.
+\par W niniejszym rozdziale przedstawiono wyniki trójwymiarowych symulacji
+dwuskładnikowego (gaz i pył) dysku protoplanetarnego z uwzględnieniem
+samograwitacji. W szczególności wskazano, że taki układ dzięki połączeniu
+niestabilności strumieniowej i niestabilności grawitacyjnej może wytworzyć
+grawitacyjnie związane obiekty składające się z pyłu o masach odpowiadających
+planetezymalom o rozmiarach rzędu setek kilometrów, przy założeniu iż cała masa
+pyłu uformowałaby zwarte ciało. Szczegółowa dyskusja wyników takich jak funkcja
+masy otrzymanych związanych samograwitacyjnie obiektów w kontekście ich dalszej
+ewolucji zostanie przedstawiona w następnym rozdziale.
 %
-\par Funkcja masy...
 \begin{figure}
    \centering
-   \includegraphics[width=0.95\linewidth]{figures/mass_func}
+   \includegraphics[width=0.75\linewidth]{figures/mass_func}
    \caption{Złożenie histogramów masy obiektów związanych grawitacyjnie dla
    $\alpha = 0.05$ dla $T \in [250, 300]$ lat (czerwone punkty). Niebieska linia
 stanowi dopasowanie funkcji wykładniczej do liczby obiektów w funkcji masy na
 przedziale $[40,200]\Mceres$. Zielona linia przedstawia schematycznie funkcję
-wykladniczą o wykładniku $-8/3$ odpowiadającą funkcji początkowej funkcji mas
+wykładniczą o wykładniku $-8/3$ odpowiadającą funkcji początkowej funkcji mas
 planetezymali przedstawionej w pracy~\cite{MFFK98}}
-
    \label{fig:massfun}
 \end{figure}
 %
-\begin{itemize}
-   \item Potrzebna jest szczegołowa dyskusja histogramu na rys. 4.3.5
-      \note[KK]{usunięty na rzecz rys.~\ref{fig:masshist}, szczegółowa dyskusja
-      w tekście}
-   \item ile powstało obiektów? \note[KK]{Rysunek~\ref{fig:bmasstime} i
-      dyskusja w tekście}
-   \item jaki jest zakres mas i ewentualnie funkcja masy?
-      \note[KK]{Rysunek~\ref{fig:massfun} i dyskusja w tekście}
-   \item jaka jest całkowita masa skupiona w obiektach związanych grawitacyjnie?
-      \note[KK]{Rysunek~\ref{fig:bmasstime} i dyskusja w tekście}
-   \item jakie jest tempo wyłapywania masy pyłu przez obiekty związane?
-      \note[KK]{Nie bardzo jest jak to określić}
-   \item jaki jest rozkład masy obiektów związanych w funkcji $R$? \note[KK]{z
-      tego rezygnujemy, bo nic ciekawego nie widać}
-   \item jak te wyniki mają się do Układu Słonecznego? \note[KK]{będzie w
-      rozdziale 5}
-\end{itemize}
+%\begin{itemize}
+%   \item Potrzebna jest szczegołowa dyskusja histogramu na rys. 4.3.5
+%      \note[KK]{usunięty na rzecz rys.~\ref{fig:masshist}, szczegółowa dyskusja
+%      w tekście}
+%   \item ile powstało obiektów? \note[KK]{Rysunek~\ref{fig:bmasstime} i
+%      dyskusja w tekście}
+%   \item jaki jest zakres mas i ewentualnie funkcja masy?
+%      \note[KK]{Rysunek~\ref{fig:massfun} i dyskusja w tekście}
+%   \item jaka jest całkowita masa skupiona w obiektach związanych grawitacyjnie?
+%      \note[KK]{Rysunek~\ref{fig:bmasstime} i dyskusja w tekście}
+%   \item jakie jest tempo wyłapywania masy pyłu przez obiekty związane?
+%      \note[KK]{Nie bardzo jest jak to określić}
+%   \item jaki jest rozkład masy obiektów związanych w funkcji $R$? \note[KK]{z
+%      tego rezygnujemy, bo nic ciekawego nie widać}
+%   \item jak te wyniki mają się do Układu Słonecznego? \note[KK]{będzie w
+%      rozdziale 5}
+%\end{itemize}
 %
 %\begin{figure}
 %   \centering
