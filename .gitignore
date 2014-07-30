@@ -12,4 +12,5 @@ thesis.pdfsync
 *.log
 *.fdb_latexmk
 *.bbl
+*.pyc
 fontconfig/
