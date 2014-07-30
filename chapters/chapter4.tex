@@ -6,7 +6,7 @@
    Sterling}
 \end{savequote}
 
-\chapter{Dyskusja}
+\chapter{Dyskusja i plany na przyszłość}
 W ramach tej pracy przeprowadzono serię dwu- i trójwymiarowych symulacji
 wzajemnie oddziałujących płynów: gazu i pyłu, w dysku keplerowskim. Przy czym
 zaniedbano pionową składową grawitacji od masy punktowej umieszczonej w centrum
@@ -25,38 +25,48 @@ radialnym i wykazanie, że w takim przypadku można wzbudzić niestabilność
 strumieniową. Ponadto do opisu oddziaływania wiążącego oba płyny użyto
 właściwego dla ich charakterystyk prawa tarcia aerodynamicznego~\mref{eq:tauf}
 zamiast przybliżonego rachunku opartego na stałym, bezwymiarowym czasie
-zatrzymania.
-
-\par Przyjęty model, choć stanowi wyraźny postęp względem innych prac, jest
+zatrzymania. Przyjęty model, choć stanowi wyraźny postęp względem innych prac, jest
 ciągle mało realistycznym przybliżeniem pełnego dysku protoplanetarnego. Do jego
 największych wad można zaliczyć brak stratyfikacji oraz nieuwzględnienie wpływu
 globalnej turbulencji wywołanej niestabilnością magneto-rotacyjną~\cite{DKJ14}. 
-
-
-\par Otrzymane, we wszystkich przeprowadzonych eksperymentach numerycznych,
+%
+\par Pierwszy etap niniejszej pracy opierał się na wykonaniu testów
+zbieżnościowych dla różnych parametrów fizycznych dysku protoplanetarnego co
+pozwolilo na określenie minimalnej liczby komórek obliczeniowych $(n\approx32)$
+dla kodu \textsc{PIERNIK}, umożliwiającej na dokładne odwzorowanie liniowej fazy
+wzrostu.  Otrzymane, we wszystkich przeprowadzonych eksperymentach numerycznych,
 liczby falowe najszybciej rosnących modów niestabilności, a także ich pozycja na
 mapie stabilności ($s(k_x, k_z)$), są zgodne z przewidywaniami liniowej analizy
-niestabilności strumieniowej. Pierwszy etap pracy opierał się na wykonaniu
-testów zbieżnościowych dla różnych parametrów fizycznych dysku protoplanetarnego
-co pozwolilo na określenie minimalnej liczby komórek obliczeniowych
-$(n\approx32)$ dla kodu \textsc{PIERNIK}, umożliwiającej na dokładne odwzorowanie
-liniowej fazy wzrostu. 
-
-Model akrecji na jądra silnie zależy od procesu odpowiedzialnego za formowanie
+niestabilności strumieniowej i potwierdzają właściwy wybór użytych metod
+numerycznych. Kolejnym krokiem było wykonanie symulacji trójwymiarowych bez
+samograwitacji i porównanie ich wyniku z wcześniejszymi symulacjami
+dwuwymiarowymi. Uzyskane wyniki pokazują iż trójwymiarowe symulacje odtwarzają w
+pełni przebieg ewolucji niestabilności strumieniowej, zgodnie z przewidywaniami
+liniowej analizy stabilności przeprowadzonej dla układu zredukowanego do dwóch
+wymiarów. Finalnym etapem pracy było przeprowadzenie w pełni trójwymiarowej
+symulacji dwuskładnikowego dysku protoplanetarnego z uwzględnieniem wpływu
+samograwitacji. Należy podkreślić, że pomimo założenia dużo większej niż
+kanoniczna wartości stosunku gęstości gazu do gęstości pyłu, symulowany dysk
+jest początkowo stabilny zgodnie z kryterium Toomre'a~\mref{eq:toomre}.
+Parameter $Q$ jest stały dla całej domeny obliczeniowej i wynosi około $40$
+(rów.~\ref{eq:Qemp}). Wzbudzenie się niestabilności strumieniowej prowadzi do
+uformowania lokalnych zagęszczeń pyłu, których gęstość jest nawet stukrotnie
+większa niż gęstość początkowa pyłu. Ilość zgromadzonej lokalnie masy pyłu
+przekracza granicę stabilności grawitacyjnej i w rezultacie w układzie formuje
+się znaczna liczby związanych grawitacyjnie obiektów, które należy interpretować
+jako zalążki planetezymali. Pomimo tego, że zgromadzona w tych obiektach materia
+pyłowa reprezentuje $50\cm$ ziarna pyłu, to ich całkowita masa jest
+wystarczająca aby po ,,sprasowaniu'' na skutek grawitacji utworzyć ciała o
+rozmiarach rzędu setek kilometrów. Dzięki temu połączone działanie
+niestabilności strumieniowej i niestabilności grawitacyjnej jest w stanie obejść
+\emph{metrowej bariery wzrostu} o którym była mowa w
+rozdziale~\ref{sec:paradigm}.
+%
+\par Model akrecji na jądra silnie zależy od procesu odpowiedzialnego za formowanie
 się planetezymali.
-
-
-Niestabiność strumieniowa zageszcza pył nawet 100 krotnie.
-
 
 Zależność od parametru $\alpha$ w kryterium związania: dla $0.1$ tylko $8\%$.
 Nie ma dobrego kryterium na zwiazanie obłoku, potrzeba duzo wiekszej rozdzielczosci
-
-
-Należy podkreślić, że pomimo założenia dużo większej niż kanoniczna wartości
-stosunku gęstości gazu do gęstości pyłu, symulowany dysk jest stabilny zgodnie z
-kryterium Jeansa.  Parameter $Q$ jest stały dla całej domeny obliczeniowej i
-wynosi około $40$ (rów.~\ref{eq:Qemp}).
 
 \par Typowe rozmiary otrzymanych w symulacji BD3dS zagęszczęń mieszczą się w
 przedziale $10^{11} \div 10^{12}\cm$, zaś ich srednie gęstości wynoszą $10^{-12}
