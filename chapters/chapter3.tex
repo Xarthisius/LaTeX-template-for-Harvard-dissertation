@@ -139,8 +139,8 @@ zgodne z~wynikami przedstawionymi przez JY07 (patrz Rysunek.~8 w~Ich pracy).
    \includegraphics[width=0.5\linewidth]{figures/growthAB}
    \caption{Liniowe tempo wzrostu niestabilności strumieniowej jako funkcja
       stosunku gęstości pyłu do gęstości gazu. Pozostałe parametry niezbędne do
-      rozwiązania równania~\mref{eq:disprel} zostały wzięte obszaru znajdującego
-   się na lewym panelu Rysunku~\ref{fig3}.}
+      rozwiązania równania~\mref{eq:disprel} zostały wzięte z obszaru znajdującego
+      się na lewym panelu Rysunku~\ref{fig3}.}
    %Przełamanie przebiegu funkcji dla
    %   $\epsilon\sim 1$ jest bezpośrednim powodem ,,kawitacji'' obserwowanej w
    %   symulacji AB}
@@ -151,7 +151,7 @@ zgodne z~wynikami przedstawionymi przez JY07 (patrz Rysunek.~8 w~Ich pracy).
 \begin{figure}
    \includegraphics[width=0.98\linewidth]{figures/fig4}
    \caption{
-      Maksymalne stosunek gęstości pyłu do gęstości gazu dla trzech symulacji z
+      Maksymalny stosunek gęstości pyłu do gęstości gazu dla trzech symulacji z
       identycznymi, fizycznymi warunkami początkowymi, lecz różną
       rozdzielczością. Ewolucja niestabilności strumieniowej przebiega według
       scenariusza: (1) szybki wzrost podczas liniowej fazy ewolucji, który
@@ -173,7 +173,7 @@ zgodne z~wynikami przedstawionymi przez JY07 (patrz Rysunek.~8 w~Ich pracy).
 Aby móc porównać obserwowane tempa wzrostu niestabilności strumieniowej z
 analizą przedstawioną w~rozdziale~\ref{sec:lsa}, z~domeny obliczeniowej
 wyodrębniono małe, kwadratowe ,,łatki'' na wybranych orbitach. Rozmiar wybranych
-obszarów $(0.15^2\AU)$ pozwala traktować je w~ramach lokalnego przybliżenia
+obszarów $(0.15^2\AU^2)$ pozwala traktować je w~ramach lokalnego przybliżenia
 kostki ścinanej, a także umożliwia wyrażenie stałych parametrów występujących w
 równaniach \mref{lin1}--\mref{lin4}) poprzez wartości średnie w~łatce.
 Można zatem przyjąć, że $\bar{\rho}_g = \left<\rho_g\right>$, $\bar{\rho}_d =
@@ -219,7 +219,7 @@ Ten etap analizy dla jednej z~łatek został przedstawiony na Rysunku~\ref{fig7}
 \begin{figure}
   \includegraphics[width=0.98\linewidth]{figures/fig7}
 
-  \caption{Czasowa ewolucja amplitud zaburzenia gęstości pyłu w~przestrzeni
+  \caption{Czasowa ewolucja amplitud zaburzeń gęstości pyłu w~przestrzeni
      fourierowskiej dla łatki z~symulacji BB obejmującej obszar 
      $[2.85,3.15]\times[-0.15,0.15]~\AU^2$. Każda cienka, szara linia
      reprezentuje amplitudę dla wybranej pary liczb falowych $k_x, k_z$.
@@ -330,9 +330,9 @@ względu na rozmiar najmniejszej komórki obliczeniowej.
    \caption{Migawki gęstości pyłu dla $t = 160\yr$ dla łatek pochodzących z
       orbit $R=3.5$ i~$4.5\AU$ wyodrębnione z~symulacji o tych samych warunkach
       początkowych lecz różnej rozdzielczości siatki obliczeniowej. Górny panel
-      symulacja BB, zaś dolny symulacja BBh. Ze względu na właściwości
+      przedstawia symulację BB, zaś dolny symulację BBh. Ze względu na właściwości
       dyfuzji numerycznej, wyższa rozdzielczość promuje krótsze długości
-      fali}
+      fali.}
    \label{fig10} 
 \end{figure}
 
@@ -392,7 +392,7 @@ symulacjach dwuwymiarowych.
    \caption{
       Migawki z~symulacji BD3d obrazujące gęstość pyłu w~cięciach w
       płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
-   domeny obliczeniowej, dla czasów $t= 50, 100, 150, 200, 400$ lat}
+   domeny obliczeniowej, dla czasów $t= 50, 100, 150, 200, 400$ lat.}
    \label{fig:slicenosg}
 \end{figure}
 %
@@ -430,7 +430,7 @@ $1\div1.5$ rzędu wielkości.
       samograwitacji (BD3d, BD3dS).  Kontury wyznaczają tempo wzrostu
       $\log_{10}(s_0(k_x, k_z))$ wynikające z~rozwiązania równania~
       \mref{eq:disprel} dla średniego stanu wybranych łatek w~momencie
-      czasu $T = 80$~lat}
+      czasu $T = 80$~lat.}
    \label{fig:map3d}
 \end{figure}
 % x3_50n.png
@@ -466,7 +466,7 @@ liniowej analizy (Rysunek~\ref{fig:map3d}).
    \caption{
       Migawki z~symulacji BD3dS obrazujące gęstość pyłu w~cięciach w
       płaszczyznach $R -\varphi$ oraz $R - z$ przechodzących przez środek 
-   domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 250$}
+   domeny obliczeniowej, dla czasów $T= 50, 100, 150, 200, 250$.}
    \label{fig:slicesg}
 \end{figure}
 %
@@ -488,7 +488,8 @@ które podlegają dalszym oddziaływaniom dynamicznym.
 \begin{figure}
    \centering
    \includegraphics[width=0.95\linewidth]{figures/proj_sg}
-   \caption{Gęstość kolumnowa pyłu w~symulacji BD3dS dla czasu $T=150, 200, 250, 300\yr$}
+   \caption{Gęstość kolumnowa pyłu w~symulacji BD3dS dla czasu $T=150, 200, 250,
+   300\yr$.}
    \label{fig:projs}
 \end{figure}
 %
@@ -496,7 +497,8 @@ które podlegają dalszym oddziaływaniom dynamicznym.
   \centering
   \includegraphics[height=0.9\textheight]{figures/hists2d}
   \caption{Histogramy masy pyłu w~funkcji promienia i~gęstości pyłu, lewa
-  kolumna bez samograwitacji, prawa kolumna z~samograwitacja}
+  kolumna przedstawia symulację BD3d (bez samograwitacji), zaś prawa kolumna
+  symulację BD3dS (z~samograwitacją).}
   \label{fig:hists} 
 \end{figure}
 %
@@ -525,8 +527,8 @@ identyfikacji topologicznie powiązanych ze sobą komórek obliczeniowych, któr
 zawierają porcje pyłu o~gęstości w~przedziale $10^{-10}\div10^{-8}\g\cm^{-3}$. W~tym
 celu wykorzystano pakiet do analizy i~wizualizacji
 danych~\yt{}~\footnote{Szczegółowe informacje na temat \emph{clump-finder'a}
-można znaleźć w~rozdziale 7.7 w~pracy~\cite{yt}. Autor niniejszej pracy
-rozszerzył pakiet \yt{} o możliwość czytania plików wynikowych z~kodu
+można znaleźć w~rozdziale 7.7 w~pracy~\cite{yt}. Autor niniejszej rozprawy
+doktorskiej rozszerzył pakiet \yt{} o możliwość czytania plików wynikowych z~kodu
 PIERNIK, a także zaimplementował wsparcie dla współrzędnych cylindrycznych.}.
 Uzyskanie informacji o strukturze rozkładu gęstości pyłu jest pierwszym krokiem w
 celu ustalenia, czy powstające zagęszczenia są w~stanie utworzyć grawitacyjnie
@@ -587,7 +589,7 @@ oraz parametru $\alpha$ przedstawiono na lewym panelu rysunku~\ref{fig:bmasstime
      kryterium~\mref{eq:bcrit} została zgromadzona w grawitacyjnie związanych
      obiektach w funkcji czasu. Wartość maksymalna osiągnięta po około 300
      latach ($4\div5\Mearth$ dla $\alpha = 0.05$) stanowi około $13\div14\%$
-     całkowitej masy pyłu, Prawy panel przedstawia ilość grawitacyjnie
+     całkowitej masy pyłu. Prawy panel przedstawia ilość grawitacyjnie
      związanych obiektów w funkcji czasu i parametru $\alpha$ znalezionych przy
      pomocy procedury opisanej w niniejszym rozdziale.}
   \label{fig:bmasstime} 
@@ -623,7 +625,7 @@ znalezionych przy pomocy procedury opisanej w tym rozdziale.
    Szerokość pojedynczego przedziału wynosi $20\Mceres$. Na wewnętrznych
    panelach znajdują się histogramy dla obiektów o masach mniejszych niż
    $80\Mceres$. Szerokość pojedynczego przedziału na wewnętrznym panelu wynosi
-   $4\Mceres$}
+   $4\Mceres$.}
    \label{fig:masshist}
 \end{figure}
 %
@@ -646,7 +648,7 @@ Najmasywniejszy z nich osiąga masę $600\Mceres$.
 stanowi dopasowanie funkcji wykładniczej do liczby obiektów w funkcji masy na
 przedziale $[40,200]\Mceres$. Zielona linia przedstawia schematycznie funkcję
 wykładniczą o wykładniku $-8/3$ odpowiadającą funkcji początkowej funkcji mas
-planetezymali przedstawionej w pracy~\cite{MFFK98}}
+planetezymali przedstawionej w pracy~\cite{MFFK98}.}
    \label{fig:massfun}
 \end{figure}
 %
