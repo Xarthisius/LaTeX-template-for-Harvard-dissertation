@@ -71,46 +71,64 @@ przedstawione w rozdziale~\ref{sec:sim_2d} wyniki symulacji dwuwymiarowych,
 niższy stosunek gęstości pyłu do gęstości gazu wydłuża tempo wzrostu
 niestabilności strumieniowej i jest dużo trudniejszy do śledzenia przy użyciu
 zastosowanych w tej pracy metod numerycznych opisanych w
-rozdziale~\ref{sec:metodyka}. 
-
-Jednakże całkowita masa pyłu zawarta w domenie obliczeniowej wynosi około
-$35\Mearth$ i co do rzędu wielkości odpowiada masie skalistych planet i jąder
-planet gazowych Układu Słonecznego.
+rozdziale~\ref{sec:metodyka}. Jednakże całkowita masa pyłu zawarta w domenie
+obliczeniowej wynosi około $35\Mearth$ i co do rzędu wielkości odpowiada masie
+skalistych planet i jąder planet gazowych Układu Słonecznego. Biorąc pod uwagę,
+że użyty w symulacjach radialny profil gęstości MMSN jest tylko \emph{dolnym
+ograniczeniem} rzeczywistego rozkładu gęstości materii w dysku protoplanetarnym,
+to przedstawiony w niniejszej pracy model ciągle pozostaje w dużej zgodności z
+przewidywaniami odnośnie Układu Słonecznego~\cite{D07}.
 
 \par Teoria akrecji na jądra silnie zależy od procesu odpowiedzialnego za
-formowanie się planetezymali~\cite{HBP13}. Warunek początkowy w przeprowadzonych 
-
-Poczatkowa funkcja masy planetezymali nie jest okreslona. Przyjmuje sie ze ma
-postać funkcji potegowej (bądź złożenia dwóch funkcji potęgowych~\cite{R03})
-
-Zależność od parametru $\alpha$ w kryterium związania: dla $0.1$ tylko $8\%$.
+formowanie się planetezymali~\cite{HBP13}. Poczatkowa funkcja masy planetezymali
+nie jest dobrze określona. Przyjmuje się, że ma postać funkcji potęgowej, bądź
+złożenia dwóch funkcji potęgowych~\cite{R03}. Wyniki przedstawione w
+rozdziale~\ref{sec:sim_3d} pozwalają określić rozkład masy zgromadzonej w
+grawitacyjnie związanych obiektach, które można traktować jako
+\emph{protoplanetezymale}, co stanowi niezwykle cenną przesłankę odnośnie
+początkowego rozkładu masy samych planetezymali. Zakładając, że rozkład masy
+jest dany funkcją:
+%
+\begin{equation}
+   f(m) \propto m^{-a},
+\end{equation}
+%
+w rozdziale~\ref{sec:sim_3d} dopasowano do otrzymanego rozkładu masy funkcję o
+wykładniku $a = 1.25$. Wykładnik ten mieści się w przewidywaniach innych
+autorów~\cite{R03}, którzy szacują jego wartość między $1$ a $3$. Ponadto prawy
+skraj funkcji masy (Rysunek~\ref{fig:massfun} można opisać funkcją o wykładniku
+$a$ w przedziale $2 < a < 3$ który otrzymywany jest w N-ciałowych symulacjach
+formowania się planet~\cite{MFFK98}.  Należy jednak zauważyć, iż przedstawiona
+na rysunku~\ref{fig:massfun} funkcja masy utworzonych w symulacji grawitacyjnie
+związanych obiektów jest obarczona sporymi błędami. W szczególności lewy skraj
+jest ograniczony poprzez skończoną rozdzielczość siatki obliczeniowej:
+typowe rozmiary obiektow związanych grawitacyjnie wynoszą od kilkudziesięciu do
+kilkuset komórek, co przekłada się na rozmiar liniowy rzędu kilku komórek
+obliczeniowych. Jest to wielkość wysoce niewystarczająca do poprawnego
+odwzorowania niestabilności grawitacyjnej w takim obiekcie.
+Prawy skraj natomiast, zawiera mało reprezentatywną statystycznie liczbę obiektów.
+Dodatkową niepewność wprowadza zależność od parametru $\alpha$ w kryterium
+związania grawitacyjnego\mref{eq:ekin}. 
+: dla $0.1$ tylko $8\%$.
 Nie ma dobrego kryterium na zwiazanie obłoku, potrzeba duzo wiekszej rozdzielczosci
-
-Typowe rozmiary otrzymanych w symulacji BD3dS zagęszczęń mieszczą się w
-przedziale $10^{11} \div 10^{12}\cm$, zaś ich srednie gęstości wynoszą $10^{-9}
-\div 10^{-8}\g/\cm^3$ i są one spójne z charakterystykami obiektów, które są
-mogą tworzyć zwarte planetezymale w toku dalszej ewolucji~\cite{HS08}.
+%
+\par Typowe rozmiary otrzymanych w symulacji BD3dS grawitacyjnie związanych
+zagęszczęń mieszczą się w przedziale $10^{11} \div 10^{12}\cm$, zaś ich srednie
+gęstości wynoszą $10^{-9} \div 10^{-8}\g/\cm^3$ i są one spójne z
+charakterystykami obiektów, które są mogą tworzyć zwarte planetezymale w toku
+dalszej ewolucji~\cite{HS08}.
+sink particles
 
 Dopiero uwzględnienie ewolucji obłoku (cytacja), dluzsza skala czasowa
 pozwalajaca uwzglednic dynamike wiekowa i efekty migracyjne (cytacja).
+
+\par nie jest określone tempo akrecji masy przez planetezymale
 
 Rozszerzenie moze isc w dwie strony: bardziej realistyczny model dysku t.j.
 stratyfikacja~(Johansen ostatnie prace) i pole magnetyczne, rozwoj
 algorytmniczny t.j. adaptywna siatka niezbedna do sledzenia zapadania sie
 obloku, podskalowy model ewolucji pylu np.  metodami MC~(Aska)
 
-Typowe rozmiary obiektow związanych grawitacyjnie wynoszą od kilkudziesięciu do
-kilkuset komórek, co daje $7^3$ -- dużo za mało żeby móc mówic o rozdzieleniu
-niestabilności grawitacyjnej
-
-\par The instability saturates when dust overdensities synchronize their
-velocity with the gas component. We must note that despite the steady outward
-migration of the gas, dust blobs never really gain positive radial velocity and
-never cease to migrate inwards (this was also noted by~\cite{JY07}). Though in
-certain cases, their radial velocity is significantly slower than what is
-expected from the standard estimation of the migration rate. The lack of
-additional force that would keep the blobs bounded also leads to high dispersion
-rate of the overdensities.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % vim: tw=80 ts=3: 
