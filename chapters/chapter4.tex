@@ -107,20 +107,35 @@ kilkuset komórek, co przekłada się na rozmiar liniowy rzędu kilku komórek
 obliczeniowych. Jest to wielkość wysoce niewystarczająca do poprawnego
 odwzorowania niestabilności grawitacyjnej w takim obiekcie.
 Prawy skraj natomiast, zawiera mało reprezentatywną statystycznie liczbę obiektów.
-Dodatkową niepewność wprowadza zależność od parametru $\alpha$ w kryterium
-związania grawitacyjnego\mref{eq:ekin}. 
-: dla $0.1$ tylko $8\%$.
-Nie ma dobrego kryterium na zwiazanie obłoku, potrzeba duzo wiekszej rozdzielczosci
 %
 \par Typowe rozmiary otrzymanych w symulacji BD3dS grawitacyjnie związanych
 zagęszczęń mieszczą się w przedziale $10^{11} \div 10^{12}\cm$, zaś ich srednie
 gęstości wynoszą $10^{-9} \div 10^{-8}\g/\cm^3$ i są one spójne z
 charakterystykami obiektów, które są mogą tworzyć zwarte planetezymale w toku
-dalszej ewolucji~\cite{HS08}.
-sink particles
+dalszej ewolucji~\cite{HS08}. Należy jednak mieć na uwadzę, że dodatkową
+niepewnośći odnośnie liczby powstających obiektów wprowadza podskalowa
+turbulencja sparametryzowana współczynnikiem $\alpha$ występującym w kryterium
+związania grawitacyjnego\mref{eq:ekin}. Jak pokazano w
+rozdziale~\ref{sec:sim_3d} dla $\alpha = 0.1$ masa pyłu zgromadzona w związanych
+grawitacyjnie obiektach stanowi tylko $5\%$ całej masy pyłu obecnej w dysku.
+Jednakże oczekiwane wartości $\alpha$ w dyskach protoplanetarnych oscylują wokól
+wartości $0.01$~\cite{FD11}, dla których efektywnie związana w obiektach masa
+stanowi ponad $15\%$ całkowitej masy pyłu w dysku. Dalszym krokiem pozwalającym
+na rozwinięcie przedstawionego w niniejszej pracy modelu dysku protoplanetarnego
+powinno być uwzględnie rzeczywistego źródła turbulencji w dysku, np. poprzez
+roszerzenie modelu o wpływ pola magnetycznego i odtworzenie niestabilności
+magnetorotacyjnej. Niezbędne jest także zwiększenie rozdzieloczości siatki
+obliczeniowej w obszarach, które podlegają niestabilności grawitacyjnej. Byłoby
+to możliwe dzięki zastosowaniu zaimplementowanego niedawno w kodzie \textsc{PIERNIK}
+mechanizmu \emph{adaptywnej siatki obliczeniowej}\footnote{AMR, \emph{ang.
+Adaptive Mesh Refinement}}. Pozwoliłoby to dokładniej śledzić proces kolapsu
+grawitacyjnego i zdecydowanie poprawić zakres ważności uzyskiwanej początkowej
+funkcji masy obiektów grawitacyjnie związanych.
+
+Nie ma dobrego kryterium na zwiazanie obłoku, potrzeba duzo wiekszej rozdzielczosci
 
 Dopiero uwzględnienie ewolucji obłoku (cytacja), dluzsza skala czasowa
-pozwalajaca uwzglednic dynamike wiekowa i efekty migracyjne (cytacja).
+pozwalajaca uwzglednic dynamikę wiekowa i efekty migracyjne (cytacja).
 
 \par nie jest określone tempo akrecji masy przez planetezymale
 
