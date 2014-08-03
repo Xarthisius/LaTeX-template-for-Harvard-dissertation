@@ -130,16 +130,24 @@ to możliwe dzięki zastosowaniu zaimplementowanego niedawno w kodzie \textsc{PI
 mechanizmu \emph{adaptywnej siatki obliczeniowej}\footnote{AMR, \emph{ang.
 Adaptive Mesh Refinement}}. Pozwoliłoby to dokładniej śledzić proces kolapsu
 grawitacyjnego i zdecydowanie poprawić zakres ważności uzyskiwanej początkowej
-funkcji masy obiektów grawitacyjnie związanych.
+funkcji masy obiektów grawitacyjnie związanych. Pomimo, że dzięki zastosowaniu
+AMR można efektywnie zwiększyć rozdzielczość liniową siatki obliczeniowej o pare
+rzędów wielkości, to śledzenie w dysku rozciągającym się na wiele jednostek
+astronomicznych obiektów których rozmiary nie przekraczają setek kilometrów,
+nadal nastręcza spore trudności. Naturalnym krokiem w takiej sytuacji jest
+rozszerzenie algorytmu numerycznego o tzw. \emph{,,sink particles''}. Sink
+particles są punktami materialnymi które oddziałują z otaczającym je płynem
+tylko poprzez siły grawitacji i pochłaniają płyn znajdujący się wewnątrz zadanego
+promienia akrecji zwiększając swoją masę~\cite{FBCK10}. Wprowadzenie sink
+particles do przedstawionych w niniejszej pracy symulacji pozwoliloby m.in. na
+określenie tempa akrecji masy na związane grawitacyjnie obiekty, co przy użytych
+obecnie metodach numerycznych nie było możliwe.
 
-Nie ma dobrego kryterium na związanie obłoku, potrzeba dużo większej rozdzielczości
-
-Dopiero uwzględnienie ewolucji obłoku (cytacja), dłuższa skala czasowa
+\par Dopiero uwzględnienie ewolucji obłoku (cytacja), dłuższa skala czasowa
 pozwalająca uwzględnić dynamikę wiekowa i efekty migracyjne (cytacja).
 
-\par nie jest określone tempo akrecji masy przez planetezymale
 
-Rozszerzenie może iść w dwie strony: bardziej realistyczny model dysku t.j.
+\par Rozszerzenie może iść w dwie strony: bardziej realistyczny model dysku t.j.
 stratyfikacja~(Johansen ostatnie prace) i pole magnetyczne, rozwój
 algorytmiczny t.j. adaptywna siatka niezbędna do śledzenia zapadania się
 obłoku, podskalowy model ewolucji pyłu np.  metodami MC~(Aska)
