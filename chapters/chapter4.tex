@@ -12,7 +12,7 @@ wzajemnie oddziałujących płynów: gazu i pyłu, w dysku keplerowskim. Przy cz
 zaniedbano pionową składową grawitacji od masy punktowej umieszczonej w centrum
 układu współrzędnych. Dla ziaren pyłu o rozmiarach od 10 do 50$\cm$
 zaobserwowano gwałtowny wzrost zaburzeń w gęstości i prędkości pyłu na
-charakterystyczych długościach fali zgodnych z przewidywaniami lokalnej,
+charakterystycznych długościach fali zgodnych z przewidywaniami lokalnej,
 liniowej analizy stabilności takiego układu. Wcześniejsze badania innych
 autorów~\cite{YG05, JY07, TB09, BS10a, BS10b} opierały się w pełni na lokalnym
 przybliżeniu kostki ścinanej, co prowadziło do szeregu uproszczeń m.in.
@@ -32,7 +32,7 @@ globalnej turbulencji wywołanej niestabilnością magneto-rotacyjną~\cite{DKJ1
 %
 \par Pierwszy etap niniejszej pracy opierał się na wykonaniu testów
 zbieżnościowych dla różnych parametrów fizycznych dysku protoplanetarnego co
-pozwolilo na określenie minimalnej liczby komórek obliczeniowych $(n\approx32)$
+pozwoliło na określenie minimalnej liczby komórek obliczeniowych $(n\approx32)$
 dla kodu \textsc{PIERNIK}, umożliwiającej na dokładne odwzorowanie liniowej fazy
 wzrostu.  Otrzymane, we wszystkich przeprowadzonych eksperymentach numerycznych,
 liczby falowe najszybciej rosnących modów niestabilności, a także ich pozycja na
@@ -80,7 +80,7 @@ to przedstawiony w niniejszej pracy model ciągle pozostaje w dużej zgodności 
 przewidywaniami odnośnie Układu Słonecznego~\cite{D07}.
 
 \par Teoria akrecji na jądra silnie zależy od procesu odpowiedzialnego za
-formowanie się planetezymali~\cite{HBP13}. Poczatkowa funkcja masy planetezymali
+formowanie się planetezymali~\cite{HBP13}. Początkowa funkcja masy planetezymali
 nie jest dobrze określona. Przyjmuje się, że ma postać funkcji potęgowej, bądź
 złożenia dwóch funkcji potęgowych~\cite{R03}. Wyniki przedstawione w
 rozdziale~\ref{sec:sim_3d} pozwalają określić rozkład masy zgromadzonej w
@@ -102,29 +102,29 @@ formowania się planet~\cite{MFFK98}.  Należy jednak zauważyć, iż przedstawi
 na rysunku~\ref{fig:massfun} funkcja masy utworzonych w symulacji grawitacyjnie
 związanych obiektów jest obarczona sporymi błędami. W szczególności lewy skraj
 jest ograniczony poprzez skończoną rozdzielczość siatki obliczeniowej:
-typowe rozmiary obiektow związanych grawitacyjnie wynoszą od kilkudziesięciu do
+typowe rozmiary obiektów związanych grawitacyjnie wynoszą od kilkudziesięciu do
 kilkuset komórek, co przekłada się na rozmiar liniowy rzędu kilku komórek
 obliczeniowych. Jest to wielkość wysoce niewystarczająca do poprawnego
 odwzorowania niestabilności grawitacyjnej w takim obiekcie.
 Prawy skraj natomiast, zawiera mało reprezentatywną statystycznie liczbę obiektów.
 %
 \par Typowe rozmiary otrzymanych w symulacji BD3dS grawitacyjnie związanych
-zagęszczęń mieszczą się w przedziale $10^{11} \div 10^{12}\cm$, zaś ich srednie
+zagęszczeń mieszczą się w przedziale $10^{11} \div 10^{12}\cm$, zaś ich średnie
 gęstości wynoszą $10^{-9} \div 10^{-8}\g/\cm^3$ i są one spójne z
 charakterystykami obiektów, które są mogą tworzyć zwarte planetezymale w toku
-dalszej ewolucji~\cite{HS08}. Należy jednak mieć na uwadzę, że dodatkową
-niepewnośći odnośnie liczby powstających obiektów wprowadza podskalowa
+dalszej ewolucji~\cite{HS08}. Należy jednak mieć na uwadze, że dodatkową
+niepewności odnośnie liczby powstających obiektów wprowadza podskalowa
 turbulencja sparametryzowana współczynnikiem $\alpha$ występującym w kryterium
 związania grawitacyjnego\mref{eq:ekin}. Jak pokazano w
 rozdziale~\ref{sec:sim_3d} dla $\alpha = 0.1$ masa pyłu zgromadzona w związanych
 grawitacyjnie obiektach stanowi tylko $5\%$ całej masy pyłu obecnej w dysku.
-Jednakże oczekiwane wartości $\alpha$ w dyskach protoplanetarnych oscylują wokól
+Jednakże oczekiwane wartości $\alpha$ w dyskach protoplanetarnych oscylują wokół
 wartości $0.01$~\cite{FD11}, dla których efektywnie związana w obiektach masa
 stanowi ponad $15\%$ całkowitej masy pyłu w dysku. Dalszym krokiem pozwalającym
 na rozwinięcie przedstawionego w niniejszej pracy modelu dysku protoplanetarnego
-powinno być uwzględnie rzeczywistego źródła turbulencji w dysku, np. poprzez
-roszerzenie modelu o wpływ pola magnetycznego i odtworzenie niestabilności
-magnetorotacyjnej. Niezbędne jest także zwiększenie rozdzieloczości siatki
+powinno być uwzględnienie rzeczywistego źródła turbulencji w dysku, np. poprzez
+rozszerzenie modelu o wpływ pola magnetycznego i odtworzenie niestabilności
+magnetorotacyjnej. Niezbędne jest także zwiększenie rozdzielczości siatki
 obliczeniowej w obszarach, które podlegają niestabilności grawitacyjnej. Byłoby
 to możliwe dzięki zastosowaniu zaimplementowanego niedawno w kodzie \textsc{PIERNIK}
 mechanizmu \emph{adaptywnej siatki obliczeniowej}\footnote{AMR, \emph{ang.
@@ -132,17 +132,17 @@ Adaptive Mesh Refinement}}. Pozwoliłoby to dokładniej śledzić proces kolapsu
 grawitacyjnego i zdecydowanie poprawić zakres ważności uzyskiwanej początkowej
 funkcji masy obiektów grawitacyjnie związanych.
 
-Nie ma dobrego kryterium na zwiazanie obłoku, potrzeba duzo wiekszej rozdzielczosci
+Nie ma dobrego kryterium na związanie obłoku, potrzeba dużo większej rozdzielczości
 
-Dopiero uwzględnienie ewolucji obłoku (cytacja), dluzsza skala czasowa
-pozwalajaca uwzglednic dynamikę wiekowa i efekty migracyjne (cytacja).
+Dopiero uwzględnienie ewolucji obłoku (cytacja), dłuższa skala czasowa
+pozwalająca uwzględnić dynamikę wiekowa i efekty migracyjne (cytacja).
 
 \par nie jest określone tempo akrecji masy przez planetezymale
 
-Rozszerzenie moze isc w dwie strony: bardziej realistyczny model dysku t.j.
-stratyfikacja~(Johansen ostatnie prace) i pole magnetyczne, rozwoj
-algorytmniczny t.j. adaptywna siatka niezbedna do sledzenia zapadania sie
-obloku, podskalowy model ewolucji pylu np.  metodami MC~(Aska)
+Rozszerzenie może iść w dwie strony: bardziej realistyczny model dysku t.j.
+stratyfikacja~(Johansen ostatnie prace) i pole magnetyczne, rozwój
+algorytmiczny t.j. adaptywna siatka niezbędna do śledzenia zapadania się
+obłoku, podskalowy model ewolucji pyłu np.  metodami MC~(Aska)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
