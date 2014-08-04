@@ -1,9 +1,6 @@
 \begin{savequote}[75mm]
-   If I model a phenomenon accurately, does that mean I understand it? Or might
-   it be simple coincidence, or an artifact of the technique? Of course, as an
-   ardent simulationist, I myself put much faith in Engine-modeling.
-\qauthor{Edward Mallory, The Difference Engine by William Gibson and Bruce
-   Sterling}
+   Va'esse deireádh eap eigean$\ldots$
+\qauthor{Saga o wiedźminie, Andrzej Sapkowski}
 \end{savequote}
 
 \chapter{Dyskusja i plany na przyszłość}
@@ -48,7 +45,7 @@ symulacji dwuskładnikowego dysku protoplanetarnego z uwzględnieniem wpływu
 samograwitacji. Należy podkreślić, że pomimo założenia dużo większej niż
 kanoniczna wartości stosunku gęstości gazu do gęstości pyłu, symulowany dysk
 jest początkowo stabilny zgodnie z kryterium Toomre'a~\mref{eq:toomre}.
-Parameter $Q$ jest stały dla całej domeny obliczeniowej i wynosi około $40$
+Parametr $Q$ jest stały dla całej domeny obliczeniowej i wynosi około $40$
 (rów.~\ref{eq:Qemp}). Wzbudzenie się niestabilności strumieniowej prowadzi do
 uformowania lokalnych zagęszczeń pyłu, których gęstość jest nawet stukrotnie
 większa niż gęstość początkowa pyłu. Ilość zgromadzonej lokalnie masy pyłu
@@ -131,7 +128,7 @@ mechanizmu \emph{adaptywnej siatki obliczeniowej}\footnote{AMR, \emph{ang.
 Adaptive Mesh Refinement}}. Pozwoliłoby to dokładniej śledzić proces kolapsu
 grawitacyjnego i zdecydowanie poprawić zakres ważności uzyskiwanej początkowej
 funkcji masy obiektów grawitacyjnie związanych. Pomimo, że dzięki zastosowaniu
-AMR można efektywnie zwiększyć rozdzielczość liniową siatki obliczeniowej o pare
+AMR można efektywnie zwiększyć rozdzielczość liniową siatki obliczeniowej o parę
 rzędów wielkości, to śledzenie w dysku rozciągającym się na wiele jednostek
 astronomicznych obiektów których rozmiary nie przekraczają setek kilometrów,
 nadal nastręcza spore trudności. Naturalnym krokiem w takiej sytuacji jest
@@ -139,18 +136,17 @@ rozszerzenie algorytmu numerycznego o tzw. \emph{,,sink particles''}. Sink
 particles są punktami materialnymi które oddziałują z otaczającym je płynem
 tylko poprzez siły grawitacji i pochłaniają płyn znajdujący się wewnątrz zadanego
 promienia akrecji zwiększając swoją masę~\cite{FBCK10}. Wprowadzenie sink
-particles do przedstawionych w niniejszej pracy symulacji pozwoliloby m.in. na
+particles do przedstawionych w niniejszej pracy symulacji pozwoliłoby m.in. na
 określenie tempa akrecji masy na związane grawitacyjnie obiekty, co przy użytych
 obecnie metodach numerycznych nie było możliwe.
+Niezmiernie ważne jest również wydłużenie czasu trwania symulacji tak, aby
+możliwe było uwzględnienie efektów migracji formujących się, grawitacyjnie
+związanych obiektów~\cite{ML14}.
 
-\par Dopiero uwzględnienie ewolucji obłoku (cytacja), dłuższa skala czasowa
-pozwalająca uwzględnić dynamikę wiekowa i efekty migracyjne (cytacja).
-
-
-\par Rozszerzenie może iść w dwie strony: bardziej realistyczny model dysku t.j.
-stratyfikacja~(Johansen ostatnie prace) i pole magnetyczne, rozwój
-algorytmiczny t.j. adaptywna siatka niezbędna do śledzenia zapadania się
-obłoku, podskalowy model ewolucji pyłu np.  metodami MC~(Aska)
+%\par Rozszerzenie może iść w dwie strony: bardziej realistyczny model dysku t.j.
+%stratyfikacja~(Johansen ostatnie prace) i pole magnetyczne, rozwój
+%algorytmiczny t.j. adaptywna siatka niezbędna do śledzenia zapadania się
+%obłoku, podskalowy model ewolucji pyłu np.  metodami MC~(Aska)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
