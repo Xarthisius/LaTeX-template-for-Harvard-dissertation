@@ -183,7 +183,7 @@
 
 % the acknowledgments page
 \newcommand{\acknowledgments}{
-	\chapter*{Acknowledgments}
+	\chapter*{Podziękowania}
 	\noindent
 	\input{frontmatter/thanks}
 	\vspace*{\fill}
