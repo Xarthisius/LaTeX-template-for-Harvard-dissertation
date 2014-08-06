@@ -4,28 +4,38 @@
 \end{savequote}
 
 \chapter{Dyskusja i plany na przyszłość}
-W ramach tej pracy przeprowadzono serię dwu- i trójwymiarowych symulacji
-wzajemnie oddziałujących płynów: gazu i pyłu, w dysku keplerowskim. Przy czym
-zaniedbano pionową składową grawitacji od masy punktowej umieszczonej w centrum
-układu współrzędnych. Dla ziaren pyłu o rozmiarach od 10 do 50$\cm$
-zaobserwowano gwałtowny wzrost zaburzeń w gęstości i prędkości pyłu na
-charakterystycznych długościach fali zgodnych z przewidywaniami lokalnej,
-liniowej analizy stabilności takiego układu. Wcześniejsze badania innych
-autorów~\cite{YG05, JY07, TB09, BS10a, BS10b} opierały się w pełni na lokalnym
-przybliżeniu kostki ścinanej, co prowadziło do szeregu uproszczeń m.in.
+Przedmiotem rozważań zaprezentowanych w niniejszej pracy jest niestabilność
+strumieniowa wynikająca z oddziaływania pyłu i gazu w dysku protoplanetarnym z
+udziałem i bez udziału samograwitacji. Przedstawione w poprzednim rozdziale
+wyniki opierają się na serii symulacji numerycznych fragmentu dysku
+protoplanetarnego w dwu i trzech wymiarach oraz liniowej analize stabilności
+wykonanej dla przypadku dwuwymiarowego.
+%
+%Przy czym
+%zaniedbano pionową składową grawitacji od masy punktowej umieszczonej w centrum
+%układu współrzędnych.
+%
+W eksperymentach numerycznycg przeprowadzonych dla ziaren pyłu o rozmiarach od
+10 do 50$\cm$ zaobserwowano gwałtowny wzrost zaburzeń w gęstości i prędkości
+pyłu o charakterystycznych długościach fali zgodnych z przewidywaniami lokalnej,
+liniowej analizy stabilności takiego układu. Wcześniejsze symulacje numeryczne
+innych autorów~\cite{YG05, JY07, TB09, BS10a, BS10b} opierały się na lokalnym
+przybliżeniu kostki ścinanej. Prowadziło to do szeregu uproszczeń m.in.
 traktowania globalnego, radialnego ciśnienia gazu jako stałego i niezmiennego
 współczynnika~\cite{N86}, stosowania bezwymiarowego czasu zatrzymania przy
-obliczaniu wzajemnego oddziaływania obu płynów~\cite{YG05}. Bardzo ważnym
-osiągnięciem poniższej pracy jest rozszerzenie modelu stosowanego przez innych
+obliczaniu wzajemnego oddziaływania obu płynów~\cite{YG05}. Głównym
+osiągnięciem niniejszej pracy jest rozszerzenie modelu stosowanego przez innych
 autorów poprzez uwzględnienie pełnej dynamiki okołogwiazdowego dysku w kierunku
-radialnym i wykazanie, że w takim przypadku można wzbudzić niestabilność
-strumieniową. Ponadto do opisu oddziaływania wiążącego oba płyny użyto
-właściwego dla ich charakterystyk prawa tarcia aerodynamicznego~\mref{eq:tauf}
+radialnym i wykazanie, że w takim przypadku dostępne algorytmy i zasoby
+obliczeniowe umożliwiają wiarygodne modelowanie niestabilności
+strumieniowej. Istotnym rozszerzeniem wcześniejszych modeli fizycznych było 
+użycie właściwego prawa tarcia aerodynamicznego~\mref{eq:tauf}
 zamiast przybliżonego rachunku opartego na stałym, bezwymiarowym czasie
-zatrzymania. Przyjęty model, choć stanowi wyraźny postęp względem innych prac, jest
-ciągle mało realistycznym przybliżeniem pełnego dysku protoplanetarnego. Do jego
-największych wad można zaliczyć brak stratyfikacji oraz nieuwzględnienie wpływu
-globalnej turbulencji wywołanej niestabilnością magneto-rotacyjną~\cite{DKJ14}. 
+zatrzymania. 
+Do jego największych wad można zaliczyć brak stratyfikacji oraz nieuwzględnienie
+wpływu globalnej turbulencji wywołanej niestabilnością
+magneto-rotacyjną~\cite{DKJ14}. 
+
 %
 \par Pierwszy etap niniejszej pracy opierał się na wykonaniu testów
 zbieżnościowych dla różnych parametrów fizycznych dysku protoplanetarnego co
@@ -75,23 +85,21 @@ skalistych planet i jąder planet gazowych Układu Słonecznego. Biorąc pod uwa
 ograniczeniem} rzeczywistego rozkładu gęstości materii w dysku protoplanetarnym,
 to przedstawiony w niniejszej pracy model ciągle pozostaje w dużej zgodności z
 przewidywaniami odnośnie Układu Słonecznego~\cite{D07}.
-
-\par Teoria akrecji na jądra silnie zależy od procesu odpowiedzialnego za
+\par Teoria ,,akrecji na jądra'' silnie zależy od procesu odpowiedzialnego za
 formowanie się planetezymali~\cite{HBP13}. Początkowa funkcja masy planetezymali
 nie jest dobrze określona. Przyjmuje się, że ma postać funkcji potęgowej, bądź
 złożenia dwóch funkcji potęgowych~\cite{R03}. Wyniki przedstawione w
-rozdziale~\ref{sec:sim_3d} pozwalają określić rozkład masy zgromadzonej w
-grawitacyjnie związanych obiektach, które można traktować jako
-\emph{protoplanetezymale}, co stanowi niezwykle cenną przesłankę odnośnie
-początkowego rozkładu masy samych planetezymali. Zakładając, że rozkład masy
-jest dany funkcją:
+rozdziale~\ref{sec:sim_3d} pozwalają określić spektralny rozkład masy zgromadzonej w
+grawitacyjnie związanych obiektach, stanowiących zgodnie z przyjętym modelem
+zalążki planetezymali.  Zakładając, że rozkład masy grawitacyjnie związanych
+obiektów pyłowych jest dany funkcją:
 %
 \begin{equation}
    f(m) \propto m^{-a},
 \end{equation}
 %
 w rozdziale~\ref{sec:sim_3d} dopasowano do otrzymanego rozkładu masy funkcję o
-wykładniku $a = 1.25$. Wykładnik ten mieści się w przewidywaniach innych
+wykładniku $a = 1.25\pm0.12$. Wykładnik ten mieści się w przewidywaniach innych
 autorów~\cite{R03}, którzy szacują jego wartość między $1$ a $3$. Ponadto prawy
 skraj funkcji masy (Rysunek~\ref{fig:massfun} można opisać funkcją o wykładniku
 $a$ w przedziale $2 < a < 3$ który otrzymywany jest w N-ciałowych symulacjach
@@ -106,41 +114,42 @@ odwzorowania niestabilności grawitacyjnej w takim obiekcie.
 Prawy skraj natomiast, zawiera mało reprezentatywną statystycznie liczbę obiektów.
 %
 \par Typowe rozmiary otrzymanych w symulacji BD3dS grawitacyjnie związanych
-zagęszczeń mieszczą się w przedziale $10^{11} \div 10^{12}\cm$, zaś ich średnie
-gęstości wynoszą $10^{-9} \div 10^{-8}\g/\cm^3$ i są one spójne z
+zagęszczeń mieszczą się w przedziale $10^{11} \div 10^{12}\cm$ i są one spójne z
 charakterystykami obiektów, które są mogą tworzyć zwarte planetezymale w toku
-dalszej ewolucji~\cite{HS08}. Należy jednak mieć na uwadze, że dodatkową
-niepewności odnośnie liczby powstających obiektów wprowadza podskalowa
-turbulencja sparametryzowana współczynnikiem $\alpha$ występującym w kryterium
-związania grawitacyjnego\mref{eq:ekin}. Jak pokazano w
-rozdziale~\ref{sec:sim_3d} dla $\alpha = 0.1$ masa pyłu zgromadzona w związanych
-grawitacyjnie obiektach stanowi tylko $5\%$ całej masy pyłu obecnej w dysku.
-Jednakże oczekiwane wartości $\alpha$ w dyskach protoplanetarnych oscylują wokół
-wartości $0.01$~\cite{FD11}, dla których efektywnie związana w obiektach masa
-stanowi ponad $15\%$ całkowitej masy pyłu w dysku. Dalszym krokiem pozwalającym
-na rozwinięcie przedstawionego w niniejszej pracy modelu dysku protoplanetarnego
+dalszej ewolucji~\cite{HS08}. Średnie końcowe gęstości pyłu nie są niestety
+miarodajne ze względu na przewidywany wpływ skończonej rozdzielczości siatki
+obliczeniowej. Należy jednak mieć na uwadze, że dodatkową niepewności odnośnie
+liczby powstających obiektów wprowadza podskalowa turbulencja sparametryzowana
+współczynnikiem $\alpha$ występującym w kryterium związania
+grawitacyjnego\mref{eq:ekin}. Jak pokazano w rozdziale~\ref{sec:sim_3d} dla
+$\alpha = 0.1$ masa pyłu zgromadzona w związanych grawitacyjnie obiektach
+stanowi tylko $5\%$ całej masy pyłu obecnej w dysku.  Jednakże oczekiwane
+wartości $\alpha$ w dyskach protoplanetarnych oscylują wokół wartości
+$0.01$~\cite{FD11}, dla których efektywnie związana w obiektach masa stanowi
+ponad $15\%$ całkowitej masy pyłu w dysku. Dalszym krokiem pozwalającym na
+rozwinięcie przedstawionego w niniejszej pracy modelu dysku protoplanetarnego
 powinno być uwzględnienie rzeczywistego źródła turbulencji w dysku, np. poprzez
 rozszerzenie modelu o wpływ pola magnetycznego i odtworzenie niestabilności
 magnetorotacyjnej. Niezbędne jest także zwiększenie rozdzielczości siatki
 obliczeniowej w obszarach, które podlegają niestabilności grawitacyjnej. Byłoby
-to możliwe dzięki zastosowaniu zaimplementowanego niedawno w kodzie \textsc{PIERNIK}
-mechanizmu \emph{adaptywnej siatki obliczeniowej}\footnote{AMR, \emph{ang.
-Adaptive Mesh Refinement}}. Pozwoliłoby to dokładniej śledzić proces kolapsu
-grawitacyjnego i zdecydowanie poprawić zakres ważności uzyskiwanej początkowej
-funkcji masy obiektów grawitacyjnie związanych. Pomimo, że dzięki zastosowaniu
-AMR można efektywnie zwiększyć rozdzielczość liniową siatki obliczeniowej o parę
-rzędów wielkości, to śledzenie w dysku rozciągającym się na wiele jednostek
-astronomicznych obiektów których rozmiary nie przekraczają setek kilometrów,
-nadal nastręcza spore trudności. Naturalnym krokiem w takiej sytuacji jest
-rozszerzenie algorytmu numerycznego o tzw. \emph{,,sink particles''}. Sink
-particles są punktami materialnymi które oddziałują z otaczającym je płynem
-tylko poprzez siły grawitacji i pochłaniają płyn znajdujący się wewnątrz zadanego
-promienia akrecji zwiększając swoją masę~\cite{FBCK10}. Wprowadzenie sink
-particles do przedstawionych w niniejszej pracy symulacji pozwoliłoby m.in. na
-określenie tempa akrecji masy na związane grawitacyjnie obiekty, co przy użytych
-obecnie metodach numerycznych nie było możliwe.
-Niezmiernie ważne jest również wydłużenie czasu trwania symulacji tak, aby
-możliwe było uwzględnienie efektów migracji formujących się, grawitacyjnie
+to możliwe dzięki zastosowaniu zaimplementowanego niedawno w kodzie
+\textsc{PIERNIK} mechanizmu \emph{adaptywnej siatki obliczeniowej}\footnote{ang.
+\emph{Adaptive Mesh Refinement}}. Pozwoliłoby to dokładniej śledzić proces
+kolapsu grawitacyjnego i zdecydowanie poprawić zakres ważności uzyskiwanej
+początkowej funkcji masy obiektów grawitacyjnie związanych.  Pomimo, że dzięki
+zastosowaniu AMR można efektywnie zwiększyć rozdzielczość liniową siatki
+obliczeniowej o parę rzędów wielkości, to śledzenie w dysku rozciągającym się na
+wiele jednostek astronomicznych obiektów których rozmiary nie przekraczają setek
+kilometrów, nadal nastręcza spore trudności.  Naturalnym krokiem w takiej
+sytuacji jest rozszerzenie algorytmu numerycznego o tzw. \emph{,,sink
+particles''}. Sink particles są punktami materialnymi które oddziałują z
+otaczającym je płynem tylko poprzez siły grawitacji i pochłaniają płyn
+znajdujący się wewnątrz zadanego promienia akrecji zwiększając swoją
+masę~\cite{FBCK10}. Wprowadzenie sink particles do przedstawionych w niniejszej
+pracy symulacji pozwoliłoby m.in. na określenie tempa akrecji masy na związane
+grawitacyjnie obiekty, co przy użytych obecnie metodach numerycznych nie było
+możliwe.  Niezmiernie ważne jest również wydłużenie czasu trwania symulacji tak,
+aby możliwe było uwzględnienie efektów migracji formujących się, grawitacyjnie
 związanych obiektów~\cite{ML14}.
 
 %\par Rozszerzenie może iść w dwie strony: bardziej realistyczny model dysku t.j.
