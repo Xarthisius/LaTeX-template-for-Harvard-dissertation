@@ -330,9 +330,9 @@ względu na rozmiar najmniejszej komórki obliczeniowej.
    \caption{Migawki gęstości pyłu dla $t = 160\yr$ dla łatek pochodzących z
       orbit $R=3.5$ i~$4.5\AU$ wyodrębnione z~symulacji o tych samych warunkach
       początkowych lecz różnej rozdzielczości siatki obliczeniowej. Górny panel
-      przedstawia symulację BB, zaś dolny symulację BBh. Ze względu na właściwości
-      dyfuzji numerycznej, wyższa rozdzielczość promuje krótsze długości
-      fali.}
+      przedstawia symulację BB, zaś dolny symulację BBh. Ze względu na obecność
+      dyfuzji numerycznej, niższa rozdzielczość sprzyja rozmyciu struktur
+      drobnoskalowych.}
    \label{fig10} 
 \end{figure}
 
@@ -345,14 +345,28 @@ liniowej teorii, a zagęszczenia pyłu powstające w nieliniowej fazie rozwoju
 niestabilności osiągają amplitudę przewyższającą gęstość początkową od jednego
 do dwóch rzędów wielkości. W modelu 3d tempo wzrostu jest wyraźnie pomniejszone
 względem przewidywań liniowej teorii z powodu mniejszej dostępnej rozdzielczości
-siatki obliczeniowej, ale fluktuacje gęstości oscylują na podobnym poziomie jak
-w symulacjach dwuwymiarowych. Wynik ten stanowi silną przesłankę, że warunki dla
-niestabilności grawitacyjnej są w niewielkim stopniu zależne od rozdzielczości
-siatki. W~niniejszym rozdziale przedstawione zostały dwie symulacje pełnego,
-trójwymiarowego modelu dysku: z~uwzględnieniem efektów samograwitacji płynów
-(BD3dS) oraz bez jej udziału (BB3d, BD3d). Symulacja BB3d została przeprowadzana
-jako trójwymiarowy analog wcześniej opisywanych symulacji dwuwymiarowych.
-
+siatki obliczeniowej, ale w fazie nasycenia niestabilności fluktuacje
+gęstości oscylują na podobnym poziomie jak w symulacjach dwuwymiarowych. 
+%Wynik ten stanowi silną przesłankę, że warunki dla
+%niestabilności grawitacyjnej są w niewielkim stopniu zależne od rozdzielczości
+%siatki. 
+%
+W~niniejszym rozdziale przedstawione zostały 3 symulacje pełnego,
+trójwymiarowego modelu dysku: BB3d, BD3d, BD3dS (tabela~\ref{tab2}).  Symulacja
+BB3d została przeprowadzana jako trójwymiarowy analog wcześniej opisywanych
+symulacji dwuwymiarowych serii BB. W symulacji BD3d i BD3dS koncentracja pyłu
+została zwiększona trzykrotnie względem BB3d podczas gdy pozostałe parametry
+zachowują swoje dotychczasowe wartości. W symulacji BD3dS została dodatkowo
+włączona samograwitacja ośrodka gazowo-pyłowego. Trzykrotne zwiększenie
+początkowej gęstości pyłu jest umotywowane chęcią stworzenia bardziej
+sprzyjających warunków dla niestabilności grawitacyjnej zachodzącej w lokalnych
+zagęszczeniach pyłu. Przeprowadzenie symulacji z niższą gęstościa pyłu
+wymagałoby znacznie dłuższego czasu obliczeń i większej rozdzielczości siatki
+obliczeniowej. Pomimo takiego doboru początkowego stosunku gęstości pyłu do
+gęstości gazu, sumaryczna masa pyłu jest ciągle co do rzędu wielkości zgodna z
+modelami początkowego rozkładu materii w Układzie Słonecznym~\cite{D07}. Należy
+pamiętać iż modele te stanowią tylko \emph{dolne} ograniczenie na początkową
+masę dysku protoplanetarnego.
 
 \begin{table}
    \centering
@@ -397,28 +411,30 @@ symulacjach dwuwymiarowych.
 \end{figure}
 %
 Początkowo w~rozkładzie gęstości pyłu wyłania się przedstawiony już wcześniej
-ukośny wzór, będący superpozycją działania najbardziej niestabilnych modów.
-Model trójwymiarowy pokazuje, że zagęszczenia widoczne w płaszczyźnie
-\textit{r-z} są w rzeczywistości cięciami włókien rozciągłych w kierunku
-azymutalnym. Liniowy zakres ewolucji niestabilności strumieniowej w 3D przebiega
-zgodnie z przewidywaniami liniowej analizy stabilności przedstawionej dla
-przypomnienia w rozdziale drugim. Najszybciej rosnące mody niestabilności
+ukośny wzór, będący superpozycją najbardziej niestabilnych modów.  Model
+trójwymiarowy niestabilności strumieniowej pokazuje, że zagęszczenia widoczne w
+płaszczyźnie \textit{r-z} są w rzeczywistości cięciami włókien rozciągłych w
+kierunku azymutalnym. Liniowy zakres ewolucji niestabilności strumieniowej w 3D
+przebiega zgodnie z przewidywaniami liniowej analizy stabilności przedstawionej
+dla przypomnienia w rozdziale drugim. Najszybciej rosnące mody niestabilności
 strumieniowej lokują się na mapach stabilności (Rys.~\ref{fig9} dla symulacji
 BB3d oraz Rys.~\ref{fig:map3d} dla symulacji BD3d) wzdłuż grzbietu
-wyznaczającego największe analityczne tempa wzrostu wynikające z liniowej
-analizy stabilności. Wybrane migawki z trójwymiarowej
-ewolucji dysku w symulacji BD3d zostały pokazane na rysunku~\ref{fig:slicenosg}
-dla czasów $t =  50, 100, 150, 200, 400$ lat. Przedstawione na tym rysunku
-cięcia zarówno w płaszczyźnie \textit{r-z} jak i \textit{r-}$\varphi$ pokazują, że
-gęstość pyłu mierzona wzdłuż włókien wykazuje modulację wskazującą na
-potrzebę uwzględnienia azymutalnej liczby falowej w liniowej analizie
-niestabilności strumieniowej. Jednakże, tempo wzrostu mierzone w liniowym
-zakresie pozostaje zgodne z przewidywaniami teorii dla przybliżenia
-dwuwymiarowego. Odstępstwa od osiowej symetrii są widoczne, lecz praktycznie nie
-wpływają na zachowanie się niestabilności w liniowym zakresie (por.
-Rysunek~\ref{fig:slicenosg}. Podobnie jak w~analogicznych symulacjach 2D,
-saturacja niestabilności następuje po lokalnym wzroście gęstości pyłu o
-$1\div1.5$ rzędu wielkości.
+wyznaczającego największe tempa wzrostu wynikające z liniowej
+analizy stabilności. Wybrane migawki z trójwymiarowej ewolucji dysku w symulacji
+BD3d zostały pokazane na rysunku~\ref{fig:slicenosg} dla czasów $t =  50, 100,
+150, 200, 400$ lat. Przedstawione na tym rysunku cięcia zarówno w płaszczyźnie
+\textit{r-z} jak i \textit{r-}$\varphi$ pokazują, że gęstość pyłu mierzona
+wzdłuż włókien wykazuje modulację wskazującą na potrzebę uwzględnienia
+azymutalnej liczby falowej w liniowej analizie niestabilności strumieniowej.
+Jednakże, tempo wzrostu mierzone w liniowym zakresie pozostaje zgodne z
+przewidywaniami teorii dla przybliżenia dwuwymiarowego, a z drugiej strony pełna
+liniowa analiza w przypadku trójwymiarowym staje się nadmiernie skomplikowana.
+Zależność zaburzeń od kąta azymutalnego jest widoczna, lecz praktycznie nie
+wpływa na ogólne własności niestabilności w liniowym zakresie (por.
+Rysunek~\ref{fig:slicenosg}) podobnie jak w~analogicznych symulacjach 2D,
+saturacja niestabilności następuje po lokalnym wzroście gęstości pyłu od jednego
+do półtora rzędu wielkości.
+
 %
 \begin{figure}[h]
    \centering
@@ -474,15 +490,14 @@ Pierwsza zauważalną różnicą jest przekroczenie przez pył gęstości na kt�
 wcześniej niestabilność strumieniowa się wysycała (por. środkowy panel na
 Rysunku~\ref{fig:hists}). Jest to prostą konsekwencją faktu, że każde formujące
 się zagęszczenie jest dodatkowo ściskane działającą do wewnątrz siłą
-samograwitacyjną. Po $150$~latach dysk pyłowy staje się widocznie bardziej
-pofragmentowany w~kierunku azymutalnym w porównaniu z modelem bez
-samograwitacji.  Odstępstwo od osiowej symetrii jest wyraźnie zauważalne.
-Formacje gęstego pyłu na skutek wzajemnego oddziaływania grawitacyjnego (jak
+samograwitacyjną. Po $150$~latach gęstość pyłu staje się widocznie bardziej
+zależna od wpółrzędnej azymutalnej w porównaniu z modelem bez samograwitacji.
+Zagęszczenia pyłu na skutek wzajemnego oddziaływania grawitacyjnego (jak
 i~własnego ciężaru) zaczynają się deformować coraz silniej zmieniając swoją
-strukturę w~kierunku azymutalnym. W~ciągu kolejnych $50$~latach samograwitacja
+strukturę w~kierunku azymutalnym. W~ciągu kolejnych $50$~lat samograwitacja
 ,,ściska'' praktycznie cały pył do jednej płaskiej warstwy w~płaszczyźnie $R -
 \varphi$ tworząc długie, pofalowane włókna (Rysunek~\ref{fig:projs}). W~trakcie
-dalszej ewolucji włókna fragmentują na mniejsze związane grawitacyjnie obiekty,
+dalszej ewolucji włókna dzielą się na mniejsze związane grawitacyjnie obiekty,
 które podlegają dalszym oddziaływaniom dynamicznym. 
 %
 \begin{figure}
@@ -502,23 +517,38 @@ które podlegają dalszym oddziaływaniom dynamicznym.
   \label{fig:hists} 
 \end{figure}
 %
-Wpływ samograwitacji na ewolucję układu dobrze obrazuje zestawienie
-histogramów masy pyłu w~funkcji promienia orbitalnego i~gęstości pyłu
-(Rysunek~\ref{fig:hists}). Dla symulacji BD3d, pomimo osiągnięcia przez nią
-lokalnie zagęszczeń o $1\div1.5$ rzędów większych niż początkowy rozkład,
-większość masy pyłu jest równomiernie rozłożona pomiędzy gęstościami $10^{-11}
-\div 5\cdot10^{-10}\g\cm^{-3}$. W~połączeniu z obrazem wyłaniającym się
-z~obserwacji wzbudzonych na rysunku zagęszczeń pyłowych, sugeruje to krótki czas
-życia zagęszczeń i nieustający przepływ masy pomiędzy obszarami o niskiej
-i~wysokiej gęstości.  Natomiast w~symulacji BD3dS rozkład masy jest zgoła inny.
-Po osiągnięciu granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna
-przemieszczać się na histogramie w kierunku rosnących gęstości. Dla ustalonej
-orbity, większość pyłu ostatecznie lokuje się w przedziale gęstości
-$\sim10^{-8}\div10^{-9}\g\cm^{-3}$.  Wysycenie wzrostu zagęszczeń na poziomie
-$10^{-8}\g\cm^{-3}$ jest najprawdopodobniej konsekwencją
-ograniczonej rozdzielczości siatki obliczeniowej. W rzeczywistym świecie, wobec
-braku własnego ciśnienia termicznego, zagęszczenia pyłu powinny zapadać się do
-momentu całkowitego sprasowania pyłu do postaci zwartych planetezymali.
+Wpływ samograwitacji na ewolucję układu dobrze obrazuje zestawienie histogramów
+masy pyłu w~funkcji promienia orbitalnego i~gęstości pyłu
+(rysunek~\ref{fig:hists}). Dla symulacji BD3d, pomimo osiągnięcia przez nią
+lokalnie zagęszczeń od jednego do półtora rzędu większych niż początkowa
+gęstość, większość masy pyłu jest równomiernie rozłożona pomiędzy gęstościami
+$10^{-11} \div 5\cdot10^{-10}\g\cm^{-3}$ (lewy panel na
+rysunku~\ref{fig:hists1d}). W~połączeniu z obrazem wyłaniającym się z~wizualnej
+analizy wzbudzonych zagęszczeń pyłowych, sugeruje to krótki czas życia
+zagęszczeń i nieustający przepływ masy pomiędzy obszarami o niskiej i~wysokiej
+gęstości. Natomiast w~symulacji BD3dS rozkład masy jest zgoła inny.  Po
+osiągnięciu granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna
+przemieszczać się na histogramie w kierunku rosnących gęstości, tworząc potęgowy
+rozkład masy pyłu w funkcji gęstości pyłu (prawy panel na
+rysunku~\ref{fig:hists1d}). Dla ustalonej orbity, większość pyłu ostatecznie
+lokuje się w przedziale gęstości $\sim10^{-8}\div10^{-9}\g\cm^{-3}$.  Wysycenie
+wzrostu zagęszczeń na poziomie $10^{-8}\g\cm^{-3}$ jest najprawdopodobniej
+konsekwencją ograniczonej rozdzielczości siatki obliczeniowej. W rzeczywistym
+świecie, wobec braku własnego ciśnienia termicznego, zagęszczenia pyłu powinny
+zapadać się do momentu całkowitego sprasowania pyłu do postaci zwartych
+planetezymali.
+%
+\begin{figure} 
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/hist1d_nosg}
+  \includegraphics[width=0.45\textwidth]{figures/hist1d_sg}
+  \caption{Jednowymiarowe cięcia przez dwuwymiarowe histogramy masy pyłu
+  (rysunek~\ref{fig:hists}) dla czasu 300~lat dla $R = 3.3, 4.7$. Na lewym
+  panelu dane pochodzą z~symulacji BD3d (bez samograwitacji), na prawym zaś
+  z~symulacji BD3dS (z~samograwitacją).}
+  \label{fig:hists1d} 
+\end{figure}
+%
 \par Histogram masy nie daje informacji o kształcie i
 charakterystycznych rozmiarach obiektów w~których znajduje się większość masy pyłu,
 ani nie pozwala stwierdzić czy pył jest grawitacyjnie związany. W~celu
@@ -559,15 +589,21 @@ promienia $R$:
    \left<\Phi_i\right>_{z\varphi}(R).
 \end{equation}
 %
-Przy obliczaniu energii kinetycznej obiektu wykonywana jest transformacją
-współrzędnych do układu środka masy, w~celu uwzględnienia wpływu rotacji.
-Jest to niezbędne, ponieważ siła odśrodkowa przeciwdziała kontrakcji obłoku na
-skutek samograwitacji. Aby uniknąć przeszacowania ilości materii, która zostaje
-związana grawitacyjnie dodatkowo wzięto pod uwagę możliwy wpływ turbulencji
-zachodzącej w skalach przestrzennych poniżej zdolności rozdzielczej siatki
-obliczeniowej. Do opisu podskalowej turbulencji użyto klasycznej parametryzacji
-współczynnikiem $\alpha$~\cite{SS73}. Ostateczna postać energii kinetycznej
-obiektu jest wyrażona poprzez:
+
+Energii obliczona  w układzie środka masy jest
+miarą energii kinetyczną ruchów własnych pyłu w układzie środka masy.
+w~celu uwzględnienia wpływu rotacji.  Jest to niezbędne, ponieważ siła
+odśrodkowa przeciwdziała kontrakcji obłoku na skutek samograwitacji. Aby uniknąć
+przeszacowania ilości materii, która zostaje związana grawitacyjnie dodatkowo
+wzięto pod uwagę możliwy wpływ turbulencji zachodzącej w skalach przestrzennych
+poniżej zdolności rozdzielczej siatki obliczeniowej. Do opisu podskalowej
+turbulencji użyto klasycznej parametryzacji współczynnikiem
+$\alpha$~\cite{SS73}. Ostateczna postać energii kinetycznej obiektu jest
+wyrażona poprzez:
+
+%
+Oprócz energii makroskopowej ruchow wlasnych, w realnym trubulentnym dysku mamy
+do czynienia
 %
 \begin{equation}
    \label{eq:ekin}
