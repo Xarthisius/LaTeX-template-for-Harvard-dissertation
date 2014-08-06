@@ -31,12 +31,12 @@ for time in times[times >= 250.0]:
 
 x = np.logspace(1.0, 1e3, 50)
 
-ax.plot(x, 6e3 * x ** -1.25, label=r"$\propto x^{-\frac{5}{4}}$")
+ax.plot(x, 6e3 * x ** -1.25, label=r"$\propto x^{-1.25\pm0.12}$")
 ax.plot(x, 1e7 * x ** (-8./3.), label=r"$\propto x^{-\frac{8}{3}}$")
 ax.set_xlim((5, 1e3))
 ax.set_ylim((0.9, 200))
 ax.set_xlabel("Masa obiektu $[\\textrm{M}_{\\textrm{ceres}}]$")
 ax.set_ylabel(u"Liczba obiektów")
-plt.legend()
+plt.legend(loc=3)
 fig.tight_layout()
 plt.savefig('../figures/mass_func.pdf')

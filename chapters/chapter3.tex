@@ -526,10 +526,10 @@ $10^{-11} \div 5\cdot10^{-10}\g\cm^{-3}$ (lewy panel na
 rysunku~\ref{fig:hists1d}). W~połączeniu z obrazem wyłaniającym się z~wizualnej
 analizy wzbudzonych zagęszczeń pyłowych, sugeruje to krótki czas życia
 zagęszczeń i nieustający przepływ masy pomiędzy obszarami o niskiej i~wysokiej
-gęstości. Natomiast w~symulacji BD3dS rozkład masy jest zgoła inny.  Po
-osiągnięciu granicznej wartości gęstości $\sim10^{-9}\g\cm^{-3}$ masa zaczyna
-przemieszczać się na histogramie w kierunku rosnących gęstości, tworząc potęgowy
-rozkład masy pyłu w funkcji gęstości pyłu (prawy panel na
+gęstości. Natomiast w~końcowych stadiach symulacji BD3dS rozkład masy jest zgoła
+inny. Po osiągnięciu wartości gęstości na poziomie $\sim10^{-9}\g\cm^{-3}$ masa
+zaczyna przemieszczać się na histogramie w kierunku rosnących gęstości, tworząc
+potęgowy rozkład masy pyłu w funkcji gęstości pyłu (prawy panel na
 rysunku~\ref{fig:hists1d}). Dla ustalonej orbity, większość pyłu ostatecznie
 lokuje się w przedziale gęstości $\sim10^{-8}\div10^{-9}\g\cm^{-3}$.  Wysycenie
 wzrostu zagęszczeń na poziomie $10^{-8}\g\cm^{-3}$ jest najprawdopodobniej
@@ -543,29 +543,29 @@ planetezymali.
   \includegraphics[width=0.45\textwidth]{figures/hist1d_nosg}
   \includegraphics[width=0.45\textwidth]{figures/hist1d_sg}
   \caption{Jednowymiarowe cięcia przez dwuwymiarowe histogramy masy pyłu
-  (rysunek~\ref{fig:hists}) dla czasu 300~lat dla $R = 3.3, 4.7$. Na lewym
+  (rysunek~\ref{fig:hists}) dla czasu 300~lat oraz $R = 3.3, 4.7\AU$. Na lewym
   panelu dane pochodzą z~symulacji BD3d (bez samograwitacji), na prawym zaś
   z~symulacji BD3dS (z~samograwitacją).}
   \label{fig:hists1d} 
 \end{figure}
 %
-\par Histogram masy nie daje informacji o kształcie i
-charakterystycznych rozmiarach obiektów w~których znajduje się większość masy pyłu,
-ani nie pozwala stwierdzić czy pył jest grawitacyjnie związany. W~celu
-rozszerzenia przeprowadzonej analizy zebrany materiał poddano procedurze
-identyfikacji topologicznie powiązanych ze sobą komórek obliczeniowych, które
-zawierają porcje pyłu o~gęstości w~przedziale $10^{-10}\div10^{-8}\g\cm^{-3}$. W~tym
-celu wykorzystano pakiet do analizy i~wizualizacji
-danych~\yt{}~\footnote{Szczegółowe informacje na temat \emph{clump-finder'a}
-można znaleźć w~rozdziale 7.7 w~pracy~\cite{yt}. Autor niniejszej rozprawy
-doktorskiej rozszerzył pakiet \yt{} o możliwość czytania plików wynikowych z~kodu
-PIERNIK, a także zaimplementował wsparcie dla współrzędnych cylindrycznych.}.
-Uzyskanie informacji o strukturze rozkładu gęstości pyłu jest pierwszym krokiem w
-celu ustalenia, czy powstające zagęszczenia są w~stanie utworzyć grawitacyjnie
-związane obiekty. Dla każdego zidentyfikowanego obiektu można
-określić relację pomiędzy jego energią kinetyczną i energią potencjalną
-w układzie związanym ze środkiem masy obiektu. Uznajemy, że obiekt jest
-grawitacyjnie związany, gdy energia kinetyczna jest mniejsza od głębokości
+\par Histogram masy nie daje informacji o kształcie i charakterystycznych
+rozmiarach obiektów w~których znajduje się większość masy pyłu, ani nie pozwala
+stwierdzić czy pył jest grawitacyjnie związany. W~celu rozszerzenia
+przeprowadzonej analizy zebrany materiał poddano procedurze identyfikacji
+topologicznie powiązanych ze sobą komórek obliczeniowych, które zawierają porcje
+pyłu o~gęstości w~przedziale $10^{-10}\div10^{-8}\g\cm^{-3}$. W~tym celu
+wykorzystano pakiet do analizy i~wizualizacji danych~\yt{}~\footnote{Szczegółowe
+informacje na temat \emph{clump-finder'a} można znaleźć w~rozdziale 7.7
+w~pracy~\cite{yt}. Autor niniejszej rozprawy doktorskiej rozszerzył pakiet
+\yt{} o możliwość czytania plików wynikowych z~kodu PIERNIK, a także
+zaimplementował wsparcie dla współrzędnych cylindrycznych.}.  Uzyskanie
+informacji o strukturze rozkładu gęstości pyłu jest pierwszym krokiem w celu
+ustalenia, czy powstające zagęszczenia są w~stanie utworzyć grawitacyjnie
+związane obiekty. Dla każdego zidentyfikowanego obiektu można określić relację
+pomiędzy jego energią kinetyczną i energią potencjalną w układzie związanym ze
+środkiem masy obiektu. Uznajemy, że obiekt jest grawitacyjnie związany, gdy
+energia kinetyczna w układzie środka masy obiektu jest mniejsza od głębokości
 lokalnej studni potencjału:
 %
 \begin{equation}
@@ -574,10 +574,15 @@ lokalnej studni potencjału:
    < \sum\limits_{i=1}^N m_i\tilde{\Phi}_i \equiv E_{\textrm{pot}},
 \end{equation}
 %
-gdzie $N$ to liczba komórek obliczeniowych wypełnionych przez pył tworzący
-obiekt, $m_i$, $\tilde{\mathbf{v}}$, $\Phi_i$ to odpowiednio masa pyłu, prędkość
-w~układzie środka masy obiektu, potencjał w centrum wybranej komórki. Potencjał
-samograwitacyjny został uzyskany bezpośrednio z~PIERNIKa jako rozwiązanie
+gdzie:
+\begin{equation}
+   \tilde{\mathbf{v}}_i = \mathbf{v}_i - \frac{\sum m_i \mathbf{v}_i}{\sum m_i}
+   \label{eq:velcom}
+\end{equation}
+to prędkość w~układzie środka masy obiektu, zaś $N$ to liczba komórek
+obliczeniowych wypełnionych przez pył tworzący obiekt, $m_i$, $v_i$, $\Phi_i$ to
+odpowiednio masa pyłu, prędkość pyłu oraz potencjał w centrum wybranej komórki. Potencjał
+samograwitacyjny został obliczony w trakcie symulacji jako rozwiązanie
 równania Poissona~\mref{eq:poisson} dla sumarycznej gęstości obu składników
 płynowych (gazu i pyłu).  Lokalne zagłębienia potencjału grawitacyjnego w
 otoczeniu badanych obiektów pyłowych można obliczyć, poprzez odjęcie potencjału
@@ -589,29 +594,62 @@ promienia $R$:
    \left<\Phi_i\right>_{z\varphi}(R).
 \end{equation}
 %
-
-Energii obliczona  w układzie środka masy jest
-miarą energii kinetyczną ruchów własnych pyłu w układzie środka masy.
-w~celu uwzględnienia wpływu rotacji.  Jest to niezbędne, ponieważ siła
-odśrodkowa przeciwdziała kontrakcji obłoku na skutek samograwitacji. Aby uniknąć
-przeszacowania ilości materii, która zostaje związana grawitacyjnie dodatkowo
-wzięto pod uwagę możliwy wpływ turbulencji zachodzącej w skalach przestrzennych
-poniżej zdolności rozdzielczej siatki obliczeniowej. Do opisu podskalowej
-turbulencji użyto klasycznej parametryzacji współczynnikiem
-$\alpha$~\cite{SS73}. Ostateczna postać energii kinetycznej obiektu jest
-wyrażona poprzez:
-
+Energia $E_{\textrm{kin}}$ obliczona z uwzględnieniem wzoru~\mref{eq:velcom}
+jest miarą energii kinetyczną ruchów własnych pyłu w układzie środka masy, które
+przeciwdziałają kontrakcji obłoku na skutek samograwitacji.  Oprócz energii
+makroskopowej ruchów własnych, w realnym dysku mamy do czynienia energią
+kinetyczną pochodzącą od ruchów turbulentnych.  Jeżeli przyjąć, że kinematyczny
+wpółczynnik lepkości w dysku można z jednej strony wyrazić jako~(rozdział
+8.3~\cite{C98}):
 %
-Oprócz energii makroskopowej ruchow wlasnych, w realnym trubulentnym dysku mamy
-do czynienia
+\begin{equation}
+   \nu = l_{\textrm{T}} v_{\textrm{T}},
+   \label{eq:nu1}
+\end{equation}
+%
+gdzie $l_{\textrm{T}}, v_{\textrm{T}}$ to charakterystyczna wielkość i prędkość
+wiru turbulencji. Z drugiej strony używając uśrednionego opisu
+$\alpha$-turbulencji~\cite{SS73}:
+%
+\begin{equation}
+   \nu = \alpha c_s H.
+   \label{eq:nu2}
+\end{equation}
+%
+Łącząc równania~\mref{eq:nu1} oraz~\mref{eq:nu2} można wyrazić charakterystyczną
+prędkość wiru turbulencji poprzez:
+%
+\begin{equation}
+   v_{\textrm{T}} = \alpha c_s \frac{H}{l_{\textrm{T}}}.
+   \label{eq:velt}
+\end{equation}
+%
+Biorąc pod uwagę fakt, iż rozkład widmowy energii kinetycznej turbulencji
+zgodnie z prawem Kołmogorowa jest funkcją wykładniczą:
+\begin{equation}
+   E(k) \propto k^{-5/3},
+\end{equation}
+to większość energii kinetycznej ruchów turbulentnych jest zgromadzona w wirach
+o największych dostępnych rozmiarach. Zakładając, że w dysku protoplanetarnym
+rozmiar wiru nie może przekraczać grubości dysku $(H / l_{\textrm{T}} = 1)$ to
+korzystając z równania~\mref{eq:velt} można wprowadzić górne ograniczenie na
+energię kinetyczną wynikająca z ruchów turbulentnych w postaci:
+\begin{equation}
+   \hat{E}_{\textrm{kin}} = \sum\limits_{i=1}^N \frac{m_i \left(\alpha
+   c_s\right)^2}{2}.
+   \label{eq:ekinturb}
+\end{equation}
+%
+Ostateczna postać energii kinetycznej obiektu jest wyrażona poprzez:
 %
 \begin{equation}
    \label{eq:ekin}
-   \tilde{\mathbf{v}}_i = \mathbf{v}_i - \frac{\sum m_i \mathbf{v}_i}{\sum m_i}
-   + \alpha c_s^2,
+   \tilde{E}_{\textrm{kin}} = \
+   \sum\limits_{i=1}^N \frac{m_i\tilde{\mathbf{v}}_i^2}{2}
+   + \sum\limits_{i=1}^N \frac{m_i \left(\alpha c_s\right)^2}{2}.
 \end{equation}
 %
-gdzie wartość $\alpha$ ustalono na $0.01 \div 0.1$. Zastosowanie
+Zastosowanie energii kinetycznej określonej równaniem~\mref{eq:ekin} w
 kryterium~\mref{eq:bcrit} dla każdego zidentyfikowanego obiektu, pozwoliło na
 określenie jaka część masy została skupiona w grawitacyjnie związanych
 obiektach. Zależność ilości masy pyłu związanego grawitacyjnie w funkcji czasu
@@ -692,26 +730,28 @@ planetezymali przedstawionej w pracy~\cite{MFFK98}.}
 przedstawione na rysunku~\ref{fig:massfun} pozwala oszacować funkcję masy
 samograwitacyjnie związanych obiektów, która może być interpretowana jako
 początkowa funkcja masy dla przyszłych planetezymali formujących się w toku
-dalszej ewolucji układu. Na przedziale $[40, 300]\Mceres$ przebieg funkcji masy
+dalszej ewolucji układu. W przedziale $[40, 200]\Mceres$ przebieg funkcji masy
 obiektów związanych grawitacyjnie można przybliżyć funkcją potęgową o wykładniku
 $-5/4$. Obiekty o masach mniejszych niż $40\Mceres$ są reprezentowane w
 symulacji przez co najwyżej kilkadziesiąt komórek obliczeniowych, co przekłada
 się na ich liniowy rozmiar rzędu kilku komórek. Tak niewielka ilość komórek
 obliczeniowych wprowadza znaczną niepewność w dokładności obliczenia
 siły wynikającej z samograwitacji w danym obiekcie. Należy zatem przyjąć, iż
-liczba obiektów w tym przedziale masy i rozmiarów liniowych jest mocno
-niedoszacowana. Z kolei dla przedziału mas większych niż $300\Mceres$, mamy
+liczba obiektów w tym przedziale masy i rozmiarów liniowych jest 
+niedoszacowana. Z kolei dla przedziału mas większych niż $200\Mceres$, mamy
 do czynienia z pojedynczymi obiektami, przez co próbka jest statystycznie
 niereprezentatywna.
 %
 \begin{figure}[ht]
    \centering
    \includegraphics[width=0.95\linewidth]{figures/fig_mass_size}
-   \caption{Lewy panel przedstawia zależność pomiędzy maksymalnym rozmiarem
-      całkowitym obiektu związanego grawitacyjnie, a masą obiektu. Prawy panel
+   \caption{Górny rząd przedstawia zależność pomiędzy maksymalnym rozmiarem
+      całkowitym obiektu związanego grawitacyjnie, a odpowiednio masą obiektu na
+      lewym panelu i jego gęstością średnią na prawy panel. Dolny rząd
       przedstawia zależność pomiędzy maksymalnym rozmiarem obiektu związanego
-      grawitacyjnie w przekroju \emph{x-z}, a jego średnią gęstością.  Oba
-      wykresy zostały wykonane dla czasu $T=300$~lat. }
+   grawitacyjnie w przekroju \emph{x-z}, a odpowiednio jego masą na lewym panelu
+oraz średnią gęstością na prawym panelu. Oba  wykresy zostały wykonane dla czasu
+$T=300$~lat. }
    \label{fig:mass_size}
 \end{figure}
 %
@@ -734,7 +774,8 @@ ograniczony na skutek skończonej rozdzielczości siatki obliczeniowej. Dla
 przypomnienia, najkrótszy wymiar komórki obliczeniowej (kierunki $x$ oraz $z$) w
 symulacji BD3dS wynosi $\sim 3\cdot10^{10}\cm$. Związane obiekty są średnio
 dziesięciokrotnie dłuższe w kierunku azymutalnym. Może mieć to związek z niższą
-rodzielczością siatki obliczeniowej w kierunku $\varphi$.  Średnia gęstość
+rodzielczością siatki obliczeniowej w kierunku $\varphi$ ($\sim 3\cdot10^{10}
+\div 10^{11}\cm$). Średnia gęstość
 obiektów związanych grawitacyjnie zawiera się w przedziale od $10^{-9}$ do
 $10^{-8}\g/\cm^{3}$.
 \par W niniejszym rozdziale przedstawiono wyniki trójwymiarowych symulacji
@@ -747,38 +788,4 @@ pyłu uformowałaby zwarte ciało. Szczegółowa dyskusja wyników takich jak fu
 masy otrzymanych związanych samograwitacyjnie obiektów w kontekście ich dalszej
 ewolucji zostanie przedstawiona w następnym rozdziale.
 %
-%\begin{itemize}
-%   \item Potrzebna jest szczegołowa dyskusja histogramu na rys. 4.3.5
-%      \note[KK]{usunięty na rzecz rys.~\ref{fig:masshist}, szczegółowa dyskusja
-%      w tekście}
-%   \item ile powstało obiektów? \note[KK]{Rysunek~\ref{fig:bmasstime} i
-%      dyskusja w tekście}
-%   \item jaki jest zakres mas i ewentualnie funkcja masy?
-%      \note[KK]{Rysunek~\ref{fig:massfun} i dyskusja w tekście}
-%   \item jaka jest całkowita masa skupiona w obiektach związanych grawitacyjnie?
-%      \note[KK]{Rysunek~\ref{fig:bmasstime} i dyskusja w tekście}
-%   \item jakie jest tempo wyłapywania masy pyłu przez obiekty związane?
-%      \note[KK]{Nie bardzo jest jak to określić}
-%   \item jaki jest rozkład masy obiektów związanych w funkcji $R$? \note[KK]{z
-%      tego rezygnujemy, bo nic ciekawego nie widać}
-%   \item jak te wyniki mają się do Układu Słonecznego? \note[KK]{będzie w
-%      rozdziale 5}
-%\end{itemize}
-%
-%\begin{figure}
-%   \centering
-%   \includegraphics[width=0.49\linewidth]{figures/masshist.png}
-%   \includegraphics[width=0.49\linewidth]{figures/energie.png}
-%   \caption{(Lewy panel) Histogram przedstawiający rozkład masy w~topologicznie powiązanych
-%   obiektach istniejących w~domenie obliczeniowej dla symulacji BD3dS dla czasu
-%   $T=250\yr$. Kolorem niebieskim zaznaczono clumpy związane grawitacyjnie, zaś
-%   kolorem czerwonym wszystkie obiekty.
-%   (Prawy panel) Przekrój azymutalny przez domenę obliczeniową dla $R=3.84\AU$
-%   i~$z=0.01\AU$ dla czasu $T=250\yr$ pokazujący energię potencjalną (zgodnie z
-%   definicją w~równaniu~\mref{eq:bcrit}) oraz sumę energii potencjalnej i~energii
-%   kinetycznej dla danego clumpu.}
-%   \label{fig:masshist_fail}
-%\end{figure}
-%
-%   
 % vim: tw=80 ts=3: 
