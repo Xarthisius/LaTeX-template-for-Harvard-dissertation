@@ -8,14 +8,14 @@ Przedmiotem rozważań zaprezentowanych w niniejszej pracy jest niestabilność
 strumieniowa wynikająca z oddziaływania pyłu i gazu w dysku protoplanetarnym z
 udziałem i bez udziału samograwitacji. Przedstawione w poprzednim rozdziale
 wyniki opierają się na serii symulacji numerycznych fragmentu dysku
-protoplanetarnego w dwu i trzech wymiarach oraz liniowej analize stabilności
+protoplanetarnego w dwu i trzech wymiarach oraz liniowej analizy stabilności
 wykonanej dla przypadku dwuwymiarowego.
 %
 %Przy czym
 %zaniedbano pionową składową grawitacji od masy punktowej umieszczonej w centrum
 %układu współrzędnych.
 %
-W eksperymentach numerycznycg przeprowadzonych dla ziaren pyłu o rozmiarach od
+W eksperymentach numerycznych przeprowadzonych dla ziaren pyłu o rozmiarach od
 10 do 50$\cm$ zaobserwowano gwałtowny wzrost zaburzeń w gęstości i prędkości
 pyłu o charakterystycznych długościach fali zgodnych z przewidywaniami lokalnej,
 liniowej analizy stabilności takiego układu. Wcześniejsze symulacje numeryczne
@@ -32,6 +32,15 @@ strumieniowej. Istotnym rozszerzeniem wcześniejszych modeli fizycznych było
 użycie właściwego prawa tarcia aerodynamicznego~\mref{eq:tauf}
 zamiast przybliżonego rachunku opartego na stałym, bezwymiarowym czasie
 zatrzymania. 
+%
+Przedstawiony model globalnego dysku jest rozwinięciem dotychczas
+publikowanych modeli lokalnych. Należy jednakże podkreślić, że model zaprezentowany 
+w niniejszej pracy opiera się na uproszczających założeń do których należy
+zaliczyć brak stratyfikacji, pominięcie pola magnetycznego skutkujące
+brakiem niestabilności magnetorotacyjnej, uwzględnienie jednej tylko frakcji
+aglomeratów pyłowych o wybranym rozmiarze oraz przeszacowanie początkowej masy
+pyłu.
+%
 Do jego największych wad można zaliczyć brak stratyfikacji oraz nieuwzględnienie
 wpływu globalnej turbulencji wywołanej niestabilnością
 magneto-rotacyjną~\cite{DKJ14}. 
@@ -42,7 +51,7 @@ zbieżnościowych dla różnych parametrów fizycznych dysku protoplanetarnego c
 pozwoliło na określenie minimalnej liczby komórek obliczeniowych $(n\approx32)$
 dla kodu \textsc{PIERNIK}, umożliwiającej na dokładne odwzorowanie liniowej fazy
 wzrostu.  Otrzymane, we wszystkich przeprowadzonych eksperymentach numerycznych,
-liczby falowe najszybciej rosnących modów niestabilności, a także ich pozycja na
+liczby falowe najszybciej rosnących modów niestabilności, a także ich położenia na
 mapie stabilności ($s(k_x, k_z)$), są zgodne z przewidywaniami liniowej analizy
 niestabilności strumieniowej i potwierdzają właściwy wybór użytych metod
 numerycznych. Kolejnym krokiem było wykonanie symulacji trójwymiarowych bez
@@ -56,22 +65,22 @@ samograwitacji. Należy podkreślić, że pomimo założenia dużo większej ni�
 kanoniczna wartości stosunku gęstości gazu do gęstości pyłu, symulowany dysk
 jest początkowo stabilny zgodnie z kryterium Toomre'a~\mref{eq:toomre}.
 Parametr $Q$ jest stały dla całej domeny obliczeniowej i wynosi około $40$
-(rów.~\ref{eq:Qemp}). Wzbudzenie się niestabilności strumieniowej prowadzi do
+(rów.~\ref{eq:Qemp}). Wzbudzenie niestabilności strumieniowej prowadzi do
 uformowania lokalnych zagęszczeń pyłu, których gęstość jest nawet stukrotnie
 większa niż gęstość początkowa pyłu. Ilość zgromadzonej lokalnie masy pyłu
 przekracza granicę stabilności grawitacyjnej i w rezultacie w układzie formuje
-się znaczna liczby związanych grawitacyjnie obiektów, które należy interpretować
-jako zalążki planetezymali. Pomimo tego, że zgromadzona w tych obiektach materia
-pyłowa reprezentuje $50\cm$ ziarna pyłu, to ich całkowita masa jest
-wystarczająca aby po ,,sprasowaniu'' na skutek grawitacji utworzyć ciała o
+się znaczna liczba związanych grawitacyjnie obiektów, które należy interpretować
+jako zalążki planetezymali. Zgromadzona w tych obiektach materia
+pyłowa reprezentuje $50\cm$ ziarna pyłu, a ich całkowita masa jest
+wystarczająca aby po ,,sprasowaniu'' na skutek grawitacji powstały zwarte ciała o
 rozmiarach rzędu setek kilometrów. Dzięki temu połączone działanie
-niestabilności strumieniowej i niestabilności grawitacyjnej jest w stanie obejść
-\emph{metrowej bariery wzrostu} o którym była mowa w
+niestabilności strumieniowej i niestabilności grawitacyjnej skutkuje pokonaniem
+\emph{metrowej bariery wzrostu} aglomeratów pyłowych o którym była mowa w
 rozdziale~\ref{sec:paradigm}.
 %
-\par Wyciągając wnioski odnośnie skuteczności opisywanego modelu w przełamaniu
-\emph{metrowej bariery wzrostu} należy pamiętać o pewnych uproszczeniach i
-przyjętych założeniach. Głównym niedostatkiem modelu jest przeszacowany
+\par 
+Oceniając przydatność przedstawionego modelu należy pamiętać zastosowanych
+przybliżeniach. Głównym niedostatkiem modelu jest przeszacowany
 początkowy stosunek gęstości pyłu do gęstości gazu. Dla przypomnienia jest on
 ponad stukrotnie wyższy niż wartość kanoniczna~\cite{FS03}. Jak pokazują
 przedstawione w rozdziale~\ref{sec:sim_2d} wyniki symulacji dwuwymiarowych,
@@ -83,8 +92,8 @@ obliczeniowej wynosi około $35\Mearth$ i co do rzędu wielkości odpowiada masi
 skalistych planet i jąder planet gazowych Układu Słonecznego. Biorąc pod uwagę,
 że użyty w symulacjach radialny profil gęstości MMSN jest tylko \emph{dolnym
 ograniczeniem} rzeczywistego rozkładu gęstości materii w dysku protoplanetarnym,
-to przedstawiony w niniejszej pracy model ciągle pozostaje w dużej zgodności z
-przewidywaniami odnośnie Układu Słonecznego~\cite{D07}.
+to przedstawiony w niniejszej pracy model ciągle pozostaje
+zgodny z antycypowanymi warunkami początkowymi dla Układu Słonecznego~\cite{D07}.
 \par Teoria ,,akrecji na jądra'' silnie zależy od procesu odpowiedzialnego za
 formowanie się planetezymali~\cite{HBP13}. Początkowa funkcja masy planetezymali
 nie jest dobrze określona. Przyjmuje się, że ma postać funkcji potęgowej, bądź
@@ -99,56 +108,63 @@ obiektów pyłowych jest dany funkcją:
 \end{equation}
 %
 w rozdziale~\ref{sec:sim_3d} dopasowano do otrzymanego rozkładu masy funkcję o
-wykładniku $a = 1.25\pm0.12$. Wykładnik ten mieści się w przewidywaniach innych
+wykładniku $a = 1.25\pm0.12$. Wykładnik ten mieści się w zakresie przewidywanym
+przez innych
 autorów~\cite{R03}, którzy szacują jego wartość między $1$ a $3$. Ponadto prawy
 skraj funkcji masy (Rysunek~\ref{fig:massfun} można opisać funkcją o wykładniku
-$a$ w przedziale $2 < a < 3$ który otrzymywany jest w N-ciałowych symulacjach
+$a$ w przedziale $2 < a < 3$ który jest zbieżny z wynikami symulacji N-ciałowych
 formowania się planet~\cite{MFFK98}.  Należy jednak zauważyć, iż przedstawiona
 na rysunku~\ref{fig:massfun} funkcja masy utworzonych w symulacji grawitacyjnie
-związanych obiektów jest obarczona sporymi błędami. W szczególności lewy skraj
-jest ograniczony poprzez skończoną rozdzielczość siatki obliczeniowej:
-typowe rozmiary obiektów związanych grawitacyjnie wynoszą od kilkudziesięciu do
-kilkuset komórek, co przekłada się na rozmiar liniowy rzędu kilku komórek
-obliczeniowych. Jest to wielkość wysoce niewystarczająca do poprawnego
-odwzorowania niestabilności grawitacyjnej w takim obiekcie.
-Prawy skraj natomiast, zawiera mało reprezentatywną statystycznie liczbę obiektów.
+związanych obiektów może być obarczona sporymi błędami systematycznymi.
+W szczególności lewy skraj jest ograniczony poprzez skończoną rozdzielczość
+siatki obliczeniowej: typowe rozmiary obiektów związanych grawitacyjnie wynoszą
+od kilkudziesięciu do kilkuset komórek, co przekłada się na rozmiar liniowy
+obiektów związanych grawitacyjnie rzędu kilku komórek obliczeniowych. Jest to
+wielkość wysoce niewystarczająca do poprawnego odwzorowania niestabilności
+grawitacyjnej w takim obiekcie.  Prawy skraj natomiast, zawiera mało
+reprezentatywną statystycznie liczbę obiektów.
 %
 \par Typowe rozmiary otrzymanych w symulacji BD3dS grawitacyjnie związanych
 zagęszczeń mieszczą się w przedziale $10^{11} \div 10^{12}\cm$ i są one spójne z
-charakterystykami obiektów, które są mogą tworzyć zwarte planetezymale w toku
+charakterystykami obiektów, które mogą tworzyć zwarte planetezymale w toku
 dalszej ewolucji~\cite{HS08}. Średnie końcowe gęstości pyłu nie są niestety
 miarodajne ze względu na przewidywany wpływ skończonej rozdzielczości siatki
-obliczeniowej. Należy jednak mieć na uwadze, że dodatkową niepewności odnośnie
+obliczeniowej. Należy jednak mieć na uwadze, że dodatkową niepewności dotycząca
 liczby powstających obiektów wprowadza podskalowa turbulencja sparametryzowana
 współczynnikiem $\alpha$ występującym w kryterium związania
-grawitacyjnego\mref{eq:ekin}. Jak pokazano w rozdziale~\ref{sec:sim_3d} dla
-$\alpha = 0.1$ masa pyłu zgromadzona w związanych grawitacyjnie obiektach
-stanowi tylko $5\%$ całej masy pyłu obecnej w dysku.  Jednakże oczekiwane
-wartości $\alpha$ w dyskach protoplanetarnych oscylują wokół wartości
-$0.01$~\cite{FD11}, dla których efektywnie związana w obiektach masa stanowi
-ponad $15\%$ całkowitej masy pyłu w dysku. Dalszym krokiem pozwalającym na
-rozwinięcie przedstawionego w niniejszej pracy modelu dysku protoplanetarnego
-powinno być uwzględnienie rzeczywistego źródła turbulencji w dysku, np. poprzez
-rozszerzenie modelu o wpływ pola magnetycznego i odtworzenie niestabilności
-magnetorotacyjnej. Niezbędne jest także zwiększenie rozdzielczości siatki
+grawitacyjnego\mref{eq:ekin}.
+%Jak pokazano w rozdziale~\ref{sec:sim_3d} dla
+%$\alpha = 0.1$ masa pyłu zgromadzona w związanych grawitacyjnie obiektach
+%stanowi tylko $5\%$ całej masy pyłu obecnej w dysku.  Jednakże oczekiwane
+%wartości $\alpha$ w dyskach protoplanetarnych oscylują wokół wartości
+%$0.01$~\cite{FD11}, dla których efektywnie związana w obiektach masa stanowi
+%ponad $15\%$ całkowitej masy pyłu w dysku.
+W rozdziale~\ref{sec:sim_3d} oszacowano, że wybór parametru $\alpha$ w
+niewielkim stopniu zmienia kryterium grawitacyjnego związania obiektów pyłowych.
+Dalszym krokiem pozwalającym na rozwinięcie przedstawionego w niniejszej pracy
+modelu dysku protoplanetarnego powinno być uwzględnienie rzeczywistego źródła
+turbulencji w dysku, np. poprzez rozszerzenie modelu o wpływ pola magnetycznego
+i uwzględnienie skutków niestabilności magnetorotacyjnej. Podobnie wprowadzenie
+stratyfikacji w dysku pozwoliłoby na uwzględnienie wpływu niestabilności
+Kelvina-Helmholtza.  Niezbędne jest także zwiększenie rozdzielczości siatki
 obliczeniowej w obszarach, które podlegają niestabilności grawitacyjnej. Byłoby
 to możliwe dzięki zastosowaniu zaimplementowanego niedawno w kodzie
 \textsc{PIERNIK} mechanizmu \emph{adaptywnej siatki obliczeniowej}\footnote{ang.
 \emph{Adaptive Mesh Refinement}}. Pozwoliłoby to dokładniej śledzić proces
 kolapsu grawitacyjnego i zdecydowanie poprawić zakres ważności uzyskiwanej
-początkowej funkcji masy obiektów grawitacyjnie związanych.  Pomimo, że dzięki
-zastosowaniu AMR można efektywnie zwiększyć rozdzielczość liniową siatki
-obliczeniowej o parę rzędów wielkości, to śledzenie w dysku rozciągającym się na
-wiele jednostek astronomicznych obiektów których rozmiary nie przekraczają setek
-kilometrów, nadal nastręcza spore trudności.  Naturalnym krokiem w takiej
-sytuacji jest rozszerzenie algorytmu numerycznego o tzw. \emph{,,sink
-particles''}. Sink particles są punktami materialnymi które oddziałują z
-otaczającym je płynem tylko poprzez siły grawitacji i pochłaniają płyn
-znajdujący się wewnątrz zadanego promienia akrecji zwiększając swoją
+początkowej funkcji masy obiektów grawitacyjnie związanych.  Mimo tego, że
+zastosowanie techniki siatek adaptywnych może efektywnie zwiększyć rozdzielczość
+liniową siatki obliczeniowej o parę rzędów wielkości, to śledzenie w dysku
+rozciągającym się na wiele jednostek astronomicznych obiektów których rozmiary
+nie przekraczają setek kilometrów, nadal nastręcza spore trudności.  Naturalnym
+krokiem w takiej sytuacji jest rozszerzenie algorytmu numerycznego o tzw.
+\emph{,,sink particles''}. Sink particles są punktami materialnymi które
+oddziałują z otaczającym je płynem tylko poprzez siły grawitacji i pochłaniają
+płyn znajdujący się wewnątrz zadanego promienia akrecji zwiększając swoją
 masę~\cite{FBCK10}. Wprowadzenie sink particles do przedstawionych w niniejszej
 pracy symulacji pozwoliłoby m.in. na określenie tempa akrecji masy na związane
-grawitacyjnie obiekty, co przy użytych obecnie metodach numerycznych nie było
-możliwe.  Niezmiernie ważne jest również wydłużenie czasu trwania symulacji tak,
+grawitacyjnie obiekty, co przy użytych dotychczas metodach numerycznych nie było
+możliwe. Niezmiernie ważne jest również wydłużenie czasu trwania symulacji tak,
 aby możliwe było uwzględnienie efektów migracji formujących się, grawitacyjnie
 związanych obiektów~\cite{ML14}.
 
