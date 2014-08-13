@@ -351,7 +351,7 @@ gęstości oscylują na podobnym poziomie jak w symulacjach dwuwymiarowych.
 %niestabilności grawitacyjnej są w niewielkim stopniu zależne od rozdzielczości
 %siatki. 
 %
-W~niniejszym rozdziale przedstawione zostały 3 symulacje pełnego,
+\par W~niniejszym rozdziale przedstawione zostały 3 symulacje pełnego,
 trójwymiarowego modelu dysku: BB3d, BD3d, BD3dS (tabela~\ref{tab2}).  Symulacja
 BB3d została przeprowadzana jako trójwymiarowy analog wcześniej opisywanych
 symulacji dwuwymiarowych serii BB. W symulacji BD3d i BD3dS koncentracja pyłu
@@ -364,8 +364,9 @@ zagęszczeniach pyłu. Przeprowadzenie symulacji z niższą gęstością pyłu
 wymagałoby znacznie dłuższego czasu obliczeń i większej rozdzielczości siatki
 obliczeniowej. Pomimo takiego doboru początkowego stosunku gęstości pyłu do
 gęstości gazu, sumaryczna masa pyłu jest ciągle co do rzędu wielkości zgodna z
-modelami początkowego rozkładu materii w Układzie Słonecznym~\cite{D07}. Należy
-pamiętać iż modele te stanowią tylko \emph{dolne} ograniczenie na początkową
+modelami początkowego rozkładu materii w Układzie Słonecznym (Minimal Mass Solar
+Nebula - MMSN)~\cite{D07}. Należy
+pamiętać iż modele MMSN stanowią tylko \emph{dolne} ograniczenie na początkową
 masę dysku protoplanetarnego.
 
 \begin{table}
@@ -442,7 +443,7 @@ do półtora rzędu wielkości.
    \caption{
       Dziewięć najszybciej rosnących modów o liczbach falowych (kx; kz)
       wyodrębnionych z symulacji o tych samych fizycznych warunkach
-      początkowych, różniących się uwzględnieniem bądź nieuwzględnieniem
+      początkowych, różniących się udziałem bądź pominięciem
       samograwitacji (BD3d, BD3dS).  Kontury wyznaczają tempo wzrostu
       $\log_{10}(s_0(k_x, k_z))$ wynikające z~rozwiązania równania~
       \mref{eq:disprel} dla średniego stanu wybranych łatek w~momencie
@@ -454,7 +455,7 @@ Obraz niestabilności strumieniowej diametralnie się zmienia po
 uwzględnieniu samograwitacji pyłu. Początkowo ewolucja przebiega wzdłuż tego
 samego scenariusza, dominujące mody niestabilności strumieniowej formują
 charakterystyczny wzór--kratkę (Rysunek~\ref{fig:slicesg}). Tempo tworzenia się
-zagęszczeń w~tej fazie $(50 - 100\yr)$ jest takie samo jak w~przypadku bez
+zagęszczeń w~tej fazie $(50 - 100\yr)$ jest takie samo jak w~przypadku braku
 samograwitacji~(Rysunek~\ref{fig:modes3d}). Ponadto dominujące mody lokują się
 na mapie stabilności w~obszarze o największym tempie wzrostu wynikających z
 liniowej analizy (Rysunek~\ref{fig:map3d}).
@@ -486,11 +487,11 @@ liniowej analizy (Rysunek~\ref{fig:map3d}).
    \label{fig:slicesg}
 \end{figure}
 %
-Pierwsza zauważalną różnicą jest przekroczenie przez pył gęstości na której
+\par Pierwsza zauważalną różnicą jest przekroczenie przez pył gęstości na której
 wcześniej niestabilność strumieniowa się wysycała (por. środkowy panel na
-Rysunku~\ref{fig:hists}). Jest to prostą konsekwencją faktu, że każde formujące
-się zagęszczenie jest dodatkowo ściskane działającą do wewnątrz siłą
-samograwitacyjną. Po $150$~latach gęstość pyłu staje się widocznie bardziej
+Rysunku~\ref{fig:hists}). Jest to konsekwencją dodatkowej kompresji wynikającej
+z udziału samograwitacji.
+Po $150$~latach gęstość pyłu staje się widocznie bardziej
 zależna od współrzędnej azymutalnej w porównaniu z modelem bez samograwitacji.
 Zagęszczenia pyłu na skutek wzajemnego oddziaływania grawitacyjnego (jak
 i~własnego ciężaru) zaczynają się deformować coraz silniej zmieniając swoją
@@ -526,7 +527,8 @@ $10^{-11} \div 5\cdot10^{-10}\g\cm^{-3}$ (lewy panel na
 rysunku~\ref{fig:hists1d}). W~połączeniu z obrazem wyłaniającym się z~wizualnej
 analizy wzbudzonych zagęszczeń pyłowych, sugeruje to krótki czas życia
 zagęszczeń i nieustający przepływ masy pomiędzy obszarami o niskiej i~wysokiej
-gęstości. Natomiast w~końcowych stadiach symulacji BD3dS rozkład masy jest zgoła
+gęstości. 
+\par W~końcowych stadiach symulacji BD3dS rozkład masy jest zgoła
 inny. Po osiągnięciu wartości gęstości na poziomie $\sim10^{-9}\g\cm^{-3}$ masa
 zaczyna przemieszczać się na histogramie w kierunku rosnących gęstości, tworząc
 potęgowy rozkład masy pyłu w funkcji gęstości pyłu (prawy panel na
@@ -596,20 +598,22 @@ promienia $R$:
 %
 Energia $E_{\textrm{kin}}$ obliczona z uwzględnieniem wzoru~\mref{eq:velcom}
 jest miarą energii kinetyczną ruchów własnych pyłu w układzie środka masy, które
-przeciwdziałają kontrakcji obłoku na skutek samograwitacji.  Oprócz energii
+przeciwdziałają kontrakcji obłoku na skutek samograwitacji.  
+\par Oprócz energii
 makroskopowej ruchów własnych, w realnym dysku mamy do czynienia energią
 kinetyczną pochodzącą od ruchów turbulentnych.  Jeżeli przyjąć, że kinematyczny
 współczynnik lepkości w dysku można z jednej strony wyrazić jako~(rozdział
 8.3~\cite{C98}):
 %
 \begin{equation}
-   \nu = l_{\textrm{T}} v_{\textrm{T}},
+   \nu = l_{\textrm{T}} \textrm{v}_{\textrm{T}},
    \label{eq:nu1}
 \end{equation}
 %
-gdzie $l_{\textrm{T}}, v_{\textrm{T}}$ to charakterystyczna wielkość i prędkość
-wiru turbulencji. Z drugiej strony używając uśrednionego opisu
-$\alpha$-turbulencji~\cite{SS73}:
+gdzie $l_{\textrm{T}}, \textrm{v}_{\textrm{T}}$ to charakterystyczna wielkość i prędkość
+wiru turbulencji. Z drugiej strony 
+związek pomiędzy kinematyczną lepkością turbulentną $\nu$ i parametrem lepkości
+$\alpha$ Shakury i Sunyaeva~\cite{SS73} jest postaci:
 %
 \begin{equation}
    \nu = \alpha c_s H.
@@ -620,27 +624,28 @@ $\alpha$-turbulencji~\cite{SS73}:
 prędkość wiru turbulencji poprzez:
 %
 \begin{equation}
-   v_{\textrm{T}} = \alpha c_s \frac{H}{l_{\textrm{T}}}.
+   \textrm{v}_{\textrm{T}} = \alpha c_s \frac{H}{l_{\textrm{T}}}.
    \label{eq:velt}
 \end{equation}
 %
+Dla gazu, w równaniu~\mref{eq:velt}, $c_s$ jest prędkością dźwięku gazu.
 Biorąc pod uwagę fakt, iż rozkład widmowy energii kinetycznej turbulencji
-zgodnie z prawem Kołmogorowa jest funkcją wykładniczą:
+zgodnie z prawem Kołmogorowa jest funkcją potęgową:
 \begin{equation}
    E(k) \propto k^{-5/3},
 \end{equation}
 to większość energii kinetycznej ruchów turbulentnych jest zgromadzona w wirach
-o największych dostępnych rozmiarach. Zakładając, że w dysku protoplanetarnym
-rozmiar wiru nie może przekraczać grubości dysku $(H / l_{\textrm{T}} = 1)$ to
-korzystając z równania~\mref{eq:velt} można wprowadzić górne ograniczenie na
+o największych rozmiarach. Zakładając, że w dysku protoplanetarnym
+rozmiar wiru jest porównywalna z grubością dysku $(H / l_{\textrm{T}} = 1)$ to
+równanie~\mref{eq:velt} implikuje górne ograniczenie na
 energię kinetyczną wynikająca z ruchów turbulentnych w postaci:
 \begin{equation}
    \hat{E}_{\textrm{kin}} = \sum\limits_{i=1}^N \frac{m_i \left(\alpha
-   c_s\right)^2}{2}.
+   c_s\right)^2}{2},
    \label{eq:ekinturb}
 \end{equation}
-%
-Ostateczna postać energii kinetycznej obiektu jest wyrażona poprzez:
+gdzie $m_i$ to masa pyłu w komórce obliczeniowej. Ostateczna postać energii
+kinetycznej obiektu jest wyrażona poprzez:
 %
 \begin{equation}
    \label{eq:ekin}
@@ -649,7 +654,7 @@ Ostateczna postać energii kinetycznej obiektu jest wyrażona poprzez:
    + \sum\limits_{i=1}^N \frac{m_i \left(\alpha c_s\right)^2}{2}.
 \end{equation}
 %
-Zastosowanie energii kinetycznej określonej równaniem~\mref{eq:ekin} w
+Uwzględnienie energii kinetycznej określonej równaniem~\mref{eq:ekin} w
 kryterium~\mref{eq:bcrit} dla każdego zidentyfikowanego obiektu, pozwoliło na
 określenie jaka część masy została skupiona w grawitacyjnie związanych
 obiektach. Zależność ilości masy pyłu związanego grawitacyjnie w funkcji czasu
@@ -686,8 +691,8 @@ panelu rysunku~\ref{fig:bmasstime}. W okresie $120 \div 220$~lat, dla $\alpha
 obiektów na 10 lat, aż do osiągnięcia granicznej wartości ok. $380$ obiektów dla
 $T > 240$~lat co stanowi $40\%$ z liczby wszystkich obiektów znalezionych przy
 pomocy ,,clump-findera''. Dla $\alpha = 0.1$ wzrost liczby obiektów następuje w tempie
-około 5 obiektów na 10 lat i nie można mówić o jego wysyceniu w trakcie czasu
-trwania symulacji. W tym wypadku maksymalna liczba pod koniec czasu trwania
+około 5 obiektów na 10 lat i trudno jest ocenić czy nastąpiło wysycenie
+pod koniec symulacji. W tym wypadku maksymalna liczba pod koniec czasu trwania
 symulacji wynosi około $100$, co stanowi około $10\%$ wszystkich obiektów
 znalezionych przy pomocy procedury opisanej w tym rozdziale.
 %
@@ -709,7 +714,7 @@ Rysunku~\ref{fig:masshist}. Bez względu na wartość parametru $\alpha$ ponad
 $25\%$ obiektów związanych grawitacyjnie ma masę mniejszą niż
 $20\Mceres$~\footnote{Masa Ceres wynosi około $9\cdot10^{23}\g$ co stanowi około
 $0.015\Mearth$}, przy czym najmniej masywny obiekt ma nieco ponad $2.5\Mceres$.
-Dla zakresu mas od $0$ do $40\Mceres$ liczba obiektów związanych przekracza
+W zakresie mas od $0$ do $40\Mceres$ liczba obiektów związanych przekracza
 $40\%$ liczby wszystkich obiektów. Zaledwie $50$ obiektów dla $\alpha \leq
 0.05$ oraz $20$ obiektów dla $\alpha = 0.1$ przekracza masę $200\Mceres$.
 Najmasywniejszy z nich osiąga masę $600\Mceres$.
@@ -725,6 +730,16 @@ wykładniczą o wykładniku $-8/3$ odpowiadającą funkcji początkowej funkcji 
 planetezymali przedstawionej w pracy~\cite{MFFK98}.}
    \label{fig:massfun}
 \end{figure}
+\par Uzupełniając przedstawione powyżej rozumowanie należy zauważyć, że zarówno liczba
+jak i masa obiektów związanych grawitacyjnie mogą zależeć od ogólnych założeń
+fizycznych dotyczących np. obecności lub braku pola magnetycznego, obecności
+stratyfikacji, parametrów numerycznych takich jak skończona rozdzielczość
+siatki obliczeniowej. Jednakże, niezależnie od wybory szczegółowych założeń
+modelu można stwierdzić na podstawie wyników przedstawionych eksperymentów, że
+niestabilność strumieniowa wspomagana efektami samograwitacji pyły prowadzi do
+związania części pyłu w obiektach samograwitujących. Dalsze eksperymenty
+doprowadzą z pewnością do uściślenia zaprezentowanych powyżej szacunków
+liczbowych.
 %
 \par Złożenie histogramów masy obiektów dla czasu od 250 do 300 lat
 przedstawione na rysunku~\ref{fig:massfun} pozwala oszacować funkcję masy
@@ -759,15 +774,19 @@ $T=300$~lat. }
 obiektów związanych grawitacyjnie, a także maksymalny rozmiar obiektów w
 płaszczyźnie~\emph{x-z} w funkcji masy i gęstości średnich tychże obiektów.
 Całkowity rozmiar maksymalny jest rozumiany jako:
+%
 \begin{equation}
    L = \sqrt{L_x^2 + L_\varphi^2 + L_z^2},
 \end{equation}
+%
 gdzie $L_i$ jest rzutem rozmiaru obłoku na dany kierunek wyznaczony przez osie
 główne układu współrzędnych. Natomiast maksymalny rozmiar w
 płaszczyźnie~\emph{x-z} należy rozumieć jako:
+%
 \begin{equation}
    L = \sqrt{L_x^2 + L_z^2},
 \end{equation}
+%
 Typowe rozmiary włókien w płaszczyźnie prostopadłej do kierunku azymutalnego
 wynoszą od $10^{11}$ do $10^{12}\cm$. Minimalny rozmiar obiektów jest wyraźnie
 ograniczony na skutek skończonej rozdzielczości siatki obliczeniowej. Dla
@@ -777,15 +796,17 @@ dziesięciokrotnie dłuższe w kierunku azymutalnym. Może mieć to związek z n
 rozdzielczością siatki obliczeniowej w kierunku $\varphi$ ($\sim 3\cdot10^{10}
 \div 10^{11}\cm$). Średnia gęstość
 obiektów związanych grawitacyjnie zawiera się w przedziale od $10^{-9}$ do
-$10^{-8}\g/\cm^{3}$.
+$10^{-8}\g/\cm^{3}$, jednakże jak zauważono wcześniej górna granica zakresu
+gęstości jest najprawdopodobniej obarczona błędem wynikającym z
+niewystarczającej rozdzielczości siatki obliczeniowej.
 \par W niniejszym rozdziale przedstawiono wyniki trójwymiarowych symulacji
 dwuskładnikowego (gaz i pył) dysku protoplanetarnego z uwzględnieniem
 samograwitacji. W szczególności wskazano, że taki układ dzięki połączeniu
 niestabilności strumieniowej i niestabilności grawitacyjnej może wytworzyć
 grawitacyjnie związane obiekty składające się z pyłu o masach odpowiadających
-planetezymalom o rozmiarach rzędu setek kilometrów, przy założeniu iż cała masa
-pyłu uformowałaby zwarte ciało. Szczegółowa dyskusja wyników takich jak funkcja
-masy otrzymanych związanych samograwitacyjnie obiektów w kontekście ich dalszej
-ewolucji zostanie przedstawiona w następnym rozdziale.
+planetezymalom o rozmiarach rzędu setek kilometrów, przy założeniu iż w wyniku
+dalszej ewolucji cała masa pyłu uformowałaby zwarte ciało. Szczegółowa dyskusja
+własności grawitacyjnie związanych obiektów w kontekście ich dalszej ewolucji
+zostanie przedstawiona w następnym rozdziale.
 %
 % vim: tw=80 ts=3: 
