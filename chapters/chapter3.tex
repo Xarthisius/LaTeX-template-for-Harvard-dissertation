@@ -632,13 +632,20 @@ Dla gazu, w równaniu~\mref{eq:velt}, $c_s$ jest prędkością dźwięku gazu.
 Biorąc pod uwagę fakt, iż rozkład widmowy energii kinetycznej turbulencji
 zgodnie z prawem Kołmogorowa jest funkcją potęgową:
 \begin{equation}
-   E(k) \propto k^{-5/3},
+   E(k) \propto k^{-5/3}.
+   \label{eq:ek}
 \end{equation}
-to większość energii kinetycznej ruchów turbulentnych jest zgromadzona w wirach
-o największych rozmiarach. Zakładając, że w dysku protoplanetarnym
-rozmiar wiru jest porównywalna z grubością dysku $(H / l_{\textrm{T}} = 1)$ to
-równanie~\mref{eq:velt} implikuje górne ograniczenie na
-energię kinetyczną wynikająca z ruchów turbulentnych w postaci:
+Po wycałkowaniu równania~\mref{eq:ek} po od $k_\textrm{min}$ do $k_\textrm{max}$
+otrzymujemy:
+\begin{equation}
+   E \propto \int_{k_\textrm{min}}^{k_\textrm{max}} k^{-5/3} dk = \frac{3}{2}
+   k_\textrm{min}^{-2/3} -\frac{3}{2}k_\textrm{max}^{-2/3}.
+\end{equation}
+Zatem większość energii kinetycznej ruchów turbulentnych jest zgromadzona w wirach
+o najmniejszej liczbie falowej, a zatem o największych rozmiarach. Zakładając,
+że w dysku protoplanetarnym rozmiar wiru jest porównywalna z grubością dysku $(H
+/ l_{\textrm{T}} = 1)$ to równanie~\mref{eq:velt} implikuje górne ograniczenie
+na energię kinetyczną wynikająca z ruchów turbulentnych w postaci:
 \begin{equation}
    \hat{E}_{\textrm{kin}} = \sum\limits_{i=1}^N \frac{m_i \left(\alpha
    c_s\right)^2}{2},
