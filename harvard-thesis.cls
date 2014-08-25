@@ -148,18 +148,19 @@
 	\pagenumbering{roman}
 	\setcounter{page}{3}
 	\pagestyle{fancy}
-	\lhead{Dissertation advisor: \@advisor} \rhead{\@author}
+	%\lhead{Dissertation advisor: \@advisor} \rhead{\@author}
+\lhead{}\rhead{}
 	\renewcommand{\headrulewidth}{0.0pt}
 	\begin{center}
 	\vspace*{1pt}
 	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize\\
 	\vspace*{15pt}
-	\sc Abstract \\ \rm
+	\sc Abstrakt \\ \rm
 	\end{center}
 	\doublespace %Harvard registrar requests that abstract is double spaced
 	\input{frontmatter/abstract}
 	\doublespace %Harvard registrar requests that abstract is double spaced
-	\newpage \lhead{} \rhead{}
+	\newpage %\lhead{} \rhead{}
 	\cfoot{\thepage}
 	\onehalfspacing
 }
