@@ -4,17 +4,14 @@
 
 \chapter{Liniowa analiza stabilności}
 \label{sec:lsa}
-Jednym z~celów naukowych poniższej pracy jest walidacja wyników eksperymentu
-numerycznego poprzez porównanie z~tempem wzrostu najsilniejszych modów
-otrzymanych z~liniowej analizy stabilności. W~tym rozdziale przedstawiono
-poszczególne kroki liniowej analizy stabilności dla niestabilności strumieniowej
-w oparciu o pracę~\citep{YG05}.
-
+W~tym rozdziale przedstawiono poszczególne kroki liniowej analizy stabilności
+dla niestabilności strumieniowej w oparciu o pracę~\citep{YG05}.
 Analiza stabilności opiera się na trzech elementach:
 \begin{enumerate}
    \item znalezieniu stanu równowagi dla zadanego układu równań,
-   \item zaburzeniu układu znaną funkcją o małej amplitudzie 
-   \item wyprowadzeniu modów własnych oraz ich tempa wzrostu.
+   \item zadaniu zaburzeń o małej amplitudzie,
+   \item znalezieniu modów własnych problemu liniowego, ich częstości oraz
+      liniowego tempa wzrostu. 
 \end{enumerate}
 Niestety dla układu równań hydrodynamiki dwóch sprzężonych płynów w~rozciągłym
 dysku keplerowskim nie istnieje warunek równowagowy. Spowodowane jest to
@@ -25,15 +22,15 @@ skala czasowa migracji jest rzędu setek bądź więcej lat, przy założeniu i�
 do czynienia z~aglomeratami pyłu o rozmiarach metrowych. Z~tego względu możemy
 założyć że zmiany w~profilu gęstości są procesem powolnym w~stosunku do typowego
 tempa wzrostu niestabilności strumieniowej, co zostanie wykazane w~dalszej
-części wywodu.
+części pracy.
 
 Kolejnym utrudnieniem jest radialna rozciągłość rozważanego dysku
-okołogwiazdowego, która implikuje zmienność potencjalnego stanu równowagowego
-wraz z~promieniem dysku. W~tym wypadku najogólniejszym podejściem byłaby
+okołogwiazdowego, która implikuje zależność stanu niezaburzonego od
+promienia dysku. W~tym wypadku najogólniejszym podejściem byłaby
 globalna analiza stabilności po przez rozwiązanie dwupunktowego problem
 brzegowego (np.~\cite{PHM04, KH06}), jednakże takie podejście jest dużo bardziej
 skomplikowane. Przedstawianą tu lokalną analizę należy zatem traktować jako
-pierwsze przybliżenie pełnej analizy stabilności niestabilności strumieniowej.
+pierwsze przybliżenie pełnej liniowej analizy niestabilności strumieniowej.
 Niestabilne mody uzyskane w~ramach liniowej analizy posłużą nam jako punkt
 odniesienia dla modów uzyskiwanych w~globalnym eksperymencie numerycznym.
 
@@ -177,3 +174,6 @@ Początkowe stadia ewolucji niestabilności strumieniowej są podobne dla
 wszystkich wartości parametrów $\epsilon$ i~$a$ t.j. dominują mody liniowe.
 Dokładna analiza fazy liniowej została przedstawiona w
 podrozdziale~\ref{sec:simulation_analysis}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: tw=80 ts=3: 
