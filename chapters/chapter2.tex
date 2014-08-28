@@ -5,46 +5,50 @@ strike with force.
 \end{savequote}
 
 \chapter{Eksperyment numeryczny}
-\newthought{Lorem ipsum dolor sit amet}, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci
 \section{Metodyka}
 \label{sec:metodyka}
-W~ramach poniższej pracy doktorskiej przeprowadzono szereg eksperymentów
-numerycznych przy użyciu autorskiego kodu siatkowego PIERNIK, który opiera się
-na:
-\begin{itemize}
-   \item zachowawczym schemacie numerycznym Relaxing TVD~\cite{jin-xin-95} w
-      połączeniu z~dzielonym, kierunkowym całkowaniem przestrzennym i~czasowym
-      przy użyciu algorytmu\linebreak Runge-Kutta drugiego
-      rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P},
-   \item implementacji wielopłynowości, tj. możliwości symulowania wielofazowego
-      ośrodka np. płynu neutralnego i~płynu bezciśnieniowego (pył) z
-      uwzględnieniem oddziaływań międzypłynowych~\cite{piernik1,piernik2},
-   \item solwerze multigridowym pozwalającym efektywnie rozwiązywać paraboliczne
-      i~eli\-pty\-czne równania różniczkowe, a w~szczególności równanie Poissona
-      opisujące samograwitację pyłu~\citep{HG00},
-   \item solwerze multipolowym pozwalającym na szybkie określenie warunków
-      brzegowych dla potencjału grawitacyjnego~\citep{J77}.
-   \item implementacji cylindrycznego układu współrzędnych w~postaci
-      zachowującej moment pędu~\cite{M07,SO10},
-   \item implementacji algorytmu szybkiego transportu
-      eulerowskiego~\footnote{ang. \emph{Fast Advection in Rotating Gaseous Objects --
-      FARGO}}~\citep{M00} w~ujęciu wielopłynowym.
-
-\end{itemize}
+Badania zaprezentowane w niniejszej pracy opierają się na szeregu eksperymentach
+numerycznych wykonanych z pomocą autorskiego kodu płynowego PIERNIK tworzonego
+od 2006 roku w Centrum Astronomii UMK.  Algorytmy numeryczne kodu PIERNIK
+opierają się na zachowawczym schemacie płynowym typu ,,Relaxing
+TVD''~\cite{jin-xin-95} w połączeniu z~dzielonym, kierunkowym całkowaniem
+przestrzennym i~czasowym przy użyciu algorytmu\linebreak Runge-Kutta drugiego
+rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P}. Konstrukcja kodu umożliwia
+modelowanie wieloskładnikowego ośrodka np. płynu neutralnego i~płynu
+bezciśnieniowego (pył) z uwzględnieniem oddziaływań
+międzypłynowych~\cite{piernik1,piernik2}. PIERNIK wyposażony jest w
+wielosiatkowy algorytm przeznaczony do wyznaczania przybliżonych rozwiązań
+równań różniczkowych typu parabolicznego i eliptycznego, a w szczególności
+solwer multigridowy pozwalający efektywnie rozwiązywać paraboliczne
+i~eli\-pty\-czne równania różniczkowe, w~tym równanie Poissona opisujące
+samograwitację pyłu~\citep{HG00}. Ponadto w kodzie PIERNIK zaimplementowano
+solwer multipolowy pozwalający na szybkie określenie warunków brzegowych dla
+potencjału grawitacyjnego~\citep{J77} oraz możliwość prowadzenia obliczeń na
+siatkach w cylindrycznym układzie współrzędnych przy zachowaniu moment pędu do
+poziomu numerycznej precyzji~\cite{M07,SO10}. Kod PIERNIK posiada również
+implementację algorytmu szybkiego transportu eulerowskiego~\footnote{ang.
+\emph{Fast Advection in Rotating Gaseous Objects -- FARGO}}~\citep{M00} w~ujęciu
+wielopłynowym.
+\par 
 Ponadto PIERNIK korzysta z~algorytmu typu \emph{Constraint
-Transport}~\cite{EH88} zapewniającego bez źródłowość ewolucji pola
+Transport}~\cite{EH88} zapewniającego spełnienie warunku bezźródłowości pola
 magnetycznego, a także możliwość wykonywania symulacji przy użyciu siatek
-adaptywnych~\footnote{ang.  \emph{Adaptive Mesh Refinement -- AMR}}.  
+adaptywnych~\footnote{ang.  \emph{Adaptive Mesh Refinement -- AMR}}. Kod został
+zrównoleglony przy użyciu protokołu MPI i wykazuje dobrą silną jak i bardzo
+dobrą słabą skalowalność w zakresie do $10^4$ rdzeni obliczeniowych.
 %
 \par Obliczenia opisywane w~tej pracy zostały przeprowadzone z~wykorzystaniem:
 
 \begin{itemize}
    \item infrastruktury PL-Grid, w~szczególności klastrów
-      komputerowych Galera+ (TASK), Hydra (ICM), Zeus (ACK CYFRONET), Inula
-      (PCSS) w~ramach grantu \emph{plggpiernik},
+      komputerowych Galera+ (Trójmiejska Akademicka Sieć Komputerowa), Hydra
+      (Interdyscyplinarne Centrum Modelowania Matematycznego i Komputerowego),
+      Zeus (Akademickie Centrum Komputerowe CYFRONET), Inula (Poznańskie Centrum
+      Superkomputerowo Sieciowe) w~ramach grantu \emph{plggpiernik},
+
    \item klastrów PRACE, w~szczególności klastrów komputerowych
-      Cartesius (SurfSara), Fionn (ICHEC) w~ramach grantu \emph{PIERNIK-SI} w
-      projekcie DECI-11
+      Cartesius (SurfSara), Fionn (Irish Centre for High-end Computing) w~ramach grantu \emph{PIERNIK-SI} w
+      projekcie Distributed European Computing Initiative (DECI-11).
 \end{itemize}
 Sumaryczne zużycie wyniosło kilka milionów CPUh.
 
@@ -54,11 +58,12 @@ Sumaryczne zużycie wyniosło kilka milionów CPUh.
 
 
 \subsection{Podstawowe równania}
-Globalna dynamika dysku okołogwiazdowego można opisać poprzez dwa, wzajemnie ze
-sobą oddziałujące płyny: neutralny gaz podlegający izotermicznemu równaniu
-stanu oraz pył jako bezciśnieniowy płyn. Równania hydrodynamiki przyjmują dla
-takiego modelu następującą postać:
-
+W dalszych rozważaniach założymy, że opis dynamiki gazowo-pyłowego dysku
+okołogwiazdowego może być oparty na układzie równań opisujących dwa oddziałujące
+dynamicznie płyny - gaz w przybliżeniu izotermicznym oraz  pył traktowany jako
+płyn bezciśnieniowy. Równania hydrodynamiki przyjmują dla takiego modelu
+następującą postać:
+%
 % CONSERVATIVE FORM
 \begin{align}
    \partial_t \rho_g &+ \nabla\cdot\left(\rho_g\mathbf{u}\right) = 0,\label{eq1}\\
@@ -115,12 +120,10 @@ bezpośrednio prędkości gazu i~pyłu, zaproponowanego przez~\cite{TB09}.
 %
 
 \subsection{PIERNIK}
-Do rozwiązania układu równań \mref{eq1}--\mref{eq4} zastosowano kod numeryczny
-\textbf{PIERNIK} stworzony i~rozwijany w~Centrum Astronomii UMK.  Implementuje
-on tzw. \textit{metodę relaksacji TVD}~\cite{jin-xin-95}, która zapewnia wysoką
+Do rozwiązania układu równań \mref{eq1}--\mref{eq4}, jak wspomniano wcześniej
+użyta została tzw. \textit{metoda relaksacji TVD}~\cite{jin-xin-95}, która zapewnia wysoką
 dokładność rozwiązań równań hydrodynamicznych oraz numeryczną stabilność, przy
-stosunkowo niskich nakładach mocy obliczeniowych. Poniżej przedstawiono krótki
-zarys użytej \textit{metody relaksacji TVD} na przykładzie równania
+stosunkowo niskich nakładach mocy obliczeniowych. Poniżej przedstawiono krótki \textit{metody relaksacji TVD} na przykładzie równania
 
 \begin{equation}\label{diffeuler}
    \partial_t \mathbf{u} + \partial_{x} \mathbf{F}(\mathbf{u}) = 0.
@@ -315,12 +318,12 @@ adwekcję na trzy etapy:
       \end{equation}
    \item obliczenie ,,stałej, rezydualnej'' (ang. \emph{Constant Residual})
       prędkości kątowej  dla każdego promienia, będącej odchyleniem prędkości
-      przesunięcią od wartości średniej
+      przesunięcia od wartości średniej
       \begin{equation}
          \omega_i^{\rm cr}= \bar{\omega}_i - \omega_i^{\rm sh}
       \end{equation}
    \item obliczenie właściwej prędkości ,,rezydualnej'' (ang. \emph{residual})
-      dla każdej komórkim, będacej odchyleniem lokalnej prędkości kątowej w
+      dla każdej komórki, będącej odchyleniem lokalnej prędkości kątowej w
       każdej komórce od średniej prędkości kątowej na promieniu na którym
       znajduje się dana komórka obliczeniowa 
       \begin{equation}
@@ -337,7 +340,7 @@ $\omega_{i,j,k}$ dla poszczególnych komórek:
 sh}.
 \end{equation}
 
-Transport zachowawczych wielości płynowych zgodnie z~rówaniami \mref{eq1} --
+Transport zachowawczych wielości płynowych zgodnie z~równaniami \mref{eq1} --
 \mref{eq4} w~kierunku azymutalnym jest następnie wykonywana w~trzech krokach:
 
 \begin{enumerate}
@@ -440,7 +443,7 @@ hydrostatycznej
 gdzie $\rho(R,0)$ jest gęstością gazu w~płaszczyźnie dysku, a $H^2 = 2 c_s^2 R^3/
 GM$.
 %
-Powyższe równanie całkujemy ze względu na współrzędną \emph{z} korzystająć z
+Powyższe równanie całkujemy ze względu na współrzędną \emph{z} korzystając z
 definicji gęstości powierzchniowej
 \begin{equation} \label{eq:sigmaR}
    \Sigma(R) = \int_{-\infty}^\infty \rho(R,z) dz,
@@ -488,7 +491,7 @@ rzędu okresu orbitalnego na najniższej orbicie.
 Wykładniki $f_\textrm{in}=f_\textrm{out}\equiv10$ określają szerokość przedziału
 przejściowego pomiędzy obszarem ewoluującym bez tłumienia, a obszarem tłumionym
 i zostały dobrane tak, aby tłumienie nie wpływało w~znaczącym stopniu na
-stabilność całego układu. Przebieg funkcji $f(R)$ opisywanej rówananiem
+stabilność całego układu. Przebieg funkcji $f(R)$ opisywanej równaniem
 \mref{eq:overlap} został przedstawiony na rysunku~\ref{fig:overlap}.
 %
 \begin{figure}
