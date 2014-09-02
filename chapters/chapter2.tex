@@ -100,12 +100,12 @@ moment pędu~\cite{M07,SO10}, która wprowadza tylko jeden, dodatkowy wyraz
 źródłowy do równań ruchu~\mref{eq3} - \mref{eq4}: odpowiednio
 $\left((\rho_g u_\phi + P) / R\right)\mathbf{\hat{R}}$ oraz $(\rho_d w_\phi / R)
 \mathbf{\hat{R}}$.
-\par Sprzężenie pomiędzy gazem a pyłem, które przyjmuje postać
+\par Przyspieszenie będące skutkiem wzajemnego oddziaływania pyłu i gazu przyjmuje postać
 $\rho_d/\tau_f\rho_g(\mathbf{u}-\mathbf{w})$ i~$1/\tau_f(\mathbf{w}-\mathbf{u})$
 odpowiednio dla równań \mref{eq3} i~\mref{eq4} w~zależności od tego jak zostanie
 potraktowane, może prowadzić do znacznego skrócenia kroku czasowego. Z tego
 względu zdecydowano o implementacji pół niejawnego schematu modyfikującego
-bezpośrednio prędkości gazu i~pyłu, zaproponowanego przez~\cite{TB09}.
+bezpośrednio prędkości gazu i~pyłu, opisanego w pracy~\cite{TB09}.
 
 %W~ramach pracy skupiono się na dyskach rozciągających się relatywnie dużych
 %promienii tj. 2~AU. Zakładając, za pracą~\cite{CD93}, że przejście do
@@ -119,7 +119,7 @@ bezpośrednio prędkości gazu i~pyłu, zaproponowanego przez~\cite{TB09}.
 %następującą postać:
 %
 
-\subsection{PIERNIK}
+\subsection{Podstawowy algorytm płynowy kodu PIERNIK}
 Do rozwiązania układu równań \mref{eq1}--\mref{eq4}, jak wspomniano wcześniej
 użyta została tzw. \textit{metoda relaksacji TVD}~\cite{jin-xin-95}, która zapewnia wysoką
 dokładność rozwiązań równań hydrodynamicznych oraz numeryczną stabilność, przy
@@ -133,20 +133,20 @@ oraz Pen, et al.~\cite*{2003ApJS..149..447P}, które zostały użyte jako punkt
 wyjścia przy tworzeniu \textbf{PIERNIKa}. 
 
 \paragraph{Podział ,,zaburzenia'' na fale biegnące w~prawą i~lewą stronę.} ~\\
-
+%
 Układ \mref{diffeuler} można zastąpić układem relaksacyjnym postaci:
-
+%
 \begin{gather}
    \partial_t \mathbf{u} + \partial_x (c\mathbf{w}) = 0, \label{rel1}\\
    \partial_t \mathbf{w} + \partial_x (c\mathbf{u}) = 0, \label{rel2}
 \end{gather}
-
+%
 gdzie $c(x,t)$ jest dowolną, dodatnią funkcja nazywaną \emph{prędkością
 mrożącą}, a $\mathbf{w} = \mathbf{F}(\mathbf{u})/c$. Układ relaksacyjny zawiera
 dwa sprzężone, liniowe równania adwekcji wielkości zachowawczych $\mathbf{u}$
 oraz $\mathbf{w}$. Aby rozwiązać równania \mref{rel1} i~\mref{rel2} należy
 dokonać zamiany zmiennych:
-
+%
 \begin{gather}
    \mathbf{u}^R = \frac{\mathbf{u} + \mathbf{w}}{2}, \\
    \mathbf{u}^L = \frac{\mathbf{u} - \mathbf{w}}{2}, \\
@@ -154,31 +154,31 @@ dokonać zamiany zmiennych:
    \partial_t \mathbf{u}^R + \partial_x (c\mathbf{u}^R) = 0,\label{rel3}\\
    \partial_t \mathbf{u}^L + \partial_x (c\mathbf{u}^L) = 0.\label{rel4}
 \end{gather}
-
-Równania \mref{rel3} i~\mref{rel4} można interpretować jako przepływ wielkości
-zachowawczych w~pra\-wą i~lewą stronę z~prędkością $c$. Sumując można je wyrazić
-jako
-
+%
+Równania \mref{rel3} i~\mref{rel4} można interpretować jako prawa zachowania
+opisujące propagację fal w~pra\-wą i~lewą stronę z~prędkością $c$. Sumując można
+je wyrazić jako
+%
 \begin{equation}
    \partial_t \mathbf{u} + \partial_x \mathbf{F}^R - \partial_x \mathbf{F}^L = 0,\\
 \end{equation}
-
+%
 gdzie $\mathbf{F}^R=c \mathbf{u}^R$ i~$\mathbf{F}^L=c \mathbf{u}^L$. 
-
+%
 \paragraph{Obliczenie strumieni wielkości zachowawczych metodą \emph{,,pod wiatr''}.}~\\
-
+%
 W~celu rozwiązania \mref{rel3} i~\mref{rel4} należy policzyć strumienie
 wielkości zachowawczych. W~podstawowej wersji \textbf{Piernika--MHD} strumienie
 na brzegach komórek są liczone z~dokładnością do drugiego rzędu w~przestrzeni
-$\left(\epsilon \sim O\left[(\Delta x)^2\right]\right).$ Duża dokładność jest
-uzyskiwana poprzez obliczenie strumieni pierwszego rzędu
-$\mathbf{F}^{(1),t}_{n+1/2}$ \emph{metodą ,,pod wiatr''}\footnote{ang.
-,,upwind'' method}~\cite{cir}, która zapewnia stabilność rozwiązania w~tym
-sensie, że błędy numeryczne nie narastają nieograniczenie w~czasie.  Korzystając
-z definicji strumienia $\mathbf{F}_n^{(1),t}=c \mathbf{u}_n^t$, jako wielkości
-określonej na środku komórki, w~zależności od kierunku propagacji fali strumień
-na brzegu jest obliczany w~następujący sposób:
-
+$\left(\epsilon \sim O\left[(\Delta x)^2\right]\right)$. 
+Podwyższenie dokładności schematu następuje poprzez monotoniczną interpolację
+strumieni obliczonych w centrach komórek na ściany. Reprezentacja pochodnych za
+pomocą róznic skończonych obliczanych metodą \emph{,,pod wiatr''}\footnote{ang.
+,,upwind'' method}~\cite{cir}, zapewnia stabilność numeryczną schematu.
+Korzystając z definicji strumienia $\mathbf{F}_n^{(1),t}=c \mathbf{u}_n^t$, jako
+wielkości określonej na środku komórki, w~zależności od kierunku propagacji fali
+strumień na brzegu jest obliczany w~następujący sposób:
+%
 \begin{equation}
    \mathbf{F}^{(1),t}_{n+1/2} = 
    \begin{cases}
@@ -186,10 +186,10 @@ na brzegu jest obliczany w~następujący sposób:
       \mathbf{F}^{(1),t}_{n+1}\quad \textrm{jeżeli }c<0.
    \end{cases}
 \end{equation}
-
+%
 Następnie liczona jest poprawka strumieni drugiego rzędu, ponownie z
 uwzględnieniem kierunku propagacji fali:
-
+%
 \begin{align} \label{lab1}
    \begin{cases} 
       \Delta \mathbf{F}^{L,t}_{n+1/2} = \frac{\mathbf{F}^t_{n} - \mathbf{F}^t_{n-1}}{2} \\
@@ -257,7 +257,7 @@ Dodatkowym warunkiem, który trzeba nałożyć na powyższy schemat dla zapewnie
 stabilności numerycznej, jest założenie, aby prędkość mrożąca $c$ była większa
 niż dowolna prędkość charakterystyczna układu. Dla układu równań Eulera spełnia
 to warunek
-
+%
 \begin{equation}\label{fs}
    c = |v| + c_s
 \end{equation}
