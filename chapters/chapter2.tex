@@ -94,18 +94,20 @@ skalą czasową tarcia~\footnote{ang. friction time}~\mref{eq:tauf}, a $\Phi$ to
 potencjał grawitacyjny.
 
 \par Ze względu na specyfikę zagadnienia badanego w~niniejszej pracy
-najwygodniejszym układem współrzędnych jest układ cylindryczny. W~kodzie
-PIERNIK geometria cylindryczna jest zaimplementowana w~formie zachowującej
-moment pędu~\cite{M07,SO10}, która wprowadza tylko jeden, dodatkowy wyraz
-źródłowy do równań ruchu~\mref{eq3} - \mref{eq4}: odpowiednio
+najwygodniejszym układem współrzędnych jest układ cylindryczny. W~kodzie PIERNIK
+równania mechaniki płynów w geometrii cylindrycznej wyrażone są w postaci
+zachowującej moment pędu~\cite{M07,SO10}, która wprowadza tylko jeden, dodatkowy
+wyraz źródłowy do równań ruchu~\mref{eq3} - \mref{eq4}: odpowiednio
 $\left((\rho_g u_\phi + P) / R\right)\mathbf{\hat{R}}$ oraz $(\rho_d w_\phi / R)
 \mathbf{\hat{R}}$.
-\par Przyspieszenie będące skutkiem wzajemnego oddziaływania pyłu i gazu przyjmuje postać
-$\rho_d/\tau_f\rho_g(\mathbf{u}-\mathbf{w})$ i~$1/\tau_f(\mathbf{w}-\mathbf{u})$
-odpowiednio dla równań \mref{eq3} i~\mref{eq4} w~zależności od tego jak zostanie
-potraktowane, może prowadzić do znacznego skrócenia kroku czasowego. Z tego
-względu zdecydowano o implementacji pół niejawnego schematu modyfikującego
-bezpośrednio prędkości gazu i~pyłu, opisanego w pracy~\cite{TB09}.
+%
+\par Przyspieszenie będące skutkiem wzajemnego oddziaływania pyłu i gazu
+przyjmuje postać $\rho_d/\tau_f\rho_g(\mathbf{u}-\mathbf{w})$
+i~$1/\tau_f(\mathbf{w}-\mathbf{u})$ odpowiednio dla równań \mref{eq3}
+i~\mref{eq4} w~zależności od tego jak zostanie potraktowane, może prowadzić do
+znacznego skrócenia kroku czasowego. Z tego względu zdecydowano o implementacji
+pół niejawnego schematu modyfikującego bezpośrednio prędkości gazu i~pyłu,
+opisanego w pracy~\cite{TB09}.
 
 %W~ramach pracy skupiono się na dyskach rozciągających się relatywnie dużych
 %promienii tj. 2~AU. Zakładając, za pracą~\cite{CD93}, że przejście do
@@ -121,9 +123,10 @@ bezpośrednio prędkości gazu i~pyłu, opisanego w pracy~\cite{TB09}.
 
 \subsection{Podstawowy algorytm płynowy kodu PIERNIK}
 Do rozwiązania układu równań \mref{eq1}--\mref{eq4}, jak wspomniano wcześniej
-użyta została tzw. \textit{metoda relaksacji TVD}~\cite{jin-xin-95}, która zapewnia wysoką
-dokładność rozwiązań równań hydrodynamicznych oraz numeryczną stabilność, przy
-stosunkowo niskich nakładach mocy obliczeniowych. Poniżej przedstawiono krótki \textit{metody relaksacji TVD} na przykładzie równania
+użyta została tzw. \textit{metoda relaksacji TVD}~\cite{jin-xin-95}, która
+zapewnia wysoką dokładność rozwiązań równań hydrodynamicznych oraz numeryczną
+stabilność, przy stosunkowo niskich nakładach mocy obliczeniowych. Poniżej
+przedstawiono krótki \textit{metody relaksacji TVD} na przykładzie równania
 
 \begin{equation}\label{diffeuler}
    \partial_t \mathbf{u} + \partial_{x} \mathbf{F}(\mathbf{u}) = 0.
@@ -134,18 +137,31 @@ wyjścia przy tworzeniu \textbf{PIERNIKa}.
 
 \paragraph{Podział ,,zaburzenia'' na fale biegnące w~prawą i~lewą stronę.} ~\\
 %
-Układ \mref{diffeuler} można zastąpić układem relaksacyjnym postaci:
+Zgodnie z pracą Trac\&Pen~\cite{2003PASP..115..303T} układ \mref{diffeuler}
+można zastąpić układem postaci:
 %
 \begin{gather}
    \partial_t \mathbf{u} + \partial_x (c\mathbf{w}) = 0, \label{rel1}\\
    \partial_t \mathbf{w} + \partial_x (c\mathbf{u}) = 0, \label{rel2}
 \end{gather}
 %
-gdzie $c(x,t)$ jest dowolną, dodatnią funkcja nazywaną \emph{prędkością
-mrożącą}, a $\mathbf{w} = \mathbf{F}(\mathbf{u})/c$. Układ relaksacyjny zawiera
-dwa sprzężone, liniowe równania adwekcji wielkości zachowawczych $\mathbf{u}$
-oraz $\mathbf{w}$. Aby rozwiązać równania \mref{rel1} i~\mref{rel2} należy
-dokonać zamiany zmiennych:
+gdzie $c(x,t)$ jest dowolną, dodatnią funkcją większa co do modułu od
+największej prędkości falowej układu: 
+%
+\begin{equation}\label{fs}
+   c \ge |v| + c_s,
+\end{equation}
+nazywaną \emph{prędkością mrożącą}, a $\mathbf{w} = \mathbf{F}(\mathbf{u})/c$. 
+Równanie \mref{fs}, zgodnie z~warunkiem CFL zapewniającym stabilność schematu
+%
+\begin{equation}\label{cfl}
+   \frac{c_{\textrm{max}}\Delta t}{\Delta x} \le 1,
+\end{equation}
+%
+nakłada nam silne ograniczenie na krok czasowy.  Układ relaksacyjny zawiera dwa
+sprzężone, liniowe równania adwekcji wielkości zachowawczych $\mathbf{u}$ oraz
+$\mathbf{w}$. Aby rozwiązać równania \mref{rel1} i~\mref{rel2} należy dokonać
+zamiany zmiennych:
 %
 \begin{gather}
    \mathbf{u}^R = \frac{\mathbf{u} + \mathbf{w}}{2}, \\
@@ -253,22 +269,6 @@ obliczane są poprawki do strumieni i~wykonywany jest całkowity krok czasowy
    t/2}_{n-1/2}}{\Delta x} \right)\Delta t + S_n^{t+\Delta t/2}\Delta t.
 \end{equation}
 
-Dodatkowym warunkiem, który trzeba nałożyć na powyższy schemat dla zapewnienia
-stabilności numerycznej, jest założenie, aby prędkość mrożąca $c$ była większa
-niż dowolna prędkość charakterystyczna układu. Dla układu równań Eulera spełnia
-to warunek
-%
-\begin{equation}\label{fs}
-   c = |v| + c_s
-\end{equation}
-
-Równanie \mref{fs}, zgodnie z~warunkiem CFL zapewniającym stabilność schematu
-
-\begin{equation}\label{cfl}
-   \frac{c_{\textrm{max}}\Delta t}{\Delta x} \le 1,
-\end{equation}
-
-nakłada nam silne ograniczenie na krok czasowy. 
 % Zgodnie z~\mref{cfl} im większa prędkość gazu, tym krótszy krok czasowy, co
 % okaże się dużą niedogodnością przy zastosowaniu \emph{klasycznej metody kostki
 % ścinanej} opisanej dalszej części pracy.
@@ -286,9 +286,10 @@ funkcją promienia, to najsilniejsze ograniczenie na rozmiar kroku czasowego
 wprowadza dynamika gazu na najkrótszej symulowanej orbicie. Jedną z~technik
 pozwalających uniknąć powyższych ograniczeń jest algorytm FARGO~\citep{M00}.
 Oryginalnie został on zaprojektowany dla dwuwymiarowych dysków, lecz został
-rozszerzony przez innych autorów~\cite{KBK09} do przypadków trójwymiarowych.
-Poniższa praca rozwija go w~kierunku zastosowań do układu wielu płynów.
-
+rozszerzony przez innych autorów~\cite{KBK09} do przypadków trójwymiarowych.  W
+dalszych rozważaniach przedstawione jest uogólnienie algorytmu FARGO dla
+przypadku dwóch płynów poruszających się z różnymi prędkościami orbitalnymi.
+%
 \par FARGO opiera się na kierunkowym podziale części adwekcyjnej równań
 hydrodynamiki. W~kierunku radialnym i~wertykalnym stosuje się klasyczny solwer
 (w przypadku PIERNIKa RTVD), natomiast w~kierunku azymutalnym rozbija się
@@ -331,9 +332,9 @@ adwekcję na trzy etapy:
       \end{equation}
 \end{enumerate}
 
-Powyższe cząstkowe prędkości kątowe $\omega_i^{\rm sh}, \omega_i^{\rm cr},
-\omega_{i,j,k}^{\rm res}$ sumują się do wyjściowej prędkości kątowej
-$\omega_{i,j,k}$ dla poszczególnych komórek:
+Zdefiniowane powyżej cząstkowe prędkości kątowe $\omega_i^{\rm sh},
+\omega_i^{\rm cr}, \omega_{i,j,k}^{\rm res}$ sumują się do wyjściowej prędkości
+kątowej $\omega_{i,j,k}$ dla poszczególnych komórek:
 
 \begin{equation}
    \omega_{i,j,k} = \omega_{i,j,k}^{\rm res} + \omega_i^{\rm cr} + \omega_i^{\rm
@@ -350,9 +351,9 @@ Transport zachowawczych wielości płynowych zgodnie z~równaniami \mref{eq1} --
       sprowadza się do przeindeksowania komórek obliczeniowych, nie nakłada ona
       żadnych ograniczeń na numeryczny krok czasowy.
    \item adwekcja~\footnote{adwekcja jest rozumiana jako rozwiązanie układu
-         równań \mref{eq1} -- \mref{eq4}, tak jakby prawe strony tych równań
-      były równe 0} wielkości zachowawczych z~prędkością $\omega_i^{\rm cr}$
-      przy użyciu metody RTVD
+      równań \mref{eq1} -- \mref{eq4} pozbawionego wyrazów źródłowych po prawej
+      stronie.} wielkości zachowawczych z~prędkością $\omega_i^{\rm cr}$ przy
+      użyciu metody RTVD
    \item wykonanie pełnego całkowania równań \mref{eq1} -- \mref{eq4} przy
       założenie, że płyn poruszą się teraz z~prędkością kątową
       $\omega_{i,j,k}^{\rm res}$.
@@ -360,7 +361,7 @@ Transport zachowawczych wielości płynowych zgodnie z~równaniami \mref{eq1} --
 Korzystając z~faktu, że $\omega_i^{\rm sh} \gg \max\left(\omega_i^{\rm cr},
 \omega_{i,j,k}^{\rm res}\right)$, a tylko prędkości po prawej stronie
 nierówności mają wpływ na warunek CFL, w~znaczący sposób zwiększamy krok
-czasowy. Co prawda, aby zachować stabilność algorytmu należy zapewnić że
+czasowy. Aby zachować stabilność algorytmu należy zapewnić, że
 przesunięcie w~kierunku azymutalnym nie odseparuje dwóch sąsiednich (w kierunku
 radialnym i~wertykalnym) komórek, co przekłada się na warunek
 
@@ -389,8 +390,8 @@ od masy punktowej
 \end{equation}
 gdzie $G$ to stała grawitacji, $M = 1\Msun$ masa obiektu centralnego, $r$
 promień sferyczny, $\mathbf{e}_r$ radialny wersor kierunkowy.
-Jako, że celem pracy jest wyizolowanie niestabilności strumieniowej z~pośród
-szeregu innych procesów, które mogą w~dysku protoplanetarnym. Z tego względu
+Aby wyizolować niestabilność strumieniową z~pośród
+szeregu innych procesów, które mogą zachodzić w~dysku protoplanetarnym,
 zaniedbano pionową składową przyspieszenia grawitacyjnego pochodzącą od
 centralnego obiektu w~dysku, która prowadziła by do naturalnej sedymentacji pyłu
 w płaszczyźnie dysku i~wzbudzenia się niestabilności
@@ -411,7 +412,7 @@ Artura Gawryszczaka (CAMK W-wa).
 
 \section{Warunki początkowe}
 Domena obliczeniowa we wszystkich eksperymentach rozciąga się pomiędzy $2\AU$, a
-$7\AU$ w~kierunku radialnym i~ma $0.375\AU$ wysokości. W~przypadkach
+$7\AU$ w~kierunku radialnym i~ma $0.375\AU$ wysokości. W~eksperymentach
 trójwymiarowych rozciągłość w~kącie azymutalnym wynosi $\pi / 6$.
 
 \par Początkowy rozkład gęstości materii w~dysku określony jest poprzez formułę
