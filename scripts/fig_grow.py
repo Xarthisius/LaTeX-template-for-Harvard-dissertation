@@ -1,21 +1,6 @@
 import numpy as np
-import matplotlib
-matplotlib.use('pgf')
 import cPickle as pickle
-
-preamble = {
-    'text.usetex': True,
-    "pgf.rcfonts": False,
-    "text.latex.unicode": True,
-    'font.size': 22,
-    "pgf.preamble": [
-        r"\usepackage[T1]{polski}",
-        r"\usepackage{mathspec}",
-        r"\setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Arno Pro}",
-        r"\setmathrm{Arno Pro}",
-    ]
-}
-matplotlib.rcParams.update(preamble)
+import preamble
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 
@@ -23,6 +8,7 @@ FILES = [
     ('../data/sg_modes.pkl', '../figures/sg_vlzd_growth.pdf'),
     ('../data/nosg_modes.pkl', '../figures/nosg_vlzd_growth.pdf'),
 ]
+
 
 def format_my(x, pos=None):
     return "%i" % np.log(x)
