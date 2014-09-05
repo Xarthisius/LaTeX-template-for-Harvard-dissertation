@@ -12,7 +12,7 @@ data[:, 1] /= data[:, 1].max()
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
-ax.plot(data[:, 0], data[:, 1])
+ax.plot(data[:, 0], data[:, 1], lw=2)
 ax.set_xlim(2, 7)
 ax.set_ylim(-0.05, 1.05)
 ax.set_xlabel(r"$R$ [AU]")
