@@ -168,10 +168,24 @@ Całkowita masa formującej się protogwiazdy nie przekracza na tym etapie
 $10^{-2}\Msun$.  Dominującym procesem staje się akrecja materii, która musi
 dostarczyć pozostałe 99\% masy do rodzącej się gwiazdy. 
 
+\begin{figure}
+   \includegraphics[width=0.9\textwidth]{figures/chap1_sed.png}
+   \caption{Rozkład widma energii dla gwiazdy HD 34282~\cite{MME04}. Symbole oznaczają
+      obserwacje różnymi metodami dla odpowiednich długości fali. Do obserwacji
+      dopasowano następujące modele: linia przerywana model widma gwiazdowego
+      dla obiektu typu A3V $(T\sim 8600\K)$, cienka ciągła
+      linia model ciała doskonale czarnego dla $T=1400\K$,
+      linia kropkowana reprezentuje model dysku o nachyleniu $i=56^o$, tempie
+      akrecji $\dot{M} = 8.2\times10^{-9}\thinspace\Msun\yr^{-1}$
+      rozciągającym się od $0.31\AU$ do $705\AU$.
+   Obrazek pochodzi z~pracy~\cite{MME04}}
+   \label{fig:sed}
+\end{figure}
+
 W~trakcie akrecji, protogwiazda cały czas pozostaje niewidoczna dla obserwatora,
 ponieważ jest przysłonięta przez pył znajdujący się w~opadającej otoczce.
 Klasyfikacja obserwacyjna takiego układu określa obiekty na tym etapie mianem
-\emph{klasy zero}~\cite{andre} (rysunek 1b). Ich obserwowana temperatura jest
+\emph{klasy zero}~\cite{andre} (panel~b Rys.~\ref{fig:planet}). Ich obserwowana temperatura jest
 stosunkowo niska $(T \lesssim 30\K)$. Obiekty te charakteryzują się maksimum
 w~rozkładzie energii promieniowania wypadającym w~dalekiej podczerwieni, bez
 wykrywalnej nadwyżki w~bliskiej podczerwieni. Z czasem kiedy z~otoczki ubywa
@@ -597,21 +611,6 @@ $h_{\textrm{ion}}$. Materia znajdująca się poniżej $h_{\textrm{ion}}$ jest
 efektywnie osłaniana przez warstwy gazu o $h > h_i$.  Obszar $h < h_i$ jest
 zatem \emph{martwą strefą} w której niestabilność magnetorotacyjna nie
 występuje~\cite{DFT10} i nie może być zatem źródłem turbulencji. 
-
-\begin{figure}
-   \includegraphics[width=0.9\textwidth]{figures/chap1_sed.png}
-   \caption{Rozkład widma energii dla gwiazdy HD 34282~\cite{MME04}. Symbole oznaczają
-      obserwacje różnymi metodami dla odpowiednich długości fali. Do obserwacji
-      dopasowano następujące modele: linia przerywana model widma gwiazdowego
-      dla obiektu typu A3V $(T\sim 8600\K)$, cienka ciągła
-      linia model ciała doskonale czarnego dla $T=1400\K$,
-      linia kropkowana reprezentuje model dysku o nachyleniu $i=56^o$, tempie
-      akrecji $\dot{M} = 8.2\times10^{-9}\thinspace\Msun\yr^{-1}$
-      rozciągającym się od $0.31\AU$ do $705\AU$.
-   Obrazek pochodzi z~pracy~\cite{MME04}}
-   \label{fig:sed}
-\end{figure}
-
 Obecność obszarów niepodatnych na niestabilność magnetorotacyjną w dysku
 wymusiła potrzebę znalezienia innego mechanizmu odpowiedzialnego za generację
 turbulentnej lepkości w martwych strefach. Jednym z obiecujących procesów jest
@@ -630,7 +629,7 @@ matematycznych otrzymujemy:
    \label{eq:vort}
 \end{equation}
 %
-gdzie $\mathbf{\omega}=\nabla\times\mathbf{u}$ jest wirowością. 
+gdzie $\mathbf{\omega}=\nabla\times\mathbf{u}\;$ jest wirowością. 
 W wypadku istnienia w dysku radialnego gradientu entropii nachylenie pomiędzy izopykną,
 tzn. powierzchnią o stałej gęstości płynu, a izobarą, tzn. powierzchnią o
 stałym ciśnieniu, sprawia że ostatni wyraz w równaniu~\mref{eq:vort} jest
@@ -820,7 +819,7 @@ gradientu ciśnienia z~prędkością podkeplerowską. Duża koncentracja pyłu
 w~płaszczyźnie powoduje, że gaz jest efektywniej ,,pchany'' przez pył i~zaczyna
 poruszać się szybciej niż warstwy gazu leżące poniżej i~powyżej płaszczyzny
 symetrii dysku. Prowadzi to do wytworzenia się pionowego gradientu prędkości
-azymutalnej gazu. Ruch płynu w płaszczyźnie \emph{\phi-z} można w takiej sytuacji
+azymutalnej gazu. Ruch płynu w płaszczyźnie $\phi$-\emph{z} można w takiej sytuacji
 przybliżyć jako laminarny, stacjonarny przepływ. Eliminując wyrazy zależne od
 czasu w równaniu~\mref{eq:vort} otrzymujemy różniczkową postać prawa
 Bernoulliego:
@@ -899,7 +898,16 @@ Pył jako ważny składnik dysku okołogwiazdowego można opisywać w~przybliże
 płynowym (funkcja już zaimplementowana w~kodzie PIERNIK~\cite{piernik2}) lub
 w~przybliżeniu punktów materialnych. Obecnie w literaturze naukowej częściej
 stosowana jest druga metoda, ważne jest więc jakościowa i~ilościowa weryfikacja
-własności niestabilności strumieniowej w przybliżeniu płynowym. Drugim, niemniej
+własności niestabilności strumieniowej w przybliżeniu płynowym. 
+Główna część badań przedstawionych w niniejszej pracy jest oparta na technice
+płynowych symulacji numerycznych w ujęciu wielopłynowym. W kolejnym 2. rozdziale
+omówiono w skrócie podstawowy formalizm liniowego opisu niestabilności
+strumieniowej w  gazowo-pyłowych dyskach protoplanetarnych.  Liniowa analiza
+niestabilności strumieniowej zostanie wykorzystana do obliczenia tempa wzrostu
+oraz liczb falowych najbardziej niestabilnych modów niestabilności
+strumieniowej. Wyniki liniowej analizy stabilności zostaną wykorzystane do
+weryfikacji wyników symulacji numerycznych.
+Drugim, niemniej
 ważnym celem pracy jest zbadanie czy niestabilność strumieniowa z uwzględniemiem
 samograwitacji płynu w stabilnym grawitacyjnie globalnym dysku gazowo-pyłowym
 może prowadzić do wytworzenia się grawitacyjnie związanych obiektów, które

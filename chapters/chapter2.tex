@@ -7,35 +7,36 @@ strike with force.
 \chapter{Eksperyment numeryczny}
 \section{Metodyka}
 \label{sec:metodyka}
-Badania zaprezentowane w niniejszej pracy opierają się na szeregu eksperymentach
+Badania zaprezentowane w niniejszej pracy bazują na szeregu eksperymentów
 numerycznych wykonanych z pomocą autorskiego kodu płynowego PIERNIK tworzonego
 od 2006 roku w Centrum Astronomii UMK.  Algorytmy numeryczne kodu PIERNIK
 opierają się na zachowawczym schemacie płynowym typu ,,Relaxing
 TVD''~\cite{jin-xin-95} w połączeniu z~dzielonym, kierunkowym całkowaniem
-przestrzennym i~czasowym przy użyciu algorytmu\linebreak Runge-Kutta drugiego
+przestrzennym i~czasowym przy użyciu algorytmu Runge-Kutta drugiego
 rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P}. Konstrukcja kodu umożliwia
 modelowanie wieloskładnikowego ośrodka np. płynu neutralnego i~płynu
 bezciśnieniowego (pył) z uwzględnieniem oddziaływań
 międzypłynowych~\cite{piernik1,piernik2}. PIERNIK wyposażony jest w
 wielosiatkowy algorytm przeznaczony do wyznaczania przybliżonych rozwiązań
-równań różniczkowych typu parabolicznego i eliptycznego, a w szczególności
+równań różniczkowych różnych typów, a w szczególności
 solwer multigridowy pozwalający efektywnie rozwiązywać paraboliczne
 i~eli\-pty\-czne równania różniczkowe, w~tym równanie Poissona opisujące
-samograwitację pyłu~\citep{HG00}. Ponadto w kodzie PIERNIK zaimplementowano
-solwer multipolowy pozwalający na szybkie określenie warunków brzegowych dla
-potencjału grawitacyjnego~\citep{J77} oraz możliwość prowadzenia obliczeń na
-siatkach w cylindrycznym układzie współrzędnych przy zachowaniu moment pędu do
-poziomu numerycznej precyzji~\cite{M07,SO10}. Kod PIERNIK posiada również
-implementację algorytmu szybkiego transportu eulerowskiego~\footnote{ang.
+samograwitację pyłu~\citep{HG00}. Algorytm wielosiatkowy wspierany jest
+algorytmem multipolowym pozwalającym na szybkie określenie warunków brzegowych
+dla potencjału grawitacyjnego~\citep{J77} oraz algorytmem opartym na metodzie
+sprzężonych gradientów~\cite{pcg}. Dzięki implementacji schematu płynowego
+postaci zachowującej moment pędu w cylindrycznej siatce
+współrzędnych~\cite{M07,SO10} możliwe są  precyzyjne  symulacje dysków
+astrofizycznych. Implementacja szybkiego algorytmu eulerowskiego~\footnote{ang.
 \emph{Fast Advection in Rotating Gaseous Objects -- FARGO}}~\citep{M00} w~ujęciu
-wielopłynowym.
-\par 
-Ponadto PIERNIK korzysta z~algorytmu typu \emph{Constraint
-Transport}~\cite{EH88} zapewniającego spełnienie warunku bezźródłowości pola
-magnetycznego, a także możliwość wykonywania symulacji przy użyciu siatek
-adaptywnych~\footnote{ang.  \emph{Adaptive Mesh Refinement -- AMR}}. Kod został
-zrównoleglony przy użyciu protokołu MPI i wykazuje dobrą silną jak i bardzo
-dobrą słabą skalowalność w zakresie do $10^4$ rdzeni obliczeniowych.
+wielopłynowym umożliwia znaczące przyspieszenie  symulacji wysokiej
+rozdzielczości w trzech wymiarach.  Ponadto PIERNIK korzysta z~algorytmu typu
+\emph{Constraint Transport}~\cite{EH88} zapewniającego spełnienie warunku
+bezźródłowości pola magnetycznego, a także możliwość wykonywania symulacji przy
+użyciu siatek adaptywnych~\footnote{ang.  \emph{Adaptive Mesh Refinement --
+AMR}}. Kod został zrównoleglony przy użyciu protokołu MPI i wykazuje dobrą silną
+jak i bardzo dobrą słabą skalowalność w zakresie do $10^4$ rdzeni
+obliczeniowych.
 %
 \par Obliczenia opisywane w~tej pracy zostały przeprowadzone z~wykorzystaniem:
 
@@ -131,14 +132,13 @@ przedstawiono krótki \textit{metody relaksacji TVD} na przykładzie równania
 \begin{equation}\label{diffeuler}
    \partial_t \mathbf{u} + \partial_{x} \mathbf{F}(\mathbf{u}) = 0.
 \end{equation}
-wzorując się na pracach Trac \& Pen~\cite*{2003PASP..115..303T}
+wzorując się na pracach Trac i Pen~\cite*{2003PASP..115..303T}
 oraz Pen, et al.~\cite*{2003ApJS..149..447P}, które zostały użyte jako punkt
 wyjścia przy tworzeniu \textbf{PIERNIKa}. 
 
 \paragraph{Podział ,,zaburzenia'' na fale biegnące w~prawą i~lewą stronę.} ~\\
 %
-Zgodnie z pracą Trac\&Pen~\cite{2003PASP..115..303T} układ \mref{diffeuler}
-można zastąpić układem postaci:
+Zgodnie z pracą Trac i Pen~\cite{2003PASP..115..303T} układ \mref{diffeuler} można zastąpić układem postaci:
 %
 \begin{gather}
    \partial_t \mathbf{u} + \partial_x (c\mathbf{w}) = 0, \label{rel1}\\
@@ -222,15 +222,15 @@ Do wyznaczenia ostatecznej poprawki drugiego rzędu jest użyta specjalna funkcj
 tzw. \emph{ogranicznik strumienia}. Ograniczniki strumienia są używane, aby
 uniknąć niefizycznych oscylacji, które pojawiłyby się po dodaniu poprawek
 drugiego rzędu w~obszarach zawierających nieciągłości.  Ostateczna poprawka jest
-wyznaczana z~wyrażenia
-
+wyznaczana z~wyrażenia:
+%
 \begin{equation}
    \Delta \mathbf{F}^{t}_{n+1/2} = \phi\left(\Delta
    \mathbf{F}^{L,t}_{n+1/2},\Delta \mathbf{F}^{R,t}_{n+1/2} \right),
 \end{equation}
-
-gdzie przykładowy ogranicznik strumienia~\cite{leer} to
-
+%
+gdzie przykładowy ogranicznik strumienia~\cite{leer} to:
+%
 \begin{equation}
    \phi(a,b) = 
    \begin{cases}
@@ -238,41 +238,40 @@ gdzie przykładowy ogranicznik strumienia~\cite{leer} to
       0, & \textrm{ gdy }ab<0
    \end{cases}.
 \end{equation}
-
+%
 Użycie funkcji $\phi$ jest jednym z~warunków metody \emph{relaksacji TVD} i
 przekłada się na stabilność schematu numerycznego.
 
 \paragraph{Całkowanie w~czasie}~\\
-
 Całkowanie w~czasie jest przeprowadzone przy użyciu standardowego schematu
-Rungego -- Kutty. Najpierw wykonywany jest krok połówkowy
-
+Rungego -- Kutty. Najpierw wykonywany jest krok połówkowy:
+%
 \begin{equation}
    \mathbf{u}^{t+\Delta t/2}_{n} = \mathbf{u}^{t}_{n} -
    \left(\frac{\mathbf{F}^t_{n+1/2} - \mathbf{F}^t_{n-1/2}}{\Delta x}
    \right)\frac{\Delta t}{2} + \mathbf{S}_n^t \frac{\Delta t}{2},
 \end{equation}
-
-gdzie
-
+%
+gdzie:
+%
 \begin{equation}
    \mathbf{F}^{t}_{n+1/2} = \mathbf{F}^{R,t}_{n+1/2} -
    \mathbf{F}^{L,t}_{n+1/2};\quad \mathbf{S}_n^t\textrm{ --- wyrazy źródłowe}.
 \end{equation}
-
+%
 Następnie, przy użyciu wartości połówkowych $\mathbf{u}^{t+\Delta t/2}_{n}$,
-obliczane są poprawki do strumieni i~wykonywany jest całkowity krok czasowy
-
+obliczane są poprawki do strumieni i~wykonywany jest całkowity krok czasowy:
+%
 \begin{equation}
    \mathbf{u}^{t+\Delta t}_{n} = \mathbf{u}^{t}_{n} -
    \left(\frac{\mathbf{F}^{t+\Delta t/2}_{n+1/2} - \mathbf{F}^{t+\Delta
    t/2}_{n-1/2}}{\Delta x} \right)\Delta t + S_n^{t+\Delta t/2}\Delta t.
 \end{equation}
-
+%
 % Zgodnie z~\mref{cfl} im większa prędkość gazu, tym krótszy krok czasowy, co
 % okaże się dużą niedogodnością przy zastosowaniu \emph{klasycznej metody kostki
 % ścinanej} opisanej dalszej części pracy.
-
+%
 \subsection{FARGO}
 Ze względu na obecność rotacji, dyski keplerowskie stanowią mało wdzięczny
 obiekt badań numerycznych, szczególnie w~wypadku kiedy charakterystyczne
@@ -331,19 +330,19 @@ adwekcję na trzy etapy:
          \omega_{i,j,k}^{\rm res} = \omega_{i,j,k} - \bar{\omega}_i
       \end{equation}
 \end{enumerate}
-
+%
 Zdefiniowane powyżej cząstkowe prędkości kątowe $\omega_i^{\rm sh},
 \omega_i^{\rm cr}, \omega_{i,j,k}^{\rm res}$ sumują się do wyjściowej prędkości
 kątowej $\omega_{i,j,k}$ dla poszczególnych komórek:
-
+%
 \begin{equation}
    \omega_{i,j,k} = \omega_{i,j,k}^{\rm res} + \omega_i^{\rm cr} + \omega_i^{\rm
 sh}.
 \end{equation}
-
+%
 Transport zachowawczych wielości płynowych zgodnie z~równaniami \mref{eq1} --
 \mref{eq4} w~kierunku azymutalnym jest następnie wykonywana w~trzech krokach:
-
+%
 \begin{enumerate}
    \item przesunięcie wartości wielkości zachowawczych o $n_i$ komórek. Jak już
       było wcześniej wspomniane, ten krok jest równoznaczny z~transportem płynu
@@ -363,28 +362,27 @@ Korzystając z~faktu, że $\omega_i^{\rm sh} \gg \max\left(\omega_i^{\rm cr},
 nierówności mają wpływ na warunek CFL, w~znaczący sposób zwiększamy krok
 czasowy. Aby zachować stabilność algorytmu należy zapewnić, że
 przesunięcie w~kierunku azymutalnym nie odseparuje dwóch sąsiednich (w kierunku
-radialnym i~wertykalnym) komórek, co przekłada się na warunek
-
+radialnym i~wertykalnym) komórek, co przekłada się na warunek:
+%
 \begin{equation}\label{eq:tshear}
    \Delta t_{\rm shear} = 0.5 ~ \min_{i,j,k} \left( \frac{\Delta\varphi}
    {|\omega_{i,j,k} - \omega_{i-1,j,k}|} \right)
 \end{equation}
-
+%
 Niemniej jednak pomimo ograniczenia~\mref{eq:tshear}, dla typowych eksperymentów
 numerycznych przeprowadzonych w~tej pracy zastosowanie FARGO pozwoliło uzyskać
 od 10 do 100 krotnego wydłużenia kroku czasowego.
 
-
 \subsection{Potencjał grawitacyjny}
 Potencjał grawitacyjny obecny w~równianach ruchu~\mref{eq3} - \mref{eq4} można
-rozbić na dwa składniki
+rozbić na dwa składniki:
 \begin{equation}
    \Phi = \Phi_{\textrm{ext}} + \Phi_{\textrm{self}},
 \end{equation}
 gdzie $\Phi_{\textrm{ext}}$ jest stałym w~czasie potencjałem pochodzącym od
 gwiazdy macierzystej, zaś $\Phi_{\textrm{self}}$ potencjałem samograwitującego
 płynu. Potencjał zewnętrzny $\Phi_{\textrm{ext}}$ został przyjęty jako potencjał
-od masy punktowej
+od masy punktowej:
 \begin{equation}
    \Phi_{\textrm{ext}} = -\frac{GM}{r} \mathbf{e}_r,
 \end{equation}
@@ -395,12 +393,12 @@ szeregu innych procesów, które mogą zachodzić w~dysku protoplanetarnym,
 zaniedbano pionową składową przyspieszenia grawitacyjnego pochodzącą od
 centralnego obiektu w~dysku, która prowadziła by do naturalnej sedymentacji pyłu
 w płaszczyźnie dysku i~wzbudzenia się niestabilności
-Kelvina-Helmholtza~\cite{JHK06}
+Kelvina-Helmholtza~\cite{JHK06}:
 \begin{equation}\label{eq:phiext}
    \Phi_{\textrm{ext}} = -\frac{GM}{R} \mathbf{e}_R.
 \end{equation}
-
-\par Potencjał $\Phi_{\textrm{self}}$ jest określony przez równanie Poissona
+%
+Potencjał $\Phi_{\textrm{self}}$ jest określony przez równanie Poissona:
 \begin{equation}\label{eq:poisson}
    \nabla^2 \Phi_{\textrm{self}} = 4\pi G \rho.
 \end{equation}
@@ -417,7 +415,7 @@ trójwymiarowych rozciągłość w~kącie azymutalnym wynosi $\pi / 6$.
 
 \par Początkowy rozkład gęstości materii w~dysku określony jest poprzez formułę
 wynikająca z~przepisu Minimalnej Masy Mgławicy Słonecznej~\footnote{ang.
-\emph{Minimal Mass Solar Nebula}}~\cite{H81}
+\emph{Minimal Mass Solar Nebula}}~\cite{H81}:
 \begin{equation}\label{eq:mmsn}
    \Sigma(R) = 1700 \left(\frac{R}{1\textrm{ AU}}\right)^{-3/2} 
    \textrm{ g cm}^{-2}.
@@ -436,7 +434,7 @@ masę punktową $M=1\,\textrm{M}_\odot$ Pomimo zaniedbywania pionowej składowej
 grawitacji, określamy charakterystyczną pionową skalę wysokości $H$, aby
 oszacować gęstość przestrzenna na wybranym promieniu,
 wykorzystując~\mref{eq:mmsn}, tak jakby gaz znajdował się w~pionowej równowadze
-hydrostatycznej
+hydrostatycznej:
 %
 \begin{equation}\label{eq:rhoR}
    \rho(R,z) =  \rho(R,0) \exp\left(-\frac{z^2}{2H(R)^2}\right),
@@ -445,12 +443,12 @@ gdzie $\rho(R,0)$ jest gęstością gazu w~płaszczyźnie dysku, a $H^2 = 2 c_s^
 GM$.
 %
 Powyższe równanie całkujemy ze względu na współrzędną \emph{z} korzystając z
-definicji gęstości powierzchniowej
+definicji gęstości powierzchniowej:
 \begin{equation} \label{eq:sigmaR}
    \Sigma(R) = \int_{-\infty}^\infty \rho(R,z) dz,
 \end{equation}
 %
-otrzymujemy zależność
+otrzymujemy zależność:
 \begin{equation}
    \label{eq:rho}
     \rho(R,0) = \frac{\Sigma(R) }{\int_{-\infty}^\infty
@@ -475,7 +473,7 @@ składowej pędu prostopadłej do ściany domeny.
 \par Aby zminimalizować niefizyczne odbicia fal od radialnych brzegów domeny,
 wprowadzono obszary tłumiące na wewnętrznych i~zewnętrznych obszarach dysku o
 szerokości $\sim0.5\AU$. W~obszarach tych wszystkie wielkości płynowe są
-poddawane ewolucji z~dodatkowym wyrazem tłumiącym
+poddawane ewolucji z~dodatkowym wyrazem tłumiącym:
 \begin{equation}
   \frac{\textrm{d}X}{\textrm{d}t} = - \frac{X-X_0}{T_d}f(R).
 \end{equation}
