@@ -13,25 +13,25 @@ Analiza stabilności opiera się na trzech elementach:
    \item znalezieniu modów własnych problemu liniowego, ich częstości oraz
       liniowego tempa wzrostu. 
 \end{enumerate}
-Niestety dla układu równań hydrodynamiki dwóch sprzężonych płynów w~rozciągłym
+Niestety, dla układu równań hydrodynamiki dwóch sprzężonych płynów w~rozciągłym
 dysku keplerowskim nie istnieje warunek równowagowy. Spowodowane jest to
-migracja pyłu na centrum grawitacji na skutek utraty momentu pędu przez tarcie
+migracją pyłu na centrum grawitacji na skutek utraty momentu pędu przez tarcie
 aerodynamiczne. Naturalną konsekwencją migracji są znaczne zmiany w~radialnym
 profilu rozkładu gęstości pyłu. Należy jednak zauważyć, że charakterystyczna
-skala czasowa migracji jest rzędu setek bądź więcej lat, przy założeniu iż mamy
+skala czasowa migracji jest rzędu setek bądź więcej lat, przy założeniu, iż mamy
 do czynienia z~aglomeratami pyłu o rozmiarach metrowych. Z~tego względu możemy
-założyć że zmiany w~profilu gęstości są procesem powolnym w~stosunku do typowego
+założyć, że zmiany w~profilu gęstości są procesem powolnym w~stosunku do typowego
 tempa wzrostu niestabilności strumieniowej, co zostanie wykazane w~dalszej
 części pracy.
 
 Kolejnym utrudnieniem jest radialna rozciągłość rozważanego dysku
 okołogwiazdowego, która implikuje zależność stanu niezaburzonego od
 promienia dysku. W~tym wypadku najogólniejszym podejściem byłaby
-globalna analiza stabilności po przez rozwiązanie dwupunktowego problem
+globalna analiza stabilności poprzez rozwiązanie dwupunktowego problem
 brzegowego (np.~\cite{PHM04, KH06}), jednakże takie podejście jest dużo bardziej
 skomplikowane. Przedstawianą tu lokalną analizę należy zatem traktować jako
 pierwsze przybliżenie pełnej liniowej analizy niestabilności strumieniowej.
-Niestabilne mody uzyskane w~ramach liniowej analizy posłużą nam jako punkt
+Niestabilne mody, uzyskane w~ramach liniowej analizy, posłużą jako punkt
 odniesienia dla modów uzyskiwanych w~globalnym eksperymencie numerycznym.
 
 Najbardziej wygodnym układem do lokalnego opisu niestabilności strumieniowej
@@ -40,7 +40,7 @@ kartezjański układ współrzędnych, którego początek współporusza się z~
 wybranej orbicie $R_0$ z~częstością keplerowską $\Omega_0 \equiv
 \Omega\left(R_0\right)$. Zwyczajowo przyjmuje się, że oś $x$ jest skierowana
 radialnie na zewnątrz, oś $y$ jest w~kierunku azymutalnym, zaś $z$ jest osią
-wertykalną. Zgodnie z~pracą~\cite*{YJ07} układ równań ciągłości oraz ruchu dla
+wertykalną. Zgodnie z~pracą~\cite*{YJ07}, układ równań ciągłości oraz ruchu dla
 obu składników można wyrazić poprzez:
 %
 \begin{align}
@@ -59,26 +59,27 @@ obu składników można wyrazić poprzez:
  &- \frac{1}{\tau_f}(\mathbf{w}-\mathbf{u}), \label{eqm2}
 \end{align}
 %
-gdzie wyrazy takie jak $(3/2)\Omega x$ po lewej stronie równań, pojawiają się na
+gdzie wyrazy, takie jak $(3/2)\Omega x$ po lewej stronie równań, pojawiają się na
 skutek transformacji wszystkich prędkości względem liniowego, ścinanego przepływu
 $\mathbf{v}_0 = -(3/2)\Omega x \hat{\mathbf{y}}$ w~rotującym układzie
 współrzędnych. Warto nadmienić, że wyraz $-(1/2)\Omega \{u,w\}_x
-\hat{\mathbf{y}}$ po prawej stronie równań ruchu \mref{eqm1}-\mref{eqm2} jest
+\hat{\mathbf{y}}$ po prawej stronie równań ruchu \mref{eqm1}-\mref{eqm2}, jest
 sumą dwóch składników: $(-2\Omega \{u,w\}_x + (3/2)\Omega \{u,w\}_x)
 \hat{\mathbf{y}}$ z~których pierwszy jest składową siły Coriolisa, a drugi
 wynika z~odjęcia wspomnianego wcześniej przepływu średniego. Główną różnicą
 pomiędzy równaniami \mref{eqm1} oraz \mref{eqm2} jest brak wyrazu ciśnieniowego
 dla składnika pyłowego. YG05 zauważyli, że można w~spójny sposób uwzględnić
-globalny, radialny gradient ciśnienia gazu w~ramach kostki ścinanej, poprzez
+globalny, radialny gradient ciśnienia gazu w~ramach kostki ścinanej poprzez
 dodanie liniowego wyrazu, który jest sparametryzowany wielkością określającą
 bezwymiarową miarę rotacji podkeplerowskiej:
-
+%
 \begin{equation}
 \eta \equiv - \frac{\partial_R P}{2\rho_g\Omega^2 R} \sim \frac{c_s^2}{v_K^2}.
 \end{equation}
-
-Układ równań \mref{eqc1}-\mref{eqm2} posiada znane rozwiązanie równowagowe~\citep{N86}
-
+%
+Układ równań \mref{eqc1}-\mref{eqm2} posiada znane rozwiązanie
+równowagowe~\citep{N86}:
+%
 \begin{align}
 \bar{\mathbf{w}} &= \left[ 
  -2\tau_s\xi, \frac{\tau_s^2\xi - 1}{1+\epsilon},
@@ -91,22 +92,22 @@ Układ równań \mref{eqc1}-\mref{eqm2} posiada znane rozwiązanie równowagowe~
 \end{align}
 %
 gdzie $\tau_s = \Omega \tau_f$ to bezwymiarowy \emph{czas
-zatrzymania}~\footnote{ang. dimensionless stopping time} i~$\xi =
-((1+\epsilon)^2 + \tau_s^2)^{-1}$.  Linearyzacja równań \mref{eqc1}-\mref{eqm2},
+zatrzymania}\footnote{ang. \emph{dimensionless stopping time}} i~$\xi =
+((1+\epsilon)^2 + \tau_s^2)^{-1}$.  Linearyzacja równań \mref{eqc1}-\mref{eqm2}
 polega na rozbiciu zmiennych na część stałą $\bar{\mathbf{q}}$ oraz zaburzenie
 $\mathbf{q}^\prime$. W~rezultacie $\mathbf{q} =
 \bar{\mathbf{q}} + \mathbf{q}^\prime$, gdzie $\mathbf{q}=[\rho_d, w_x, w_y, w_z,
 \rho_g, u_x, u_y, u_z]$. Zakładamy równocześnie, że zaburzenie przyjmuje postać
 osiowo-symetrycznej fali płaskiej:
-
+%
 \begin{equation}
    \label{eq:planar}
    \mathbf{q}^\prime(x,z,t) = \tilde{\mathbf{q}}
- \exp\left[i(k_x x + k_z z~-\omega t)\right]
+ \exp\left[i(k_x x + k_z z~-\omega t)\right].
 \end{equation}
-
-Po~podstawieniu liniowego zaburzenia układ równań przyjmuje następującą postać
-
+%
+Po~podstawieniu liniowego zaburzenia, układ równań przyjmuje następującą postać:
+%
 \begin{align}
 -i(\omega- k_x\bar{w}_x)\tilde{\rho}_d &= 
  - i~\bar{\rho}_d(k_x\tilde{w}_x + k_z\tilde{w}_z), \label{lin1}\\
@@ -127,13 +128,13 @@ Po~podstawieniu liniowego zaburzenia układ równań przyjmuje następującą po
 \end{align}
 %
 gdzie $\epsilon = \bar{\rho}_d/\bar{\rho}_g$. Układ równań
-\mref{lin1}-\mref{lin4} można zapisać jako
-
+\mref{lin1}-\mref{lin4} można zapisać jako:
+%
 \begin{equation}
  \eurom{A}(k_x,k_z,\omega)\tilde{\mathbf{q}} = 0,
  \label{eq:linset}
 \end{equation}
-gdzie 
+natomiast: 
 \begin{equation}
  A =
  \setlength\arraycolsep{2pt}
@@ -150,30 +151,30 @@ gdzie
     \frac{1}{2}\Omega & \frac{\epsilon}{\tau_f} -i \tilde{\omega}_g & 0 \\
     0 & 0 & 0 & -\frac{\epsilon}{\tau_f} & \frac{c_s^2}{\bar{\rho}_g i~k_z} & 0 & 0 &
     \frac{\epsilon}{\tau_f} -i \tilde{\omega}_g
- \end{bmatrix}
+ \end{bmatrix},
 %
 \end{equation}
 zaś $\tilde{\omega}_d = \omega - k_x \bar{w}_x$ i~$\tilde{\omega}_g = \omega -
 k_x \bar{u}_x$.
 %
 Nietrywialne rozwiązania układu liniowego \mref{eq:linset} istnieją wtedy i~tylko
-wtedy gdy równanie dyspersyjne 
+wtedy, gdy równanie dyspersyjne:
 \begin{equation}
  \det|\eurom{A}(k_x,k_z,\omega)|=0.
  \label{eq:disprel}
 \end{equation}
 %
-Dla zadanych wartości $(k_x, k_x)$ relację \mref{eq:disprel} można rozwiązać ze
+Dla zadanych wartości $(k_x, k_x)$, relację \mref{eq:disprel} można rozwiązać ze
 względu na $\omega$ i~dzięki temu otrzymać związki pomiędzy amplitudami
 składowych wektora $\tilde{\mathbf{q}}$.
 Tempo wzrostu niestabilności definiujemy jako urojoną część zespolonej
 częstotliwości $s=\Im(\omega)$.
 %
-Analiza  liniowej fazy wzrostu niestabilności strumieniowej wzbudzanej w
-symulacjach została przedstawiona w podrozdziale~\ref{sec:simulation_analysis},
-gdzie porównano tempo wzrostu najszybciej roznących modow w eksperymentach
-numerycznych do tempa wzrostu obliczonego jako rozwiązanie związku
-dyspersyjnego~\mref{eq:disprel}. Podobnie liczby falowe  najszybciej rosnących
+Analiza  liniowej fazy wzrostu niestabilności strumieniowej, wzbudzanej w
+symulacjach, została przedstawiona w podrozdziale~\ref{sec:simulation_analysis},
+gdzie porównano tempo wzrostu najszybciej rosnących modów w eksperymentach
+numerycznych do tempa wzrostu obliczonego, jako rozwiązanie związku
+dyspersyjnego~\mref{eq:disprel}. Podobnie, liczby falowe  najszybciej rosnących
 modów niestabilności w eksperymentach numerycznych zostaną porównane z
 przewidywaniami analitycznymi.
 
