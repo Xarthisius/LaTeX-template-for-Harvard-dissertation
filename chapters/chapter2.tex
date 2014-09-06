@@ -8,15 +8,16 @@ strike with force.
 \section{Metodyka}
 \label{sec:metodyka}
 Badania zaprezentowane w niniejszej pracy bazują na szeregu eksperymentów
-numerycznych wykonanych z pomocą autorskiego kodu płynowego PIERNIK tworzonego
-od 2006 roku w Centrum Astronomii UMK.  Algorytmy numeryczne kodu PIERNIK
+numerycznych wykonanych z pomocą autorskiego kodu płynowego \textsc{PIERNIK} tworzonego
+od 2006 roku w Centrum Astronomii UMK.  Algorytmy numeryczne kodu
+\textsc{PIERNIK}
 opierają się na zachowawczym schemacie płynowym typu ,,Relaxing
 TVD''~\cite{jin-xin-95} w połączeniu z~dzielonym, kierunkowym całkowaniem
 przestrzennym i~czasowym przy użyciu algorytmu Runge-Kutta drugiego
 rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P}. Konstrukcja kodu umożliwia
 modelowanie wieloskładnikowego ośrodka np. płynu neutralnego i~płynu
 bezciśnieniowego (pył) z uwzględnieniem oddziaływań
-międzypłynowych~\cite{piernik1,piernik2}. PIERNIK wyposażony jest w
+międzypłynowych~\cite{piernik1,piernik2}. \textsc{PIERNIK} wyposażony jest w
 wielosiatkowy algorytm przeznaczony do wyznaczania przybliżonych rozwiązań
 równań różniczkowych różnych typów, a w szczególności
 solwer multigridowy pozwalający efektywnie rozwiązywać paraboliczne
@@ -30,7 +31,7 @@ współrzędnych~\cite{M07,SO10} możliwe są  precyzyjne  symulacje dysków
 astrofizycznych. Implementacja szybkiego algorytmu eulerowskiego~\footnote{ang.
 \emph{Fast Advection in Rotating Gaseous Objects -- FARGO}}~\citep{M00} w~ujęciu
 wielopłynowym umożliwia znaczące przyspieszenie  symulacji wysokiej
-rozdzielczości w trzech wymiarach.  Ponadto PIERNIK korzysta z~algorytmu typu
+rozdzielczości w trzech wymiarach.  Ponadto \textsc{PIERNIK} korzysta z~algorytmu typu
 \emph{Constraint Transport}~\cite{EH88} zapewniającego spełnienie warunku
 bezźródłowości pola magnetycznego, a także możliwość wykonywania symulacji przy
 użyciu siatek adaptywnych~\footnote{ang.  \emph{Adaptive Mesh Refinement --
@@ -95,7 +96,8 @@ skalą czasową tarcia~\footnote{ang. friction time}~\mref{eq:tauf}, a $\Phi$ to
 potencjał grawitacyjny.
 
 \par Ze względu na specyfikę zagadnienia badanego w~niniejszej pracy
-najwygodniejszym układem współrzędnych jest układ cylindryczny. W~kodzie PIERNIK
+najwygodniejszym układem współrzędnych jest układ cylindryczny. W~kodzie
+\textsc{PIERNIK}
 równania mechaniki płynów w geometrii cylindrycznej wyrażone są w postaci
 zachowującej moment pędu~\cite{M07,SO10}, która wprowadza tylko jeden, dodatkowy
 wyraz źródłowy do równań ruchu~\mref{eq3} - \mref{eq4}: odpowiednio
@@ -122,7 +124,7 @@ opisanego w pracy~\cite{TB09}.
 %następującą postać:
 %
 
-\subsection{Podstawowy algorytm płynowy kodu PIERNIK}
+\subsection{Podstawowy algorytm płynowy kodu \textsc{PIERNIK}}
 Do rozwiązania układu równań \mref{eq1}--\mref{eq4}, jak wspomniano wcześniej
 użyta została tzw. \textit{metoda relaksacji TVD}~\cite{jin-xin-95}, która
 zapewnia wysoką dokładność rozwiązań równań hydrodynamicznych oraz numeryczną
@@ -134,7 +136,7 @@ przedstawiono krótki \textit{metody relaksacji TVD} na przykładzie równania
 \end{equation}
 wzorując się na pracach Trac i Pen~\cite*{2003PASP..115..303T}
 oraz Pen, et al.~\cite*{2003ApJS..149..447P}, które zostały użyte jako punkt
-wyjścia przy tworzeniu \textbf{PIERNIKa}. 
+wyjścia przy tworzeniu \textsc{PIERNIKa}. 
 
 \paragraph{Podział ,,zaburzenia'' na fale biegnące w~prawą i~lewą stronę.} ~\\
 %
@@ -291,7 +293,7 @@ przypadku dwóch płynów poruszających się z różnymi prędkościami orbital
 %
 \par FARGO opiera się na kierunkowym podziale części adwekcyjnej równań
 hydrodynamiki. W~kierunku radialnym i~wertykalnym stosuje się klasyczny solwer
-(w przypadku PIERNIKa RTVD), natomiast w~kierunku azymutalnym rozbija się
+(w przypadku \textsc{PIERNIKa} RTVD), natomiast w~kierunku azymutalnym rozbija się
 adwekcję na trzy etapy:
 \begin{enumerate}
    \item obliczenie średniej prędkości kątowej $\bar{\omega}_i$ dla każdego
@@ -405,7 +407,7 @@ Potencjał $\Phi_{\textrm{self}}$ jest określony przez równanie Poissona:
 Do rozwiązania równania \mref{eq:poisson} został użyty iteracyjny, solwer
 multigridowy~\citep{HG00} połączony z~solwerem multipolowym~\citep{J77} w~celu
 odpowiedniego obliczenia potencjału na nieperiodycznych brzegach domeny
-obliczeniowej. Oba algorytmy zostały zaimplementowane w~PIERNIKu przez dra
+obliczeniowej. Oba algorytmy zostały zaimplementowane w~\textsc{PIERNIKu} przez dra
 Artura Gawryszczaka (CAMK W-wa).
 
 \section{Warunki początkowe}
