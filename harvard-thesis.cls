@@ -141,7 +141,9 @@
 \newcommand{\copyrightpage}{
    \newpage \thispagestyle{empty} \vspace*{\fill}\vspace{520pt}
 	\sc \noindent %\copyright~\textit{\@degreeyear \hspace{3pt}~- \theauthor} \\
-	\noindent Uniwersytet Mikołaja Kopernika zastrzega sobie prawo własności niniejszej pracy doktorskiej w celu udostępniania dla potrzeb działalności naukowo -- badawczej lub dydaktycznej.
+   \noindent Uniwersytet Mikołaja Kopernika zastrzega sobie prawo własności niniejszej\linebreak pracy doktorskiej w celu
+   udostępniania dla potrzeb działalności naukowo -- badawczej lub dydaktycznej.
+
 	\vspace*{\fill} \newpage \rm
 }
 
