@@ -118,17 +118,19 @@
 
 \renewcommand{\maketitle}{
 	\singlespacing
-	\setcounter{page}{-2}
 	\thispagestyle{empty}
-	\vspace*{\fill} \vspace{150pt} \begin{center}
-	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
-	rozprawa doktorska \\
-	\theauthor\\ przedłożona\\ Radzie \@department\\
-	\vspace{12pt}
-	in partial fulfillment of the requirements\\
-	for the degree of\\ \@degree\\
-	in the subject of\\ \@field\\
-	\vspace{12pt}
+	\vspace*{\fill} \vspace{10pt} \begin{center}
+	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\
+   \vspace{20pt} \Large \textbf{\@author} \\ \vspace{30pt}
+   %\begin{tikzpicture}
+   %    \draw (0, 0) node[inner sep=0] {\includegraphics[width=11cm]{figures/hr_thesis}};
+   %\end{tikzpicture}\\
+   \sc \vspace{20pt}
+	rozprawa doktorska napisana w \@department\\
+	\vspace{10pt}
+   pod kierunkiem \\
+   prof. dr hab. Michała Hanasza\\
+	\vspace{10pt}
 	\@university\\ \@universitycity \@universitystate\\
 	\@degreemonth\ \@degreeyear
 	\end{center} \vspace*{\fill}
@@ -137,9 +139,9 @@
 % You might also consider licensing your work under Creative Commons). See: http://creativecommons.org/weblog/entry/12824 for other PhD students who have released their work under creative commons.
 
 \newcommand{\copyrightpage}{
-	\newpage \thispagestyle{empty} \vspace*{\fill}
-	\sc \noindent \copyright~\textit{\@degreeyear \hspace{3pt}~- \theauthor} \\
-	\noindent All rights reserved.
+   \newpage \thispagestyle{empty} \vspace*{\fill}\vspace{520pt}
+	\sc \noindent %\copyright~\textit{\@degreeyear \hspace{3pt}~- \theauthor} \\
+	\noindent Uniwersytet Mikołaja Kopernika zastrzega sobie prawo własności niniejszej pracy doktorskiej w celu udostępniania dla potrzeb działalności naukowo -- badawczej lub dydaktycznej.
 	\vspace*{\fill} \newpage \rm
 }
 
