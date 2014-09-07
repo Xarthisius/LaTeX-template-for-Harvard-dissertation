@@ -15,11 +15,11 @@ tworzonego od 2006 roku\linebreak w~Centrum Astronomii UMK.  Algorytmy numeryczn
 TVD''~\cite{jin-xin-95} w~połączeniu z~dzielonym, kierunkowym całkowaniem
 przestrzennym i~czasowym przy użyciu algorytmu Runge--Kutta drugiego
 rzędu~\cite{2003PASP..115..303T,2003ApJS..149..447P}. Konstrukcja kodu umożliwia
-modelowanie wieloskładnikowego ośrodka, np. płynu neutralnego i~płynu
+modelowanie wieloskładnikowego oś\-rod\-ka, np. płynu neutralnego i~płynu
 bezciśnieniowego (pył), z~uwzględnieniem oddziaływań
 międzypłynowych~\cite{piernik1,piernik2}. \textsc{PIERNIK} wyposażony jest w
 wielosiatkowy algorytm przeznaczony do wyznaczania przybliżonych rozwiązań
-równań różniczkowych różnych typów, a w~szczególności solwer multigridowy,
+równań różniczkowych różnych typów,\linebreak a~w~szczególności solwer multigridowy,
 pozwalający efektywnie rozwiązywać paraboliczne i~eli\-pty\-czne równania
 różniczkowe, w~tym równanie Poissona opisujące samograwitację pyłu~\citep{HG00}.
 Algorytm wielosiatkowy wspierany jest algorytmem multipolowym, pozwalającym na
@@ -32,7 +32,7 @@ eulerowskiego\footnote{ang.  \emph{Fast Advection in Rotating Gaseous Objects
 -- FARGO}}~\citep{M00} w~ujęciu wielopłynowym umożliwia znaczące przyspieszenie
 symulacji wysokiej rozdzielczości w~trzech wymiarach.  Ponadto, \textsc{PIERNIK}
 korzysta z~algorytmu typu \emph{Constraint Transport}~\cite{EH88}, zapewniającego
-spełnienie warunku bezźródłowości pola magnetycznego, a także umożliwia
+spełnienie warunku bezźródłowości pola magnetycznego, a~także umożliwia
 wykonywania symulacji przy użyciu siatek adaptywnych\footnote{ang.
 \emph{Adaptive Mesh Refinement -- AMR}}. Kod został zrównoleglony przy użyciu
 protokołu MPI i wykazuje dobrą silną jak i bardzo dobrą słabą skalowalność w
@@ -56,7 +56,7 @@ Sumaryczne zużycie czasu obliczeniowego wyniosło kilka milionów CPUh.
 \subsection{Podstawowe równania}
 W dalszych rozważaniach założymy, że opis dynamiki gazowo-pyłowego dysku
 okołogwiazdowego może być oparty na układzie równań opisujących dwa oddziałujące
-dynamicznie płyny - gaz w~przybliżeniu izotermicznym oraz  pył traktowany jako
+dynamicznie płyny -- gaz w~przybliżeniu izotermicznym oraz  pył traktowany jako
 płyn bezciśnieniowy. Równania hydrodynamiki przyjmują dla takiego modelu
 następującą postać:
 %
