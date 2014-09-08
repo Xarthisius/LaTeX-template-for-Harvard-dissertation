@@ -41,20 +41,20 @@ zakresie do $10^4$ rdzeni obliczeniowych.
 \par Obliczenia opisywane w~tej pracy zostały przeprowadzone z~wykorzystaniem:
 %
 \begin{itemize}
-   \item infrastruktury PL-Grid, w~szczególności klastrów
+   \item infrastruktury PL--Grid, w~szczególności klastrów
       komputerowych Galera+ (Trójmiejska Akademicka Sieć Komputerowa), Hydra
       (Interdyscyplinarne Centrum Modelowania Matematycznego i Komputerowego),
       Zeus (Akademickie Centrum Komputerowe CYFRONET), Inula (Poznańskie Centrum
       Superkomputerowo Sieciowe), w~ramach grantu \emph{plggpiernik},
    \item klastrów PRACE, w~szczególności klastrów komputerowych
-      Cartesius (SurfSara), Fionn (Irish Centre for High-end Computing),
+      Cartesius (SurfSara), Fionn (Irish Centre for High--end Computing),
       w~ramach grantu \emph{PIERNIK-SI} w~projekcie Distributed European
       Computing Initiative (DECI-11).
 \end{itemize}
 Sumaryczne zużycie czasu obliczeniowego wyniosło kilka milionów CPUh.
 %
 \subsection{Podstawowe równania}
-W dalszych rozważaniach założymy, że opis dynamiki gazowo-pyłowego dysku
+W dalszych rozważaniach założymy, że opis dynamiki gazowo--pyłowego dysku
 okołogwiazdowego może być oparty na układzie równań opisujących dwa oddziałujące
 dynamicznie płyny -- gaz w~przybliżeniu izotermicznym oraz  pył traktowany jako
 płyn bezciśnieniowy. Równania hydrodynamiki przyjmują dla takiego modelu
@@ -365,7 +365,7 @@ Aby wyizolować niestabilność strumieniową z~pośród szeregu innych procesó
 które mogą zachodzić w~dysku protoplanetarnym, zaniedbano pionową składową
 przyspieszenia grawitacyjnego, pochodzącą od centralnego obiektu w~dysku.
 Prowadziła by ona do naturalnej sedymentacji pyłu w~płaszczyźnie dysku
-i~wzbudzenia się niestabilności Kelvina-Helmholtza~\cite{JHK06}:
+i~wzbudzenia się niestabilności Kelvina--Helmholtza~\cite{JHK06}:
 \begin{equation}\label{eq:phiext}
    \Phi_{\textrm{ext}} = -\frac{GM}{R} \mathbf{e}_R.
 \end{equation}
@@ -378,7 +378,7 @@ Do rozwiązania równania \mref{eq:poisson} został użyty iteracyjny solwer
 multigridowy~\citep{HG00}, połączony z~solwerem multipolowym~\citep{J77} w~celu
 odpowiedniego obliczenia potencjału na nieperiodycznych brzegach domeny
 obliczeniowej. Oba algorytmy zostały zaimplementowane w~\textsc{PIERNIKu} przez dra
-Artura Gawryszczaka (CAMK W-wa).
+Artura Gawryszczaka (Centrum Astronomii im. Mikołaja Kopernika w Warszawie).
 
 \section{Warunki początkowe}
 Domena obliczeniowa we wszystkich eksperymentach rozciąga się pomiędzy $2\AU$, a
