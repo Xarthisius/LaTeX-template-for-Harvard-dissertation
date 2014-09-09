@@ -20,10 +20,10 @@
 \hypersetup{
 	linktocpage,
     colorlinks,
-    citecolor=Crimson,
+    citecolor=LGray,
     filecolor=black,
     linkcolor=black,
-    urlcolor=Crimson,
+    urlcolor=LGray,
 }
 
 \RequirePackage[centertags]{amsmath}
@@ -37,6 +37,7 @@
 % colors
 \RequirePackage{color}
 \definecolor{Crimson}{rgb}{0.6471, 0.1098, 0.1882}
+\definecolor{LGray}{rgb}{0.3, 0.3, 0.3}
 
 \RequirePackage{url}
 \RequirePackage[titles]{tocloft}
